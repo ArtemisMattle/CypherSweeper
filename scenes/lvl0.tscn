@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0akqp4hyif73"]
+
+[ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
+[ext_resource type="Script" path="res://scenes/movement.gd" id="1_lfbyx"]
+
+[node name="main" type="Node2D"]
+
+[node name="view" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+position_smoothing_enabled = true
+script = ExtResource("1_lfbyx")
+
+[node name="generator" type="Node2D" parent="."]
+position = Vector2(150, 50)
+script = ExtResource("1_jcres")

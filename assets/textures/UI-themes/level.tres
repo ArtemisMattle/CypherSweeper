@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blx5w8iuks3tp"]
+
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="1_ueet2"]
+
+[resource]
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_ueet2")
