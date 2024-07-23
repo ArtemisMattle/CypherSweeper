@@ -1,7 +1,31 @@
+<<<<<<< Updated upstream
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://blx5w8iuks3tp"]
 
 [ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="1_ueet2"]
 
+=======
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://blx5w8iuks3tp"]
+
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="1_ueet2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68qbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0bru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pmikk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_olc5n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glsyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42wr3"]
+
+>>>>>>> Stashed changes
 [resource]
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_ueet2")
+MarginContainer/constants/margin_bottom = 35
+MarginContainer/constants/margin_left = 50
+MarginContainer/constants/margin_right = 50
+MarginContainer/constants/margin_top = 75
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_42wr3")
