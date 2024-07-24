@@ -105,8 +105,6 @@ func turn():
 	if not turned:
 		turned = true
 		if eigenValue == 0:
-			#for i in neighborPos:
-			#	signalBus.turnNeighbor.emit(i)
 			$Timer.start()
 		$Button.queue_free()
 		$Label.visible = true

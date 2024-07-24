@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8qfvurhug2dj"]
+
+[ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="2_fnxqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fg5i"]
+bg_color = Color(0.851747, 0.721854, 0.988692, 1)
+
+[resource]
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_pt3f5")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.8)
+Label/constants/line_spacing = -88
+Label/constants/outline_size = 15
+Label/constants/shadow_offset_x = 10
+Label/constants/shadow_offset_y = 15
+Label/constants/shadow_outline_size = 30
+Label/font_sizes/font_size = 70
+Label/fonts/font = ExtResource("2_fnxqq")
+MarginContainer/constants/margin_bottom = 100
+MarginContainer/constants/margin_left = 100
+MarginContainer/constants/margin_right = 100
+MarginContainer/constants/margin_top = 100
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2fg5i")

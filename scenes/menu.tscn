@@ -1,0 +1,279 @@
+[gd_scene load_steps=13 format=3 uid="uid://be8ceohv6ffst"]
+
+[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
+[ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
+[ext_resource type="Texture2D" uid="uid://dv455rrgqjrob" path="res://assets/textures/UI-elements/soundMaster.png" id="3_ia757"]
+[ext_resource type="Texture2D" uid="uid://da6emudpok21d" path="res://assets/textures/UI-elements/soundMasterMute.png" id="4_p4ndx"]
+[ext_resource type="Texture2D" uid="uid://cpv238u7wegn3" path="res://assets/textures/UI-elements/soundSFX.png" id="5_uh841"]
+[ext_resource type="Texture2D" uid="uid://cc3nx2pfosk0x" path="res://assets/textures/UI-elements/soundSFXMute.png" id="6_3papr"]
+[ext_resource type="Texture2D" uid="uid://c8lx73q6nam50" path="res://assets/textures/UI-elements/soundMusic.png" id="7_8s31n"]
+[ext_resource type="Texture2D" uid="uid://behw2ru4uuxpb" path="res://assets/textures/UI-elements/soundMusicMute.png" id="8_gpsw4"]
+[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
+[ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="10_76px3"]
+[ext_resource type="Texture2D" uid="uid://bnmeabab7bh70" path="res://assets/textures/Logo-agender.svg" id="11_6rgdl"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_yk3rd"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_p3mkq")
+
+[node name="background" type="PanelContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = ExtResource("2_50dck")
+
+[node name="edge" type="MarginContainer" parent="background"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+
+[node name="menu" type="HBoxContainer" parent="background/edge"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+
+[node name="mainbuttons" type="VBoxContainer" parent="background/edge/menu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("2_50dck")
+
+[node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+
+[node name="playStory" type="Button" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+text = "Play Story"
+alignment = 0
+
+[node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+disabled = true
+text = "Play Rogue"
+alignment = 0
+
+[node name="buttonSpace2" type="Container" parent="background/edge/menu/mainbuttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+text = "Settings"
+alignment = 0
+
+[node name="Credits" type="Button" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+text = "Credits"
+alignment = 0
+
+[node name="titleSpace" type="Container" parent="background/edge/menu"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="title" type="VSplitContainer" parent="background/edge/menu"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+
+[node name="titleLable" type="Label" parent="background/edge/menu/title"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+text = "Cypher 
+   Sweeper"
+
+[node name="titleSpace" type="Container" parent="background/edge/menu/title"]
+layout_mode = 2
+
+[node name="settingsSpace" type="Container" parent="background/edge/menu"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="volume" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
+layout_mode = 2
+
+[node name="audioMaster" type="VSplitContainer" parent="background/edge/menu/volume"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="volume" type="VSlider" parent="background/edge/menu/volume/audioMaster"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+value = 70.0
+
+[node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioMaster"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("3_ia757")
+texture_pressed = ExtResource("4_p4ndx")
+
+[node name="audioSFX" type="VSplitContainer" parent="background/edge/menu/volume"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="volume" type="VSlider" parent="background/edge/menu/volume/audioSFX"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+value = 70.0
+
+[node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioSFX"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("5_uh841")
+texture_pressed = ExtResource("6_3papr")
+
+[node name="audioMusic" type="VSplitContainer" parent="background/edge/menu/volume"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="volume" type="VSlider" parent="background/edge/menu/volume/audioMusic"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+value = 70.0
+
+[node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioMusic"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_8s31n")
+texture_pressed = ExtResource("8_gpsw4")
+
+[node name="settings" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
+layout_mode = 2
+
+[node name="colourblind" type="HSplitContainer" parent="background/edge/menu/settings"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="colourblindMode" type="CheckBox" parent="background/edge/menu/settings/colourblind"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="colourblind" type="Label" parent="background/edge/menu/settings/colourblind"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Colourblind Mode"
+
+[node name="speed" type="HSplitContainer" parent="background/edge/menu/settings"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="speedModes" type="VBoxContainer" parent="background/edge/menu/settings/speed"]
+layout_mode = 2
+
+[node name="zippy" type="HSplitContainer" parent="background/edge/menu/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="zippyMode" type="CheckBox" parent="background/edge/menu/settings/speed/speedModes/zippy"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = SubResource("ButtonGroup_yk3rd")
+
+[node name="zippy" type="Label" parent="background/edge/menu/settings/speed/speedModes/zippy"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Zippy"
+
+[node name="fast" type="HSplitContainer" parent="background/edge/menu/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="fastMode" type="CheckBox" parent="background/edge/menu/settings/speed/speedModes/fast"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = SubResource("ButtonGroup_yk3rd")
+
+[node name="fast" type="Label" parent="background/edge/menu/settings/speed/speedModes/fast"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Fast"
+
+[node name="normal" type="HSplitContainer" parent="background/edge/menu/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="normalMode" type="CheckBox" parent="background/edge/menu/settings/speed/speedModes/normal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_pressed = true
+button_group = SubResource("ButtonGroup_yk3rd")
+
+[node name="normal" type="Label" parent="background/edge/menu/settings/speed/speedModes/normal"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Normal"
+
+[node name="speedMode" type="Label" parent="background/edge/menu/settings/speed"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Speed Mode"
+
+[node name="creditsSpace" type="Container" parent="background/edge/menu"]
+visible = false
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="credits" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
+layout_mode = 2
+
+[node name="artemis" type="Label" parent="background/edge/menu/credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Artemis D. Mattle"
+
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/artemis"]
+position = Vector2(665, 51)
+rotation = -0.240855
+scale = Vector2(3, 3)
+texture = ExtResource("9_soarv")
+
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/artemis/Sprite2D"]
+clip_children = 1
+texture = ExtResource("10_76px3")
+
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/artemis/Sprite2D/Sprite2D"]
+rotation = 0.240855
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("11_6rgdl")
+
+[node name="philipp" type="Label" parent="background/edge/menu/credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Philipp"
+
+[node name="raphael" type="Label" parent="background/edge/menu/credits"]
+layout_mode = 2
+theme_override_constants/line_spacing = -55
+theme_override_font_sizes/font_size = 50
+text = "Raphael 
+   Schwaigerlehner"
+
+[node name="sash" type="Label" parent="background/edge/menu/credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Sash"
+
+[connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="toggled" from="background/edge/menu/volume/audioMaster/mute" to="." method="_on_masterMute_toggled"]
+[connection signal="toggled" from="background/edge/menu/volume/audioSFX/mute" to="." method="_on_soundMute_toggled"]
+[connection signal="toggled" from="background/edge/menu/volume/audioMusic/mute" to="." method="_on_musicMute_toggled"]
+[connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]

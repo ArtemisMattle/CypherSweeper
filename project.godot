@@ -11,18 +11,20 @@ config_version=5
 [application]
 
 config/name="Proto-Al-Chemie"
-run/main_scene="res://scenes/lvl0.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 signalBus="*res://scripts/signal_bus.gd"
+settings="*res://scripts/settings.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -74,5 +76,6 @@ pan={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
