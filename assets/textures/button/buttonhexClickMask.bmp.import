@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://d3rgfsdiogqv6"
+path="res://.godot/imported/buttonhexClickMask.bmp-984396ae2e51871deec82732643233ff.res"
+
+[deps]
+
+source_file="res://assets/textures/button/buttonhexClickMask.bmp"
+dest_files=["res://.godot/imported/buttonhexClickMask.bmp-984396ae2e51871deec82732643233ff.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

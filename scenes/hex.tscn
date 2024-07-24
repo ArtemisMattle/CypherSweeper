@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://bcbdismjdvf2e"]
+
+[ext_resource type="Script" path="res://scripts/hex.gd" id="1_s1b5u"]
+[ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="2_skg66"]
+[ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="3_gis8a"]
+[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="4_6ls2f"]
+[ext_resource type="Texture2D" uid="uid://b8uf5qa7kcu3w" path="res://assets/textures/button/buttonhexPress.png" id="5_oi06e"]
+[ext_resource type="Texture2D" uid="uid://bkvw6u361pa66" path="res://assets/textures/button/buttonhexHover.png" id="6_7871n"]
+[ext_resource type="BitMap" uid="uid://d3rgfsdiogqv6" path="res://assets/textures/button/buttonhexClickMask.bmp" id="7_t1nj5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46kun"]
+load_path = "res://.godot/imported/buttonhexColour.png-7ad58670276a36b2e8aacd001cb451c5.ctex"
+
+[sub_resource type="Gradient" id="Gradient_4khxp"]
+offsets = PackedFloat32Array(0, 0.249042, 0.56705, 0.804598)
+colors = PackedColorArray(0, 0.619608, 0, 1, 0, 0.56847, 0, 1, 0.0196078, 0.890196, 0, 0.407843, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3r3cs"]
+gradient = SubResource("Gradient_4khxp")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_pgmi3"]
+offsets = PackedFloat32Array(0, 0.291188, 0.509579, 1)
+colors = PackedColorArray(0.74891, 0.725952, 0.424114, 1, 0.709986, 0.621514, 0.422784, 1, 0.650391, 0.587967, 0.478974, 0.364706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2y25d"]
+gradient = SubResource("Gradient_pgmi3")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ka60t"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.176245, 0.386973, 0.827586)
+colors = PackedColorArray(0, 0.0970533, 0.999999, 1, 0.0247717, 0, 0.838998, 1, 0.137255, 0.219608, 1, 0.360784, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gssv1"]
+gradient = SubResource("Gradient_ka60t")
+width = 48
+height = 48
+fill = 2
+fill_from = Vector2(0, 1)
+
+[node name="hex" type="Node2D"]
+script = ExtResource("1_s1b5u")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = -23.0
+offset_top = -27.0
+offset_right = 23.0
+offset_bottom = 22.0
+theme = ExtResource("3_gis8a")
+theme_override_colors/font_color = Color(0.535277, 0.432427, 0.535079, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(24, 24)
+mouse_filter = 1
+theme = ExtResource("3_gis8a")
+texture_normal = ExtResource("4_6ls2f")
+texture_pressed = ExtResource("5_oi06e")
+texture_hover = ExtResource("6_7871n")
+texture_click_mask = ExtResource("7_t1nj5")
+
+[node name="Hex" type="Sprite2D" parent="."]
+texture = ExtResource("2_skg66")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="colourMask" type="Sprite2D" parent="."]
+visible = false
+clip_children = 1
+z_index = -2
+texture_filter = 2
+texture = SubResource("CompressedTexture2D_46kun")
+
+[node name="colourHerb" type="Sprite2D" parent="colourMask"]
+visible = false
+texture = SubResource("GradientTexture2D_3r3cs")
+
+[node name="colourShroom" type="Sprite2D" parent="colourMask"]
+visible = false
+texture = SubResource("GradientTexture2D_2y25d")
+
+[node name="colourSalt" type="Sprite2D" parent="colourMask"]
+visible = false
+texture = SubResource("GradientTexture2D_gssv1")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
