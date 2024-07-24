@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcbdismjdvf2e"]
+[gd_scene load_steps=15 format=3 uid="uid://bcbdismjdvf2e"]
 
 [ext_resource type="Script" path="res://scripts/hex.gd" id="1_s1b5u"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="2_skg66"]
@@ -7,10 +7,46 @@
 [ext_resource type="Texture2D" path="res://assets/textures/button/buttonhexPress.png" id="5_oi06e"]
 [ext_resource type="Texture2D" path="res://assets/textures/button/buttonhexHover.png" id="6_7871n"]
 [ext_resource type="BitMap" path="res://assets/textures/button/buttonhexClickMask.bmp" id="7_t1nj5"]
-[ext_resource type="Texture2D" path="res://assets/textures/button/buttonhexColour.png" id="8_bguxt"]
-[ext_resource type="Texture2D" path="res://assets/textures/button/buttonColourHerb.tres" id="9_8hfxu"]
-[ext_resource type="Texture2D" path="res://assets/textures/button/buttonColourShroom.tres" id="10_ygkcj"]
-[ext_resource type="Texture2D" path="res://assets/textures/button/buttonColourSalt.tres" id="11_1ky4t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46kun"]
+load_path = "res://.godot/imported/buttonhexColour.png-7ad58670276a36b2e8aacd001cb451c5.ctex"
+
+[sub_resource type="Gradient" id="Gradient_4khxp"]
+offsets = PackedFloat32Array(0, 0.249042, 0.56705, 0.804598)
+colors = PackedColorArray(0, 0.619608, 0, 1, 0, 0.56847, 0, 1, 0.0196078, 0.890196, 0, 0.407843, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3r3cs"]
+gradient = SubResource("Gradient_4khxp")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_pgmi3"]
+offsets = PackedFloat32Array(0, 0.291188, 0.509579, 1)
+colors = PackedColorArray(0.74891, 0.725952, 0.424114, 1, 0.709986, 0.621514, 0.422784, 1, 0.650391, 0.587967, 0.478974, 0.364706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2y25d"]
+gradient = SubResource("Gradient_pgmi3")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ka60t"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.176245, 0.386973, 0.827586)
+colors = PackedColorArray(0, 0.0970533, 0.999999, 1, 0.0247717, 0, 0.838998, 1, 0.137255, 0.219608, 1, 0.360784, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gssv1"]
+gradient = SubResource("Gradient_ka60t")
+width = 48
+height = 48
+fill = 2
+fill_from = Vector2(0, 1)
 
 [node name="hex" type="Node2D"]
 script = ExtResource("1_s1b5u")
@@ -58,19 +94,19 @@ visible = false
 clip_children = 1
 z_index = -2
 texture_filter = 2
-texture = ExtResource("8_bguxt")
+texture = SubResource("CompressedTexture2D_46kun")
 
 [node name="colourHerb" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = ExtResource("9_8hfxu")
+texture = SubResource("GradientTexture2D_3r3cs")
 
 [node name="colourShroom" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = ExtResource("10_ygkcj")
+texture = SubResource("GradientTexture2D_2y25d")
 
 [node name="colourSalt" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = ExtResource("11_1ky4t")
+texture = SubResource("GradientTexture2D_gssv1")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

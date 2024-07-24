@@ -32,9 +32,11 @@ func _ready():
 	$PanelContainer.size = Vector2i(width, hight)
 	get_viewport()
 	get_ends()
+	signalBus.talkToNeighbor.connect(connector)
 	def_hex()
 	populate()
 	signalBus.populated.emit()
+	signalBus.turnNeighbor.connect(turner)
 
 
 	# calculates where the line breaks in the hex grid
@@ -77,3 +79,9 @@ func populate():
 	for i in n:
 		pass
 		pos[i].neighborhood()
+
+func connector(ownpos: int, owningr: String, neighborpos: int):
+	pos[neighborpos].talk_to_neighbor(ownpos, owningr)
+		
+func turner(neighborpos: int):
+	pos[neighborpos].turn()

@@ -1,0 +1,14 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://djmmdb24phcsc"]
+
+[sub_resource type="Gradient" id="Gradient_4khxp"]
+offsets = PackedFloat32Array(0, 0.249042, 0.56705, 0.804598)
+colors = PackedColorArray(0, 0.619608, 0, 1, 0, 0.56847, 0, 1, 0.0196078, 0.890196, 0, 0.407843, 1, 1, 1, 0)
+
+[resource]
+gradient = SubResource("Gradient_4khxp")
+width = 48
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true

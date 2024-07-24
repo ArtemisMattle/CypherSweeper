@@ -13,21 +13,19 @@ var turned: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	signalBus.talkToNeighbor.connect(_on_talk_to_neighbor)
 	signalBus.populated.connect(_on_populated)
-	signalBus.turnNeighbor.connect(_on_turnNeighbor)
 
 func neighborhood():
 	if pos not in ends:	#talk to neighbor to the right
 		neighborPos.append(pos+1)
-	if line != ends.size():	#talk to neighbors below
+	if line != ends.size()-1:	#talk to neighbors below
 		if line >= ends.size()/2:	#below the middle the ends only have one neighbor below
 			if pos in ends:	#talk to neighbor below left only
 				neighborPos.append(ends[line]+lpos)
-			elif pos - 1 in ends:	#talk to neighbor below right only
-				neighborPos.append(ends[line]+lpos+1)
 			elif line == ends.size()-1: #no neihbors below
 				pass
+			elif pos - 1 in ends:	#talk to neighbor below right only
+				neighborPos.append(ends[line]+lpos+1)
 			else:	#talk to both neighbors below
 				neighborPos.append(ends[line]+lpos)
 				neighborPos.append(ends[line]+lpos+1)
@@ -62,51 +60,46 @@ func _on_button_pressed() -> void:
 	print(neighborIngr)
 	turn()
 
-func _on_talk_to_neighbor(ownpos: int, owningr: String, neighborpos: int) -> void:
-	if pos == neighborpos:
-		if ownpos not in neighborPos:
-			neighborPos.append(ownpos)
-		neighborIngr.append(owningr)
-		match owningr:
-			"Nothing":
-				pass
-			"Herb1":
-				eigenValue += 1
-				$colourMask/colourHerb.visible = true
-			"Shroom1":
-				eigenValue += 1
-				$colourMask/colourShroom.visible = true
-			"Salt1":
-				eigenValue += 1
-				$colourMask/colourSalt.visible = true
-			"Herb2":
-				eigenValue += 2
-				$colourMask/colourHerb.visible = true
-			"Shroom2":
-				eigenValue += 2
-				$colourMask/colourShroom.visible = true
-			"Salt2":
-				eigenValue += 2
-				$colourMask/colourSalt.visible = true
-			"Herb3":
-				eigenValue += 3
-				$colourMask/colourHerb.visible = true
-			"Shroom3":
-				eigenValue += 3
-				$colourMask/colourShroom.visible = true
-			"Salt3":
-				eigenValue += 3
-				$colourMask/colourSalt.visible = true
-			"Flamel":
-				eigenValue += 5
+func talk_to_neighbor(ownpos: int, owningr: String) -> void:
+	if ownpos not in neighborPos:
+		neighborPos.append(ownpos)
+	neighborIngr.append(owningr)
+	match owningr:
+		"Nothing":
+			pass
+		"Herb1":
+			eigenValue += 1
+			$colourMask/colourHerb.visible = true
+		"Shroom1":
+			eigenValue += 1
+			$colourMask/colourShroom.visible = true
+		"Salt1":
+			eigenValue += 1
+			$colourMask/colourSalt.visible = true
+		"Herb2":
+			eigenValue += 2
+			$colourMask/colourHerb.visible = true
+		"Shroom2":
+			eigenValue += 2
+			$colourMask/colourShroom.visible = true
+		"Salt2":
+			eigenValue += 2
+			$colourMask/colourSalt.visible = true
+		"Herb3":
+			eigenValue += 3
+			$colourMask/colourHerb.visible = true
+		"Shroom3":
+			eigenValue += 3
+			$colourMask/colourShroom.visible = true
+		"Salt3":
+			eigenValue += 3
+			$colourMask/colourSalt.visible = true
+		"Flamel":
+			eigenValue += 5
 
 func _on_populated():
 	if eigenValue != 0:
 		$Label.text = str(eigenValue)
-
-func _on_turnNeighbor(neighborpos: int):
-	if neighborpos == pos:
-		turn()
 
 func turn():
 	if not turned:

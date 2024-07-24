@@ -16,6 +16,19 @@ script = ExtResource("1_lfbyx")
 [node name="generator" type="Node2D" parent="."]
 position = Vector2(252, 131)
 script = ExtResource("1_jcres")
+size = 42
+ingredientStack = {
+"Flamel": 1,
+"Herb1": 126,
+"Herb2": 84,
+"Herb3": 42,
+"Salt1": 126,
+"Salt2": 84,
+"Salt3": 42,
+"Shroom1": 126,
+"Shroom2": 84,
+"Shroom3": 42
+}
 
 [node name="PanelContainer" type="PanelContainer" parent="generator"]
 offset_left = -79.0
@@ -25,6 +38,13 @@ offset_bottom = 304.0
 mouse_filter = 2
 theme = ExtResource("5_340rr")
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="generator/PanelContainer"]
+z_index = -10
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_33q5c")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="generator/PanelContainer"]
 layout_mode = 2
@@ -139,13 +159,6 @@ Adipiscing ac consectetur suspendisse vestibulum, sem himenaeos mattis sodales a
 In ac nascetur fames blandit curae scelerisque a. Blandit sagittis sem blandit posuere nam ipsum malesuada auctor per. Ipsum imperdiet nulla eu augue varius praesent nascetur id suspendisse. Lacinia parturient aliquam sagittis torquent a est. Praesent maximus aliquet dui sociosqu conubia eget. Sem arcu sit feugiat mauris tempor lobortis nunc blandit quam. Mattis faucibus maecenas fermentum blandit; urna conubia condimentum imperdiet vulputate. Leo cursus congue enim laoreet ex sed nisl curae."
 autowrap_mode = 2
 clip_text = true
-
-[node name="TextureRect" type="TextureRect" parent="generator/PanelContainer"]
-z_index = -10
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("1_33q5c")
-expand_mode = 1
 
 [node name="Coffee" type="Sprite2D" parent="."]
 z_index = 1
