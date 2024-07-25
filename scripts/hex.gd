@@ -56,8 +56,6 @@ func is_empty() -> bool:
 	return r
 
 func _on_button_pressed() -> void:
-	print(neighborPos)
-	print(neighborIngr)
 	turn()
 
 func talk_to_neighbor(ownpos: int, owningr: String) -> void:
@@ -101,18 +99,29 @@ func _on_populated():
 	if eigenValue != 0:
 		$Label.text = str(eigenValue)
 
+enum sMode {normal, fast, zippy}
+
 func turn():
 	if not turned:
 		turned = true
 		if eigenValue == 0:
-			$Timer.start()
+			if settings.speedMode == sMode.zippy:
+				for i in neighborPos:
+					signalBus.turnNeighbor.emit(i)
+			else:
+				$Timer.start()
 		$Button.queue_free()
 		$Label.visible = true
 		$colourMask.visible = true
-		print("turned"+ str(pos))
 
 func _on_timer_timeout() -> void:
-	if neighborPos.size() > 0:
-		signalBus.turnNeighbor.emit(neighborPos[0])
-		neighborPos.remove_at(0)
-		$Timer.start()
+	match settings.speedMode:
+		sMode.normal:
+			if neighborPos.size() > 0:
+				signalBus.turnNeighbor.emit(neighborPos[0])
+				neighborPos.remove_at(0)
+				$Timer.start()
+		sMode.fast:
+			while neighborPos.size() > 0:
+				signalBus.turnNeighbor.emit(neighborPos[0])
+				neighborPos.remove_at(0)

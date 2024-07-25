@@ -1,6 +1,6 @@
 extends Camera2D
-const minZoom: float = 0.75
-const maxZoom: float = 4.0
+const minZoom: float = 0.25
+const maxZoom: float = 3.0
 const zoomInc: float = 0.05
 const zoomRate: float = 7.0
 var tZoom: float = 1.0

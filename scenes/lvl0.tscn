@@ -17,7 +17,6 @@ script = ExtResource("1_lfbyx")
 position = Vector2(252, 131)
 script = ExtResource("1_jcres")
 size = 21
-ingredientMult = 0.5
 ingredientStack = {
 "Flamel": 1,
 "Herb1": 42,

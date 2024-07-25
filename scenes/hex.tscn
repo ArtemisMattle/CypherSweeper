@@ -82,6 +82,7 @@ texture_normal = ExtResource("4_6ls2f")
 texture_pressed = ExtResource("5_oi06e")
 texture_hover = ExtResource("6_7871n")
 texture_click_mask = ExtResource("7_t1nj5")
+flip_h = true
 
 [node name="Hex" type="Sprite2D" parent="."]
 texture = ExtResource("2_skg66")

@@ -36,13 +36,21 @@ layout_mode = 2
 theme = ExtResource("2_50dck")
 
 [node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
-custom_minimum_size = Vector2(0, 130)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="playStory" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
 theme = ExtResource("2_50dck")
 text = "Play Story"
+alignment = 0
+
+[node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme = ExtResource("2_50dck")
+disabled = true
+text = "Play Arcade
+"
 alignment = 0
 
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
