@@ -282,6 +282,7 @@ text = "Sash"
 [connection signal="toggled" from="background/edge/menu/volume/audioMaster/mute" to="." method="_on_masterMute_toggled"]
 [connection signal="toggled" from="background/edge/menu/volume/audioSFX/mute" to="." method="_on_soundMute_toggled"]
 [connection signal="toggled" from="background/edge/menu/volume/audioMusic/mute" to="." method="_on_musicMute_toggled"]
+[connection signal="toggled" from="background/edge/menu/settings/colourblind/colourblindMode" to="." method="_on_colourblind_mode_toggled"]
 [connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]

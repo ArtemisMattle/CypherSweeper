@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d267sf7k7w5e2"
-path="res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.ctex"
+uid="uid://dj0v5iv8n3yd2"
+path="res://.godot/imported/Salt2.png-b59a52ac335772d7143f3363c4a4c684.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/green.png"
-dest_files=["res://.godot/imported/green.png-0b2a315d35e5364d6c0c5b6ee845a6f6.ctex"]
+source_file="res://assets/textures/ingredients/Salt2.png"
+dest_files=["res://.godot/imported/Salt2.png-b59a52ac335772d7143f3363c4a4c684.ctex"]
 
 [params]
 

@@ -96,6 +96,13 @@ func talk_to_neighbor(ownpos: int, owningr: String) -> void:
 			eigenValue += 5
 
 func _on_populated():
+	if ingredient != "Nothing":
+		$ingredient.texture = load("res://assets/textures/ingredients/"+ingredient+".png")
+	if settings.colourblindMode:
+		$colourMask.texture_filter = TEXTURE_FILTER_NEAREST
+		$colourMask/colourHerb.texture = load("res://assets/textures/ingredients/colourblindIcons/leaf_smol.png")
+		$colourMask/colourShroom.texture = load("res://assets/textures/ingredients/colourblindIcons/shroom_smol.png")
+		$colourMask/colourSalt.texture = load("res://assets/textures/ingredients/colourblindIcons/salt_smol.png")
 	if eigenValue != 0:
 		$Label.text = str(eigenValue)
 
@@ -106,13 +113,13 @@ func turn():
 		turned = true
 		if eigenValue == 0:
 			if settings.speedMode == sMode.zippy:
-				for i in neighborPos:
-					signalBus.turnNeighbor.emit(i)
-			else:
-				$Timer.start()
+				$Timer.wait_time = 0.0001
+			$Timer.start()
+		if ingredient == "Nothing":
+			$Label.visible = true
 		$Button.queue_free()
-		$Label.visible = true
 		$colourMask.visible = true
+		$ingredient.visible = true
 
 func _on_timer_timeout() -> void:
 	match settings.speedMode:
@@ -122,6 +129,10 @@ func _on_timer_timeout() -> void:
 				neighborPos.remove_at(0)
 				$Timer.start()
 		sMode.fast:
+			while neighborPos.size() > 0:
+				signalBus.turnNeighbor.emit(neighborPos[0])
+				neighborPos.remove_at(0)
+		sMode.zippy:
 			while neighborPos.size() > 0:
 				signalBus.turnNeighbor.emit(neighborPos[0])
 				neighborPos.remove_at(0)

@@ -69,6 +69,9 @@ func _on_musicMute_toggled(toggled_on: bool) -> void:
 	settings.musicMute = not toggled_on
 	$background/edge/menu/volume/audioMusic/volume.editable = not toggled_on
 
+func _on_colourblind_mode_toggled(toggled_on):
+	settings.colourblindMode = toggled_on
+
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
