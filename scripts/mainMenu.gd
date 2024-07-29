@@ -75,12 +75,9 @@ func _on_colourblind_mode_toggled(toggled_on):
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
-	print(settings.speedMode)
 
 func _on_fast_mode_pressed() -> void:
 	settings.speedMode = sMode.fast
-	print(settings.speedMode)
 
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
-	print(settings.speedMode)

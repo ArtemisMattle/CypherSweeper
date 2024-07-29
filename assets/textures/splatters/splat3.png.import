@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"
+uid="uid://d1bdakbmi7xtk"
+path="res://.godot/imported/splat3.png-8f43a5c051ac1f66b4d7c3482744af85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flamel.png"
-dest_files=["res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"]
+source_file="res://assets/textures/splatters/splat3.png"
+dest_files=["res://.godot/imported/splat3.png-8f43a5c051ac1f66b4d7c3482744af85.ctex"]
 
 [params]
 

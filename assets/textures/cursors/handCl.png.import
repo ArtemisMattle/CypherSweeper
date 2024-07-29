@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"
+uid="uid://chb7kr70k161u"
+path="res://.godot/imported/handCl.png-7cb3ae8653519908599e622d62db4b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flamel.png"
-dest_files=["res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"]
+source_file="res://assets/textures/cursors/handCl.png"
+dest_files=["res://.godot/imported/handCl.png-7cb3ae8653519908599e622d62db4b8c.ctex"]
 
 [params]
 

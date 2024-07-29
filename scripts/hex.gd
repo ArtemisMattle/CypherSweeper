@@ -111,15 +111,22 @@ enum sMode {normal, fast, zippy}
 func turn():
 	if not turned:
 		turned = true
+		globalVariables.uncovered[ingredient] += 1
+		if ingredient == "Nothing":
+			if globalVariables.uncovered["Nothing"] == globalVariables.lvlUP["Nothing"]:
+				signalBus.lvlNothing.emit()
+		else:
+			signalBus.uncoverIngr.emit(ingredient)
 		if eigenValue == 0:
 			if settings.speedMode == sMode.zippy:
 				$Timer.wait_time = 0.0001
 			$Timer.start()
 		if ingredient == "Nothing":
 			$Label.visible = true
-		$Button.queue_free()
+		else:
+			$ingredient.visible = true
+		$colour/Button.queue_free()
 		$colourMask.visible = true
-		$ingredient.visible = true
 
 func _on_timer_timeout() -> void:
 	match settings.speedMode:

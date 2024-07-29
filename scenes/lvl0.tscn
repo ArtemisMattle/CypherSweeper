@@ -1,12 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=8 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Texture2D" uid="uid://ctt6stcol8700" path="res://assets/textures/white.png" id="1_33q5c"]
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
+[ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
 [ext_resource type="Texture2D" uid="uid://c16bsdvo4v1ee" path="res://assets/textures/coffee.png" id="4_l4gvf"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0s55"]
+bg_color = Color(0.6, 0.227451, 0.6, 1)
+
 [node name="main" type="Node2D"]
+
+[node name="player" type="Node" parent="."]
+script = ExtResource("1_vsuuo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s0s55")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -32,6 +60,7 @@ ingredientStack = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="generator"]
+modulate = Color(0.235294, 0.227451, 0.211765, 1)
 offset_left = -79.0
 offset_top = -124.0
 offset_right = 574.0

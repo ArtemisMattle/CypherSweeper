@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"
+uid="uid://dqxc8u7ik0myx"
+path="res://.godot/imported/pincher.png-ab8c5f4915a3df2c90fb21474fd47670.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flamel.png"
-dest_files=["res://.godot/imported/flamel.png-36ef21feba5963a4355197bdc9f9f352.ctex"]
+source_file="res://assets/textures/cursors/pincher.png"
+dest_files=["res://.godot/imported/pincher.png-ab8c5f4915a3df2c90fb21474fd47670.ctex"]
 
 [params]
 

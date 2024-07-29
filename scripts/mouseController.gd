@@ -1,9 +1,9 @@
 extends Node2D
 var sanity=1
-var cursor = load("res://pincher.png")
-var click= load("res://pincherCl.png")
-var cursorLow = load("res://hand.png")
-var clickLow = load("res://handCl.png")
+var cursor = load("res://assets/textures/cursors/pincher.png")
+var click= load("res://assets/textures/cursors/pincherCl.png")
+var cursorLow = load("res://assets/textures/cursors/hand.png")
+var clickLow = load("res://assets/textures/cursors/handCl.png")
 var check = false
 # Called when the node enters the scene tree for the first time.
 

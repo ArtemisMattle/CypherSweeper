@@ -39,9 +39,7 @@ func _ready():
 	signalBus.populated.emit()
 	signalBus.turnNeighbor.connect(turner)
 
-
-	# calculates where the line breaks in the hex grid
-func get_ends():
+func get_ends():# calculates where the line breaks in the hex grid
 	var x: int = 1
 	var y: int = -1
 	var z: int = 0
@@ -86,6 +84,6 @@ func populate():
 
 func connector(ownpos: int, owningr: String, neighborpos: int):
 	pos[neighborpos].talk_to_neighbor(ownpos, owningr)
-		
+
 func turner(neighborpos: int):
 	pos[neighborpos].turn()
