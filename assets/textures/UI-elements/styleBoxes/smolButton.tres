@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bs8bdldqu8nwo"]
+
+[ext_resource type="Texture2D" uid="uid://cn70tl3n0jfa4" path="res://assets/textures/UI-elements/MenBtn_iron_scroll.png" id="1_0ddbx"]
+
+[resource]
+texture = ExtResource("1_0ddbx")
+texture_margin_left = 13.0
+texture_margin_top = 12.0
+texture_margin_right = 13.0
+texture_margin_bottom = 12.0

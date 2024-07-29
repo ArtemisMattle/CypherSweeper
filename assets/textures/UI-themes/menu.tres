@@ -1,14 +1,53 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8qfvurhug2dj"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://8qfvurhug2dj"]
 
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
+[ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="2_bdflg"]
 [ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="2_fnxqq"]
+[ext_resource type="StyleBox" uid="uid://d4mmafb3n0th5" path="res://assets/textures/UI-elements/styleBoxes/buttonTorn.tres" id="2_o4vbl"]
+[ext_resource type="Texture2D" uid="uid://c3yo1vqxt80hr" path="res://assets/textures/UI-elements/checkbox_brass_true.png" id="3_b84xq"]
+[ext_resource type="StyleBox" uid="uid://vuhh1gdb18ht" path="res://assets/textures/UI-elements/styleBoxes/buttonBrass.tres" id="3_x8afc"]
+[ext_resource type="Texture2D" uid="uid://l6ov0j0uxkp5" path="res://assets/textures/UI-elements/checkbox_brass_false.png" id="4_2wwbk"]
+[ext_resource type="StyleBox" uid="uid://dssc5fdme2h60" path="res://assets/textures/UI-elements/styleBoxes/button.tres" id="4_3frn6"]
+[ext_resource type="Texture2D" uid="uid://bafsd6nh2la3u" path="res://assets/textures/UI-elements/checkbox_steel_false.png" id="5_ne586"]
+[ext_resource type="Texture2D" uid="uid://bnn6kushseieo" path="res://assets/textures/UI-elements/nut.png" id="7_jk67j"]
+[ext_resource type="Texture2D" uid="uid://vftad6uojok2" path="res://assets/textures/UI-elements/slider_nut_brass.png" id="8_jr7eq"]
+[ext_resource type="Texture2D" uid="uid://clvqy2pxly2jf" path="res://assets/textures/UI-elements/spindle.png" id="9_257n5"]
+[ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_ujueh"]
+[ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_1efum"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fg5i"]
 bg_color = Color(0.851747, 0.721854, 0.988692, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvfca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybk54"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6iqc"]
+texture = ExtResource("9_257n5")
+texture_margin_left = 9.0
+texture_margin_top = 16.0
+texture_margin_right = 9.0
+texture_margin_bottom = 16.0
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 18, 46)
+
 [resource]
 Button/font_sizes/font_size = 35
 Button/fonts/font = ExtResource("1_pt3f5")
+Button/styles/disabled = ExtResource("2_o4vbl")
+Button/styles/focus = ExtResource("3_x8afc")
+Button/styles/hover = ExtResource("3_x8afc")
+Button/styles/normal = ExtResource("4_3frn6")
+Button/styles/pressed = ExtResource("4_3frn6")
+CheckBox/icons/checked = ExtResource("2_bdflg")
+CheckBox/icons/radio_checked = ExtResource("3_b84xq")
+CheckBox/icons/radio_unchecked = ExtResource("4_2wwbk")
+CheckBox/icons/unchecked = ExtResource("5_ne586")
+CheckBox/styles/focus = ExtResource("9_ujueh")
+CheckBox/styles/hover = ExtResource("9_ujueh")
+CheckBox/styles/hover_pressed = ExtResource("9_ujueh")
+CheckBox/styles/normal = ExtResource("10_1efum")
+CheckBox/styles/pressed = ExtResource("10_1efum")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.8)
 Label/constants/line_spacing = -88
@@ -22,4 +61,14 @@ MarginContainer/constants/margin_bottom = 100
 MarginContainer/constants/margin_left = 100
 MarginContainer/constants/margin_right = 100
 MarginContainer/constants/margin_top = 100
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/constants/outline_size = 15
+OptionButton/font_sizes/font_size = 42
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_2fg5i")
+VSlider/icons/grabber = ExtResource("7_jk67j")
+VSlider/icons/grabber_disabled = ExtResource("7_jk67j")
+VSlider/icons/grabber_highlight = ExtResource("8_jr7eq")
+VSlider/styles/grabber_area = SubResource("StyleBoxEmpty_tvfca")
+VSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_ybk54")
+VSlider/styles/slider = SubResource("StyleBoxTexture_i6iqc")

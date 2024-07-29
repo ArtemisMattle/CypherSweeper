@@ -46,6 +46,9 @@ theme = ExtResource("2_50dck")
 text = "Play Story"
 alignment = 0
 
+[node name="buttonSeperatorSpace" type="Container" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+
 [node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
 theme = ExtResource("2_50dck")
@@ -78,12 +81,10 @@ text = "Credits"
 alignment = 0
 
 [node name="titleSpace" type="Container" parent="background/edge/menu"]
-visible = false
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="title" type="VSplitContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 theme = ExtResource("2_50dck")
 
@@ -105,15 +106,22 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="audioMaster" type="VSplitContainer" parent="background/edge/menu/volume"]
+[node name="audioMaster" type="VBoxContainer" parent="background/edge/menu/volume"]
 layout_mode = 2
-dragger_visibility = 1
+
+[node name="masterSpace" type="Container" parent="background/edge/menu/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="volume" type="VSlider" parent="background/edge/menu/volume/audioMaster"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 1
 size_flags_vertical = 3
 value = 70.0
+
+[node name="masterSpace2" type="Container" parent="background/edge/menu/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioMaster"]
 layout_mode = 2
@@ -121,15 +129,26 @@ toggle_mode = true
 texture_normal = ExtResource("3_ia757")
 texture_pressed = ExtResource("4_p4ndx")
 
-[node name="audioSFX" type="VSplitContainer" parent="background/edge/menu/volume"]
+[node name="masterSpace3" type="Container" parent="background/edge/menu/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
-dragger_visibility = 1
+
+[node name="audioSFX" type="VBoxContainer" parent="background/edge/menu/volume"]
+layout_mode = 2
+
+[node name="sfxSpace" type="Container" parent="background/edge/menu/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="volume" type="VSlider" parent="background/edge/menu/volume/audioSFX"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 1
 size_flags_vertical = 3
 value = 70.0
+
+[node name="sfxSpace2" type="Container" parent="background/edge/menu/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioSFX"]
 layout_mode = 2
@@ -137,15 +156,26 @@ toggle_mode = true
 texture_normal = ExtResource("5_uh841")
 texture_pressed = ExtResource("6_3papr")
 
-[node name="audioMusic" type="VSplitContainer" parent="background/edge/menu/volume"]
+[node name="sfxSpace3" type="Container" parent="background/edge/menu/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
-dragger_visibility = 1
+
+[node name="audioMusic" type="VBoxContainer" parent="background/edge/menu/volume"]
+layout_mode = 2
+
+[node name="musicSpace" type="Container" parent="background/edge/menu/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="volume" type="VSlider" parent="background/edge/menu/volume/audioMusic"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 1
 size_flags_vertical = 3
 value = 70.0
+
+[node name="musicSpace2" type="Container" parent="background/edge/menu/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="background/edge/menu/volume/audioMusic"]
 layout_mode = 2
@@ -153,28 +183,69 @@ toggle_mode = true
 texture_normal = ExtResource("7_8s31n")
 texture_pressed = ExtResource("8_gpsw4")
 
+[node name="musicSpace3" type="Container" parent="background/edge/menu/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
 [node name="settings" type="VBoxContainer" parent="background/edge/menu"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="colourblind" type="HSplitContainer" parent="background/edge/menu/settings"]
+[node name="language" type="HBoxContainer" parent="background/edge/menu/settings"]
 layout_mode = 2
-dragger_visibility = 1
+
+[node name="languageSpace" type="Container" parent="background/edge/menu/settings/language"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="languageLabel" type="Label" parent="background/edge/menu/settings/language"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Language:"
+
+[node name="languageSelector" type="OptionButton" parent="background/edge/menu/settings/language"]
+layout_mode = 2
+size_flags_horizontal = 6
+flat = true
+item_count = 3
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Bri'ish"
+popup/item_1/id = 1
+popup/item_2/text = "German"
+popup/item_2/id = 2
+
+[node name="colourblind" type="HBoxContainer" parent="background/edge/menu/settings"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="colourSpace" type="Container" parent="background/edge/menu/settings/colourblind"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 
 [node name="colourblindMode" type="CheckBox" parent="background/edge/menu/settings/colourblind"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 button_pressed = true
 
 [node name="colourblind" type="Label" parent="background/edge/menu/settings/colourblind"]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "Colourblind Mode"
 
-[node name="speed" type="HSplitContainer" parent="background/edge/menu/settings"]
+[node name="speed" type="HBoxContainer" parent="background/edge/menu/settings"]
 layout_mode = 2
-dragger_visibility = 1
+size_flags_vertical = 2
+
+[node name="speedSpace" type="Container" parent="background/edge/menu/settings/speed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 
 [node name="speedModes" type="VBoxContainer" parent="background/edge/menu/settings/speed"]
 layout_mode = 2
@@ -187,6 +258,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+disabled = true
 button_group = SubResource("ButtonGroup_yk3rd")
 
 [node name="zippy" type="Label" parent="background/edge/menu/settings/speed/speedModes/zippy"]
@@ -230,6 +302,7 @@ text = "Normal"
 
 [node name="speedMode" type="Label" parent="background/edge/menu/settings/speed"]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "Speed Mode"
@@ -239,6 +312,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
 [node name="credits" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="artemis" type="Label" parent="background/edge/menu/credits"]
@@ -261,10 +335,15 @@ rotation = 0.240855
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("11_6rgdl")
 
+[node name="bluefoxx" type="Label" parent="background/edge/menu/credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Bluefoxx"
+
 [node name="philipp" type="Label" parent="background/edge/menu/credits"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Philipp"
+text = "Philipp Maschayechi"
 
 [node name="raphael" type="Label" parent="background/edge/menu/credits"]
 layout_mode = 2
@@ -272,11 +351,6 @@ theme_override_constants/line_spacing = -55
 theme_override_font_sizes/font_size = 50
 text = "Raphael 
    Schwaigerlehner"
-
-[node name="bluefoxx" type="Label" parent="background/edge/menu/credits"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Bluefoxx"
 
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]

@@ -29,7 +29,7 @@ func _ready():
 	n = 1 - (3 * size) + (3 * (size * size))
 	l = 2 * size - 1
 	width = l * 48 + 100
-	hight = l * 35 + 150
+	hight = l * 34 + 400
 	$PanelContainer.size = Vector2i(width, hight)
 	get_viewport()
 	get_ends()
