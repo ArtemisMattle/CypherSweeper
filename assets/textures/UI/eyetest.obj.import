@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c71ouvy2beebi"
+path="res://.godot/imported/eyetest.obj-29eb4cd31ed34cc59da6ad13b8f7192f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/eyetest.obj-29eb4cd31ed34cc59da6ad13b8f7192f.mesh"]
+
+source_file="res://assets/textures/UI/eyetest.obj"
+dest_files=["res://.godot/imported/eyetest.obj-29eb4cd31ed34cc59da6ad13b8f7192f.mesh", "res://.godot/imported/eyetest.obj-29eb4cd31ed34cc59da6ad13b8f7192f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
