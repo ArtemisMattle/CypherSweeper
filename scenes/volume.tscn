@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://c4s5a2xw2aimj"]
+
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="1_k40yg"]
+[ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="1_xnlxa"]
+[ext_resource type="Texture2D" uid="uid://dv455rrgqjrob" path="res://assets/textures/UI-elements/soundMaster.png" id="2_n8ttk"]
+[ext_resource type="Script" path="res://scripts/volume.gd" id="3_kniqo"]
+[ext_resource type="Texture2D" uid="uid://da6emudpok21d" path="res://assets/textures/UI-elements/soundMasterMute.png" id="3_xex8p"]
+[ext_resource type="Texture2D" uid="uid://cpv238u7wegn3" path="res://assets/textures/UI-elements/soundSFX.png" id="4_bnbyg"]
+[ext_resource type="Texture2D" uid="uid://cc3nx2pfosk0x" path="res://assets/textures/UI-elements/soundSFXMute.png" id="5_gdpv8"]
+[ext_resource type="Texture2D" uid="uid://c8lx73q6nam50" path="res://assets/textures/UI-elements/soundMusic.png" id="6_i5odw"]
+[ext_resource type="Texture2D" uid="uid://behw2ru4uuxpb" path="res://assets/textures/UI-elements/soundMusicMute.png" id="7_d8qrc"]
+
+[node name="volume" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 400)
+theme = ExtResource("1_xnlxa")
+theme_override_styles/panel = ExtResource("1_k40yg")
+script = ExtResource("3_kniqo")
+
+[node name="volume" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="audioMaster" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="masterSpace" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioMaster"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="masterSpace2" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="volume/audioMaster"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_n8ttk")
+texture_pressed = ExtResource("3_xex8p")
+
+[node name="masterSpace3" type="Container" parent="volume/audioMaster"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="audioSFX" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="sfxSpace" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioSFX"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="sfxSpace2" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="volume/audioSFX"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_bnbyg")
+texture_pressed = ExtResource("5_gdpv8")
+
+[node name="sfxSpace3" type="Container" parent="volume/audioSFX"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="audioMusic" type="VBoxContainer" parent="volume"]
+layout_mode = 2
+
+[node name="musicSpace" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="volume/audioMusic"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+max_value = 1.5
+step = 0.001
+value = 1.0
+
+[node name="musicSpace2" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="volume/audioMusic"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("6_i5odw")
+texture_pressed = ExtResource("7_d8qrc")
+
+[node name="musicSpace3" type="Container" parent="volume/audioMusic"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[connection signal="value_changed" from="volume/audioMaster/volume" to="." method="_on_master_value_changed"]
+[connection signal="toggled" from="volume/audioMaster/mute" to="." method="_on_masterMute_toggled"]
+[connection signal="value_changed" from="volume/audioSFX/volume" to="." method="_on_sfx_value_changed"]
+[connection signal="toggled" from="volume/audioSFX/mute" to="." method="_on_sfxMute_toggled"]
+[connection signal="value_changed" from="volume/audioMusic/volume" to="." method="_on_music_value_changed"]
+[connection signal="toggled" from="volume/audioMusic/mute" to="." method="_on_musicMute_toggled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=19 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -8,17 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c16bsdvo4v1ee" path="res://assets/textures/coffee.png" id="4_l4gvf"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_ttsoy"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
+[ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="5_cmc5j"]
 [ext_resource type="Texture2D" uid="uid://bafsd6nh2la3u" path="res://assets/textures/UI-elements/checkbox_steel_false.png" id="5_dr3kr"]
 [ext_resource type="Texture2D" uid="uid://oqup5tj2c726" path="res://assets/textures/background.png" id="5_wmdm5"]
-[ext_resource type="Texture2D" uid="uid://dv455rrgqjrob" path="res://assets/textures/UI-elements/soundMaster.png" id="6_37xrq"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="6_g0h4d"]
 [ext_resource type="Texture2D" uid="uid://l6ov0j0uxkp5" path="res://assets/textures/UI-elements/checkbox_brass_false.png" id="7_he6di"]
-[ext_resource type="Texture2D" uid="uid://da6emudpok21d" path="res://assets/textures/UI-elements/soundMasterMute.png" id="7_ojtim"]
-[ext_resource type="Texture2D" uid="uid://cpv238u7wegn3" path="res://assets/textures/UI-elements/soundSFX.png" id="8_tjh54"]
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="8_xaoot"]
-[ext_resource type="Texture2D" uid="uid://cc3nx2pfosk0x" path="res://assets/textures/UI-elements/soundSFXMute.png" id="9_o6xf8"]
-[ext_resource type="Texture2D" uid="uid://c8lx73q6nam50" path="res://assets/textures/UI-elements/soundMusic.png" id="10_lbatd"]
-[ext_resource type="Texture2D" uid="uid://behw2ru4uuxpb" path="res://assets/textures/UI-elements/soundMusicMute.png" id="11_5piff"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="12_7mhwv"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="13_ixn2h"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
@@ -193,93 +188,7 @@ text = "Settings"
 [node name="settings" type="HBoxContainer" parent="UI/player/pauseMenu/centerer"]
 layout_mode = 2
 
-[node name="volume" type="PanelContainer" parent="UI/player/pauseMenu/centerer/settings"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("4_kg58h")
-
-[node name="volume" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume"]
-custom_minimum_size = Vector2(0, 436)
-layout_mode = 2
-
-[node name="audioMaster" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
-layout_mode = 2
-
-[node name="masterSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="masterSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("6_37xrq")
-texture_pressed = ExtResource("7_ojtim")
-
-[node name="masterSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 26)
-layout_mode = 2
-
-[node name="audioSFX" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
-layout_mode = 2
-
-[node name="sfxSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="sfxSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("8_tjh54")
-texture_pressed = ExtResource("9_o6xf8")
-
-[node name="sfxSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 26)
-layout_mode = 2
-
-[node name="audioMusic" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
-layout_mode = 2
-
-[node name="musicSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="musicSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("10_lbatd")
-texture_pressed = ExtResource("11_5piff")
-
-[node name="musicSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 26)
+[node name="volume" parent="UI/player/pauseMenu/centerer/settings" instance=ExtResource("5_cmc5j")]
 layout_mode = 2
 
 [node name="settings" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
@@ -614,9 +523,6 @@ text_overrun_behavior = 3
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
-[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster/mute" to="UI/player" method="_on_masterMute_toggled"]
-[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX/mute" to="UI/player" method="_on_soundMute_toggled"]
-[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic/mute" to="UI/player" method="_on_musicMute_toggled"]
 [connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/settings/colourblind/colourblindMode" to="UI/player" method="_on_colourblind_mode_toggled"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]

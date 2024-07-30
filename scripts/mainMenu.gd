@@ -49,18 +49,6 @@ func closeCredits():
 func openCredits():
 	$background/edge/menu/credits.visible = true
 
-func _on_masterMute_toggled(toggled_on: bool) -> void:
-	settings.masterMute = not toggled_on
-	$background/edge/menu/volume/audioMaster/volume.editable = not toggled_on
-
-func _on_soundMute_toggled(toggled_on: bool) -> void:
-	settings.soundMute = not toggled_on
-	$background/edge/menu/volume/audioSFX/volume.editable = not toggled_on
-
-func _on_musicMute_toggled(toggled_on: bool) -> void:
-	settings.musicMute = not toggled_on
-	$background/edge/menu/volume/audioMusic/volume.editable = not toggled_on
-
 func _on_colourblind_mode_toggled(toggled_on):
 	settings.colourblindMode = toggled_on
 

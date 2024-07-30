@@ -1,15 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=15 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
-[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="3_b2325"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
-[ext_resource type="Texture2D" uid="uid://dv455rrgqjrob" path="res://assets/textures/UI-elements/soundMaster.png" id="3_ia757"]
-[ext_resource type="Texture2D" uid="uid://da6emudpok21d" path="res://assets/textures/UI-elements/soundMasterMute.png" id="4_p4ndx"]
-[ext_resource type="Texture2D" uid="uid://cpv238u7wegn3" path="res://assets/textures/UI-elements/soundSFX.png" id="5_uh841"]
-[ext_resource type="Texture2D" uid="uid://cc3nx2pfosk0x" path="res://assets/textures/UI-elements/soundSFXMute.png" id="6_3papr"]
-[ext_resource type="Texture2D" uid="uid://c8lx73q6nam50" path="res://assets/textures/UI-elements/soundMusic.png" id="7_8s31n"]
-[ext_resource type="Texture2D" uid="uid://behw2ru4uuxpb" path="res://assets/textures/UI-elements/soundMusicMute.png" id="8_gpsw4"]
+[ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="10_76px3"]
@@ -18,6 +12,7 @@
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="13_l1v7u"]
 [ext_resource type="ButtonGroup" uid="uid://b1oevm04u8h1w" path="res://assets/textures/UI-elements/buttonGroups/populationGroup.tres" id="14_bj10x"]
 [ext_resource type="ButtonGroup" uid="uid://ph6tg01bs3cx" path="res://assets/textures/UI-elements/buttonGroups/difficultyGroup.tres" id="15_82b6h"]
+[ext_resource type="AudioStream" uid="uid://bjejdk8y7gfia" path="res://assets/audio/music/Main Menu and Credits .wav" id="19_5q6yt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
 texture = ExtResource("3_gogsx")
@@ -83,7 +78,6 @@ text = "Credits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -111,92 +105,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="volume" type="PanelContainer" parent="background/edge/menu/settings"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_b2325")
-
-[node name="volume" type="HBoxContainer" parent="background/edge/menu/settings/volume"]
-layout_mode = 2
-
-[node name="audioMaster" type="VBoxContainer" parent="background/edge/menu/settings/volume/volume"]
-layout_mode = 2
-
-[node name="masterSpace" type="Container" parent="background/edge/menu/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="background/edge/menu/settings/volume/volume/audioMaster"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="masterSpace2" type="Container" parent="background/edge/menu/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="background/edge/menu/settings/volume/volume/audioMaster"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("3_ia757")
-texture_pressed = ExtResource("4_p4ndx")
-
-[node name="masterSpace3" type="Container" parent="background/edge/menu/settings/volume/volume/audioMaster"]
-custom_minimum_size = Vector2(0, 26)
-layout_mode = 2
-
-[node name="audioSFX" type="VBoxContainer" parent="background/edge/menu/settings/volume/volume"]
-layout_mode = 2
-
-[node name="sfxSpace" type="Container" parent="background/edge/menu/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="background/edge/menu/settings/volume/volume/audioSFX"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="sfxSpace2" type="Container" parent="background/edge/menu/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="background/edge/menu/settings/volume/volume/audioSFX"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("5_uh841")
-texture_pressed = ExtResource("6_3papr")
-
-[node name="sfxSpace3" type="Container" parent="background/edge/menu/settings/volume/volume/audioSFX"]
-custom_minimum_size = Vector2(0, 26)
-layout_mode = 2
-
-[node name="audioMusic" type="VBoxContainer" parent="background/edge/menu/settings/volume/volume"]
-layout_mode = 2
-
-[node name="musicSpace" type="Container" parent="background/edge/menu/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="volume" type="VSlider" parent="background/edge/menu/settings/volume/volume/audioMusic"]
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 3
-value = 70.0
-
-[node name="musicSpace2" type="Container" parent="background/edge/menu/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="mute" type="TextureButton" parent="background/edge/menu/settings/volume/volume/audioMusic"]
-layout_mode = 2
-toggle_mode = true
-texture_normal = ExtResource("7_8s31n")
-texture_pressed = ExtResource("8_gpsw4")
-
-[node name="musicSpace3" type="Container" parent="background/edge/menu/settings/volume/volume/audioMusic"]
-custom_minimum_size = Vector2(0, 26)
+[node name="volume" parent="background/edge/menu/settings" instance=ExtResource("4_pds5r")]
 layout_mode = 2
 
 [node name="settings" type="VBoxContainer" parent="background/edge/menu/settings"]
@@ -322,6 +231,7 @@ theme_override_font_sizes/font_size = 42
 text = "Speed Mode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -512,12 +422,14 @@ theme_override_font_sizes/font_size = 50
 text = "Raphael 
    Schwaigerlehner"
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_5q6yt")
+autoplay = true
+bus = &"music"
+
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
-[connection signal="toggled" from="background/edge/menu/settings/volume/volume/audioMaster/mute" to="." method="_on_masterMute_toggled"]
-[connection signal="toggled" from="background/edge/menu/settings/volume/volume/audioSFX/mute" to="." method="_on_soundMute_toggled"]
-[connection signal="toggled" from="background/edge/menu/settings/volume/volume/audioMusic/mute" to="." method="_on_musicMute_toggled"]
 [connection signal="toggled" from="background/edge/menu/settings/settings/colourblind/colourblindMode" to="." method="_on_colourblind_mode_toggled"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
