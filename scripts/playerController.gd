@@ -98,3 +98,45 @@ func lvlUpShadow():
 
 func Flamel():
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel.png")
+
+
+func _on_pause_button_toggled(toggled_on: bool) -> void:
+	$pauseMenu.visible = toggled_on
+
+func _on_settings_pressed() -> void:
+	$pauseMenu/centerer/settings.visible = true
+	$pauseMenu/centerer/pause.visible = false
+
+func _on_return_button_pressed() -> void:
+	$pauseMenu/centerer/pause.visible = true
+	$pauseMenu/centerer/settings.visible = false
+
+func _on_masterMute_toggled(toggled_on: bool) -> void:
+	settings.masterMute = not toggled_on
+	$background/edge/menu/volume/audioMaster/volume.editable = not toggled_on
+
+func _on_soundMute_toggled(toggled_on: bool) -> void:
+	settings.soundMute = not toggled_on
+	$background/edge/menu/volume/audioSFX/volume.editable = not toggled_on
+
+func _on_musicMute_toggled(toggled_on: bool) -> void:
+	settings.musicMute = not toggled_on
+	$background/edge/menu/volume/audioMusic/volume.editable = not toggled_on
+
+func _on_colourblind_mode_toggled(toggled_on):
+	settings.colourblindMode = toggled_on
+	signalBus.colourchange.emit()
+
+enum sMode {normal, fast, zippy}
+func _on_zippy_mode_pressed() -> void:
+	settings.speedMode = sMode.zippy
+
+func _on_fast_mode_pressed() -> void:
+	settings.speedMode = sMode.fast
+
+func _on_normal_mode_pressed() -> void:
+	settings.speedMode = sMode.normal
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+

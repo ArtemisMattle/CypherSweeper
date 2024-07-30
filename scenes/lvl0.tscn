@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=24 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -10,9 +10,18 @@
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 [ext_resource type="Texture2D" uid="uid://bafsd6nh2la3u" path="res://assets/textures/UI-elements/checkbox_steel_false.png" id="5_dr3kr"]
 [ext_resource type="Texture2D" uid="uid://oqup5tj2c726" path="res://assets/textures/background.png" id="5_wmdm5"]
+[ext_resource type="Texture2D" uid="uid://dv455rrgqjrob" path="res://assets/textures/UI-elements/soundMaster.png" id="6_37xrq"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="6_g0h4d"]
 [ext_resource type="Texture2D" uid="uid://l6ov0j0uxkp5" path="res://assets/textures/UI-elements/checkbox_brass_false.png" id="7_he6di"]
+[ext_resource type="Texture2D" uid="uid://da6emudpok21d" path="res://assets/textures/UI-elements/soundMasterMute.png" id="7_ojtim"]
+[ext_resource type="Texture2D" uid="uid://cpv238u7wegn3" path="res://assets/textures/UI-elements/soundSFX.png" id="8_tjh54"]
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="8_xaoot"]
+[ext_resource type="Texture2D" uid="uid://cc3nx2pfosk0x" path="res://assets/textures/UI-elements/soundSFXMute.png" id="9_o6xf8"]
+[ext_resource type="Texture2D" uid="uid://c8lx73q6nam50" path="res://assets/textures/UI-elements/soundMusic.png" id="10_lbatd"]
+[ext_resource type="Texture2D" uid="uid://behw2ru4uuxpb" path="res://assets/textures/UI-elements/soundMusicMute.png" id="11_5piff"]
+[ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="12_7mhwv"]
+[ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="13_ixn2h"]
+[ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0s55"]
 bg_color = Color(0.6, 0.227451, 0.6, 1)
@@ -149,6 +158,7 @@ size_flags_horizontal = 10
 expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
+z_index = 1
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1240.0
@@ -158,13 +168,261 @@ theme = ExtResource("4_ttsoy")
 [node name="centerer" type="CenterContainer" parent="UI/player/pauseMenu"]
 layout_mode = 2
 
-[node name="buttons" type="VBoxContainer" parent="UI/player/pauseMenu/centerer"]
+[node name="pause" type="VBoxContainer" parent="UI/player/pauseMenu/centerer"]
+visible = false
 layout_mode = 2
 
-[node name="exit" type="Button" parent="UI/player/pauseMenu/centerer/buttons"]
+[node name="exit" type="Button" parent="UI/player/pauseMenu/centerer/pause"]
+layout_mode = 2
+text = "Exit "
+
+[node name="warning" type="Label" parent="UI/player/pauseMenu/centerer/pause"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "Exiting deletes your progress."
+
+[node name="Container" type="Container" parent="UI/player/pauseMenu/centerer/pause"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause"]
+layout_mode = 2
+text = "Settings"
+
+[node name="settings" type="HBoxContainer" parent="UI/player/pauseMenu/centerer"]
+layout_mode = 2
+
+[node name="volume" type="PanelContainer" parent="UI/player/pauseMenu/centerer/settings"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_kg58h")
+
+[node name="volume" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume"]
+custom_minimum_size = Vector2(0, 436)
+layout_mode = 2
+
+[node name="audioMaster" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
+layout_mode = 2
+
+[node name="masterSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+value = 70.0
+
+[node name="masterSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("6_37xrq")
+texture_pressed = ExtResource("7_ojtim")
+
+[node name="masterSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="audioSFX" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
+layout_mode = 2
+
+[node name="sfxSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+value = 70.0
+
+[node name="sfxSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("8_tjh54")
+texture_pressed = ExtResource("9_o6xf8")
+
+[node name="sfxSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="audioMusic" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/volume/volume"]
+layout_mode = 2
+
+[node name="musicSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="volume" type="VSlider" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+value = 70.0
+
+[node name="musicSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="mute" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("10_lbatd")
+texture_pressed = ExtResource("11_5piff")
+
+[node name="musicSpace3" type="Container" parent="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+
+[node name="settings" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="language" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+
+[node name="languageSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="languageLabel" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Language:"
+
+[node name="languageSelector" type="OptionButton" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/focus = ExtResource("12_7mhwv")
+theme_override_styles/normal = ExtResource("13_ixn2h")
+theme_override_styles/hover = ExtResource("12_7mhwv")
+theme_override_styles/pressed = ExtResource("12_7mhwv")
+item_count = 3
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Bri'ish"
+popup/item_1/id = 1
+popup/item_2/text = "German"
+popup/item_2/id = 2
+
+[node name="colourblind" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="colourSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="colourblindMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+button_pressed = true
+
+[node name="colourblind" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Colourblind Mode"
+
+[node name="speed" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="speedSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/speed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="speedModes" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed"]
+layout_mode = 2
+
+[node name="zippy" type="HSplitContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="zippyMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+button_group = ExtResource("14_pdgxm")
+
+[node name="zippy" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Zippy"
+
+[node name="fast" type="HSplitContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="fastMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = ExtResource("14_pdgxm")
+
+[node name="fast" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Fast"
+
+[node name="normal" type="HSplitContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="normalMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_pressed = true
+button_group = ExtResource("14_pdgxm")
+
+[node name="normal" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "Normal"
+
+[node name="speedMode" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "Speed Mode"
+
+[node name="return" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+
+[node name="returnSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return"
+
+[node name="returnSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="pause" type="PanelContainer" parent="UI/player"]
+z_index = 1
 offset_right = 63.0
 offset_bottom = 100.0
 theme_override_styles/panel = ExtResource("4_kg58h")
@@ -190,6 +448,18 @@ texture = ExtResource("8_xaoot")
 position = Vector2(640, 360)
 position_smoothing_enabled = true
 script = ExtResource("1_lfbyx")
+
+[node name="Coffee" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(401, 533)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_l4gvf")
+
+[node name="Coffee2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(726, 287)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_l4gvf")
 
 [node name="generator" type="Node2D" parent="."]
 position = Vector2(100, 0)
@@ -342,14 +612,14 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="Coffee" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(401, 533)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_l4gvf")
-
-[node name="Coffee2" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(726, 287)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_l4gvf")
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
+[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioMaster/mute" to="UI/player" method="_on_masterMute_toggled"]
+[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioSFX/mute" to="UI/player" method="_on_soundMute_toggled"]
+[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/volume/volume/audioMusic/mute" to="UI/player" method="_on_musicMute_toggled"]
+[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/settings/colourblind/colourblindMode" to="UI/player" method="_on_colourblind_mode_toggled"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/return/returnButton" to="UI/player" method="_on_return_button_pressed"]
+[connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]

@@ -14,6 +14,7 @@ var turned: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	signalBus.populated.connect(_on_populated)
+	signalBus.colourchange.connect(colourMode)
 
 func neighborhood():
 	if pos not in ends:	#talk to neighbor to the right
@@ -146,3 +147,15 @@ func _on_timer_timeout() -> void:
 			while neighborPos.size() > 0:
 				signalBus.turnNeighbor.emit(neighborPos[0])
 				neighborPos.remove_at(0)
+
+func colourMode():
+	if settings.colourblindMode:
+		$colourMask.texture_filter = TEXTURE_FILTER_NEAREST
+		$colourMask/colourHerb.texture = load("res://assets/textures/ingredients/colourblindIcons/leaf_smol.png")
+		$colourMask/colourShroom.texture = load("res://assets/textures/ingredients/colourblindIcons/shroom_smol.png")
+		$colourMask/colourSalt.texture = load("res://assets/textures/ingredients/colourblindIcons/salt_smol.png")
+	else:
+		$colourMask.texture_filter = TEXTURE_FILTER_LINEAR
+		$colourMask/colourHerb.texture = load("res://assets/textures/button/buttonColourHerb.tres")
+		$colourMask/colourShroom.texture = load("res://assets/textures/button/buttonColourShroom.tres")
+		$colourMask/colourSalt.texture = load("res://assets/textures/button/buttonColourSalt.tres")
