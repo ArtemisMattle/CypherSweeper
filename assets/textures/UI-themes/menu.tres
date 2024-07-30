@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://8qfvurhug2dj"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://8qfvurhug2dj"]
 
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="2_bdflg"]
@@ -14,9 +14,23 @@
 [ext_resource type="Texture2D" uid="uid://clvqy2pxly2jf" path="res://assets/textures/UI-elements/spindle.png" id="9_257n5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_ujueh"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_1efum"]
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="12_pc05t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fg5i"]
 bg_color = Color(0.851747, 0.721854, 0.988692, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn4wa"]
+bg_color = Color(0.580392, 0.109804, 0.443137, 0.423529)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ganmk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nxmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34l00"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvfca"]
 
@@ -61,11 +75,26 @@ MarginContainer/constants/margin_bottom = 100
 MarginContainer/constants/margin_left = 100
 MarginContainer/constants/margin_right = 100
 MarginContainer/constants/margin_top = 100
+MenuBar/fonts/font = ExtResource("1_pt3f5")
 OptionButton/colors/font_color = Color(1, 1, 1, 1)
 OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
 OptionButton/constants/outline_size = 15
 OptionButton/font_sizes/font_size = 42
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_2fg5i")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/outline_size = 5
+PopupMenu/font_sizes/font_size = 20
+PopupMenu/fonts/font = ExtResource("1_pt3f5")
+PopupMenu/icons/checked = ExtResource("2_bdflg")
+PopupMenu/icons/radio_checked = ExtResource("3_b84xq")
+PopupMenu/icons/radio_unchecked = ExtResource("4_2wwbk")
+PopupMenu/icons/unchecked = ExtResource("5_ne586")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_jn4wa")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxEmpty_ganmk")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxEmpty_0nxmo")
+PopupMenu/styles/panel = ExtResource("12_pc05t")
+PopupMenu/styles/separator = SubResource("StyleBoxEmpty_34l00")
 VSlider/icons/grabber = ExtResource("7_jk67j")
 VSlider/icons/grabber_disabled = ExtResource("7_jk67j")
 VSlider/icons/grabber_highlight = ExtResource("8_jr7eq")

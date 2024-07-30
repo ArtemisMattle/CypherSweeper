@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d3hgcb4ery8wq"]
+
+[ext_resource type="Texture2D" uid="uid://cp4av2nmpjxa2" path="res://assets/textures/UI-elements/MenBtn_brass_torn.png" id="1_cqjtw"]
+
+[resource]
+texture = ExtResource("1_cqjtw")
+texture_margin_left = 12.0
+texture_margin_top = 13.0
+texture_margin_right = 15.0
+texture_margin_bottom = 35.0
+axis_stretch_horizontal = 2

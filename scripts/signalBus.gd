@@ -5,3 +5,4 @@ signal populated
 signal turnNeighbor(neighborpos: int)
 signal lvlNothing
 signal uncoverIngr(ingredient: String)
+signal upsane

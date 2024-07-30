@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-signalBus="*res://scripts/signal_bus.gd"
+signalBus="*res://scripts/signalBus.gd"
 settings="*res://scripts/settings.gd"
-globalVariables="*res://scripts/global_variables.gd"
+globalVariables="*res://scripts/globalVariables.gd"
 mouseController="*res://scripts/mouseController.gd"
 
 [display]
