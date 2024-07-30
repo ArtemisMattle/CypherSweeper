@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjaxnh2mmq25u"
-path="res://.godot/imported/Visitor.png-bd9b7b001b3eaa6b1157a8a01348fb38.ctex"
+uid="uid://cehtgg1cx6yso"
+path="res://.godot/imported/MenBtn_brass_scroll_vertical.png-2525db36da9da62b9ea726fbf314dfb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splashscreens/Visitor.png"
-dest_files=["res://.godot/imported/Visitor.png-bd9b7b001b3eaa6b1157a8a01348fb38.ctex"]
+source_file="res://assets/textures/UI-elements/MenBtn_brass_scroll_vertical.png"
+dest_files=["res://.godot/imported/MenBtn_brass_scroll_vertical.png-2525db36da9da62b9ea726fbf314dfb3.ctex"]
 
 [params]
 

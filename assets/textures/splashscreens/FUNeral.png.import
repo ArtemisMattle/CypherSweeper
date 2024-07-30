@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p3te4dr6nebr"
-path="res://.godot/imported/CityNight.png-f488df6df12572a62051e5f681f7e73c.ctex"
+uid="uid://l5suj3w2ha2m"
+path="res://.godot/imported/FUNeral.png-5f040a710621be760992c878ebcf02c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splashscreens/CityNight.png"
-dest_files=["res://.godot/imported/CityNight.png-f488df6df12572a62051e5f681f7e73c.ctex"]
+source_file="res://assets/textures/splashscreens/FUNeral.png"
+dest_files=["res://.godot/imported/FUNeral.png-5f040a710621be760992c878ebcf02c2.ctex"]
 
 [params]
 

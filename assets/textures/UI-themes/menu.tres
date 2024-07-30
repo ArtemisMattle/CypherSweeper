@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://8qfvurhug2dj"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://8qfvurhug2dj"]
 
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="2_bdflg"]
@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://clvqy2pxly2jf" path="res://assets/textures/UI-elements/spindle.png" id="9_257n5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_ujueh"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_1efum"]
+[ext_resource type="StyleBox" uid="uid://d3wf828ytqv3h" path="res://assets/textures/UI-elements/styleBoxes/verticalScrollBrass.tres" id="12_ketxf"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="12_pc05t"]
+[ext_resource type="StyleBox" uid="uid://bukev6v7plbu7" path="res://assets/textures/UI-elements/styleBoxes/verticalScrollIron.tres" id="13_m24p3"]
+[ext_resource type="Texture2D" uid="uid://cwprrvlr05r6j" path="res://assets/textures/UI-elements/upDown.png" id="15_n6lhu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fg5i"]
 bg_color = Color(0.851747, 0.721854, 0.988692, 1)
@@ -71,6 +74,13 @@ Label/constants/shadow_offset_y = 15
 Label/constants/shadow_outline_size = 30
 Label/font_sizes/font_size = 70
 Label/fonts/font = ExtResource("2_fnxqq")
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/constants/outline_size = 8
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("1_pt3f5")
+LineEdit/styles/focus = ExtResource("12_ketxf")
+LineEdit/styles/normal = ExtResource("13_m24p3")
+LineEdit/styles/read_only = ExtResource("13_m24p3")
 MarginContainer/constants/margin_bottom = 100
 MarginContainer/constants/margin_left = 100
 MarginContainer/constants/margin_right = 100
@@ -95,6 +105,7 @@ PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxEmpty_ganmk")
 PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxEmpty_0nxmo")
 PopupMenu/styles/panel = ExtResource("12_pc05t")
 PopupMenu/styles/separator = SubResource("StyleBoxEmpty_34l00")
+SpinBox/icons/updown = ExtResource("15_n6lhu")
 VSlider/icons/grabber = ExtResource("7_jk67j")
 VSlider/icons/grabber_disabled = ExtResource("7_jk67j")
 VSlider/icons/grabber_highlight = ExtResource("8_jr7eq")

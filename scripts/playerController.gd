@@ -6,9 +6,11 @@ var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
 func _ready():
 	signalBus.lvlNothing.connect(lvl1)
 	signalBus.uncoverIngr.connect(uncover)
+	signalBus.lvlFlamel.connect(Flamel)
 
 func lvl1():
 	globalVariables.level["Herb"] = 1
+	xp["Herb"] = globalVariables.lvlUP["1"]
 	lvlUpHerb()
 
 func uncover(ingredient: String):
@@ -59,9 +61,11 @@ func uncover(ingredient: String):
 				globalVariables.sanity -= damage[3]
 				signalBus.upsane.emit()
 		"Flamel":
-			if globalVariables.level["Herb"] < 3 or globalVariables.level["Shroom"] < 3 or globalVariables.level["Salt"] < 3:
+			if globalVariables.uncovered < globalVariables.n - 1:
 				globalVariables.sanity -= damage[6]
 				signalBus.upsane.emit()
+			else:
+				pass
 	if globalVariables.level["Shroom"] < 1:
 		xp["Shroom"] += randi_range(0, 7) / 4
 	if globalVariables.level["Salt"] < 1:
@@ -91,3 +95,6 @@ func lvlUpSalt():
 func lvlUpShadow():
 	$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
 	$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
+
+func Flamel():
+	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel.png")

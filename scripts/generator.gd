@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var size: int = 7
-var n: int = 0
 var l: int
 var width: int
 var hight: int
@@ -26,7 +25,7 @@ signal talkToNeighbor(ownpos: int, owningr: int, neighborpos:int)
 
 
 func _ready():
-	n = 1 - (3 * size) + (3 * (size * size))
+	globalVariables.n = 1 - (3 * size) + (3 * (size * size))
 	l = 2 * size - 1
 	width = l * 48 + 100
 	hight = l * 34 + 400
@@ -53,7 +52,7 @@ func get_ends():# calculates where the line breaks in the hex grid
 		x += 1
 
 func def_hex():
-	for i in n:
+	for i in globalVariables.n:
 		pos.append(hex.instantiate())
 		add_child(pos[i])
 		pos[i].pos = i
@@ -72,14 +71,13 @@ func populate():
 			y = 0
 		for i in ingredientStack.keys():
 			if ingredientStack[i] != 0:
-				var x = randi_range(0, n-1)
+				var x = randi_range(0, globalVariables.n-1)
 				if pos[x].is_empty():
 					pos[x].ingredient = i
 					ingredientStack[i] -= 1
 			else:
 				y += 1
-	for i in n:
-		pass
+	for i in globalVariables.n:
 		pos[i].neighborhood()
 
 func connector(ownpos: int, owningr: String, neighborpos: int):

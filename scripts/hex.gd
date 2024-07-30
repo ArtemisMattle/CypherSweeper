@@ -111,9 +111,12 @@ enum sMode {normal, fast, zippy}
 func turn():
 	if not turned:
 		turned = true
-		globalVariables.uncovered[ingredient] += 1
+		globalVariables.uncoveredIngred[ingredient] += 1
+		globalVariables.uncovered += 1
+		if globalVariables.uncovered == globalVariables.n - 1:
+			signalBus.lvlFlamel.emit()
 		if ingredient == "Nothing":
-			if globalVariables.uncovered["Nothing"] == globalVariables.lvlUP["Nothing"]:
+			if globalVariables.uncoveredIngred["Nothing"] == globalVariables.lvlUP["Nothing"]:
 				signalBus.lvlNothing.emit()
 		else:
 			signalBus.uncoverIngr.emit(ingredient)

@@ -32,30 +32,22 @@ func _on_credits_pressed() -> void:
 			openTitle()
 
 func closeTitle():
-	$background/edge/menu/titleSpace.visible = false
 	$background/edge/menu/title.visible = false
 
 func openTitle():
-	$background/edge/menu/titleSpace.visible = true
 	$background/edge/menu/title.visible = true
 
 func closeSetting():
 	$background/edge/menu/settings.visible = false
-	$background/edge/menu/settingsSpace.visible = false
-	$background/edge/menu/volume.visible = false
 
 func openSetting():
 	$background/edge/menu/settings.visible = true
-	$background/edge/menu/settingsSpace.visible = true
-	$background/edge/menu/volume.visible = true
 
 func closeCredits():
 	$background/edge/menu/credits.visible = false
-	$background/edge/menu/creditsSpace.visible = false
 
 func openCredits():
 	$background/edge/menu/credits.visible = true
-	$background/edge/menu/creditsSpace.visible = true
 
 func _on_masterMute_toggled(toggled_on: bool) -> void:
 	settings.masterMute = not toggled_on

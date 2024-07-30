@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkvvwd52tut10"
-path="res://.godot/imported/CityRain.png-0376c7bde933e500f9795d8ed61c7abe.ctex"
+uid="uid://dmetxwn21sadp"
+path="res://.godot/imported/pause.png-14cf0c4ddcd142bbe837f8fab6a87318.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://splashscreens/CityRain.png"
-dest_files=["res://.godot/imported/CityRain.png-0376c7bde933e500f9795d8ed61c7abe.ctex"]
+source_file="res://assets/textures/UI-elements/pause.png"
+dest_files=["res://.godot/imported/pause.png-14cf0c4ddcd142bbe837f8fab6a87318.ctex"]
 
 [params]
 

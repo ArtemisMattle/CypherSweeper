@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"
+uid="uid://cwprrvlr05r6j"
+path="res://.godot/imported/upDown.png-59d64af6ed7e0969e1e34041711e07bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/Flamel.png"
-dest_files=["res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"]
+source_file="res://assets/textures/UI-elements/upDown.png"
+dest_files=["res://.godot/imported/upDown.png-59d64af6ed7e0969e1e34041711e07bc.ctex"]
 
 [params]
 

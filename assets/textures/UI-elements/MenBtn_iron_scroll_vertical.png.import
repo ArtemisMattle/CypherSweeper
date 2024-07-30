@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"
+uid="uid://6empym50p26u"
+path="res://.godot/imported/MenBtn_iron_scroll_vertical.png-48af71e552494e4d85f133aa00f2cffd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/Flamel.png"
-dest_files=["res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"]
+source_file="res://assets/textures/UI-elements/MenBtn_iron_scroll_vertical.png"
+dest_files=["res://.godot/imported/MenBtn_iron_scroll_vertical.png-48af71e552494e4d85f133aa00f2cffd.ctex"]
 
 [params]
 

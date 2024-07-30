@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"
+uid="uid://bkvvwd52tut10"
+path="res://.godot/imported/CityRain.png-e6209a97c40da854ef745a335eaccd91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/Flamel.png"
-dest_files=["res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"]
+source_file="res://assets/textures/splashscreens/CityRain.png"
+dest_files=["res://.godot/imported/CityRain.png-e6209a97c40da854ef745a335eaccd91.ctex"]
 
 [params]
 
