@@ -9,6 +9,7 @@ func _ready():
 
 func lvl1():
 	globalVariables.level["Herb"] = 1
+	lvlUpHerb()
 
 func uncover(ingredient: String):
 	match ingredient:
