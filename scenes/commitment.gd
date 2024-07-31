@@ -25,3 +25,7 @@ func _on_extreme_mode_pressed():
 
 func _on_normal_mode_pressed():
 	pass # Replace with function body.
+
+
+func _on_size_selector_value_changed(value):
+	pass # Replace with function body.
