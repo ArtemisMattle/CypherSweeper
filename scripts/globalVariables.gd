@@ -15,6 +15,7 @@ var uncoveredIngred: Dictionary = {
 	"Salt3" = 0,
 	"Flamel" = 0,}
 var uncovered: int = 0
+var size: int
 var n: int 
 var level: Dictionary = {
 	"Herb" = 0, 
