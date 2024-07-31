@@ -49,9 +49,7 @@ alignment = 0
 [node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
 theme = ExtResource("2_50dck")
-disabled = true
-text = "Play Arcade
-"
+text = "Play Arcade"
 alignment = 0
 
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
@@ -542,6 +540,7 @@ autoplay = true
 bus = &"music"
 
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="toggled" from="background/edge/menu/settings/settings/colourblind/colourblindMode" to="." method="_on_colourblind_mode_toggled"]
