@@ -1,7 +1,6 @@
 extends Node2D
 
-var sizelvl: int
-var empty: int
+
 
 func _on_play_story_pressed() -> void:
 	match $background/edge/menu/mainbuttons/playStory.text:
@@ -132,6 +131,7 @@ func _startLvl(level) -> void:
 			globalVariables.ingredientStack["Herb1"]=3
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=3
+			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 		2:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
@@ -139,20 +139,13 @@ func _startLvl(level) -> void:
 			globalVariables.ingredientStack["Herb2"]=1
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=5
-			
+			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 		_: 
 			pass
-	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
-	empty=globalVariables.n
-	for i in globalVariables.ingredientStack:
-		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
-	globalVariables.lvlUP["Nothing"] = empty * 0.3
-	globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3
-	globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75
-	globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
-	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 
+var sizelvl: int
+var empty: int = globalVariables.n
 
 func _on_arcade_pressed():
 	sizelvl = $edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
@@ -182,9 +175,7 @@ func _on_arcade_pressed():
 		globalVariables.ingredientStack["Salt2"] = 3
 		globalVariables.ingredientStack["Salt3"] = 1
 		globalVariables.ingredientMult = (globalVariables.n / 27) * 0.4
-		
-	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
-	empty=globalVariables.n
+
 	for i in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
 

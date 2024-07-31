@@ -4,11 +4,7 @@
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
 [ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="2_hqood"]
-<<<<<<< Updated upstream
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="3_78fr5"]
-=======
-[ext_resource type="StyleBox" uid="uid://cqjdekobk4y6g" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="3_78fr5"]
->>>>>>> Stashed changes
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_kg58h"]
 [ext_resource type="Texture2D" uid="uid://c16bsdvo4v1ee" path="res://assets/textures/coffee.png" id="4_l4gvf"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_ttsoy"]
