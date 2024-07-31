@@ -132,8 +132,6 @@ func _startLvl(level) -> void:
 			globalVariables.ingredientStack["Flamel"]=1
 
 			globalVariables.size=4
-
-			globalVariables.size=3
 		2:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
@@ -158,6 +156,73 @@ func _startLvl(level) -> void:
 			globalVariables.ingredientStack["Shroom1"]=5
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=6
+		5:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientStack["Herb1"]=6
+			globalVariables.ingredientStack["Herb2"]=4
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=5
+			globalVariables.ingredientStack["Salt1"]=3
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=7
+		6:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientStack["Herb1"]=6
+			globalVariables.ingredientStack["Herb2"]=4
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=5
+			globalVariables.ingredientStack["Shroom2"]=2
+			globalVariables.ingredientStack["Salt1"]=5
+			globalVariables.ingredientStack["Salt2"]=2
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=8
+		7:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientMult=1
+			globalVariables.ingredientStack["Herb1"]=10
+			globalVariables.ingredientStack["Herb2"]=2
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=10
+			globalVariables.ingredientStack["Shroom2"]=2
+			globalVariables.ingredientStack["Shroom3"]=1
+			globalVariables.ingredientStack["Salt1"]=6
+			globalVariables.ingredientStack["Salt2"]=2
+			globalVariables.ingredientStack["Salt3"]=0
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=10
+		8:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientMult=1
+			globalVariables.ingredientStack["Herb1"]=16
+			globalVariables.ingredientStack["Herb2"]=3
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=16
+			globalVariables.ingredientStack["Shroom2"]=3
+			globalVariables.ingredientStack["Shroom3"]=1
+			globalVariables.ingredientStack["Salt1"]=16
+			globalVariables.ingredientStack["Salt2"]=3
+			globalVariables.ingredientStack["Salt3"]=1
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=13
+		9:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientMult=2
+			globalVariables.ingredientStack["Herb1"]=13
+			globalVariables.ingredientStack["Herb2"]=5
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=13
+			globalVariables.ingredientStack["Shroom2"]=5
+			globalVariables.ingredientStack["Shroom3"]=1
+			globalVariables.ingredientStack["Salt1"]=13
+			globalVariables.ingredientStack["Salt2"]=5
+			globalVariables.ingredientStack["Salt3"]=1
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=15
 		_: 
 			pass
 	
@@ -166,8 +231,8 @@ func _startLvl(level) -> void:
 	for i in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
 		
-	globalVariables.lvlUP["Nothing"] = empty * 0.2
-	globalVariables.lvlUP["1"] = empty * 0.3
+	globalVariables.lvlUP["Nothing"] = empty * 0.1
+	globalVariables.lvlUP["1"] = empty * 0.1
 	globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3
 	globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75
 	globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
