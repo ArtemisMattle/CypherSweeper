@@ -2,11 +2,13 @@ extends Node
 
 var damage: Array[int] = [1, 7, 13, 21, 30, 50, 101]
 var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
+var iniSan
 
 func _ready():
 	signalBus.lvlNothing.connect(lvl1)
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
+	iniSan=globalVariables.sanity
 
 func lvl1():
 	globalVariables.level["Herb"] = 1

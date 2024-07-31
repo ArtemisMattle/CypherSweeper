@@ -1,8 +1,7 @@
 extends Node
 
 var sanity: int = 100
-var lostsanity: int =0
-var uncoveredIngred: Dictionary = {
+var uncovered: Dictionary = {
 	"Nothing" = 0, 
 	"Herb1" = 0,
 	"Herb2" = 0,
@@ -14,8 +13,6 @@ var uncoveredIngred: Dictionary = {
 	"Salt2" = 0,
 	"Salt3" = 0,
 	"Flamel" = 0,}
-var uncovered: int = 0
-var n: int 
 var level: Dictionary = {
 	"Herb" = 0, 
 	"Shroom" = 0, 
