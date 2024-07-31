@@ -422,6 +422,120 @@ theme_override_font_sizes/font_size = 50
 text = "Raphael 
    Schwaigerlehner"
 
+[node name="levelSelect" type="GridContainer" parent="background/edge/menu"]
+visible = false
+layout_mode = 2
+theme_override_constants/v_separation = -220
+columns = 3
+
+[node name="lvl1Container" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl1" type="Button" parent="background/edge/menu/levelSelect/lvl1Container"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="lvl1Container2" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl2" type="Button" parent="background/edge/menu/levelSelect/lvl1Container2"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="lvl1Container3" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl3" type="Button" parent="background/edge/menu/levelSelect/lvl1Container3"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="lvl1Container4" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl4" type="Button" parent="background/edge/menu/levelSelect/lvl1Container4"]
+layout_mode = 2
+text = "Level 4"
+
+[node name="lvl1Container5" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl5" type="Button" parent="background/edge/menu/levelSelect/lvl1Container5"]
+layout_mode = 2
+text = "Level 5"
+
+[node name="lvl1Container6" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl6" type="Button" parent="background/edge/menu/levelSelect/lvl1Container6"]
+layout_mode = 2
+text = "Level 6"
+
+[node name="lvl1Container7" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl7" type="Button" parent="background/edge/menu/levelSelect/lvl1Container7"]
+layout_mode = 2
+text = "Level 7"
+
+[node name="lvl1Container8" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl8" type="Button" parent="background/edge/menu/levelSelect/lvl1Container8"]
+layout_mode = 2
+text = "Level 8"
+
+[node name="lvl1Container9" type="MarginContainer" parent="background/edge/menu/levelSelect"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="lvl9" type="Button" parent="background/edge/menu/levelSelect/lvl1Container9"]
+layout_mode = 2
+text = "Level 9"
+
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_5q6yt")
 autoplay = true
