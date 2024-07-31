@@ -105,4 +105,33 @@ func _on_fast_mode_pressed() -> void:
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
 
+func _lvl1() -> void:
+	_startLvl((1))
+func _lvl2() -> void:
+	_startLvl((2))
+func _lvl3() -> void:
+	_startLvl((3))
+func _lvl4() -> void:
+	_startLvl((4))
+func _lvl5() -> void:
+	_startLvl((5))
+func _lvl6() -> void:
+	_startLvl((6))
+func _lvl7() -> void:
+	_startLvl(7)
+func _lvl8() -> void:
+	_startLvl(8)
+func _lvl9() -> void:
+	_startLvl(9)
+func _startLvl(level) -> void:
+	match level:
+		1:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientStack["Herb1"]=3
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=4
+			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
+		_: 
+			pass
 
