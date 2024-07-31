@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca4mpp3v7wvod"
-path="res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"
+uid="uid://0u5nsod4n4vu"
+path="res://.godot/imported/panel.png-eaf108a037a1e91bddc4faa44c13ec94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/Flamel.png"
-dest_files=["res://.godot/imported/Flamel.png-d766c4a8d274849725f89825bcfa0465.ctex"]
+source_file="res://assets/textures/UI-elements/panel.png"
+dest_files=["res://.godot/imported/panel.png-eaf108a037a1e91bddc4faa44c13ec94.ctex"]
 
 [params]
 
