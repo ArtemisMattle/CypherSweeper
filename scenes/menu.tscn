@@ -566,8 +566,3 @@ bus = &"music"
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="background" method="_on_play_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/high/highMode" to="background" method="_on_high_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/medium/mediumMode" to="background" method="_on_medium_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/low/lowMode" to="background" method="_on_low_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode" to="background" method="_on_extreme_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode" to="background" method="_on_normal_mode_pressed"]
