@@ -117,7 +117,7 @@ func turn():
 		if globalVariables.uncovered == globalVariables.n - 1:
 			signalBus.lvlFlamel.emit()
 		if ingredient == "Nothing":
-			if globalVariables.uncoveredIngred["Nothing"] == globalVariables.lvlUP["Nothing"]:
+			if globalVariables.uncovered == globalVariables.lvlUP["Nothing"]:
 				signalBus.lvlNothing.emit()
 		else:
 			signalBus.uncoverIngr.emit(ingredient)
