@@ -13,6 +13,8 @@ func _on_play_story_pressed() -> void:
 			$background/edge/menu/mainbuttons/playStory.text="Exit"
 		"Exit":
 			openTitle()
+			closeCredits()
+			closeSetting()
 			closeLvlSelect()
 		
 	#get_tree().change_scene_to_file("res://scenes/lvl0.tscn")

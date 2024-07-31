@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=16 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
+[ext_resource type="Script" path="res://scenes/commitment.gd" id="4_3v06h"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
@@ -26,6 +27,7 @@ offset_bottom = 720.0
 mouse_filter = 2
 theme = ExtResource("2_50dck")
 theme_override_styles/panel = SubResource("StyleBoxTexture_3hhrs")
+script = ExtResource("4_3v06h")
 
 [node name="edge" type="MarginContainer" parent="background"]
 layout_mode = 2
@@ -76,6 +78,7 @@ text = "Credits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -229,7 +232,6 @@ theme_override_font_sizes/font_size = 42
 text = "Speed Mode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -241,7 +243,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="sizeSelector" type="SpinBox" parent="background/edge/menu/arcade/arcade"]
+[node name="sizeandplay" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
+layout_mode = 2
+
+[node name="sizeSelector" type="SpinBox" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -249,6 +254,19 @@ min_value = 5.0
 max_value = 21.0
 value = 13.0
 prefix = " Size"
+
+[node name="playSpace" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="play" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play"
+
+[node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
 
 [node name="Container" type="Container" parent="background/edge/menu/arcade/arcade"]
 custom_minimum_size = Vector2(0, 30)
@@ -547,8 +565,9 @@ bus = &"music"
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/high/highMode" to="." method="_on_zippy_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/medium/mediumMode" to="." method="_on_fast_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/low/lowMode" to="." method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode" to="." method="_on_zippy_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode" to="." method="_on_fast_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="background" method="_on_play_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/high/highMode" to="background" method="_on_high_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/medium/mediumMode" to="background" method="_on_medium_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/population/populationModes/low/lowMode" to="background" method="_on_low_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode" to="background" method="_on_extreme_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode" to="background" method="_on_normal_mode_pressed"]
