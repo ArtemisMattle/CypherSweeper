@@ -134,7 +134,6 @@ func _startLvl(level) -> void:
 			globalVariables.size=4
 
 			globalVariables.size=3
-			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 		2:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
@@ -142,7 +141,23 @@ func _startLvl(level) -> void:
 			globalVariables.ingredientStack["Herb2"]=1
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=5
-			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
+		3:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientStack["Herb1"]=6
+			globalVariables.ingredientStack["Herb2"]=2
+			globalVariables.ingredientStack["Shroom1"]=3
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=6
+		4:
+			for i in globalVariables.ingredientStack:
+				globalVariables.ingredientStack[i]=0
+			globalVariables.ingredientStack["Herb1"]=6
+			globalVariables.ingredientStack["Herb2"]=4
+			globalVariables.ingredientStack["Herb3"]=1
+			globalVariables.ingredientStack["Shroom1"]=5
+			globalVariables.ingredientStack["Flamel"]=1
+			globalVariables.size=6
 		_: 
 			pass
 	
@@ -150,7 +165,9 @@ func _startLvl(level) -> void:
 	empty=globalVariables.n
 	for i in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
-	globalVariables.lvlUP["Nothing"] = empty * 0.3
+		
+	globalVariables.lvlUP["Nothing"] = empty * 0.2
+	globalVariables.lvlUP["1"] = empty * 0.3
 	globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3
 	globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75
 	globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
