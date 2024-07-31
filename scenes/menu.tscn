@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
-[ext_resource type="Script" path="res://scenes/commitment.gd" id="4_3v06h"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
@@ -18,6 +17,12 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
 texture = ExtResource("3_gogsx")
 
+[sub_resource type="GDScript" id="GDScript_4uwa5"]
+script/source = "extends PanelContainer
+
+
+"
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_p3mkq")
 
@@ -27,7 +32,7 @@ offset_bottom = 720.0
 mouse_filter = 2
 theme = ExtResource("2_50dck")
 theme_override_styles/panel = SubResource("StyleBoxTexture_3hhrs")
-script = ExtResource("4_3v06h")
+script = SubResource("GDScript_4uwa5")
 
 [node name="edge" type="MarginContainer" parent="background"]
 layout_mode = 2
@@ -565,7 +570,7 @@ bus = &"music"
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="background" method="_on_play_pressed"]
+[connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="." method="_on_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container/lvl1" to="." method="_lvl1"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container2/lvl2" to="." method="_lvl2"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container3/lvl3" to="." method="_lvl3"]
