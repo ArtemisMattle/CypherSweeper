@@ -78,7 +78,6 @@ text = "Credits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -232,6 +231,7 @@ theme_override_font_sizes/font_size = 42
 text = "Speed Mode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 

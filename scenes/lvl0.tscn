@@ -153,6 +153,7 @@ size_flags_horizontal = 10
 expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
+visible = false
 z_index = 1
 offset_left = 40.0
 offset_top = 40.0
@@ -373,20 +374,6 @@ texture = ExtResource("4_l4gvf")
 [node name="generator" type="Node2D" parent="."]
 position = Vector2(100, 0)
 script = ExtResource("1_jcres")
-size = 13
-ingredientMult = 0.3
-ingredientStack = {
-"Flamel": 1,
-"Herb1": 42,
-"Herb2": 28,
-"Herb3": 14,
-"Salt1": 42,
-"Salt2": 28,
-"Salt3": 14,
-"Shroom1": 42,
-"Shroom2": 28,
-"Shroom3": 14
-}
 
 [node name="PanelContainer" type="PanelContainer" parent="generator"]
 offset_left = -100.0

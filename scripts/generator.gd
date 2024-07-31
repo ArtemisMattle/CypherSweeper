@@ -1,6 +1,5 @@
 extends Node2D
-
-@export var size: int = 7
+var size
 var l: int
 var width: int
 var hight: int
@@ -8,23 +7,15 @@ var ends: Array[int]
 var pos: Array
 var hex = preload("res://scenes/hex.tscn")
 signal talkToNeighbor(ownpos: int, owningr: int, neighborpos:int)
-@export var ingredientMult: float = 1
-@export var ingredientStack: Dictionary = {
-	"Herb1" = 3,
-	"Herb2" = 0,
-	"Herb3" = 0,
-	"Shroom1" = 3,
-	"Shroom2" = 0,
-	"Shroom3" = 0,
-	"Salt1" = 3,
-	"Salt2" = 0,
-	"Salt3" = 0,
-	"Flamel" = 1,
-}
+var ingredientMult
+var ingredientStack
 
 
 
 func _ready():
+	size=globalVariables.size
+	ingredientStack=globalVariables.ingredientStack
+	ingredientMult=globalVariables.ingredientMult
 	globalVariables.n = 1 - (3 * size) + (3 * (size * size))
 	l = 2 * size - 1
 	width = l * 48 + 100

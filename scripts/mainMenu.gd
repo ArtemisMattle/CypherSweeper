@@ -128,14 +128,14 @@ func _startLvl(level) -> void:
 		1:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
-			globalVariables.ingredientStack["Herb1"]=4
+			globalVariables.ingredientStack["Herb1"]=3
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=3
 			get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 		2:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
-			globalVariables.ingredientStack["Herb1"]=4
+			globalVariables.ingredientStack["Herb1"]=6
 			globalVariables.ingredientStack["Herb2"]=1
 			globalVariables.ingredientStack["Flamel"]=1
 			globalVariables.size=5
