@@ -13,10 +13,14 @@ var ingredientStack
 
 
 func _ready():
-	globalVariables.sanity = 100
 	size=globalVariables.size
 	ingredientStack=globalVariables.ingredientStack
 	ingredientMult=globalVariables.ingredientMult
+	
+	for i in globalVariables.uncoveredIngred:
+		globalVariables.uncoveredIngred[i] = 0
+	globalVariables.uncovered = 0
+	
 	globalVariables.n = 1 - (3 * size) + (3 * (size * size))
 	l = 2 * size - 1
 	width = l * 48 + 100
@@ -53,15 +57,16 @@ func def_hex():
 
 func populate():
 	var y: int = 0
-	for i in ingredientStack.keys():
+	for i in ingredientStack:
 		if i != "Flamel":
 			ingredientStack[i] = int(ingredientStack[i] * ingredientMult)
+	print(ingredientStack)
 	while 1:
 		if y == ingredientStack.size():
 			break
 		else:
 			y = 0
-		for i in ingredientStack.keys():
+		for i in ingredientStack:
 			if ingredientStack[i] != 0:
 				var x = randi_range(0, globalVariables.n-1)
 				if pos[x].is_empty():

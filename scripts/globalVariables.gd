@@ -27,8 +27,9 @@ var lvlUP: Dictionary = {
 	"1" = 5,
 	"2" = 15,
 	"3" = 30,
-	"4" = 70,
+	"4" = 9999,
 	"5" = 9999,}
+var lvl1: String = "Herb"
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
@@ -41,5 +42,4 @@ var ingredientStack: Dictionary = {
 	"Salt1" = 3,
 	"Salt2" = 0,
 	"Salt3" = 0,
-	"Flamel" = 1,
-}
+	"Flamel" = 1,}

@@ -8,15 +8,15 @@ func _ready():
 	signalBus.lvlNothing.connect(lvl1)
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
+	signalBus.turnSound.connect(turnSFX)
+	signalBus.upsane.connect(dead)
 	iniSan=globalVariables.sanity
 	$gameOver/centerer/gameOver/end.text = "Game Over!"
 
 func lvl1():
-	globalVariables.level["Herb"] = 1
-	xp["Herb"] = globalVariables.lvlUP["1"]
-	lvlUpHerb()
-	signalBus.turnSound.connect(turnSFX)
-	signalBus.upsane.connect(dead)
+	globalVariables.level[globalVariables.lvl1] = 1
+	xp[globalVariables.lvl1] = globalVariables.lvlUP["1"]
+	lvlUp(globalVariables.lvl1)
 
 func uncover(ingredient: String):
 	match ingredient:
@@ -72,35 +72,35 @@ func uncover(ingredient: String):
 			else:
 				$gameOver/centerer/gameOver/end.text = "You Won!"
 				$gameOver.visible = true
+	print(xp)
 	if globalVariables.level["Shroom"] < 1:
 		xp["Shroom"] += randi_range(0, 7) / 4
 	if globalVariables.level["Salt"] < 1:
 		xp["Salt"] += randi_range(0, 7) / 4
 	if xp["Herb"] >= globalVariables.lvlUP[str(globalVariables.level["Herb"]+1)]:
 		globalVariables.level["Herb"] += 1
-		lvlUpHerb()
+		lvlUp("Herb")
 	if xp["Shroom"] >= globalVariables.lvlUP[str(globalVariables.level["Shroom"]+1)]:
 		globalVariables.level["Shroom"] += 1
-		lvlUpShroom()
+		lvlUp("Shroom")
 	if xp["Salt"] >= globalVariables.lvlUP[str(globalVariables.level["Salt"]+1)]:
 		globalVariables.level["Salt"] += 1
-		lvlUpSalt()
+		lvlUp("Salt")
 
-func lvlUpHerb():
-	$playerInfo/edge/HBoxContainer/VBoxContainer/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
-	$playerInfo/edge/HBoxContainer/VBoxContainer/herb/number.text = str(globalVariables.level["Herb"])
-
-func lvlUpShroom():
-	$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/shroom.texture = load("res://assets/textures/ingredients/Shroom"+str(globalVariables.level["Shroom"])+".png")
-	$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/number.text = str(globalVariables.level["Shroom"])
-
-func lvlUpSalt():
-	$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/salt.texture = load("res://assets/textures/ingredients/Salt"+str(globalVariables.level["Salt"])+".png")
-	$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/number.text = str(globalVariables.level["Salt"])
-	
-func lvlUpShadow():
-	$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
-	$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
+func lvlUp(ingredient: String):
+	match ingredient:
+		"Herb": 
+			$playerInfo/edge/HBoxContainer/VBoxContainer/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
+			$playerInfo/edge/HBoxContainer/VBoxContainer/herb/number.text = str(globalVariables.level["Herb"])
+		"Shroom":
+			$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/shroom.texture = load("res://assets/textures/ingredients/Shroom"+str(globalVariables.level["Shroom"])+".png")
+			$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/number.text = str(globalVariables.level["Shroom"])
+		"Salt":
+			$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/salt.texture = load("res://assets/textures/ingredients/Salt"+str(globalVariables.level["Salt"])+".png")
+			$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/number.text = str(globalVariables.level["Salt"])
+		"Shadow":
+			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
+			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
 
 func Flamel():
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel.png")
@@ -116,18 +116,6 @@ func _on_settings_pressed() -> void:
 func _on_return_button_pressed() -> void:
 	$pauseMenu/centerer/pause.visible = true
 	$pauseMenu/centerer/settings.visible = false
-
-func _on_masterMute_toggled(toggled_on: bool) -> void:
-	settings.masterMute = not toggled_on
-	$background/edge/menu/volume/audioMaster/volume.editable = not toggled_on
-
-func _on_soundMute_toggled(toggled_on: bool) -> void:
-	settings.soundMute = not toggled_on
-	$background/edge/menu/volume/audioSFX/volume.editable = not toggled_on
-
-func _on_musicMute_toggled(toggled_on: bool) -> void:
-	settings.musicMute = not toggled_on
-	$background/edge/menu/volume/audioMusic/volume.editable = not toggled_on
 
 func _on_colourblind_mode_toggled(toggled_on):
 	settings.colourblindMode = toggled_on
@@ -161,7 +149,7 @@ func dead():
 		0: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 9 - 0.wav")
 	$music.play(t)
 	if globalVariables.sanity <= 0:
-				$gameOver.visible = true
+		$gameOver.visible = true
 
 
 func _on_return_pressed():
