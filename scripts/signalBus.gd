@@ -7,5 +7,6 @@ signal lvlNothing
 signal lvlFlamel
 signal uncoverIngr(ingredient: String)
 signal upsane
+signal turnSound
 
 signal colourchange

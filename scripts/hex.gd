@@ -112,6 +112,7 @@ enum sMode {normal, fast, zippy}
 func turn():
 	if not turned:
 		turned = true
+		signalBus.turnSound.emit()
 		globalVariables.uncoveredIngred[ingredient] += 1
 		globalVariables.uncovered += 1
 		if globalVariables.uncovered == globalVariables.n - 1:

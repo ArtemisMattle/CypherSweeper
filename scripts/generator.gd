@@ -13,6 +13,7 @@ var ingredientStack
 
 
 func _ready():
+	globalVariables.sanity = 100
 	size=globalVariables.size
 	ingredientStack=globalVariables.ingredientStack
 	ingredientMult=globalVariables.ingredientMult

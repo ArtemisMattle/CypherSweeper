@@ -9,11 +9,14 @@ func _ready():
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
 	iniSan=globalVariables.sanity
+	$gameOver/centerer/gameOver/end.text = "Game Over!"
 
 func lvl1():
 	globalVariables.level["Herb"] = 1
 	xp["Herb"] = globalVariables.lvlUP["1"]
 	lvlUpHerb()
+	signalBus.turnSound.connect(turnSFX)
+	signalBus.upsane.connect(dead)
 
 func uncover(ingredient: String):
 	match ingredient:
@@ -67,7 +70,8 @@ func uncover(ingredient: String):
 				globalVariables.sanity -= damage[6]
 				signalBus.upsane.emit()
 			else:
-				pass
+				$gameOver/centerer/gameOver/end.text = "You Won!"
+				$gameOver.visible = true
 	if globalVariables.level["Shroom"] < 1:
 		xp["Shroom"] += randi_range(0, 7) / 4
 	if globalVariables.level["Salt"] < 1:
@@ -142,3 +146,26 @@ func _on_normal_mode_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
+func dead():
+	var t = $music.get_playback_position()
+	match globalVariables.sanity / 10:
+		9: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 100 - 90.wav")
+		8: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 89 - 80.wav")
+		7: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 79 - 70.wav")
+		6: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 69 - 60.wav")
+		5: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 59 - 50.wav")
+		4: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 49 - 40.wav")
+		3: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 39 - 30.wav")
+		2: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 29 - 20.wav")
+		1: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 19 - 10.wav")
+		0: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 9 - 0.wav")
+	$music.play(t)
+	if globalVariables.sanity <= 0:
+				$gameOver.visible = true
+
+
+func _on_return_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func turnSFX():
+	$turnSFX.play()

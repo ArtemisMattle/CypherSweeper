@@ -231,24 +231,25 @@ func _startLvl(level) -> void:
 	for i in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
 		
-	globalVariables.lvlUP["Nothing"] = empty * 0.1
-	globalVariables.lvlUP["1"] = empty * 0.1
-	globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3
-	globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75
-	globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
+	globalVariables.lvlUP["Nothing"] = int(empty * 0.1)
+	globalVariables.lvlUP["1"] = int(empty * 0.1)
+	globalVariables.lvlUP["2"] = int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3)
+	globalVariables.lvlUP["3"] = int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75)
+	globalVariables.lvlUP["4"] = int(globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult)
+	print(globalVariables.lvlUP)
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 
-var sizelvl: int
 var empty: int = globalVariables.n
 
 func _on_arcade_pressed():
-	sizelvl = $edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
-	if $edge/menu/arcade/arcade/population/populationModes/high/highMode.pressed:
+	globalVariables.size = $background/edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
+	
+	if $background/edge/menu/arcade/arcade/population/populationModes/high/highMode.pressed:
 		for i in globalVariables.ingredientStack:
 			globalVariables.ingredientStack[i] = 1
 		globalVariables.ingredientMult = (globalVariables.n / 9) * 0.7
-	elif $edge/menu/arcade/arcade/population/populationModes/medium/mediumMode.pressed:
+	elif $background/edge/menu/arcade/arcade/population/populationModes/medium/mediumMode.pressed:
 		globalVariables.ingredientStack["Herb1"] = 3
 		globalVariables.ingredientStack["Herb2"] = 2
 		globalVariables.ingredientStack["Herb3"] = 1
@@ -259,7 +260,7 @@ func _on_arcade_pressed():
 		globalVariables.ingredientStack["Salt2"] = 2
 		globalVariables.ingredientStack["Salt3"] = 1
 		globalVariables.ingredientMult = (globalVariables.n / 18) * 0.5
-	elif $edge/menu/arcade/arcade/population/populationModes/low/lowMode.pressed:
+	elif $background/edge/menu/arcade/arcade/population/populationModes/low/lowMode.pressed:
 		globalVariables.ingredientStack["Herb1"] = 5
 		globalVariables.ingredientStack["Herb2"] = 3
 		globalVariables.ingredientStack["Herb3"] = 1
@@ -274,15 +275,18 @@ func _on_arcade_pressed():
 	for i in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i] * globalVariables.ingredientMult
 
-	if $edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode.pressed:
-		globalVariables.lvlUP["Nothing"] = empty * 0.75
-		globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.75
-		globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult
-		globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
-	elif $edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode.pressed:
-		globalVariables.lvlUP["Nothing"] = empty * 0.3
-		globalVariables.lvlUP["2"] = globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3
-		globalVariables.lvlUP["3"] = globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75
-		globalVariables.lvlUP["4"] = globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult
+	if $background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode.pressed:
+		globalVariables.lvlUP["Nothing"] = int(empty * 0.75)
+		
+		globalVariables.lvlUP["1"] = int(empty * 0.75)
+		globalVariables.lvlUP["2"] = int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.75)
+		globalVariables.lvlUP["3"] = int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult)
+		globalVariables.lvlUP["4"] = int(globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult)
+	elif $background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode.pressed:
+		globalVariables.lvlUP["Nothing"] = int(empty * 0.3)
+		globalVariables.lvlUP["1"] = int(empty * 0.3)
+		globalVariables.lvlUP["2"] = int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3)
+		globalVariables.lvlUP["3"] = int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75)
+		globalVariables.lvlUP["4"] = int(globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult)
 	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
