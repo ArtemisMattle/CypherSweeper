@@ -11,7 +11,8 @@ func _ready():
 	signalBus.turnSound.connect(turnSFX)
 	signalBus.upsane.connect(dead)
 	iniSan=globalVariables.sanity
-	$gameOver/centerer/gameOver/end.text = "Game Over!"
+	$gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
+	globalVariables.paused = false
 
 func lvl1():
 	globalVariables.level[globalVariables.lvl1] = 1
@@ -66,11 +67,22 @@ func uncover(ingredient: String):
 				globalVariables.sanity -= damage[3]
 				signalBus.upsane.emit()
 		"Flamel":
-			if globalVariables.uncovered < globalVariables.n - 1:
+			if globalVariables.uncovered < globalVariables.n:
 				globalVariables.sanity -= damage[6]
 				signalBus.upsane.emit()
 			else:
-				$gameOver/centerer/gameOver/end.text = "You Won!"
+				globalVariables.paused = true
+				var time: float = $timer.t
+				var s: float = 0
+				if globalVariables.lostsanity == 0:
+					globalVariables.scoreMult *= sqrt(2)
+				globalVariables.scoreMult *= 3 * (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
+				for i in xp:
+					s += xp[i]
+				$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
+				$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
+				$gameOver/centerer/gameOver/score.text += str(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity) + " Points"
+				$gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 				$gameOver.visible = true
 	print(xp)
 	if globalVariables.level["Shroom"] < 1:
@@ -105,9 +117,9 @@ func lvlUp(ingredient: String):
 func Flamel():
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel.png")
 
-
 func _on_pause_button_toggled(toggled_on: bool) -> void:
 	$pauseMenu.visible = toggled_on
+	globalVariables.paused = toggled_on
 
 func _on_settings_pressed() -> void:
 	$pauseMenu/centerer/settings.visible = true
@@ -134,7 +146,15 @@ func _on_normal_mode_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
+func _on_return_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func turnSFX():
+	$turnSFX.play()
+
 func dead():
+	globalVariables.lostsanity += iniSan - globalVariables.sanity
+	iniSan = globalVariables.sanity
 	var t = $music.get_playback_position()
 	match globalVariables.sanity / 10:
 		9: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 100 - 90.wav")
@@ -149,11 +169,16 @@ func dead():
 		0: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 9 - 0.wav")
 	$music.play(t)
 	if globalVariables.sanity <= 0:
+		globalVariables.paused = true
+		var time: float = $timer.t
+		var s: float = 0
+		globalVariables.scoreMult *= (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
+		for i in xp:
+			s += xp[i]
+		$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
+		$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
+		$gameOver/centerer/gameOver/score.text += str(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult - globalVariables.lostsanity)) + " Points"
 		$gameOver.visible = true
-
-
-func _on_return_pressed():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-func turnSFX():
-	$turnSFX.play()
+		
+		globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
+		globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")

@@ -1,6 +1,8 @@
 extends Node2D
 
 
+func _ready() -> void:
+	$background/edge/menu/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 
 func _on_play_story_pressed() -> void:
 	match $background/edge/menu/mainbuttons/playStory.text:
@@ -46,18 +48,18 @@ func _on_credits_pressed() -> void:
 			openTitle()
 
 func _on_play_arcade_pressed():
-		match $background/edge/menu/mainbuttons/playArcade.text:
-			"Play Arcade":
-				$background/edge/menu/mainbuttons/playArcade.text = "Exit"
-				closeTitle()
-				closeSetting()
-				closeLvlSelect()
-				closeCredits()
-				openArcade()
-			"Exit":
-				closeArcade()
-				openTitle()
-	
+	match $background/edge/menu/mainbuttons/playArcade.text:
+		"Play Arcade":
+			$background/edge/menu/mainbuttons/playArcade.text = "Exit"
+			closeTitle()
+			closeSetting()
+			closeLvlSelect()
+			closeCredits()
+			openArcade()
+		"Exit":
+			closeArcade()
+			openTitle()
+
 func closeTitle():
 	$background/edge/menu/title.visible = false
 
@@ -245,6 +247,7 @@ func _startLvl(level) -> void:
 
 
 func _on_arcade_pressed():
+	globalVariables.scoreMult = 1
 	globalVariables.size = $background/edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
@@ -286,16 +289,14 @@ func _on_arcade_pressed():
 		empty -= int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
 
 	if $background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode.button_pressed:
-		globalVariables.lvlUP["Nothing"] = int(empty * 0.75)
+		globalVariables.lvlUP["Nothing"] = int(empty * 0.5)
 		globalVariables.lvlUP["1"] = clamp(int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.4), 1, 9999)
 		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 1), globalVariables.lvlUP["1"] + 1, 9999)
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 3), globalVariables.lvlUP["2"] + 1, 9999)
+		globalVariables.scoreMult *= 5
 	elif $background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode.button_pressed:
 		globalVariables.lvlUP["Nothing"] = int(empty * 0.2)
 		globalVariables.lvlUP["1"] = clamp(int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.1), 1, 9999)
 		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.6), globalVariables.lvlUP["1"] + 1, 9999)
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 3), globalVariables.lvlUP["2"] + 1, 9999)
-	print(globalVariables.n)
-	print(empty)
-	print(globalVariables.lvlUP)
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")

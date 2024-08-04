@@ -60,7 +60,6 @@ func populate():
 	for i in ingredientStack:
 		if i != "Flamel":
 			ingredientStack[i] = int(ingredientStack[i] * ingredientMult)
-	print(ingredientStack)
 	while 1:
 		if y == ingredientStack.size():
 			break
