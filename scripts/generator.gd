@@ -7,15 +7,13 @@ var ends: Array[int]
 var pos: Array
 var hex = preload("res://scenes/hex.tscn")
 signal talkToNeighbor(ownpos: int, owningr: int, neighborpos:int)
-var ingredientMult
 var ingredientStack
 
 
 
 func _ready():
-	size=globalVariables.size
-	ingredientStack=globalVariables.ingredientStack
-	ingredientMult=globalVariables.ingredientMult
+	size = globalVariables.size
+	ingredientStack = globalVariables.ingredientStack.duplicate()
 	
 	for i in globalVariables.uncoveredIngred:
 		globalVariables.uncoveredIngred[i] = 0
@@ -57,9 +55,6 @@ func def_hex():
 
 func populate():
 	var y: int = 0
-	for i in ingredientStack:
-		if i != "Flamel":
-			ingredientStack[i] = int(ingredientStack[i] * ingredientMult)
 	while 1:
 		if y == ingredientStack.size():
 			break

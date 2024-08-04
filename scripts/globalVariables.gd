@@ -50,6 +50,8 @@ var scoreMult: float = 1
 var cursor
 var click
 
+
+#cursor curser
 func _ready() -> void:
 	cursor = load("res://assets/textures/cursors/pincher.png")
 	click= load("res://assets/textures/cursors/pincherCl.png")

@@ -15,9 +15,10 @@ func _ready():
 	globalVariables.paused = false
 
 func lvl1():
-	globalVariables.level[globalVariables.lvl1] = 1
-	xp[globalVariables.lvl1] = globalVariables.lvlUP["1"]
-	lvlUp(globalVariables.lvl1)
+	if globalVariables.level[globalVariables.lvl1] < 1:
+		globalVariables.level[globalVariables.lvl1] = 1
+		xp[globalVariables.lvl1] = globalVariables.lvlUP["1"]
+		lvlUp(globalVariables.lvl1)
 
 func uncover(ingredient: String):
 	match ingredient:
@@ -84,7 +85,8 @@ func uncover(ingredient: String):
 				$gameOver/centerer/gameOver/score.text += str(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity) + " Points"
 				$gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 				$gameOver.visible = true
-	print(xp)
+	if globalVariables.level["Herb"] < 1:
+		xp["Herb"] += randi_range(0, 7) / 4
 	if globalVariables.level["Shroom"] < 1:
 		xp["Shroom"] += randi_range(0, 7) / 4
 	if globalVariables.level["Salt"] < 1:
@@ -98,6 +100,34 @@ func uncover(ingredient: String):
 	if xp["Salt"] >= globalVariables.lvlUP[str(globalVariables.level["Salt"]+1)]:
 		globalVariables.level["Salt"] += 1
 		lvlUp("Salt")
+	var ingredientCheck: int = 0
+	var maxCheck: int = 0 #prevent no right moves scenarios
+	for i in globalVariables.ingredientStack:
+		if globalVariables.uncoveredIngred[i] == globalVariables.ingredientStack[i]:
+			if i.ends_with("1"):
+				ingredientCheck += 1
+	if ingredientCheck > maxCheck:
+		maxCheck = ingredientCheck
+		for i in globalVariables.level:
+			if globalVariables.level[i] >= 1:
+				ingredientCheck -= 1
+		if ingredientCheck >= 0:
+			var ing = ["Herb", "Shroom", "Salt"]
+			var x: int = randi_range(0, ing.size()-1)
+			var y: int = 0
+			while true:
+				if y == ing.size():
+					break
+				if globalVariables.level[ing[x]] == 0:
+					globalVariables.lvl1 = ing[x]
+					lvl1()
+					break
+				else:
+					y += 1
+					if x > 0:
+						x -= 1
+					else:
+						x = ing.size()-1
 
 func lvlUp(ingredient: String):
 	match ingredient:
