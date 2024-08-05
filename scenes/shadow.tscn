@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhwnnu0c8x3ca"]
 
-[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/flamel.png" id="1_iifh7"]
+[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel.png" id="1_iifh7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gi2fv"]
 blend_mode = 1
