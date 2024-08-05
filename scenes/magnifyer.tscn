@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://tg4ua3sl8uuw"]
+
+[ext_resource type="Texture2D" uid="uid://cdeeu7rv5218x" path="res://assets/textures/tools/magnifyer.png" id="1_l5ysi"]
+[ext_resource type="Script" path="res://scripts/magnifyer.gd" id="2_ub72d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o7e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1bet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hx0r"]
+
+[node name="Magnifyer" type="Sprite2D"]
+position = Vector2(1216, 309)
+texture = ExtResource("1_l5ysi")
+script = ExtResource("2_ub72d")
+
+[node name="pickUp" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="pickCircle" type="CollisionShape2D" parent="pickUp"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_6o7e2")
+
+[node name="pickHandle" type="CollisionShape2D" parent="pickUp"]
+position = Vector2(-45, 45)
+rotation = 0.785398
+scale = Vector2(0.7, 1.5)
+shape = SubResource("RectangleShape2D_t1bet")
+
+[node name="uncover" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+metadata/enabled = false
+
+[node name="uncoverCircle" type="CollisionShape2D" parent="uncover"]
+scale = Vector2(3.7, 3.7)
+shape = SubResource("CircleShape2D_7hx0r")
+debug_color = Color(0.867084, 0.195275, 0.729305, 0.42)
+
+[connection signal="input_event" from="pickUp" to="." method="_on_pick_up_input_event"]

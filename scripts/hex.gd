@@ -160,3 +160,7 @@ func colourMode():
 		$colourMask/colourHerb.texture = load("res://assets/textures/button/buttonColourHerb.tres")
 		$colourMask/colourShroom.texture = load("res://assets/textures/button/buttonColourShroom.tres")
 		$colourMask/colourSalt.texture = load("res://assets/textures/button/buttonColourSalt.tres")
+
+func _on_mag_turner_body_entered(body: Node2D) -> void:
+	if body.get_meta("enabled"):
+		turn()

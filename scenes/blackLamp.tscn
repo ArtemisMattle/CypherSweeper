@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://crmneax0l255r"]
+
+[ext_resource type="Texture2D" uid="uid://bbrd1q1we6cxl" path="res://assets/textures/tools/xLamp.png" id="1_pjamj"]
+[ext_resource type="Script" path="res://scripts/blackLamp.gd" id="2_gg56c"]
+
+[sub_resource type="Gradient" id="Gradient_7dlqb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.493506, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.72549, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kqr2x"]
+gradient = SubResource("Gradient_7dlqb")
+width = 420
+height = 420
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_talsp"]
+
+[node name="blackLamp" type="Sprite2D"]
+texture = ExtResource("1_pjamj")
+script = ExtResource("2_gg56c")
+
+[node name="blackLight" type="PointLight2D" parent="."]
+light_mask = 2
+color = Color(0.114028, 0.000124731, 0.328244, 1)
+energy = 16.0
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_kqr2x")
+
+[node name="pickUp" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="pickUpArea" type="CollisionShape2D" parent="pickUp"]
+position = Vector2(-8, -9)
+rotation = -2.40157
+scale = Vector2(3, 5)
+shape = SubResource("CapsuleShape2D_talsp")
+
+[connection signal="input_event" from="pickUp" to="." method="_on_pick_up_input_event"]

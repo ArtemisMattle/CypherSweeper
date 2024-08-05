@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=25 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://cqyvf3fho626h" path="res://scenes/timer.tscn" id="15_86skq"]
 [ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
+[ext_resource type="PackedScene" uid="uid://crmneax0l255r" path="res://scenes/blackLamp.tscn" id="22_gfast"]
+[ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
+[ext_resource type="PackedScene" uid="uid://dhwnnu0c8x3ca" path="res://scenes/shadow.tscn" id="24_vpkae"]
 
 [node name="main2" type="Node2D"]
 
@@ -578,6 +581,15 @@ horizontal_alignment = 1
 autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="blackLamp" parent="." instance=ExtResource("22_gfast")]
+position = Vector2(1214, 301)
+
+[node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
+position = Vector2(1215, 183)
+
+[node name="shadow" parent="." instance=ExtResource("24_vpkae")]
+position = Vector2(1229, 479)
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
