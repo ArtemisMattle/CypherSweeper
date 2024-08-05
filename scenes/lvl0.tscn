@@ -586,7 +586,7 @@ text_overrun_behavior = 3
 position = Vector2(1214, 301)
 
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
-position = Vector2(1215, 183)
+position = Vector2(1200, 164)
 
 [node name="shadow" parent="." instance=ExtResource("24_vpkae")]
 position = Vector2(1229, 479)
