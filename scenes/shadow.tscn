@@ -1,18 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhwnnu0c8x3ca"]
+[gd_scene load_steps=4 format=3 uid="uid://dhwnnu0c8x3ca"]
 
 [ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel.png" id="1_iifh7"]
+[ext_resource type="Texture2D" uid="uid://dtrxh0o8kvcfi" path="res://assets/textures/ingredients/shadow/delight.png" id="2_4fv8q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gi2fv"]
 blend_mode = 1
 light_mode = 2
-
-[sub_resource type="Gradient" id="Gradient_efwlq"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2qxm5"]
-gradient = SubResource("Gradient_efwlq")
-width = 32
-height = 32
 
 [node name="shadow" type="Sprite2D"]
 clip_children = 2
@@ -24,4 +17,4 @@ texture = ExtResource("1_iifh7")
 light_mask = 0
 blend_mode = 1
 range_item_cull_mask = 4
-texture = SubResource("GradientTexture2D_2qxm5")
+texture = ExtResource("2_4fv8q")
