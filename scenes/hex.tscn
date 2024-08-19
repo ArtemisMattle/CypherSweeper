@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcbdismjdvf2e"]
+[gd_scene load_steps=17 format=3 uid="uid://bcbdismjdvf2e"]
 
 [ext_resource type="Script" path="res://scripts/hex.gd" id="1_s1b5u"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="2_skg66"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b8uf5qa7kcu3w" path="res://assets/textures/button/buttonhexPress.png" id="5_oi06e"]
 [ext_resource type="Texture2D" uid="uid://bkvw6u361pa66" path="res://assets/textures/button/buttonhexHover.png" id="6_7871n"]
 [ext_resource type="BitMap" uid="uid://d3rgfsdiogqv6" path="res://assets/textures/button/buttonhexClickMask.bmp" id="7_t1nj5"]
+[ext_resource type="Texture2D" uid="uid://c4cbvpj58gsql" path="res://assets/textures/ingredients/colourblindIcons/leaf_smol.png" id="8_1jf5c"]
+[ext_resource type="Texture2D" uid="uid://w100vlif4k7y" path="res://assets/textures/ingredients/colourblindIcons/shroom_smol.png" id="9_va2dq"]
+[ext_resource type="Texture2D" uid="uid://bvwelnmfybbmw" path="res://assets/textures/ingredients/colourblindIcons/salt_smol.png" id="10_cbw7m"]
 
 [sub_resource type="Image" id="Image_ei3xi"]
 data = {
@@ -22,43 +25,6 @@ image = SubResource("Image_ei3xi")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46kun"]
 load_path = "res://.godot/imported/buttonhexColour.png-7ad58670276a36b2e8aacd001cb451c5.ctex"
-
-[sub_resource type="Gradient" id="Gradient_4khxp"]
-offsets = PackedFloat32Array(0, 0.249042, 0.56705, 0.804598)
-colors = PackedColorArray(0, 0.619608, 0, 1, 0, 0.56847, 0, 1, 0.0196078, 0.890196, 0, 0.407843, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3r3cs"]
-gradient = SubResource("Gradient_4khxp")
-width = 48
-height = 48
-fill = 1
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-metadata/_snap_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_pgmi3"]
-offsets = PackedFloat32Array(0, 0.291188, 0.509579, 1)
-colors = PackedColorArray(0.74891, 0.725952, 0.424114, 1, 0.709986, 0.621514, 0.422784, 1, 0.650391, 0.587967, 0.478974, 0.364706, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_2y25d"]
-gradient = SubResource("Gradient_pgmi3")
-width = 48
-height = 48
-fill = 1
-fill_from = Vector2(1, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="Gradient" id="Gradient_ka60t"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.176245, 0.386973, 0.827586)
-colors = PackedColorArray(0, 0.0970533, 0.999999, 1, 0.0247717, 0, 0.838998, 1, 0.137255, 0.219608, 1, 0.360784, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gssv1"]
-gradient = SubResource("Gradient_ka60t")
-width = 48
-height = 48
-fill = 2
-fill_from = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_ovmqd"]
 interpolation_mode = 2
@@ -133,20 +99,20 @@ texture = SubResource("CompressedTexture2D_46kun")
 
 [node name="colourHerb" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = SubResource("GradientTexture2D_3r3cs")
+texture = ExtResource("8_1jf5c")
 
 [node name="colourShroom" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = SubResource("GradientTexture2D_2y25d")
+texture = ExtResource("9_va2dq")
 
 [node name="colourSalt" type="Sprite2D" parent="colourMask"]
 visible = false
-texture = SubResource("GradientTexture2D_gssv1")
+texture = ExtResource("10_cbw7m")
 
 [node name="ingredient" type="Sprite2D" parent="."]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="ingredient"]
+[node name="highlight" type="Sprite2D" parent="ingredient"]
 self_modulate = Color(1, 1, 1, 0.521569)
 show_behind_parent = true
 texture_filter = 2

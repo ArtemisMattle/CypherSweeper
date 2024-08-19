@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=22 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="2_hqood"]
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="3_78fr5"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_kg58h"]
-[ext_resource type="Texture2D" uid="uid://c16bsdvo4v1ee" path="res://assets/textures/coffee.png" id="4_l4gvf"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_ttsoy"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="5_cmc5j"]
@@ -21,9 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cqyvf3fho626h" path="res://scenes/timer.tscn" id="15_86skq"]
 [ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
-[ext_resource type="PackedScene" uid="uid://crmneax0l255r" path="res://scenes/blackLamp.tscn" id="22_gfast"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
-[ext_resource type="PackedScene" uid="uid://dhwnnu0c8x3ca" path="res://scenes/shadow.tscn" id="24_vpkae"]
 
 [node name="main2" type="Node2D"]
 
@@ -433,18 +430,6 @@ position = Vector2(640, 360)
 position_smoothing_enabled = true
 script = ExtResource("1_lfbyx")
 
-[node name="Coffee" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(401, 533)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_l4gvf")
-
-[node name="Coffee2" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(726, 287)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_l4gvf")
-
 [node name="generator" type="Node2D" parent="."]
 position = Vector2(100, 0)
 script = ExtResource("1_jcres")
@@ -582,14 +567,8 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="blackLamp" parent="." instance=ExtResource("22_gfast")]
-position = Vector2(1214, 301)
-
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
 position = Vector2(1200, 164)
-
-[node name="shadow" parent="." instance=ExtResource("24_vpkae")]
-position = Vector2(1229, 479)
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]

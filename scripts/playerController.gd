@@ -11,7 +11,6 @@ func _ready():
 	signalBus.turnSound.connect(turnSFX)
 	signalBus.upsane.connect(dead)
 	iniSan=globalVariables.sanity
-	$gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
 	globalVariables.paused = false
 
 func lvl1():
@@ -82,7 +81,7 @@ func uncover(ingredient: String):
 					s += xp[i]
 				$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
 				$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
-				$gameOver/centerer/gameOver/score.text += str(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity) + " Points"
+				$gameOver/centerer/gameOver/score.text += str(clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)) + " Points"
 				$gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 				$gameOver.visible = true
 	if globalVariables.level["Herb"] < 1:
@@ -103,8 +102,8 @@ func uncover(ingredient: String):
 	var ingredientCheck: int = 0
 	var maxCheck: int = 0 #prevent no right moves scenarios
 	for i in globalVariables.ingredientStack:
-		if globalVariables.uncoveredIngred[i] == globalVariables.ingredientStack[i]:
-			if i.ends_with("1"):
+		if i.ends_with("1"):
+			if globalVariables.uncoveredIngred[i] == globalVariables.ingredientStack[i]:
 				ingredientCheck += 1
 	if ingredientCheck > maxCheck:
 		maxCheck = ingredientCheck
@@ -205,6 +204,7 @@ func dead():
 		globalVariables.scoreMult *= (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
 		for i in xp:
 			s += xp[i]
+		$gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
 		$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
 		$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
 		$gameOver/centerer/gameOver/score.text += str(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult - globalVariables.lostsanity)) + " Points"
@@ -212,3 +212,6 @@ func dead():
 		
 		globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 		globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
+
+func score():
+	pass

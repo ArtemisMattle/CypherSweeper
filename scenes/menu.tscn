@@ -49,7 +49,9 @@ theme = ExtResource("2_50dck")
 
 [node name="playStory" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
+tooltip_text = "Coming Soon!"
 theme = ExtResource("2_50dck")
+disabled = true
 text = "Play Story"
 alignment = 0
 
@@ -61,6 +63,7 @@ alignment = 0
 
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
+tooltip_text = "Coming Soon!"
 theme = ExtResource("2_50dck")
 disabled = true
 text = "Play Rogue"
@@ -146,27 +149,6 @@ popup/item_1/text = "Bri'ish"
 popup/item_1/id = 1
 popup/item_2/text = "German"
 popup/item_2/id = 2
-
-[node name="colourblind" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="colourSpace" type="Container" parent="background/edge/menu/settings/settings/colourblind"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="colourblindMode" type="CheckBox" parent="background/edge/menu/settings/settings/colourblind"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-button_pressed = true
-
-[node name="colourblind" type="Label" parent="background/edge/menu/settings/settings/colourblind"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "Colourblind Mode"
 
 [node name="speed" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
 layout_mode = 2
@@ -567,7 +549,6 @@ bus = &"music"
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
-[connection signal="toggled" from="background/edge/menu/settings/settings/colourblind/colourblindMode" to="." method="_on_colourblind_mode_toggled"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
