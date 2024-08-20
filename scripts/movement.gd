@@ -27,8 +27,8 @@ func _unhandled_input(event: InputEvent):
 		pass
 
 func zoom_in():
-	tZoom = max(tZoom - zoomInc, minZoom)
+	tZoom = min(tZoom + zoomInc, maxZoom)
 	set_physics_process(true)
 func zoom_out():
-	tZoom = min(tZoom + zoomInc, maxZoom)
+	tZoom = max(tZoom - zoomInc, minZoom)
 	set_physics_process(true)

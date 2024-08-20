@@ -5,7 +5,7 @@ var lostsanity: int = 0
 var playTime: float = 0
 var paused: bool = false
 var uncoveredIngred: Dictionary = {
-	"Nothing" = 0, 
+	"Nothing0" = 0, 
 	"Herb1" = 0,
 	"Herb2" = 0,
 	"Herb3" = 0,
@@ -15,7 +15,7 @@ var uncoveredIngred: Dictionary = {
 	"Salt1" = 0,
 	"Salt2" = 0,
 	"Salt3" = 0,
-	"Flamel" = 0,}
+	"Flamel5" = 0,}
 var uncovered: int = 0
 var size: int
 var n: int 
@@ -25,7 +25,7 @@ var level: Dictionary = {
 	"Salt" = 0, 
 	"Shadow" = 0}
 var lvlUP: Dictionary = {
-	"Nothing" = 21, 
+	"Nothing0" = 21, 
 	"1" = 5,
 	"2" = 15,
 	"3" = 30,
@@ -44,12 +44,12 @@ var ingredientStack: Dictionary = {
 	"Salt1" = 3,
 	"Salt2" = 0,
 	"Salt3" = 0,
-	"Flamel" = 1,}
+	"Flamel5" = 1,}
 
 var scoreMult: float = 1
-var cursor
-var click
-
+var cursor: Resource
+var click: Resource
+var rngseed: int = 5
 
 #cursor curser
 func _ready() -> void:
@@ -57,7 +57,7 @@ func _ready() -> void:
 	click= load("res://assets/textures/cursors/pincherCl.png")
 	signalBus.upsane.connect(cursedCursor)
 
-func cursedCursor():
+func cursedCursor() -> void:
 	if sanity > 70:
 		cursor = load("res://assets/textures/cursors/pincher.png")
 		click = load("res://assets/textures/cursors/pincherCl.png")
@@ -68,11 +68,11 @@ func cursedCursor():
 		cursor = load("res://assets/textures/cursors/hand.png")
 		click = load("res://assets/textures/cursors/handCl.png")
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		mouseHandler(event)
 
-func mouseHandler(event):
+func mouseHandler(event: InputEvent) -> void:
 	if event.pressed and event.button_index== 1: #1-> LMB, 2 -> RMB
 		Input.set_custom_mouse_cursor(click)
 	if event.is_released() and event.button_index== 1: #1-> LMB, 2 -> RMB

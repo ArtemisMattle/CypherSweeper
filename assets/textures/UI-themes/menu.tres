@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://8qfvurhug2dj"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://8qfvurhug2dj"]
 
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="2_bdflg"]
@@ -34,6 +34,12 @@ corner_radius_bottom_left = 7
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0nxmo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34l00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c4oyy"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvfca"]
 
@@ -108,6 +114,10 @@ PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxEmpty_0nxmo")
 PopupMenu/styles/panel = ExtResource("12_pc05t")
 PopupMenu/styles/separator = SubResource("StyleBoxEmpty_34l00")
 SpinBox/icons/updown = ExtResource("15_n6lhu")
+TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+TooltipLabel/constants/outline_size = 8
+TooltipLabel/font_sizes/font_size = 24
+TooltipPanel/styles/panel = SubResource("StyleBoxEmpty_c4oyy")
 VSlider/icons/grabber = ExtResource("7_jk67j")
 VSlider/icons/grabber_disabled = ExtResource("7_jk67j")
 VSlider/icons/grabber_highlight = ExtResource("8_jr7eq")

@@ -8,7 +8,6 @@ func _ready():
 	signalBus.lvlNothing.connect(lvl1)
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
-	signalBus.turnSound.connect(turnSFX)
 	signalBus.upsane.connect(dead)
 	iniSan=globalVariables.sanity
 	globalVariables.paused = false
@@ -66,7 +65,7 @@ func uncover(ingredient: String):
 			if globalVariables.level["Salt"] < 3:
 				globalVariables.sanity -= damage[3]
 				signalBus.upsane.emit()
-		"Flamel":
+		"Flamel5":
 			if globalVariables.uncovered < globalVariables.n:
 				globalVariables.sanity -= damage[6]
 				signalBus.upsane.emit()
@@ -144,7 +143,7 @@ func lvlUp(ingredient: String):
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
 
 func Flamel():
-	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel.png")
+	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
 
 func _on_pause_button_toggled(toggled_on: bool) -> void:
 	$pauseMenu.visible = toggled_on
@@ -177,9 +176,6 @@ func _on_exit_pressed() -> void:
 
 func _on_return_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-
-func turnSFX():
-	$turnSFX.play()
 
 func dead():
 	globalVariables.lostsanity += iniSan - globalVariables.sanity

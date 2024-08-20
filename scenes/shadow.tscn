@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhwnnu0c8x3ca"]
 
-[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel.png" id="1_iifh7"]
+[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel5.png" id="1_iifh7"]
 [ext_resource type="Texture2D" uid="uid://dtrxh0o8kvcfi" path="res://assets/textures/ingredients/shadow/delight.png" id="2_4fv8q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gi2fv"]

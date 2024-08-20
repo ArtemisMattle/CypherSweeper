@@ -542,6 +542,7 @@ text = "Level 9"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_5q6yt")
+volume_db = -12.0
 autoplay = true
 bus = &"music"
 

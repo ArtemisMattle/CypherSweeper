@@ -135,6 +135,7 @@ size_flags_horizontal = 10
 expand_mode = 1
 
 [node name="shadow" type="HBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2"]
+visible = false
 layout_mode = 2
 
 [node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/shadow"]
@@ -416,12 +417,9 @@ text = "back to Menu"
 position = Vector2(1215, 71)
 metadata/analog = true
 
-[node name="turnSFX" type="AudioStreamPlayer" parent="UI/player"]
-stream = ExtResource("15_twelr")
-max_polyphony = 21
-
 [node name="music" type="AudioStreamPlayer" parent="UI/player"]
 stream = ExtResource("16_ogrh8")
+volume_db = -12.0
 autoplay = true
 bus = &"music"
 
@@ -567,6 +565,14 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
 
+[node name="turnTimer" type="Timer" parent="generator"]
+wait_time = 0.1
+
+[node name="turnSFX" type="AudioStreamPlayer" parent="generator"]
+stream = ExtResource("15_twelr")
+max_polyphony = 21
+bus = &"sfx"
+
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
 position = Vector2(1200, 164)
 
@@ -579,3 +585,4 @@ position = Vector2(1200, 164)
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/return/returnButton" to="UI/player" method="_on_return_button_pressed"]
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_return_pressed"]
+[connection signal="timeout" from="generator/turnTimer" to="generator" method="_on_turn_timer_timeout"]
