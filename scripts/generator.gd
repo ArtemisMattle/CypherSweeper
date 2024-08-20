@@ -34,12 +34,8 @@ func _ready()-> void:
 	$PanelContainer.size = Vector2i(width, hight)
 	get_viewport()
 	get_ends()
-	#signalBus.talkToNeighbor.connect(connector)
 	def_hex()
 	populate()
-	signalBus.populated.emit()
-	#signalBus.turnNeighbor.connect(turner)
-
 
 func get_ends() -> void:# calculates where the line breaks in the hex grid
 	var x: int = 1
@@ -63,7 +59,7 @@ func positionate(cell: gridCell) -> void: # positionates the gridCells to make a
 		@warning_ignore("integer_division")
 		cell.cell.translate(Vector2(cell.lpos*46+(cell.line-ends.size()/2)*23,cell.line*35))
 
-func def_hex() -> void:# generates the gridcells with the position
+func def_hex() -> void:# generates the gridcells with the position and their neigborhood
 	var line: int = 0 # initiates the line counter
 	for i: int in globalVariables.n:
 		pos.append(gridCell.new()) # makes a gridCell for each position
@@ -79,6 +75,7 @@ func def_hex() -> void:# generates the gridcells with the position
 		positionate(pos[i])
 		pos[i].initiate()
 		pos[i].cell.get_node("colour/button").pressed.connect(reveal.bind(i))
+		pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
 		var y:String = "Nothing0"
 		
 		# to make list of the neighbors, a generic calculation of all 6 possible neighbors is used
@@ -148,12 +145,10 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 		shroom.visible = "Shroom" in pos[i].eigenIndicator
 		salt.visible = "Salt" in pos[i].eigenIndicator
 
-#func connector(ownpos: int, owningr: String, neighborpos: int): #to be replaced
-#	pos[neighborpos].talk_to_neighbor(ownpos, owningr)
+func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
+	if body.get_meta("enabled"):
+		reveal(i)
 
-#func turner(neighborpos: int):# turns a gridcell, to be replaced
-#	pos[neighborpos].turn()
-	
 func reveal(i:int) -> void: # reveals a gridCell
 	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
 		pos[i].revealed = true
@@ -187,7 +182,6 @@ func reveal(i:int) -> void: # reveals a gridCell
 		else:
 			pos[i].sprIng.visible = true # shows the ingredient otherwise
 		pos[i].cell.get_node("indicator").visible = true # shows the indicators for neighboring ingredients
-
 
 func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time passed, look at func reveal
 	tTimer.wait_time = 0.05 + randf_range(0.03, 0.08)
@@ -241,7 +235,6 @@ func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time pass
 			toBeRevealed.append(revSoon[randi_range(0, revSoon.size()-1)])
 		else:
 			openRevealers.erase(i)
-
 
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors

@@ -123,4 +123,3 @@ scale = Vector2(1.7, 1.7)
 shape = SubResource("CircleShape2D_f843s")
 
 [connection signal="pressed" from="colour/button" to="." method="_on_button_pressed"]
-[connection signal="body_entered" from="magTurner" to="." method="_on_mag_turner_body_entered"]
