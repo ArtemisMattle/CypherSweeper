@@ -169,7 +169,6 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-disabled = true
 button_group = ExtResource("13_l1v7u")
 
 [node name="zippy" type="Label" parent="background/edge/menu/settings/settings/speed/speedModes/zippy"]

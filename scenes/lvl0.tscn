@@ -231,27 +231,6 @@ popup/item_1/id = 1
 popup/item_2/text = "German"
 popup/item_2/id = 2
 
-[node name="colourblind" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="colourSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="colourblindMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-button_pressed = true
-
-[node name="colourblind" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/colourblind"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "Colourblind Mode"
-
 [node name="speed" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2
 size_flags_vertical = 2
@@ -271,7 +250,6 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-disabled = true
 button_group = ExtResource("14_pdgxm")
 
 [node name="zippy" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy"]
@@ -578,7 +556,6 @@ position = Vector2(1200, 164)
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
-[connection signal="toggled" from="UI/player/pauseMenu/centerer/settings/settings/colourblind/colourblindMode" to="UI/player" method="_on_colourblind_mode_toggled"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
