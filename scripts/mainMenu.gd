@@ -1,98 +1,88 @@
 extends Node2D
 
+# save buttons to vars for further use
+@onready var storyBtn=$background/edge/menu/mainbuttons/playStory
+@onready var arcadeBtn=$background/edge/menu/mainbuttons/playArcade
+@onready var settingsBtn=$background/edge/menu/mainbuttons/Settings
+@onready var creditsBtn=$background/edge/menu/mainbuttons/Credits
+@onready var rogueBtn=$background/edge/menu/mainbuttons/playRogue
+
+# save menu pages to vars for further use
+@onready var storyPg=$background/edge/menu/levelSelect
+@onready var arcadePg=$background/edge/menu/arcade
+@onready var settingsPg=$background/edge/menu/settings
+@onready var creditsPg=$background/edge/menu/credits
+@onready var roguePg=null #TODO put rogue page ref here when implemented
+@onready var titlePg=$background/edge/menu/title
 
 func _ready() -> void:
 	$background/edge/menu/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
+	_toTitle()
 
-func _on_play_story_pressed() -> void:
-	match $background/edge/menu/mainbuttons/playStory.text:
-		"Play Story":
-			closeTitle()
-			closeCredits()
-			closeSetting()
-			closeArcade()
-			openLvlSelect()
-			$background/edge/menu/mainbuttons/playStory.text="Exit"
-		"Exit":
-			openTitle()
-			closeCredits()
-			closeSetting()
-			closeLvlSelect()
-		
-	#get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
+func exitPg() -> void:
+	storyPg.visible=false
+	arcadePg.visible=false
+	settingsPg.visible=false
+	creditsPg.visible=false
+	#roguePG.visible=false #uncomment when implemented
+	titlePg.visible=false
 	
-func _on_settings_pressed() -> void:
-	match $background/edge/menu/mainbuttons/Settings.text:
-		"Settings":
-			$background/edge/menu/mainbuttons/Settings.text = "Exit"
-			closeTitle()
-			closeCredits()
-			closeLvlSelect()
-			closeArcade()
-			openSetting()
-		"Exit":
-			closeSetting()
-			openTitle()
+	disconnectBtnFunc(storyBtn.pressed)
+	disconnectBtnFunc(arcadeBtn.pressed)
+	disconnectBtnFunc(settingsBtn.pressed)
+	#disconnectBtnFunc(rogueBtn.pressed)
+	disconnectBtnFunc(creditsBtn.pressed)
+	
+	arcadeBtn.pressed.connect(_toArcade)
+	storyBtn.pressed.connect(_toStory)
+	creditsBtn.pressed.connect(_toCredits)
+	#rogueBtn.pressed.connect(_toRogue)
+	settingsBtn.pressed.connect(_toSettings)
+	arcadeBtn.text="Play Arcade"
+	storyBtn.text="Play Story"
+	creditsBtn.text="Credits"
+	settingsBtn.text="Settings"
+	#rogueBtn.text="Play Rogue"
 
-func _on_credits_pressed() -> void:
-	match $background/edge/menu/mainbuttons/Credits.text:
-		"Credits":
-			$background/edge/menu/mainbuttons/Credits.text = "Exit"
-			closeTitle()
-			closeSetting()
-			closeLvlSelect()
-			closeArcade()
-			openCredits()
-		"Exit":
-			closeCredits()
-			openTitle()
+func _toTitle() -> void:
+	exitPg()
+	titlePg.visible=true
+	
+func disconnectBtnFunc(btn:Signal) -> void:
+	for i in btn.get_connections():
+		btn.disconnect(i.callable)
+		
 
-func _on_play_arcade_pressed():
-	match $background/edge/menu/mainbuttons/playArcade.text:
-		"Play Arcade":
-			$background/edge/menu/mainbuttons/playArcade.text = "Exit"
-			closeTitle()
-			closeSetting()
-			closeLvlSelect()
-			closeCredits()
-			openArcade()
-		"Exit":
-			closeArcade()
-			openTitle()
+func _toRogue() -> void:
+	exitPg()
+	roguePg.visible=true
+	rogueBtn.pressed.connect(_toTitle)
+	rogueBtn.text="Back"
 
-func closeTitle():
-	$background/edge/menu/title.visible = false
+func _toSettings() -> void:
+	exitPg()
+	settingsPg.visible=true
+	settingsBtn.pressed.connect(_toTitle)
+	settingsBtn.text="Back"
 
-func openTitle():
-	$background/edge/menu/title.visible = true
 
-func closeLvlSelect():
-	$background/edge/menu/levelSelect.visible=false
-	$background/edge/menu/mainbuttons/playStory.text="Play Story"
-
-func openLvlSelect():
-	$background/edge/menu/levelSelect.visible=true
-
-func closeSetting():
-	$background/edge/menu/settings.visible = false
-	$background/edge/menu/mainbuttons/Settings.text = "Settings"
-
-func openSetting():
-	$background/edge/menu/settings.visible = true
-
-func closeCredits():
-	$background/edge/menu/credits.visible = false
-	$background/edge/menu/mainbuttons/Credits.text = "Credits"
-
-func openCredits():
-	$background/edge/menu/credits.visible = true
-
-func closeArcade():
-	$background/edge/menu/mainbuttons/playArcade.text = "Play Arcade"
-	$background/edge/menu/arcade.visible = false
-
-func openArcade():
-	$background/edge/menu/arcade.visible = true
+func _toArcade() -> void:
+	exitPg()
+	arcadePg.visible=true
+	arcadeBtn.pressed.connect(_toTitle)
+	arcadeBtn.text="Back"
+	
+func _toStory() -> void:
+	exitPg()
+	storyPg.visible=true
+	storyBtn.pressed.connect(_toTitle)
+	storyBtn.text="Back"
+	
+func _toCredits() -> void:
+	exitPg()
+	creditsPg.visible=true
+	creditsBtn.pressed.connect(_toTitle)
+	creditsBtn.text="Back"
 
 func _on_colourblind_mode_toggled(toggled_on):
 	settings.colourblindMode = toggled_on
