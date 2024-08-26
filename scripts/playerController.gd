@@ -10,7 +10,11 @@ func _ready() -> void:
 	signalBus.lvlFlamel.connect(Flamel)
 	signalBus.upsane.connect(dead)
 	iniSan=globalVariables.sanity
+	
+	#pause button setup
 	globalVariables.paused = false
+	$pause/centerer/stacker/pauseButton.disabled=false
+	$pause.visible=true
 
 func lvl1() -> void:
 	if globalVariables.level[globalVariables.lvl1] < 1:
@@ -113,6 +117,8 @@ func uncover(ingredient: String) -> void:
 				$gameOver/centerer/gameOver/score.text += str(clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)) + " Points"
 				$gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 				$gameOver.visible = true
+				$pause/centerer/stacker/pauseButton.disabled=true
+				$pause.visible=false
 	if globalVariables.level["Herb"] < 1:
 		@warning_ignore("integer_division")
 		xp["Herb"] += randi_range(0, 7) / 4
@@ -229,6 +235,8 @@ func dead() -> void:
 	$music.play(t)
 	if globalVariables.sanity <= 0:
 		globalVariables.paused = true
+		$pause/centerer/stacker/pauseButton.disabled=true
+		$pause.visible=false
 		var time: float = $timer.t
 		var s: float = 0
 		globalVariables.scoreMult *= (exp(-time * log(2) / (globalVariables.size * 10)) + 1)

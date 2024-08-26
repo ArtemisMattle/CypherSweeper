@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=24 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -21,6 +21,12 @@
 [ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nnxln"]
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_u6srm"]
+events = [SubResource("InputEventKey_nnxln")]
 
 [node name="main2" type="Node2D"]
 
@@ -329,6 +335,7 @@ layout_mode = 2
 [node name="pauseButton" type="TextureButton" parent="UI/player/pause/centerer/stacker"]
 layout_mode = 2
 toggle_mode = true
+shortcut = SubResource("Shortcut_u6srm")
 texture_normal = ExtResource("5_dr3kr")
 texture_pressed = ExtResource("6_g0h4d")
 texture_hover = ExtResource("7_he6di")
