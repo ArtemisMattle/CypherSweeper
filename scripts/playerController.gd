@@ -2,9 +2,9 @@ extends Node
 
 var damage: Array[int] = [1, 7, 13, 21, 30, 50, 101]
 var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
-var iniSan
+var iniSan: int
 
-func _ready():
+func _ready() -> void:
 	signalBus.lvlNothing.connect(lvl1)
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
@@ -12,13 +12,43 @@ func _ready():
 	iniSan=globalVariables.sanity
 	globalVariables.paused = false
 
-func lvl1():
+func lvl1() -> void:
 	if globalVariables.level[globalVariables.lvl1] < 1:
 		globalVariables.level[globalVariables.lvl1] = 1
 		xp[globalVariables.lvl1] = globalVariables.lvlUP["1"]
 		lvlUp(globalVariables.lvl1)
 
-func uncover(ingredient: String):
+func uncovere(ingredient: String) -> void: #workhorse function, determines what ingredient was uncovered and what should be done about it
+	if ingredient == "Flamel5":
+		if globalVariables.uncovered < globalVariables.n:
+			takeDamage(6)
+		else:
+			endGame(true)
+	else:
+		xp[ingredient.left(-1)] += ingredient.right(1).to_int()
+		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
+			takeDamage(ingredient.right(1).to_int())
+
+func takeDamage(level: int) -> void: #TODO modifies the sanity when making mistakes
+	pass
+
+func endGame(win: bool) -> void: #TODO
+	globalVariables.paused = true
+	if win:
+		globalVariables.scoreMult *= 3
+	var score: int = score()
+
+func score() -> int: #TODO
+	var time: float = $timer.t
+	var s: float = 0
+	if globalVariables.lostsanity == 0:
+		globalVariables.scoreMult *= sqrt(2)
+	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size)) * 2 + 1, 1.0, 2.0)
+	for i: int in xp:
+		s += xp[i]
+	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)
+
+func uncover(ingredient: String) -> void:
 	match ingredient:
 		"Herb1":
 			xp["Herb"] += 1
@@ -76,7 +106,7 @@ func uncover(ingredient: String):
 				if globalVariables.lostsanity == 0:
 					globalVariables.scoreMult *= sqrt(2)
 				globalVariables.scoreMult *= 3 * (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
-				for i in xp:
+				for i: int in xp:
 					s += xp[i]
 				$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
 				$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
@@ -84,10 +114,13 @@ func uncover(ingredient: String):
 				$gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 				$gameOver.visible = true
 	if globalVariables.level["Herb"] < 1:
+		@warning_ignore("integer_division")
 		xp["Herb"] += randi_range(0, 7) / 4
 	if globalVariables.level["Shroom"] < 1:
+		@warning_ignore("integer_division")
 		xp["Shroom"] += randi_range(0, 7) / 4
 	if globalVariables.level["Salt"] < 1:
+		@warning_ignore("integer_division")
 		xp["Salt"] += randi_range(0, 7) / 4
 	if xp["Herb"] >= globalVariables.lvlUP[str(globalVariables.level["Herb"]+1)]:
 		globalVariables.level["Herb"] += 1
@@ -100,17 +133,17 @@ func uncover(ingredient: String):
 		lvlUp("Salt")
 	var ingredientCheck: int = 0
 	var maxCheck: int = 0 #prevent no right moves scenarios
-	for i in globalVariables.ingredientStack:
+	for i: String in globalVariables.ingredientStack:
 		if i.ends_with("1"):
 			if globalVariables.uncoveredIngred[i] == globalVariables.ingredientStack[i]:
 				ingredientCheck += 1
 	if ingredientCheck > maxCheck:
 		maxCheck = ingredientCheck
-		for i in globalVariables.level:
+		for i: String in globalVariables.level:
 			if globalVariables.level[i] >= 1:
 				ingredientCheck -= 1
 		if ingredientCheck >= 0:
-			var ing = ["Herb", "Shroom", "Salt"]
+			var ing: Array[String] = ["Herb", "Shroom", "Salt"]
 			var x: int = randi_range(0, ing.size()-1)
 			var y: int = 0
 			while true:
@@ -127,7 +160,7 @@ func uncover(ingredient: String):
 					else:
 						x = ing.size()-1
 
-func lvlUp(ingredient: String):
+func lvlUp(ingredient: String) -> void:
 	match ingredient:
 		"Herb": 
 			$playerInfo/edge/HBoxContainer/VBoxContainer/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
@@ -142,7 +175,7 @@ func lvlUp(ingredient: String):
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
 
-func Flamel():
+func Flamel() -> void:
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
 
 func _on_pause_button_toggled(toggled_on: bool) -> void:
@@ -157,7 +190,7 @@ func _on_return_button_pressed() -> void:
 	$pauseMenu/centerer/pause.visible = true
 	$pauseMenu/centerer/settings.visible = false
 
-func _on_colourblind_mode_toggled(toggled_on):
+func _on_colourblind_mode_toggled(toggled_on: bool) -> void:
 	settings.colourblindMode = toggled_on
 	signalBus.colourchange.emit()
 
@@ -174,13 +207,14 @@ func _on_normal_mode_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-func _on_return_pressed():
+func _on_return_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-func dead():
+func dead() -> void:
 	globalVariables.lostsanity += iniSan - globalVariables.sanity
 	iniSan = globalVariables.sanity
-	var t = $music.get_playback_position()
+	var t: float = $music.get_playback_position()
+	@warning_ignore("integer_division")
 	match globalVariables.sanity / 10:
 		9: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 100 - 90.wav")
 		8: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 89 - 80.wav")
@@ -198,7 +232,7 @@ func dead():
 		var time: float = $timer.t
 		var s: float = 0
 		globalVariables.scoreMult *= (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
-		for i in xp:
+		for i: String in xp:
 			s += xp[i]
 		$gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
 		$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
@@ -209,5 +243,4 @@ func dead():
 		globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 		globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 
-func score():
-	pass
+
