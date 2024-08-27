@@ -28,24 +28,30 @@ func lvl1() -> void:
 func uncovere(ingredient: String) -> void: #workhorse function, determines what ingredient was uncovered and what should be done about it
 	if ingredient == "Flamel5":
 		if globalVariables.uncovered < globalVariables.n:
-			takeDamage(6)
+			takeDamage(6, true, false)
 		else:
 			endGame(true)
 	else:
 		xp[ingredient.left(-1)] += ingredient.right(1).to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
-			takeDamage(ingredient.right(1).to_int())
+			takeDamage(ingredient.right(1).to_int(), true, true)
 
-func takeDamage(level: int) -> void: #TODO modifies the sanity when making mistakes
-	pass
+func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
+	if counts:
+		globalVariables.lostsanity += damage[level]
+	globalVariables.sanity = clampi(globalVariables.sanity - damage[level], 0, 100)
+	
+	if globalVariables.sanity == 0:
+		endGame(false)
 
-func endGame(win: bool) -> void: #TODO
+func endGame(win: bool) -> void: #TODO gets called when the game is done, handles everything after the last 'ingredient'
 	globalVariables.paused = true
+	signalBus.deactivate.emit(false)
 	if win:
 		globalVariables.scoreMult *= 3
 	var score: int = score()
 
-func score() -> int: #TODO
+func score() -> int: #TODO calculates the score
 	var time: float = $timer.t
 	var s: float = 0
 	if globalVariables.lostsanity == 0:
@@ -191,6 +197,7 @@ func Flamel() -> void:
 func _on_pause_button_toggled(toggled_on: bool) -> void:
 	$pauseMenu.visible = toggled_on
 	globalVariables.paused = toggled_on
+	signalBus.deactivate.emit(not toggled_on)
 	#bB.visible=toggled_on
 	
 func _on_settings_pressed() -> void:
@@ -201,9 +208,6 @@ func _on_return_button_pressed() -> void:
 	$pauseMenu/centerer/pause.visible = true
 	$pauseMenu/centerer/settings.visible = false
 
-func _on_colourblind_mode_toggled(toggled_on: bool) -> void:
-	settings.colourblindMode = toggled_on
-	signalBus.colourchange.emit()
 
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
@@ -239,6 +243,7 @@ func dead() -> void:
 		0: $music.stream = load("res://assets/audio/music/level/Main Game Sanity 9 - 0.wav")
 	$music.play(t)
 	if globalVariables.sanity <= 0:
+		signalBus.deactivate.emit(false)
 		globalVariables.paused = true
 		$pause/centerer/stacker/pauseButton.disabled=true
 		$pause.visible=false
