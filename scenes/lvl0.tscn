@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=28 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cqyvf3fho626h" path="res://scenes/timer.tscn" id="15_86skq"]
 [ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
+[ext_resource type="AudioStream" uid="uid://d4mewy6ia5ri0" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.wav" id="17_jmjrs"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_nnxln"]
@@ -27,6 +28,93 @@ keycode = 4194305
 
 [sub_resource type="Shortcut" id="Shortcut_u6srm"]
 events = [SubResource("InputEventKey_nnxln")]
+
+[sub_resource type="Animation" id="Animation_xpd4b"]
+resource_name = "fade1"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("music1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.0, -9.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -9.0, -6.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j0pjy"]
+resource_name = "fade2"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("music2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.0, -9.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music1:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -9.0, -6.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibwr1"]
+_data = {
+"fade1": SubResource("Animation_xpd4b"),
+"fade2": SubResource("Animation_j0pjy")
+}
 
 [node name="main2" type="Node2D"]
 
@@ -401,11 +489,21 @@ text = "back to Menu"
 position = Vector2(1215, 71)
 metadata/analog = true
 
-[node name="music" type="AudioStreamPlayer" parent="UI/player"]
+[node name="music1" type="AudioStreamPlayer" parent="UI/player"]
 stream = ExtResource("16_ogrh8")
-volume_db = -12.0
+volume_db = -6.0
 autoplay = true
 bus = &"music"
+
+[node name="music2" type="AudioStreamPlayer" parent="UI/player"]
+stream = ExtResource("17_jmjrs")
+volume_db = -80.0
+bus = &"music"
+
+[node name="fader" type="AnimationPlayer" parent="UI/player"]
+libraries = {
+"": SubResource("AnimationLibrary_ibwr1")
+}
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -567,5 +665,5 @@ position = Vector2(1200, 164)
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/return/returnButton" to="UI/player" method="_on_return_button_pressed"]
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
-[connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_return_pressed"]
+[connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_exit_pressed"]
 [connection signal="timeout" from="generator/turnTimer" to="generator" method="_on_turn_timer_timeout"]

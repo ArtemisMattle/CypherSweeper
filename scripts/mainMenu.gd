@@ -238,12 +238,12 @@ func _on_arcade_pressed():
 	globalVariables.size = $background/edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
+	globalVariables.leveled1 = false
 	signalBus.upsane.emit()
 	for i in globalVariables.level:
 		globalVariables.level[i] = 0
 	empty = globalVariables.n
-	var startIngr = ["Herb", "Shroom", "Salt"]
-	globalVariables.lvl1 = startIngr.pick_random()
+	globalVariables.lvl1 = globalVariables.ingr.pick_random()
 	
 	if $background/edge/menu/arcade/arcade/population/populationModes/high/highMode.button_pressed:
 		for i in globalVariables.ingredientStack:

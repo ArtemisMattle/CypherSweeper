@@ -22,16 +22,16 @@ var n: int
 var level: Dictionary = {
 	"Herb" = 0, 
 	"Shroom" = 0, 
-	"Salt" = 0, 
-	"Shadow" = 0}
+	"Salt" = 0,}
 var lvlUP: Dictionary = {
 	"Nothing0" = 21, 
 	"1" = 5,
 	"2" = 15,
 	"3" = 30,
-	"4" = 9999,
-	"5" = 9999,}
+	"4" = 999999,}
 var lvl1: String = "Herb"
+var leveled1: bool = false
+var ingr = ["Herb", "Shroom", "Salt"]
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {

@@ -50,6 +50,7 @@ theme = ExtResource("2_50dck")
 [node name="playStory" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
 tooltip_text = "Coming Soon!"
+mouse_filter = 2
 theme = ExtResource("2_50dck")
 disabled = true
 text = "Play Story"
@@ -57,6 +58,7 @@ alignment = 0
 
 [node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "Play Arcade"
 alignment = 0
@@ -64,6 +66,7 @@ alignment = 0
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
 tooltip_text = "Coming Soon!"
+mouse_filter = 2
 theme = ExtResource("2_50dck")
 disabled = true
 text = "Play Rogue"
@@ -75,12 +78,14 @@ layout_mode = 2
 
 [node name="Settings" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "Settings"
 alignment = 0
 
 [node name="Credits" type="Button" parent="background/edge/menu/mainbuttons"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "Credits"
 alignment = 0
@@ -169,6 +174,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_group = ExtResource("13_l1v7u")
 
 [node name="zippy" type="Label" parent="background/edge/menu/settings/settings/speed/speedModes/zippy"]
@@ -185,6 +191,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_group = ExtResource("13_l1v7u")
 
 [node name="fast" type="Label" parent="background/edge/menu/settings/settings/speed/speedModes/fast"]
@@ -201,6 +208,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_pressed = true
 button_group = ExtResource("13_l1v7u")
 
@@ -237,6 +245,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+mouse_filter = 1
 min_value = 5.0
 max_value = 21.0
 value = 13.0
@@ -249,6 +258,7 @@ layout_mode = 2
 [node name="play" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 text = "Play"
 
 [node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
@@ -278,6 +288,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_group = ExtResource("14_bj10x")
 
 [node name="high" type="Label" parent="background/edge/menu/arcade/arcade/population/populationModes/high"]
@@ -294,6 +305,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_group = ExtResource("14_bj10x")
 
 [node name="medium" type="Label" parent="background/edge/menu/arcade/arcade/population/populationModes/medium"]
@@ -310,6 +322,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_pressed = true
 button_group = ExtResource("14_bj10x")
 
@@ -345,6 +358,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_group = ExtResource("15_82b6h")
 
 [node name="extreme" type="Label" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme"]
@@ -361,6 +375,7 @@ dragger_visibility = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 1
 button_pressed = true
 button_group = ExtResource("15_82b6h")
 

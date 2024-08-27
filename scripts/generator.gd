@@ -9,6 +9,7 @@ var hex: PackedScene = preload("res://scenes/hex.tscn")
 signal talkToNeighbor(ownpos: int, owningr: int, neighborpos:int)
 var ingredientStack: Dictionary
 var ingredientList: Dictionary = {}
+var ingList: Dictionary = {}
 var toBeRevealed: Array[int] = []
 var openRevealers: Array[int] = []
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -127,6 +128,7 @@ func populate() -> void:# generates the ingredients
 					pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
 			else:
 				ingredientStack.erase(i)#removes empty ingredient slots for performance
+	ingList = ingredientList.duplicate()
 	for i: int in ingredientList:
 		updateNeighbors(i)
 
@@ -163,7 +165,8 @@ func reveal(i:int) -> void: # reveals a gridCell
 			if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
 				signalBus.lvlNothing.emit() # allows for undamaged uncovering of the first ingredients
 		else:
-			signalBus.uncoverIngr.emit(pos[i].ingredient) # sends the uncovered ingredient for damage calculation and similar
+			ingList.erase(i)
+			signalBus.uncoverIngr.emit(pos[i].ingredient, not ingList.values().has(pos[i].ingredient)) # sends the uncovered ingredient for damage calculation and similar
 		if pos[i].eigenValue == 0: # checks for empty gridCells
 			if settings.speedMode == sMode.normal: # checks for speedMode
 				var revSoon: Array[int] = []
@@ -185,7 +188,7 @@ func reveal(i:int) -> void: # reveals a gridCell
 		pos[i].cell.get_node("indicator").visible = true # shows the indicators for neighboring ingredients
 
 func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time passed, look at func reveal
-	tTimer.wait_time = 0.05 + randf_range(0.03, 0.08)
+	tTimer.wait_time = 0.05 + randf_range(0.03, 0.07)
 	var toBeRevealedLater: Array[int] = []
 	for i: int in toBeRevealed:
 		if not pos[i].revealed:

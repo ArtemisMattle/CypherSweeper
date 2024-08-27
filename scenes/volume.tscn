@@ -12,6 +12,7 @@
 
 [node name="volume" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 400)
+mouse_filter = 1
 theme = ExtResource("1_xnlxa")
 theme_override_styles/panel = ExtResource("1_k40yg")
 script = ExtResource("3_kniqo")
@@ -30,6 +31,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
+mouse_filter = 1
 max_value = 1.2
 step = 0.001
 value = 1.0
@@ -40,6 +42,7 @@ layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="volume/audioMaster"]
 layout_mode = 2
+mouse_filter = 1
 toggle_mode = true
 texture_normal = ExtResource("2_n8ttk")
 texture_pressed = ExtResource("3_xex8p")
@@ -59,6 +62,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
+mouse_filter = 1
 max_value = 1.2
 step = 0.001
 value = 1.0
@@ -69,6 +73,7 @@ layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="volume/audioSFX"]
 layout_mode = 2
+mouse_filter = 1
 toggle_mode = true
 texture_normal = ExtResource("4_bnbyg")
 texture_pressed = ExtResource("5_gdpv8")
@@ -88,6 +93,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
+mouse_filter = 1
 max_value = 1.2
 step = 0.001
 value = 1.0
@@ -98,6 +104,7 @@ layout_mode = 2
 
 [node name="mute" type="TextureButton" parent="volume/audioMusic"]
 layout_mode = 2
+mouse_filter = 1
 toggle_mode = true
 texture_normal = ExtResource("6_i5odw")
 texture_pressed = ExtResource("7_d8qrc")
