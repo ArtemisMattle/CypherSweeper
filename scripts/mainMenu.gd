@@ -244,6 +244,8 @@ func _on_arcade_pressed():
 		globalVariables.level[i] = 0
 	empty = globalVariables.n
 	globalVariables.lvl1 = globalVariables.ingr.pick_random()
+	if $background/edge/menu/arcade/arcade/sizeandplay/random.button_pressed:
+		globalVariables.rngseed = randi()
 	
 	if $background/edge/menu/arcade/arcade/population/populationModes/high/highMode.button_pressed:
 		for i in globalVariables.ingredientStack:
