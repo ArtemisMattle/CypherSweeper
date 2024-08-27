@@ -33,7 +33,6 @@ func _ready() -> void:
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	#bB.visible=false
-	
 
 func lvl1(ing: String) -> bool:
 	if globalVariables.level[ing] < 1:
@@ -53,16 +52,16 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
 			takeDamage(ingredient.right(1).to_int(), true, true)
 	if not globalVariables.leveled1: # gives xp to ingredients without level
-		if not globalVariables.level.values().has(0):
-			print("2")
+		if globalVariables.level.values().has(0):
+			for i: String in globalVariables.level:
+				if globalVariables.level[i] < 1:
+					@warning_ignore("integer_division")
+					xp[i] += randi_range(0,7) / 4
+			if last: # forces lvlups if necessary for damageless running
+				while not lvl1(globalVariables.ingr.pick_random()):
+					pass
+		else:
 			globalVariables.leveled1 = true
-		for i: String in globalVariables.level:
-			if globalVariables.level[i] < 1:
-				@warning_ignore("integer_division")
-				xp[i] += randi_range(0,7) / 4
-		if last: # forces lvlups if necessary for damageless running
-			while not lvl1(globalVariables.ingr.pick_random()):
-				print("1")
 	for i: String in globalVariables.level: # levels up ingredients when xp thresholds are meet
 		if xp[i] >= globalVariables.lvlUP[str(globalVariables.level[i]+1)]:
 			lvlUp(i)
@@ -100,7 +99,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 			_: $gameOver/centerer/gameOver/centerer/end.text = "You Won!"
 	else:
 		match msg:
-			_: $gameOver/centerer/gameOver/centerer/end.text = "Game Over!" + str(msg)
+			_: $gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
 	$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
 	$gameOver/centerer/gameOver/score.text += str(score(time))
 	$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))

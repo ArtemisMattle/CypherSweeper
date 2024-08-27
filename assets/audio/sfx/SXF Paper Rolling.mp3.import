@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dyedug2kwulr3"
+path="res://.godot/imported/SXF Paper Rolling.mp3-655e03b25f97e4441ed988c19463c6ed.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/SXF Paper Rolling.mp3"
+dest_files=["res://.godot/imported/SXF Paper Rolling.mp3-655e03b25f97e4441ed988c19463c6ed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

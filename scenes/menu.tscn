@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=15 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -17,12 +17,6 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
 texture = ExtResource("3_gogsx")
 
-[sub_resource type="GDScript" id="GDScript_4uwa5"]
-script/source = "extends PanelContainer
-
-
-"
-
 [node name="main" type="Node2D"]
 script = ExtResource("1_p3mkq")
 
@@ -32,7 +26,6 @@ offset_bottom = 720.0
 mouse_filter = 2
 theme = ExtResource("2_50dck")
 theme_override_styles/panel = SubResource("StyleBoxTexture_3hhrs")
-script = SubResource("GDScript_4uwa5")
 
 [node name="edge" type="MarginContainer" parent="background"]
 layout_mode = 2
@@ -559,6 +552,8 @@ stream = ExtResource("19_5q6yt")
 volume_db = -12.0
 autoplay = true
 bus = &"music"
+
+[node name="buttonSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]
