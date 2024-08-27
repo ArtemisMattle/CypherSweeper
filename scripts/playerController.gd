@@ -3,6 +3,7 @@ extends Node
 var damage: Array[int] = [1, 7, 13, 21, 30, 50, 101]
 var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
 var iniSan: int
+var playing: bool = true
 var activeMusic: bool = true
 var activeTrack: int = 10
 @onready var music: Dictionary = {true: $music1, false: $music2}
@@ -30,12 +31,13 @@ func _ready() -> void:
 	
 	#pause button setup
 	globalVariables.paused = false
+	playing = true
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 	#bB.visible=false
 
-func lvl1(ing: String) -> bool:
+func lvl1(ing: String) -> bool: # 
 	if globalVariables.level[ing] < 1:
 		xp[ing] = globalVariables.lvlUP["1"]
 		lvlUp(ing)
@@ -68,16 +70,18 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			lvlUp(i)
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
-	if counts:
-		globalVariables.lostsanity += damage[level]
-	globalVariables.sanity = clampi(globalVariables.sanity - damage[level], 0, 100)
-	signalBus.upsane.emit()
-	if globalVariables.sanity <= activeTrack * 10 - 10:
-		@warning_ignore("integer_division")
-		activeTrack = globalVariables.sanity / 10
-		musicCurser(activeTrack)
-	if globalVariables.sanity == 0:
-		endGame(false)
+	if playing:
+		if counts:
+			globalVariables.lostsanity += damage[level]
+		globalVariables.sanity = clampi(globalVariables.sanity - damage[level], 0, 100)
+		signalBus.upsane.emit()
+		if globalVariables.sanity <= activeTrack * 10 - 10:
+			@warning_ignore("integer_division")
+			activeTrack = globalVariables.sanity / 10
+			musicCurser(activeTrack)
+		if globalVariables.sanity == 0:
+			endGame(false)
+			playing = false
 
 func musicCurser(nextTrack: int ) -> void: #changes the background music 
 	music[not activeMusic].stream = load(tracks[nextTrack])
@@ -118,7 +122,7 @@ func score(time: float) -> int: #calculates the score
 		s += xp[i]
 	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)
 
-func lvlUp(ingredient: String) -> void:
+func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
 	match ingredient:
 		"Herb": 
@@ -134,23 +138,24 @@ func lvlUp(ingredient: String) -> void:
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
 
-func Flamel() -> void:
+func Flamel() -> void: # shows the Flamel when it's time to reveal it
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
 
-func _on_pause_button_toggled(toggled_on: bool) -> void:
+func _on_pause_button_toggled(toggled_on: bool) -> void: # pauses the game and shows a pause menu
 	$pauseMenu.visible = toggled_on
 	globalVariables.paused = toggled_on
 	signalBus.deactivate.emit(not toggled_on)
 	#bB.visible=toggled_on
 
-func _on_settings_pressed() -> void:
+func _on_settings_pressed() -> void: # goes into the settings menu
 	$pauseMenu/centerer/settings.visible = true
 	$pauseMenu/centerer/pause.visible = false
 
-func _on_return_button_pressed() -> void:
+func _on_return_button_pressed() -> void: # retuns to the pause menu
 	$pauseMenu/centerer/pause.visible = true
 	$pauseMenu/centerer/settings.visible = false
 
+# changes the speedMode ingame
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
@@ -161,5 +166,5 @@ func _on_fast_mode_pressed() -> void:
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
 
-func _on_exit_pressed() -> void:
+func _on_exit_pressed() -> void: # returns you to the menu
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
