@@ -150,7 +150,7 @@ func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the rev
 		reveal(i)
 
 func reveal(i:int) -> void: # reveals a gridCell
-	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
+	if not pos[i].revealed && not globalVariables.paused: # checks if reveal is called on a revealed gridCell
 		pos[i].revealed = true
 		pos[i].cell.get_node("colour/button").queue_free()
 		tTune.play() # plays a sound effect

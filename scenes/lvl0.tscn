@@ -58,7 +58,6 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="SanGauge" parent="UI/player/playerInfo/edge" instance=ExtResource("2_hqood")]
-z_index = 1
 position = Vector2(510, 50)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/player/playerInfo/edge"]
@@ -163,7 +162,7 @@ expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
 visible = false
-z_index = 1
+z_index = 2
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1240.0
@@ -321,7 +320,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="pause" type="PanelContainer" parent="UI/player"]
-z_index = 1
+z_index = 2
 offset_right = 63.0
 offset_bottom = 100.0
 theme_override_styles/panel = ExtResource("4_kg58h")
@@ -346,7 +345,7 @@ texture = ExtResource("8_xaoot")
 
 [node name="gameOver" type="PanelContainer" parent="UI/player"]
 visible = false
-z_index = 1
+z_index = 2
 offset_left = 240.0
 offset_top = 110.0
 offset_right = 1040.0

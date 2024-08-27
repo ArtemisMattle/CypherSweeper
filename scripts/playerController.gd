@@ -3,6 +3,7 @@ extends Node
 var damage: Array[int] = [1, 7, 13, 21, 30, 50, 101]
 var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
 var iniSan: int
+#@onready var bB=$"../../buttonBlocker"
 
 func _ready() -> void:
 	signalBus.lvlNothing.connect(lvl1)
@@ -15,6 +16,8 @@ func _ready() -> void:
 	globalVariables.paused = false
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
+	#bB.visible=false
+	
 
 func lvl1() -> void:
 	if globalVariables.level[globalVariables.lvl1] < 1:
@@ -119,6 +122,7 @@ func uncover(ingredient: String) -> void:
 				$gameOver.visible = true
 				$pause/centerer/stacker/pauseButton.disabled=true
 				$pause.visible=false
+				#bB.visible=true
 	if globalVariables.level["Herb"] < 1:
 		@warning_ignore("integer_division")
 		xp["Herb"] += randi_range(0, 7) / 4
@@ -187,7 +191,8 @@ func Flamel() -> void:
 func _on_pause_button_toggled(toggled_on: bool) -> void:
 	$pauseMenu.visible = toggled_on
 	globalVariables.paused = toggled_on
-
+	#bB.visible=toggled_on
+	
 func _on_settings_pressed() -> void:
 	$pauseMenu/centerer/settings.visible = true
 	$pauseMenu/centerer/pause.visible = false
@@ -237,6 +242,7 @@ func dead() -> void:
 		globalVariables.paused = true
 		$pause/centerer/stacker/pauseButton.disabled=true
 		$pause.visible=false
+		#bB.visible=true
 		var time: float = $timer.t
 		var s: float = 0
 		globalVariables.scoreMult *= (exp(-time * log(2) / (globalVariables.size * 10)) + 1)
