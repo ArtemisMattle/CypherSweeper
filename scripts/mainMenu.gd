@@ -51,7 +51,9 @@ func _toTitle() -> void:
 	
 func disconnectBtnFunc(btn:Signal) -> void:
 	for i in btn.get_connections():
-		btn.disconnect(i.callable)
+		if i.callable!=sfxPlay:
+			btn.disconnect(i.callable)
+			
 		
 
 func _toRogue() -> void:
