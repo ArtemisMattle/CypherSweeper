@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=21 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_77w3h"]
 [ext_resource type="Texture2D" uid="uid://bnmeabab7bh70" path="res://assets/textures/Logo-agender.svg" id="11_6rgdl"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="13_l1v7u"]
+[ext_resource type="AudioStream" uid="uid://bbkl8a8d15bkg" path="res://assets/audio/sfx/Button Sound Raphi Option.mp3" id="14_ahvhn"]
 [ext_resource type="ButtonGroup" uid="uid://b1oevm04u8h1w" path="res://assets/textures/UI-elements/buttonGroups/populationGroup.tres" id="14_bj10x"]
 [ext_resource type="ButtonGroup" uid="uid://ph6tg01bs3cx" path="res://assets/textures/UI-elements/buttonGroups/difficultyGroup.tres" id="15_82b6h"]
 [ext_resource type="AudioStream" uid="uid://bjejdk8y7gfia" path="res://assets/audio/music/Main Menu and Credits .wav" id="19_5q6yt"]
@@ -50,7 +51,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_50dck")
 
-[node name="playStory" type="Button" parent="background/edge/menu/mainbuttons"]
+[node name="playStory" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "Coming Soon!"
 mouse_filter = 2
@@ -59,14 +60,14 @@ disabled = true
 text = "Play Story"
 alignment = 0
 
-[node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons"]
+[node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "Play Arcade"
 alignment = 0
 
-[node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons"]
+[node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "Coming Soon!"
 mouse_filter = 2
@@ -79,14 +80,14 @@ alignment = 0
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="background/edge/menu/mainbuttons"]
+[node name="Settings" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "Settings"
 alignment = 0
 
-[node name="Credits" type="Button" parent="background/edge/menu/mainbuttons"]
+[node name="Credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
@@ -143,7 +144,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "Language:"
 
-[node name="languageSelector" type="OptionButton" parent="background/edge/menu/settings/settings/language"]
+[node name="languageSelector" type="OptionButton" parent="background/edge/menu/settings/settings/language" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_styles/focus = ExtResource("9_tqg4k")
@@ -174,7 +175,7 @@ layout_mode = 2
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="zippyMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/zippy"]
+[node name="zippyMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/zippy" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -191,7 +192,7 @@ text = "Zippy"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="fastMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/fast"]
+[node name="fastMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/fast" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -208,7 +209,7 @@ text = "Fast"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="normalMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/normal"]
+[node name="normalMode" type="CheckBox" parent="background/edge/menu/settings/settings/speed/speedModes/normal" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -269,7 +270,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_v2eht")
 toggle_mode = true
 button_pressed = true
 
-[node name="play" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+[node name="play" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
@@ -298,7 +299,7 @@ layout_mode = 2
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="highMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/high"]
+[node name="highMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/high" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -315,7 +316,7 @@ text = "High"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="mediumMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/medium"]
+[node name="mediumMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/medium" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -332,7 +333,7 @@ text = "Medium"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="lowMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/low"]
+[node name="lowMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/low" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -368,7 +369,7 @@ layout_mode = 2
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="extremeMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme"]
+[node name="extremeMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -385,7 +386,7 @@ text = "Extreme"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="normalMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal"]
+[node name="normalMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -574,7 +575,12 @@ volume_db = -12.0
 autoplay = true
 bus = &"music"
 
-[node name="buttonSound" type="AudioStreamPlayer" parent="."]
+[node name="clickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ahvhn")
+volume_db = 24.0
+bus = &"sfx"
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]

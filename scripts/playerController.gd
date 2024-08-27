@@ -32,6 +32,7 @@ func _ready() -> void:
 	globalVariables.paused = false
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
+	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 	#bB.visible=false
 
 func lvl1(ing: String) -> bool:

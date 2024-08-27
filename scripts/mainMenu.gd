@@ -18,6 +18,7 @@ extends Node2D
 func _ready() -> void:
 	$background/edge/menu/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 	_toTitle()
+	buttonClickSound()
 
 func exitPg() -> void:
 	storyPg.visible=false
@@ -293,3 +294,10 @@ func _on_arcade_pressed():
 		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.6), globalVariables.lvlUP["1"] + 1, 9999)
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
+
+func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet sie mit dem Click Sound
+	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
+		buttons.pressed.connect(sfxPlay)
+
+func sfxPlay() -> void: # plays sounds for different events
+	$clickSound.play()
