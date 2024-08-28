@@ -41,12 +41,11 @@ func exitPg() -> void:
 	creditsBtn.pressed.connect(_toCredits)
 	#rogueBtn.pressed.connect(_toRogue)
 	settingsBtn.pressed.connect(_toSettings)
-	arcadeBtn.text = tr("btnPArcade")
-	arcadeBtn.auto_translate = true
-	storyBtn.text = tr("btnPStory")
-	rogueBtn.text = tr("btnPRogue")
-	settingsBtn.text = tr("btnSettings")
-	creditsBtn.text = tr("btnCredits")
+	arcadeBtn.text = "btnPArcade"
+	storyBtn.text = "btnPStory"
+	rogueBtn.text = "btnPRogue"
+	settingsBtn.text = "btnSettings"
+	creditsBtn.text = "btnCredits"
 	
 
 func _toTitle() -> void:
@@ -64,33 +63,32 @@ func _toRogue() -> void:
 	exitPg()
 	roguePg.visible=true
 	rogueBtn.pressed.connect(_toTitle)
-	rogueBtn.text= tr("btnBack")
+	rogueBtn.text= "btnBack"
 
 func _toSettings() -> void:
 	exitPg()
 	settingsPg.visible=true
 	settingsBtn.pressed.connect(_toTitle)
-	settingsBtn.text= tr("btnBack")
+	settingsBtn.text= "btnBack"
 
 
 func _toArcade() -> void:
 	exitPg()
 	arcadePg.visible=true
 	arcadeBtn.pressed.connect(_toTitle)
-	arcadeBtn.text= tr("btnBack")
-	arcadeBtn.auto_translate = true
+	arcadeBtn.text= "btnBack"
 	
 func _toStory() -> void:
 	exitPg()
 	storyPg.visible=true
 	storyBtn.pressed.connect(_toTitle)
-	storyBtn.text= tr("btnBack")
+	storyBtn.text= "btnBack"
 	
 func _toCredits() -> void:
 	exitPg()
 	creditsPg.visible=true
 	creditsBtn.pressed.connect(_toTitle)
-	creditsBtn.text= tr("btnBack")
+	creditsBtn.text= "btnBack"
 
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
