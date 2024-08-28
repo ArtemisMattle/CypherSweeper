@@ -102,7 +102,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="volume" type="VSlider" parent="volume/audioMaster"]
+[node name="volume" type="VSlider" parent="volume/audioMaster" groups=["buttonHover"]]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
@@ -115,7 +115,7 @@ value = 1.0
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="mute" type="TextureButton" parent="volume/audioMaster"]
+[node name="mute" type="TextureButton" parent="volume/audioMaster" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
@@ -133,7 +133,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="volume" type="VSlider" parent="volume/audioSFX"]
+[node name="volume" type="VSlider" parent="volume/audioSFX" groups=["buttonHover"]]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
@@ -146,7 +146,7 @@ value = 1.0
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="mute" type="TextureButton" parent="volume/audioSFX"]
+[node name="mute" type="TextureButton" parent="volume/audioSFX" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
@@ -164,7 +164,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="volume" type="VSlider" parent="volume/audioMusic"]
+[node name="volume" type="VSlider" parent="volume/audioMusic" groups=["buttonHover"]]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 3
@@ -177,7 +177,7 @@ value = 1.0
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="mute" type="TextureButton" parent="volume/audioMusic"]
+[node name="mute" type="TextureButton" parent="volume/audioMusic" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 toggle_mode = true

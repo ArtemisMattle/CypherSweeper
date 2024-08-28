@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=33 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -9,18 +9,20 @@
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_ttsoy"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="5_cmc5j"]
-[ext_resource type="Texture2D" uid="uid://bafsd6nh2la3u" path="res://assets/textures/UI-elements/checkbox_steel_false.png" id="5_dr3kr"]
 [ext_resource type="Texture2D" uid="uid://oqup5tj2c726" path="res://assets/textures/background.png" id="5_wmdm5"]
-[ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="6_g0h4d"]
-[ext_resource type="Texture2D" uid="uid://l6ov0j0uxkp5" path="res://assets/textures/UI-elements/checkbox_brass_false.png" id="7_he6di"]
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="8_xaoot"]
+[ext_resource type="Texture2D" uid="uid://bk6w3k153meyf" path="res://assets/textures/UI-elements/pauseDis.png" id="12_3pav5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="12_7mhwv"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="13_ixn2h"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
 [ext_resource type="PackedScene" uid="uid://cqyvf3fho626h" path="res://scenes/timer.tscn" id="15_86skq"]
 [ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
+[ext_resource type="AudioStream" uid="uid://bbkl8a8d15bkg" path="res://assets/audio/sfx/Button Sound Raphi Option.mp3" id="16_nsh04"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
 [ext_resource type="AudioStream" uid="uid://d4mewy6ia5ri0" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.wav" id="17_jmjrs"]
+[ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
+[ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
+[ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="21_dmutc"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_nnxln"]
@@ -115,6 +117,26 @@ _data = {
 "fade1": SubResource("Animation_xpd4b"),
 "fade2": SubResource("Animation_j0pjy")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tc2oa"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 1.5
+streams_count = 2
+stream_0/stream = ExtResource("16_nsh04")
+stream_0/weight = 66.0
+stream_1/stream = ExtResource("21_dmutc")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xl8ks"]
+playback_mode = 1
+random_pitch = 1.03
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("18_c2c1g")
+stream_0/weight = 20.149
+stream_1/stream = ExtResource("19_wd568")
+stream_1/weight = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jv2ja"]
 random_pitch = 1.1
@@ -272,7 +294,7 @@ layout_mode = 2
 [node name="pause" type="VBoxContainer" parent="UI/player/pauseMenu/centerer"]
 layout_mode = 2
 
-[node name="exit" type="Button" parent="UI/player/pauseMenu/centerer/pause"]
+[node name="exit" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "Exit "
 
@@ -286,7 +308,7 @@ text = "Exiting deletes your progress."
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause"]
+[node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "Settings"
 
@@ -315,7 +337,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "Language:"
 
-[node name="languageSelector" type="OptionButton" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
+[node name="languageSelector" type="OptionButton" parent="UI/player/pauseMenu/centerer/settings/settings/language" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_styles/focus = ExtResource("12_7mhwv")
@@ -346,7 +368,7 @@ layout_mode = 2
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="zippyMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy"]
+[node name="zippyMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -362,7 +384,7 @@ text = "Zippy"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="fastMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast"]
+[node name="fastMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -378,7 +400,7 @@ text = "Fast"
 layout_mode = 2
 dragger_visibility = 1
 
-[node name="normalMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal"]
+[node name="normalMode" type="CheckBox" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -405,7 +427,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
-[node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
+[node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/settings/return" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Return"
@@ -416,8 +438,8 @@ layout_mode = 2
 
 [node name="pause" type="PanelContainer" parent="UI/player"]
 z_index = 2
-offset_right = 63.0
-offset_bottom = 100.0
+offset_right = 48.0
+offset_bottom = 72.0
 theme_override_styles/panel = ExtResource("4_kg58h")
 
 [node name="centerer" type="CenterContainer" parent="UI/player/pause"]
@@ -426,17 +448,12 @@ layout_mode = 2
 [node name="stacker" type="VBoxContainer" parent="UI/player/pause/centerer"]
 layout_mode = 2
 
-[node name="pauseButton" type="TextureButton" parent="UI/player/pause/centerer/stacker"]
+[node name="pauseButton" type="TextureButton" parent="UI/player/pause/centerer/stacker" groups=["buttonClick"]]
 layout_mode = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_u6srm")
-texture_normal = ExtResource("5_dr3kr")
-texture_pressed = ExtResource("6_g0h4d")
-texture_hover = ExtResource("7_he6di")
-
-[node name="pauseIcon" type="TextureRect" parent="UI/player/pause/centerer/stacker"]
-layout_mode = 2
-texture = ExtResource("8_xaoot")
+texture_normal = ExtResource("8_xaoot")
+texture_pressed = ExtResource("12_3pav5")
 
 [node name="gameOver" type="PanelContainer" parent="UI/player"]
 visible = false
@@ -488,7 +505,7 @@ text = "You scored "
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="return" type="Button" parent="UI/player/gameOver/centerer/gameOver"]
+[node name="return" type="Button" parent="UI/player/gameOver/centerer/gameOver" groups=["buttonClick"]]
 layout_mode = 2
 text = "back to Menu"
 
@@ -511,6 +528,22 @@ bus = &"music"
 libraries = {
 "": SubResource("AnimationLibrary_ibwr1")
 }
+
+[node name="clickSound" type="AudioStreamPlayer" parent="UI/player"]
+stream = SubResource("AudioStreamRandomizer_tc2oa")
+max_polyphony = 5
+bus = &"sfx"
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="UI/player"]
+stream = SubResource("AudioStreamRandomizer_xl8ks")
+pitch_scale = 10.0
+bus = &"sfx"
+
+[node name="hoverSoundS" type="AudioStreamPlayer" parent="UI/player"]
+stream = SubResource("AudioStreamRandomizer_xl8ks")
+volume_db = -9.0
+pitch_scale = 10.0
+bus = &"sfx"
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)

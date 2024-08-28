@@ -303,6 +303,8 @@ func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
 		buttons.pressed.connect(sfxPlay.bind(1))
 		buttons.mouse_entered.connect(sfxPlay.bind(2))
+	for buttons: Node in get_tree().get_nodes_in_group("buttonHover"):
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
 
 func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:

@@ -36,6 +36,7 @@ func _ready()-> void:
 	get_viewport()
 	get_ends()
 	def_hex()
+	signalBus.populated.emit()
 	populate()
 	signalBus.deactivate.connect(deactivate)
 

@@ -35,6 +35,7 @@ func _ready() -> void:
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
+	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 
 func lvl1(ing: String) -> bool: # 
@@ -143,6 +144,8 @@ func Flamel() -> void: # shows the Flamel when it's time to reveal it
 
 func _on_pause_button_toggled(toggled_on: bool) -> void: # pauses the game and shows a pause menu
 	$pauseMenu.visible = toggled_on
+	$pauseMenu/centerer/pause.visible = true
+	$pauseMenu/centerer/settings.visible = false
 	globalVariables.paused = toggled_on
 	signalBus.deactivate.emit(not toggled_on)
 	#bB.visible=toggled_on
@@ -168,3 +171,19 @@ func _on_normal_mode_pressed() -> void:
 
 func _on_exit_pressed() -> void: # returns you to the menu
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+
+func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet sie mit dem Click Sound
+	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
+		buttons.pressed.connect(sfxPlay.bind(1))
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
+	for buttons: Node in get_tree().get_nodes_in_group("buttonHover"):
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
+	for buttons: Node in get_tree().get_nodes_in_group("buttonHoverS"):
+		buttons.mouse_entered.connect(sfxPlay.bind(3))
+	
+
+func sfxPlay(sound: int) -> void: # plays sounds for different events
+	match sound:
+		1:$clickSound.play()
+		2:$hoverSound.play()
+		3:$hoverSoundS.play()
