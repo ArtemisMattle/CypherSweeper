@@ -297,7 +297,7 @@ func _on_arcade_pressed():
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
-func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet sie mit dem Click Sound
+func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
 		buttons.pressed.connect(sfxPlay.bind(1))
 		buttons.mouse_entered.connect(sfxPlay.bind(2))
@@ -309,10 +309,9 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:$clickSound.play()
 		2:$hoverSound.play()
 
-func _on_language_selected(index: int) -> void:
-	print($background/edge/menu/settings/settings/language/languageSelector.get_item_text(index))
+func _on_language_selected(index: int) -> void: # changes the language (locale)
 	match $background/edge/menu/settings/settings/language/languageSelector.get_item_text(index):
 		"btnEN": TranslationServer.set_locale("en") 
 		"btnDE": TranslationServer.set_locale("de") 
 		"btnENGB": TranslationServer.set_locale("en_GB")
-		_: print("lol")
+		_: print($background/edge/menu/settings/settings/language/languageSelector.get_item_text(index) + "fehlt noch")

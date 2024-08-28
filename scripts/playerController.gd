@@ -172,7 +172,7 @@ func _on_normal_mode_pressed() -> void:
 func _on_exit_pressed() -> void: # returns you to the menu
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet sie mit dem Click Sound
+func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
 		buttons.pressed.connect(sfxPlay.bind(1))
 		buttons.mouse_entered.connect(sfxPlay.bind(2))
