@@ -111,6 +111,7 @@ text = "btnSettings"
 alignment = 0
 
 [node name="Credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
@@ -118,7 +119,6 @@ text = "btnCredits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -140,6 +140,7 @@ text = "Cypher
    Sweeper"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="settingsSpace" type="Container" parent="background/edge/menu/settings"]
@@ -209,7 +210,7 @@ button_group = ExtResource("13_l1v7u")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Zippy"
+text = "btnZippy"
 
 [node name="fast" type="HSplitContainer" parent="background/edge/menu/settings/settings/speed/speedModes"]
 layout_mode = 2
@@ -226,7 +227,7 @@ button_group = ExtResource("13_l1v7u")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Fast"
+text = "btnFast"
 
 [node name="normal" type="HSplitContainer" parent="background/edge/menu/settings/settings/speed/speedModes"]
 layout_mode = 2
@@ -244,14 +245,14 @@ button_group = ExtResource("13_l1v7u")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Normal"
+text = "btnNormal"
 
 [node name="speedMode" type="Label" parent="background/edge/menu/settings/settings/speed"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
-text = "Speed Mode"
+text = "lbSMode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
 visible = false
@@ -277,7 +278,7 @@ mouse_filter = 1
 min_value = 5.0
 max_value = 21.0
 value = 13.0
-prefix = " Size"
+prefix = " selSize"
 
 [node name="playSpace" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 custom_minimum_size = Vector2(75, 0)
@@ -298,7 +299,7 @@ button_pressed = true
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-text = "Play"
+text = "btnPlay"
 
 [node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 custom_minimum_size = Vector2(50, 0)
@@ -334,7 +335,7 @@ button_group = ExtResource("14_bj10x")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "High"
+text = "btnHigh"
 
 [node name="medium" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/population/populationModes"]
 layout_mode = 2
@@ -351,7 +352,7 @@ button_group = ExtResource("14_bj10x")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Medium"
+text = "btnMedium"
 
 [node name="low" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/population/populationModes"]
 layout_mode = 2
@@ -369,14 +370,14 @@ button_group = ExtResource("14_bj10x")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Low"
+text = "btnLow"
 
 [node name="populationMode" type="Label" parent="background/edge/menu/arcade/arcade/population"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
-text = "Population Mode"
+text = "lbPopMode"
 
 [node name="difficulty" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
 layout_mode = 2
@@ -404,7 +405,7 @@ button_group = ExtResource("15_82b6h")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Extreme"
+text = "btnExtreme"
 
 [node name="normal" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes"]
 layout_mode = 2
@@ -422,14 +423,14 @@ button_group = ExtResource("15_82b6h")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Normal"
+text = "btnNormal"
 
 [node name="difficultyMode" type="Label" parent="background/edge/menu/arcade/arcade/difficulty"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
-text = "Difficulty Mode"
+text = "lbDiffMode"
 
 [node name="credits" type="HBoxContainer" parent="background/edge/menu"]
 visible = false

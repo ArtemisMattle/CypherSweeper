@@ -42,6 +42,7 @@ func exitPg() -> void:
 	#rogueBtn.pressed.connect(_toRogue)
 	settingsBtn.pressed.connect(_toSettings)
 	arcadeBtn.text = tr("btnPArcade")
+	arcadeBtn.auto_translate = true
 	storyBtn.text = tr("btnPStory")
 	rogueBtn.text = tr("btnPRogue")
 	settingsBtn.text = tr("btnSettings")
@@ -77,6 +78,7 @@ func _toArcade() -> void:
 	arcadePg.visible=true
 	arcadeBtn.pressed.connect(_toTitle)
 	arcadeBtn.text= tr("btnBack")
+	arcadeBtn.auto_translate = true
 	
 func _toStory() -> void:
 	exitPg()
