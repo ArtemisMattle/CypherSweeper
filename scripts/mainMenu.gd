@@ -41,11 +41,12 @@ func exitPg() -> void:
 	creditsBtn.pressed.connect(_toCredits)
 	#rogueBtn.pressed.connect(_toRogue)
 	settingsBtn.pressed.connect(_toSettings)
-	arcadeBtn.text="Play Arcade"
-	storyBtn.text="Play Story"
-	creditsBtn.text="Credits"
-	settingsBtn.text="Settings"
-	#rogueBtn.text="Play Rogue"
+	arcadeBtn.text = tr("btnPArcade")
+	storyBtn.text = tr("btnPStory")
+	rogueBtn.text = tr("btnPRogue")
+	settingsBtn.text = tr("btnSettings")
+	creditsBtn.text = tr("btnCredits")
+	
 
 func _toTitle() -> void:
 	exitPg()
@@ -62,35 +63,32 @@ func _toRogue() -> void:
 	exitPg()
 	roguePg.visible=true
 	rogueBtn.pressed.connect(_toTitle)
-	rogueBtn.text="Back"
+	rogueBtn.text= tr("btnBack")
 
 func _toSettings() -> void:
 	exitPg()
 	settingsPg.visible=true
 	settingsBtn.pressed.connect(_toTitle)
-	settingsBtn.text="Back"
+	settingsBtn.text= tr("btnBack")
 
 
 func _toArcade() -> void:
 	exitPg()
 	arcadePg.visible=true
 	arcadeBtn.pressed.connect(_toTitle)
-	arcadeBtn.text="Back"
+	arcadeBtn.text= tr("btnBack")
 	
 func _toStory() -> void:
 	exitPg()
 	storyPg.visible=true
 	storyBtn.pressed.connect(_toTitle)
-	storyBtn.text="Back"
+	storyBtn.text= tr("btnBack")
 	
 func _toCredits() -> void:
 	exitPg()
 	creditsPg.visible=true
 	creditsBtn.pressed.connect(_toTitle)
-	creditsBtn.text="Back"
-
-func _on_colourblind_mode_toggled(toggled_on):
-	settings.colourblindMode = toggled_on
+	creditsBtn.text= tr("btnBack")
 
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
@@ -310,4 +308,11 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:
 		1:$clickSound.play()
 		2:$hoverSound.play()
-	
+
+func _on_language_selected(index: int) -> void:
+	print($background/edge/menu/settings/settings/language/languageSelector.get_item_text(index))
+	match $background/edge/menu/settings/settings/language/languageSelector.get_item_text(index):
+		"btnEN": TranslationServer.set_locale("en") 
+		"btnDE": TranslationServer.set_locale("de") 
+		"btnENGB": TranslationServer.set_locale("en_GB")
+		_: print("lol")

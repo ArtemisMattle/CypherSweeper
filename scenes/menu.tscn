@@ -80,14 +80,14 @@ tooltip_text = "Coming Soon!"
 mouse_filter = 2
 theme = ExtResource("2_50dck")
 disabled = true
-text = "Play Story"
+text = "btnPStory"
 alignment = 0
 
 [node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
-text = "Play Arcade"
+text = "btnPArcade"
 alignment = 0
 
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
@@ -96,7 +96,7 @@ tooltip_text = "Coming Soon!"
 mouse_filter = 2
 theme = ExtResource("2_50dck")
 disabled = true
-text = "Play Rogue"
+text = "btnPRogue"
 alignment = 0
 
 [node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
@@ -107,14 +107,14 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
-text = "Settings"
+text = "btnSettings"
 alignment = 0
 
 [node name="Credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
-text = "Credits"
+text = "btnCredits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
@@ -140,7 +140,6 @@ text = "Cypher
    Sweeper"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="settingsSpace" type="Container" parent="background/edge/menu/settings"]
@@ -156,6 +155,7 @@ size_flags_horizontal = 3
 
 [node name="language" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
 layout_mode = 2
+theme = ExtResource("2_50dck")
 
 [node name="languageSpace" type="Container" parent="background/edge/menu/settings/settings/language"]
 custom_minimum_size = Vector2(25, 0)
@@ -165,7 +165,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
-text = "Language:"
+text = "lbLang"
 
 [node name="languageSelector" type="OptionButton" parent="background/edge/menu/settings/settings/language" groups=["buttonClick"]]
 layout_mode = 2
@@ -176,11 +176,11 @@ theme_override_styles/hover = ExtResource("9_tqg4k")
 theme_override_styles/pressed = ExtResource("9_tqg4k")
 item_count = 3
 selected = 0
-popup/item_0/text = "English"
+popup/item_0/text = "btnEN"
 popup/item_0/id = 0
-popup/item_1/text = "Bri'ish"
+popup/item_1/text = "btnENGB"
 popup/item_1/id = 1
-popup/item_2/text = "German"
+popup/item_2/text = "btnDE"
 popup/item_2/id = 2
 
 [node name="speed" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
@@ -254,6 +254,7 @@ theme_override_font_sizes/font_size = 42
 text = "Speed Mode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -612,6 +613,7 @@ bus = &"sfx"
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="item_selected" from="background/edge/menu/settings/settings/language/languageSelector" to="." method="_on_language_selected"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]

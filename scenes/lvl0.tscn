@@ -343,6 +343,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="language" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+visible = false
 layout_mode = 2
 
 [node name="languageSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/language"]

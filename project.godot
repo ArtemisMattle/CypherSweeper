@@ -95,6 +95,11 @@ pickUpTool={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://assets/text/localisation.de.translation", "res://assets/text/localisation.en.translation", "res://assets/text/localisation.en_GB.translation")
+locale/locale_filter_mode=0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
