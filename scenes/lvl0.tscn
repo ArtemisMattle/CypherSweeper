@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=39 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -16,7 +16,6 @@
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="13_ixn2h"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
 [ext_resource type="PackedScene" uid="uid://cqyvf3fho626h" path="res://scenes/timer.tscn" id="15_86skq"]
-[ext_resource type="AudioStream" uid="uid://bm8amun3f2nhk" path="res://assets/audio/sfx/3.wav" id="15_twelr"]
 [ext_resource type="AudioStream" uid="uid://bbkl8a8d15bkg" path="res://assets/audio/sfx/Button Sound Raphi Option.mp3" id="16_nsh04"]
 [ext_resource type="AudioStream" uid="uid://dnintslf4ghrn" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.wav" id="16_ogrh8"]
 [ext_resource type="AudioStream" uid="uid://d4mewy6ia5ri0" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.wav" id="17_jmjrs"]
@@ -24,6 +23,13 @@
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="21_dmutc"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
+[ext_resource type="AudioStream" uid="uid://cs7q0jvd0e3v0" path="res://assets/audio/sfx/SFX-PR-1.mp3" id="23_hi6a1"]
+[ext_resource type="AudioStream" uid="uid://ccuxtdn3eubpa" path="res://assets/audio/sfx/SFX-PR-2.mp3" id="24_7mjen"]
+[ext_resource type="AudioStream" uid="uid://dbexxpmat6wbv" path="res://assets/audio/sfx/SFX-PR-3.mp3" id="25_trps1"]
+[ext_resource type="AudioStream" uid="uid://d0hst4yhgcutf" path="res://assets/audio/sfx/SFX-PR-4.mp3" id="26_kfbos"]
+[ext_resource type="AudioStream" uid="uid://bflhkitpec04m" path="res://assets/audio/sfx/SFX-PR-5.mp3" id="27_xsqhm"]
+[ext_resource type="AudioStream" uid="uid://bv8cviy8e7yqx" path="res://assets/audio/sfx/SFX-PR-6.mp3" id="28_rr4c4"]
+[ext_resource type="AudioStream" uid="uid://c35pg3fntua3o" path="res://assets/audio/sfx/SFX-PR-7.mp3" id="29_xkd54"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_nnxln"]
 keycode = 4194305
@@ -141,9 +147,21 @@ stream_1/weight = 1.0
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jv2ja"]
 random_pitch = 1.1
 random_volume_offset_db = 1.25
-streams_count = 1
-stream_0/stream = ExtResource("15_twelr")
+streams_count = 7
+stream_0/stream = ExtResource("23_hi6a1")
 stream_0/weight = 1.0
+stream_1/stream = ExtResource("24_7mjen")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("25_trps1")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("26_kfbos")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("27_xsqhm")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("28_rr4c4")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("29_xkd54")
+stream_6/weight = 1.0
 
 [node name="main2" type="Node2D"]
 
