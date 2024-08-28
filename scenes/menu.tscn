@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=26 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -14,6 +14,8 @@
 [ext_resource type="ButtonGroup" uid="uid://b1oevm04u8h1w" path="res://assets/textures/UI-elements/buttonGroups/populationGroup.tres" id="14_bj10x"]
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="15_1wson"]
 [ext_resource type="ButtonGroup" uid="uid://ph6tg01bs3cx" path="res://assets/textures/UI-elements/buttonGroups/difficultyGroup.tres" id="15_82b6h"]
+[ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
+[ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
 [ext_resource type="AudioStream" uid="uid://bjejdk8y7gfia" path="res://assets/audio/music/Main Menu and Credits .wav" id="19_5q6yt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
@@ -37,6 +39,16 @@ streams_count = 2
 stream_0/stream = ExtResource("14_ahvhn")
 stream_0/weight = 66.0
 stream_1/stream = ExtResource("15_1wson")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2tlx6"]
+playback_mode = 1
+random_pitch = 1.03
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("16_qmjtj")
+stream_0/weight = 20.149
+stream_1/stream = ExtResource("17_7in6i")
 stream_1/weight = 1.0
 
 [node name="main" type="Node2D"]
@@ -588,11 +600,13 @@ bus = &"music"
 
 [node name="clickSound" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_2uwsx")
-volume_db = 12.0
 max_polyphony = 5
 bus = &"sfx"
 
 [node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_2tlx6")
+pitch_scale = 10.0
+bus = &"sfx"
 
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]

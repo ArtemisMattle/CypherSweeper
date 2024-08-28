@@ -15,6 +15,8 @@ extends Node2D
 @onready var roguePg=null #TODO put rogue page ref here when implemented
 @onready var titlePg=$background/edge/menu/title
 
+var mainBtn: Array[Callable] = [_toTitle, _toArcade, _toStory, _toCredits, _toRogue, _toSettings]
+
 func _ready() -> void:
 	$background/edge/menu/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 	_toTitle()
@@ -51,7 +53,7 @@ func _toTitle() -> void:
 	
 func disconnectBtnFunc(btn:Signal) -> void:
 	for i in btn.get_connections():
-		if i.callable!=sfxPlay:
+		if mainBtn.has(i.callable):
 			btn.disconnect(i.callable)
 			
 		
@@ -299,7 +301,11 @@ func _on_arcade_pressed():
 
 func buttonClickSound() -> void: # sucht alle buttons in der scene und verbindet sie mit dem Click Sound
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
-		buttons.pressed.connect(sfxPlay)
+		buttons.pressed.connect(sfxPlay.bind(1))
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
 
-func sfxPlay() -> void: # plays sounds for different events
-	$clickSound.play()
+func sfxPlay(sound: int) -> void: # plays sounds for different events
+	match sound:
+		1:$clickSound.play()
+		2:$hoverSound.play()
+	

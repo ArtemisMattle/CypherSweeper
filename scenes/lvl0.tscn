@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=29 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -115,6 +115,13 @@ _data = {
 "fade1": SubResource("Animation_xpd4b"),
 "fade2": SubResource("Animation_j0pjy")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jv2ja"]
+random_pitch = 1.1
+random_volume_offset_db = 1.25
+streams_count = 1
+stream_0/stream = ExtResource("15_twelr")
+stream_0/weight = 1.0
 
 [node name="main2" type="Node2D"]
 
@@ -651,8 +658,9 @@ text_overrun_behavior = 3
 wait_time = 0.1
 
 [node name="turnSFX" type="AudioStreamPlayer" parent="generator"]
-stream = ExtResource("15_twelr")
-max_polyphony = 21
+stream = SubResource("AudioStreamRandomizer_jv2ja")
+pitch_scale = 2.0
+max_polyphony = 50
 bus = &"sfx"
 
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
