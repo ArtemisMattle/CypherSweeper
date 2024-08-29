@@ -13,24 +13,27 @@ mouse_filter = 1
 script = ExtResource("1_k0rmo")
 
 [node name="panelContainer" type="PanelContainer" parent="."]
-offset_left = -210.0
-offset_top = -48.0
-offset_right = 210.0
-offset_bottom = 372.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -24.0
+offset_right = 420.0
+offset_bottom = 396.0
+grow_horizontal = 2
 mouse_filter = 1
 theme = ExtResource("1_6wpoy")
 
 [node name="container" type="Container" parent="."]
-offset_left = -220.0
-offset_top = -60.0
-offset_right = 220.0
-offset_bottom = 4.0
+offset_top = -40.0
+offset_right = 420.0
+offset_bottom = 8.0
 tooltip_text = "ttTB"
 
 [node name="pullBar" type="Area2D" parent="container"]
 
 [node name="pullRect" type="CollisionShape2D" parent="container/pullBar"]
-position = Vector2(215, 32)
+position = Vector2(210, 20)
 shape = SubResource("RectangleShape2D_438bj")
 
 [connection signal="input_event" from="container/pullBar" to="." method="_on_pick_up_input_event"]
