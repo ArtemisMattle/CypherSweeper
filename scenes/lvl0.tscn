@@ -716,7 +716,7 @@ max_polyphony = 50
 bus = &"sfx"
 
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
-position = Vector2(1200, 164)
+position = Vector2(1215, 190)
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]

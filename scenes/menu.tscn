@@ -119,6 +119,7 @@ text = "btnCredits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -255,7 +256,6 @@ theme_override_font_sizes/font_size = 42
 text = "lbSMode"
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -270,18 +270,29 @@ size_flags_horizontal = 3
 [node name="sizeandplay" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
 layout_mode = 2
 
-[node name="sizeSelector" type="SpinBox" parent="background/edge/menu/arcade/arcade/sizeandplay" groups=["buttonHover"]]
-custom_minimum_size = Vector2(230, 0)
+[node name="label" type="Label" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 layout_mode = 2
-size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "selSize"
+
+[node name="playSpace1" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="sizeSelector" type="SpinBox" parent="background/edge/menu/arcade/arcade/sizeandplay" groups=["buttonHover"]]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "ttselSize"
 mouse_filter = 1
 min_value = 5.0
 max_value = 21.0
 value = 13.0
-prefix = " selSize"
+alignment = 1
 
-[node name="playSpace" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
-custom_minimum_size = Vector2(75, 0)
+[node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="random" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay"]
@@ -301,8 +312,8 @@ size_flags_horizontal = 3
 mouse_filter = 1
 text = "btnPlay"
 
-[node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
-custom_minimum_size = Vector2(50, 0)
+[node name="playSpace3" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="Container" type="Container" parent="background/edge/menu/arcade/arcade"]

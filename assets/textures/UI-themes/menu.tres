@@ -83,6 +83,7 @@ Label/constants/shadow_outline_size = 30
 Label/font_sizes/font_size = 70
 Label/fonts/font = ExtResource("2_fnxqq")
 LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/constants/minimum_character_width = 1
 LineEdit/constants/outline_size = 8
 LineEdit/font_sizes/font_size = 32
 LineEdit/fonts/font = ExtResource("1_pt3f5")

@@ -1,3 +1,10 @@
-[gd_resource type="StyleBoxTexture" format=3 uid="uid://d3wf828ytqv3h"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d3wf828ytqv3h"]
+
+[ext_resource type="Texture2D" uid="uid://cehtgg1cx6yso" path="res://assets/textures/UI-elements/MenBtn_brass_scroll_vertical.png" id="1_qgjhm"]
 
 [resource]
+texture = ExtResource("1_qgjhm")
+texture_margin_left = 12.0
+texture_margin_top = 13.0
+texture_margin_right = 12.0
+texture_margin_bottom = 13.0
