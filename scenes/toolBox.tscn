@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://k1tqb2qaw6ao"]
+
+[ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="1_6wpoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_438bj"]
+size = Vector2(52, 324)
+
+[node name="toolBox" type="Node"]
+
+[node name="panelContainer" type="PanelContainer" parent="."]
+offset_left = 1232.0
+offset_top = 282.0
+offset_right = 1660.0
+offset_bottom = 613.0
+theme = ExtResource("1_6wpoy")
+
+[node name="container" type="Container" parent="."]
+offset_left = 1225.0
+offset_top = 276.0
+offset_right = 1279.0
+offset_bottom = 605.0
+tooltip_text = "ttTB"
+
+[node name="area2d" type="Area2D" parent="container"]
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="container/area2d"]
+position = Vector2(25, 166)
+shape = SubResource("RectangleShape2D_438bj")

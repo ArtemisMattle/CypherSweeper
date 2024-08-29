@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=40 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://d4mewy6ia5ri0" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.wav" id="17_jmjrs"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
+[ext_resource type="PackedScene" uid="uid://k1tqb2qaw6ao" path="res://scenes/toolBox.tscn" id="20_3h17r"]
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="21_dmutc"]
 [ext_resource type="PackedScene" uid="uid://tg4ua3sl8uuw" path="res://scenes/magnifyer.tscn" id="23_21qbm"]
 [ext_resource type="AudioStream" uid="uid://cs7q0jvd0e3v0" path="res://assets/audio/sfx/SFX-PR-1.mp3" id="23_hi6a1"]
@@ -564,6 +565,8 @@ volume_db = -9.0
 pitch_scale = 10.0
 bus = &"sfx"
 
+[node name="toolBox" parent="UI" instance=ExtResource("20_3h17r")]
+
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)
 position_smoothing_enabled = true
@@ -716,7 +719,7 @@ max_polyphony = 50
 bus = &"sfx"
 
 [node name="Magnifyer" parent="." instance=ExtResource("23_21qbm")]
-position = Vector2(1215, 190)
+position = Vector2(1216, 193)
 
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
