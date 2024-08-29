@@ -15,10 +15,21 @@ extends Node2D
 @onready var roguePg=null #TODO put rogue page ref here when implemented
 @onready var titlePg=$background/edge/menu/title
 
+@onready var langSel=$background/edge/menu/settings/settings/language/languageSelector
+
 var mainBtn: Array[Callable] = [_toTitle, _toArcade, _toStory, _toCredits, _toRogue, _toSettings]
+var avLng:Array[String]=[]
 
 func _ready() -> void:
-	$background/edge/menu/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
+	langSel.get_popup().get_viewport().transparent_bg = true
+	
+	var test="localisation.de.translation"
+	
+	for id in langSel.get_selectable_item(true)+1:
+		if "btn"+TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()==langSel.get_item_text(id):
+			langSel.select(id)
+	
+	
 	_toTitle()
 	buttonClickSound()
 
@@ -310,8 +321,13 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		2:$hoverSound.play()
 
 func _on_language_selected(index: int) -> void: # changes the language (locale)
-	match $background/edge/menu/settings/settings/language/languageSelector.get_item_text(index):
+	match langSel.get_item_text(index):
 		"btnEN": TranslationServer.set_locale("en") 
 		"btnDE": TranslationServer.set_locale("de") 
 		"btnENGB": TranslationServer.set_locale("en_GB")
-		_: print($background/edge/menu/settings/settings/language/languageSelector.get_item_text(index) + "fehlt noch")
+		
+		_: print(langSel.get_item_text(index) + "fehlt noch")
+		
+
+		
+
