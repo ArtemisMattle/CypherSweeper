@@ -1,11 +1,21 @@
-extends Node
+extends Control
 
+var held: bool = false
+var holdable: bool = true
+var speed: float = 25
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	signalBus.deactivate.connect(deactivate)
 
+func deactivate(r) -> void:
+	held = false
+	holdable = r
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(delta) -> void:
+	global_position.y = lerp(global_position.y, get_global_mouse_position().y , speed * delta)
+	set_physics_process(held)
+
+func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if holdable:
+		held = Input.is_action_pressed("pickUpTool")
+		set_physics_process(held)

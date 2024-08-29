@@ -566,6 +566,12 @@ pitch_scale = 10.0
 bus = &"sfx"
 
 [node name="toolBox" parent="UI" instance=ExtResource("20_3h17r")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_right = 210.0
+grow_vertical = 0
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)
