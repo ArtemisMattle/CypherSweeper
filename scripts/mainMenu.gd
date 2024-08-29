@@ -310,6 +310,9 @@ func _on_arcade_pressed():
 		globalVariables.lvlUP["1"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.1), 1, 9999)
 		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.6), globalVariables.lvlUP["1"] + 1, 9999)
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
+	
+	globalVariables.buff["shield"] = 1
+	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player

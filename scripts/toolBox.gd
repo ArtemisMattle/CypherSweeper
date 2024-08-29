@@ -22,7 +22,7 @@ func _physics_process(delta) -> void:
 	var miny: float = 720 - upy
 	var maxy: float = 720 - downy
 	global_position.y = clamp(lerp(global_position.y, get_global_mouse_position().y , speed * delta), miny, maxy)
-	held = is_equal_approx(global_position.y, get_global_mouse_position().y) or global_position.y > closey or global_position.y < openy
+	
 	set_physics_process(held)
 
 func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:

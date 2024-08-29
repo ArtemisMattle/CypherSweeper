@@ -6,7 +6,6 @@ var hight: int
 var ends: Array[int]
 var pos: Array[gridCell] = []
 var hex: PackedScene = preload("res://scenes/hex.tscn")
-signal talkToNeighbor(ownpos: int, owningr: int, neighborpos:int)
 var ingredientStack: Dictionary
 var ingredientList: Dictionary = {}
 var ingList: Dictionary = {}
@@ -141,13 +140,35 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 		for j: int in pos[i].neighbors:
 			pos[i].eigenValue += pos[j].ingredient.right(1).to_int()
 			pos[i].eigenIndicator.append(pos[j].ingredient.left(-1))
-		pos[i].hint.text = str(pos[i].eigenValue)
+		if pos[i].eigenValue > 0:
+			pos[i].hint.text = str(pos[i].eigenValue)
+		else: 
+			pos[i].hint.text = " "
 		var herb: Sprite2D = pos[i].cell.get_node("indicator/indicatorHerb")
 		var shroom: Sprite2D = pos[i].cell.get_node("indicator/indicatorShroom")
 		var salt: Sprite2D = pos[i].cell.get_node("indicator/indicatorSalt")
 		herb.visible = "Herb" in pos[i].eigenIndicator
 		shroom.visible = "Shroom" in pos[i].eigenIndicator
 		salt.visible = "Salt" in pos[i].eigenIndicator
+
+func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random empty space, returns if it was successful
+	var x: int = rng.randi_range(0, globalVariables.n-1)
+	if pos[x].ingredient == "Nothing0":# empty cells only ;P
+		if not pos[x].revealed:
+			pos[x].ingredient = pos[opos].ingredient
+			ingredientList[x] = pos[opos].ingredient
+			pos[opos].ingredient = "Nothing0"
+			pos[opos].sprIng.texture = null
+			pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
+			ingredientList.erase(opos)
+			ingList.erase(opos)
+			updateNeighbors(x)
+			updateNeighbors(opos)
+			return true
+		else:
+			return false
+	else:
+		return false
 
 func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
 	if body.get_meta("enabled"):
@@ -156,6 +177,14 @@ func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the rev
 func reveal(i:int) -> void: # reveals a gridCell
 	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
 		pos[i].revealed = true
+		if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
+			globalVariables.buff["shield"] -= 1 # reduces the shield buff
+			if pos[i].ingredient != "Nothing0":
+				var x: int = 0
+				while not moveIngredient(i):
+					print(str(x))
+					x += 1
+					if x > 1000: break
 		pos[i].cell.get_node("colour/button").queue_free()
 		tTune.play() # plays a sound effect
 		globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")

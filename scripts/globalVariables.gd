@@ -46,6 +46,10 @@ var ingredientStack: Dictionary = {
 	"Salt3" = 0,
 	"Flamel5" = 1,}
 
+var buff: Dictionary = {
+	"shield" = 1,
+}
+
 var scoreMult: float = 1
 var cursor: Resource
 var click: Resource
