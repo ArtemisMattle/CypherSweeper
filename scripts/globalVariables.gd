@@ -47,7 +47,7 @@ var ingredientStack: Dictionary = {
 	"Flamel5" = 1,}
 
 var buff: Dictionary = {
-	"shield" = 1,
+	"shield" = 0,
 }
 
 var scoreMult: float = 1

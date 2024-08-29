@@ -178,13 +178,18 @@ func reveal(i:int) -> void: # reveals a gridCell
 	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
 		pos[i].revealed = true
 		if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
-			globalVariables.buff["shield"] -= 1 # reduces the shield buff
-			if pos[i].ingredient != "Nothing0":
-				var x: int = 0
-				while not moveIngredient(i):
-					print(str(x))
-					x += 1
-					if x > 1000: break
+			var neigh: bool = true
+			for j: int in pos[i].neighbors:
+				if pos[j].revealed:
+					neigh = false
+					break
+			if neigh:
+				globalVariables.buff["shield"] -= 1 # reduces the shield buff
+				if pos[i].ingredient != "Nothing0":
+					var x: int = 0
+					while not moveIngredient(i):
+						x += 1
+						if x > 1000: break
 		pos[i].cell.get_node("colour/button").queue_free()
 		tTune.play() # plays a sound effect
 		globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")
