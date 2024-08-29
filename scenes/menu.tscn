@@ -76,8 +76,8 @@ theme = ExtResource("2_50dck")
 
 [node name="playStory" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
-tooltip_text = "Coming Soon!"
-mouse_filter = 2
+tooltip_text = "ttcs!"
+mouse_filter = 1
 theme = ExtResource("2_50dck")
 disabled = true
 text = "btnPStory"
@@ -92,8 +92,8 @@ alignment = 0
 
 [node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
-tooltip_text = "Coming Soon!"
-mouse_filter = 2
+tooltip_text = "ttcs!"
+mouse_filter = 1
 theme = ExtResource("2_50dck")
 disabled = true
 text = "btnPRogue"
