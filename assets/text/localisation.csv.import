@@ -6,10 +6,10 @@ uid="uid://dwhqto7kyyfnj"
 
 [deps]
 
-files=["res://assets/text/localisation.en.translation", "res://assets/text/localisation.de.translation", "res://assets/text/localisation.en_GB.translation"]
+files=["res://assets/text/localisation.en.translation", "res://assets/text/localisation.de.translation", "res://assets/text/localisation.fr.translation", "res://assets/text/localisation.es.translation", "res://assets/text/localisation.en_GB.translation", "res://assets/text/localisation.eo.translation"]
 
 source_file="res://assets/text/localisation.csv"
-dest_files=["res://assets/text/localisation.en.translation", "res://assets/text/localisation.de.translation", "res://assets/text/localisation.en_GB.translation"]
+dest_files=["res://assets/text/localisation.en.translation", "res://assets/text/localisation.de.translation", "res://assets/text/localisation.fr.translation", "res://assets/text/localisation.es.translation", "res://assets/text/localisation.en_GB.translation", "res://assets/text/localisation.eo.translation"]
 
 [params]
 

@@ -17,6 +17,9 @@ extends Node2D
 
 @onready var langSel=$background/edge/menu/settings/settings/language/languageSelector
 
+@onready var click: AudioStreamPlayer = $clickSound
+@onready var hover: AudioStreamPlayer = $hoverSound
+
 var mainBtn: Array[Callable] = [_toTitle, _toArcade, _toStory, _toCredits, _toRogue, _toSettings]
 var avLng:Array[String]=[]
 
@@ -324,15 +327,17 @@ func buttonClickSound() -> void: # searches all buttons and connects them to the
 
 func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:
-		1:$clickSound.play()
-		2:$hoverSound.play()
+		1:click.play()
+		2:hover.play()
 
 func _on_language_selected(index: int) -> void: # changes the language (locale)
 	match langSel.get_item_text(index):
 		"btnEN": TranslationServer.set_locale("en") 
 		"btnDE": TranslationServer.set_locale("de") 
 		"btnENGB": TranslationServer.set_locale("en_GB")
-		
+		"btnFR": TranslationServer.set_locale("fr")
+		"btnES": TranslationServer.set_locale("es")
+		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
 		
 

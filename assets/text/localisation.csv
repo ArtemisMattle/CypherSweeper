@@ -1,26 +1,42 @@
-key,en,de,en_GB
-btnPStory,Play Story,Geschichte,
-btnPArcade,Play Arcade,Arkade,
-btnPRogue,Play Rogue,Rogue,
-btnSettings,Settings,Optionen,
-btnCredits,Credits,Vorspann,
-btnBack,Back,Zurück,
-ttcs!,Coming Soon!,Bald Verfügbar!,
-lbLang,Languages:,Sprachen:,Tongues:
-btnEN,English,Englisch,
-btnDE,German,Deutsch,
-btnENGB,Bri’ish,Britisch,
-btnZippy,Zippy,Flott,
-btnFast,Fast,Schnell,
-btnNormal,Normal,Normal,
-lbSMode,Speed Mode,Tempo,
-selSize,Size,Abmaß,
-ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere felder sind schwerer und brauchen mehr Zeit!",
-btnHigh,High,Hoch,
-btnMedium,Medium,Mittel,
-btnLow,Low,Niedrig,
-lbPopMode,Population Mode,Bestandsmodus,
-btnExtreme,Extreme,Extrem,
-lbDiffMode,Difficulty Mode,Schwierigkeit,
-btnPlay,Play,Spielen,
-ttTB,"ToolBox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge",
+key,en,de,fr,es,en_GB,eo
+btnPStory,Play Story,Geschichte,place,holder,,Ludi Etaĝo
+btnPArcade,Play Arcade,Arkade,,,,Ludi Arkado
+btnPRogue,Play Rogue,Rogue,,,,Ludi Ruĵo
+btnSettings,Settings,Optionen,,,Se’ings,Agordoj
+btnCredits,Credits,Vorspann,,,Credi’s,Kreditoj
+btnBack,Back,Zurück,,,,Reveno
+ttcs!,Coming Soon!,Bald Verfügbar!,,,,Baldaŭ Venos!
+lbLang,Languages:,Sprachen:,,,Tongues:,Lingvoj
+btnEN,English,Englisch,,,,Angla
+btnDE,German,Deutsch,,,,Germana
+btnFR,French,Französisch,,,,Franca
+btnES,Spanish,Spanisch,,,,Hispana
+btnENGB,British,Britisch,,,Bri’ish,Brita
+btnEO,Esperanto,Esperanto,,,,Esperanto
+btnZippy,Zippy,Flott,,,,Tre Rapide
+btnFast,Fast,Schnell,,,,Rapida
+btnNormal,Normal,Normal,,,,Normala
+lbSMode,Speed Mode,Tempo,,,,Rapido Reĝimo
+selSize,Size,Größe,,,,Grandeco
+ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere Felder sind schwerer und brauchen mehr Zeit!",,,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
+btnHigh,High,Hoch,,,,Alta
+btnMedium,Medium,Mittel,,,,Mezumo
+btnLow,Low,Niedrig,,,,Malalta
+lbPopMode,Population Mode,Dichte,,,,Loĝantaro
+btnExtreme,Extreme,Extrem,,,,Ekstrema
+lbDiffMode,Difficulty Mode,Schwierigkeit,,,,Malfacileco
+btnPlay,Play,Spielen,,,,Ludi
+ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge",,,,"Utila kesto, loko por ĉiuj viaj iloj"
+btnExit,Exit,,,,,Elirejo
+lbWarning,Exiting deletes your progress.,,,,,Eliro forigas vian progreson
+lbHerb,Herb,,,,,Herbo
+lbShroom,Fungi,,,,,Fungo
+lbSalt,Salt,,,,,Salo
+lbShadow,Shadow,,,,,Ombro
+lbGameOver,Game Over!,,,,,La Ludo Finiĝis!
+lbWon,You Won!,,,,,Vi Venkis!
+lbTime,You took,,,,,Vi uzis
+lbMod,Your modifyer is,,,,,Via modifilo estas
+lbScore,You scored,,,,,Vi gajnis
+lbMin,Minutes and,,,,,Minutojn kaj
+lbSec,Seconds,,,,,Sekundojn

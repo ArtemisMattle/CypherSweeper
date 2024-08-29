@@ -8,6 +8,9 @@ var activeMusic: bool = true
 var activeTrack: int = 10
 @onready var music: Dictionary = {true: $music1, false: $music2}
 @onready var fade: AnimationPlayer = $fader
+@onready var click: AudioStreamPlayer = $clickSound
+@onready var hover: AudioStreamPlayer = $hoverSound
+@onready var hovers: AudioStreamPlayer = $hoverSoundS
 var tracks: Array[String] = [
 	"res://assets/audio/music/level/Main Game Sanity 9 - 0.wav",
 	"res://assets/audio/music/level/Main Game Sanity 19 - 10.wav",
@@ -102,13 +105,13 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	var msg: int = randi_range(0, 100)
 	if win:
 		match msg:
-			_: $gameOver/centerer/gameOver/centerer/end.text = "You Won!"
+			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
 	else:
 		match msg:
-			_: $gameOver/centerer/gameOver/centerer/end.text = "Game Over!"
-	$gameOver/centerer/gameOver/time.text += str(floor(time/60)) + " Minutes and " + str(fmod(floor(time),60)) + " Seconds"
-	$gameOver/centerer/gameOver/score.text += str(score(time))
-	$gameOver/centerer/gameOver/mod.text += str(snappedf(globalVariables.scoreMult, 0.001))
+			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
+	$gameOver/centerer/gameOver/time.text = tr("lbTime") + " " + str(floor(time/60)) + " " + tr("lbMin") + " " + str(fmod(floor(time),60)) + " " + tr("lbSec")
+	$gameOver/centerer/gameOver/score.text = tr("lbScore") + " " + str(score(time))
+	$gameOver/centerer/gameOver/mod.text = tr("lbMod") + " " + str(snappedf(globalVariables.scoreMult, 0.001))
 	globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false
@@ -184,6 +187,6 @@ func buttonClickSound() -> void: # searches all buttons and connects them to the
 
 func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:
-		1:$clickSound.play()
-		2:$hoverSound.play()
-		3:$hoverSoundS.play()
+		1:click.play()
+		2:hover.play()
+		3:hovers.play()

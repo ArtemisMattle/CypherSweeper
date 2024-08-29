@@ -214,7 +214,7 @@ expand_mode = 1
 [node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/herb"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "Herb"
+text = "lbHerb"
 
 [node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/herb"]
 layout_mode = 2
@@ -234,8 +234,8 @@ expand_mode = 1
 [node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/shroom"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "Fungi
-"
+text = "lbShroom"
+autowrap_mode = 2
 
 [node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/shroom"]
 layout_mode = 2
@@ -267,7 +267,7 @@ text = "0"
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
-text = "Salt"
+text = "lbSalt"
 
 [node name="salt" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/salt"]
 custom_minimum_size = Vector2(28, 20)
@@ -288,7 +288,7 @@ text = "0"
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
-text = "Shadow"
+text = "lbShadow"
 
 [node name="shadow" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/shadow"]
 custom_minimum_size = Vector2(28, 20)
@@ -315,13 +315,13 @@ layout_mode = 2
 
 [node name="exit" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
-text = "Exit "
+text = "btnExit"
 
 [node name="warning" type="Label" parent="UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 24
-text = "Exiting deletes your progress."
+text = "lbWarning"
 
 [node name="Container" type="Container" parent="UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 100)
@@ -329,7 +329,7 @@ layout_mode = 2
 
 [node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
-text = "Settings"
+text = "btnSettings"
 
 [node name="settings" type="HBoxContainer" parent="UI/player/pauseMenu/centerer"]
 visible = false
@@ -398,7 +398,7 @@ button_group = ExtResource("14_pdgxm")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Zippy"
+text = "btnZippy"
 
 [node name="fast" type="HSplitContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
 layout_mode = 2
@@ -414,7 +414,7 @@ button_group = ExtResource("14_pdgxm")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Fast"
+text = "btnFast"
 
 [node name="normal" type="HSplitContainer" parent="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
 layout_mode = 2
@@ -431,14 +431,14 @@ button_group = ExtResource("14_pdgxm")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
-text = "Normal"
+text = "btnNormal"
 
 [node name="speedMode" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/speed"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
-text = "Speed Mode"
+text = "lbSMode"
 
 [node name="return" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2
@@ -450,7 +450,7 @@ layout_mode = 2
 [node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/settings/return" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Return"
+text = "btnBack"
 
 [node name="returnSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
 custom_minimum_size = Vector2(150, 0)
@@ -497,7 +497,7 @@ layout_mode = 2
 
 [node name="end" type="Label" parent="UI/player/gameOver/centerer/gameOver/centerer"]
 layout_mode = 2
-text = "Game Over!"
+text = "lbGameOver"
 
 [node name="endSpace" type="Container" parent="UI/player/gameOver/centerer/gameOver"]
 custom_minimum_size = Vector2(0, 30)
@@ -507,19 +507,19 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 24
-text = "You took "
+text = "lbTime"
 
 [node name="mod" type="Label" parent="UI/player/gameOver/centerer/gameOver"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 24
-text = "Your modifyer is "
+text = "lbMod"
 
 [node name="score" type="Label" parent="UI/player/gameOver/centerer/gameOver"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 24
-text = "You scored "
+text = "lbScore"
 
 [node name="endSpace2" type="Container" parent="UI/player/gameOver/centerer/gameOver"]
 custom_minimum_size = Vector2(0, 15)
@@ -527,7 +527,7 @@ layout_mode = 2
 
 [node name="return" type="Button" parent="UI/player/gameOver/centerer/gameOver" groups=["buttonClick"]]
 layout_mode = 2
-text = "back to Menu"
+text = "lbExit"
 
 [node name="timer" parent="UI/player" instance=ExtResource("15_86skq")]
 position = Vector2(1215, 71)
