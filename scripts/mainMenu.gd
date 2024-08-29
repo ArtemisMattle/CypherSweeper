@@ -23,10 +23,14 @@ var avLng:Array[String]=[]
 func _ready() -> void:
 	langSel.get_popup().get_viewport().transparent_bg = true
 	
-	var test="localisation.de.translation"
+	var lang=TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()
+	if TranslationServer.get_locale().length()==5:
+		lang=lang+TranslationServer.get_locale().right(2)
 	
 	for id in langSel.get_selectable_item(true)+1:
-		if "btn"+TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()==langSel.get_item_text(id):
+		if "btn"+lang==langSel.get_item_text(id):
+			langSel.select(id)
+		elif "btn"+lang.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 	
 	
