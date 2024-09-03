@@ -48,6 +48,7 @@ var ingredientStack: Dictionary = {
 
 var buff: Dictionary = {
 	"shield" = 0,
+	"freeHint" = 0,
 }
 
 

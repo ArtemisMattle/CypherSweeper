@@ -10,7 +10,6 @@
 radius = 65.0
 
 [node name="clock" type="Control"]
-z_index = 2
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0

@@ -9,7 +9,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hx0r"]
 
 [node name="magnifyer" type="Control"]
-z_index = 2
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
 anchors_preset = 0

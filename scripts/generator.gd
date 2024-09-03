@@ -38,6 +38,7 @@ func _ready()-> void:
 	signalBus.populated.emit()
 	populate()
 	signalBus.deactivate.connect(deactivate)
+	signalBus.getRandomUnrevealed.connect(getUnrevealedIngredient)
 
 func get_ends() -> void:# calculates where the line breaks in the hex grid
 	var x: int = 1
@@ -282,6 +283,10 @@ func deactivate(r: bool) -> void: # deactivates all interactivity with the map
 				pos[i].cell.get_node("colour/button").set("mouse_filter", 1)
 			else:
 				pos[i].cell.get_node("colour/button").set("mouse_filter", 2)
+
+func getUnrevealedIngredient() -> void: # emits a signal with a position and an ingredient
+	var p: int = ingList.keys().pick_random()
+	signalBus.returnUnrevealed.emit(pos[p].ingredient, pos[p].cell.global_position)
 
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors

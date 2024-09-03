@@ -22,6 +22,7 @@ func _ready() -> void:
 		"magnifyer",
 		"lexicon",
 		"clock",
+		"hintCoin",
 	]
 	for x: int in Tools.size():
 		tools.append(globalVariables.tool.new())

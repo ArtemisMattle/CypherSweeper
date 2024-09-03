@@ -140,6 +140,7 @@ offset_top = -40.0
 offset_right = 420.0
 offset_bottom = 8.0
 tooltip_text = "ttTB"
+mouse_filter = 1
 
 [node name="opener" type="AnimationPlayer" parent="."]
 libraries = {
@@ -151,6 +152,7 @@ z_index = 2
 offset_top = -115.0
 offset_right = 72.0
 offset_bottom = -19.0
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_d1wq5")
 
 [node name="centerer" type="CenterContainer" parent="tBox"]
@@ -161,6 +163,7 @@ layout_mode = 2
 
 [node name="toolBoxButton" type="TextureButton" parent="tBox/centerer/stacker" groups=["buttonClick"]]
 layout_mode = 2
+mouse_filter = 1
 toggle_mode = true
 texture_normal = ExtResource("4_4h03f")
 

@@ -315,6 +315,7 @@ func _on_arcade_pressed():
 		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
 	
 	globalVariables.buff["shield"] = 1
+	globalVariables.buff["freeHint"] = 1
 	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
