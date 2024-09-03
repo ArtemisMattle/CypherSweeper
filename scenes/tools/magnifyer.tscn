@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://7gb1ry43pdlv"]
+
+[ext_resource type="Texture2D" uid="uid://cdeeu7rv5218x" path="res://assets/textures/tools/magnifyer.png" id="1_p6v4o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6o7e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1bet"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hx0r"]
+
+[node name="magnifyer" type="Control"]
+z_index = 2
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+
+[node name="placer" type="Node2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="toolSprite" type="Sprite2D" parent="placer"]
+texture = ExtResource("1_p6v4o")
+
+[node name="pickUp" type="Area2D" parent="placer"]
+monitoring = false
+monitorable = false
+
+[node name="pickCircle" type="CollisionShape2D" parent="placer/pickUp"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_6o7e2")
+
+[node name="pickHandle" type="CollisionShape2D" parent="placer/pickUp"]
+position = Vector2(-44, 44)
+rotation = 0.785398
+scale = Vector2(0.7, 1.5)
+shape = SubResource("RectangleShape2D_t1bet")
+
+[node name="uncover" type="CharacterBody2D" parent="placer"]
+collision_layer = 2
+collision_mask = 2
+metadata/enabled = false
+
+[node name="uncoverCircle" type="CollisionShape2D" parent="placer/uncover"]
+scale = Vector2(3.7, 3.7)
+shape = SubResource("CircleShape2D_7hx0r")
+debug_color = Color(0.867084, 0.195275, 0.729305, 0.42)
+
+[connection signal="input_event" from="placer/pickUp" to="placer" method="_on_pick_up_input_event"]

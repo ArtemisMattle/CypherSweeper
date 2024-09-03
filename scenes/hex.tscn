@@ -46,10 +46,13 @@ metadata/_snap_enabled = true
 [node name="hint" type="Label" parent="."]
 visible = false
 z_index = 1
-offset_left = -23.0
-offset_top = -30.0
-offset_right = 23.0
-offset_bottom = 19.0
+texture_filter = 2
+custom_minimum_size = Vector2(96, 0)
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 72.0
+offset_bottom = 49.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("3_gis8a")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,6 +122,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="turnerCircle" type="CollisionShape2D" parent="magTurner"]
+visible = false
 scale = Vector2(1.7, 1.7)
 shape = SubResource("CircleShape2D_f843s")
 

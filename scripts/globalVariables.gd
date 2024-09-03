@@ -31,7 +31,7 @@ var lvlUP: Dictionary = {
 	"4" = 999999,}
 var lvl1: String = "Herb"
 var leveled1: bool = false
-var ingr = ["Herb", "Shroom", "Salt"]
+var ingr: Array[String] = ["Herb", "Shroom", "Salt"]
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
@@ -50,16 +50,23 @@ var buff: Dictionary = {
 	"shield" = 0,
 }
 
+
+var boxing: bool = false # if a tool gets put back into the box
+var holdable: bool = true
+
 var scoreMult: float = 1
-var cursor: Resource
-var click: Resource
 var rngseed: int = 5
 
-#cursor curser
-func _ready() -> void:
+var cursor: Resource
+var click: Resource
+
+func _ready() -> void: # provides setup for the cursor curser
+	# cursor curser setup
 	cursor = load("res://assets/textures/cursors/pincher.png")
-	click= load("res://assets/textures/cursors/pincherCl.png")
+	click = load("res://assets/textures/cursors/pincherCl.png")
 	signalBus.upsane.connect(cursedCursor)
+
+#cursor curser
 
 func cursedCursor() -> void:
 	if sanity > 70:
@@ -81,3 +88,18 @@ func mouseHandler(event: InputEvent) -> void:
 		Input.set_custom_mouse_cursor(click)
 	if event.is_released() and event.button_index== 1: #1-> LMB, 2 -> RMB
 		Input.set_custom_mouse_cursor(cursor)
+
+class tool: # class for non consumable tools, used by toolBox and toolHandler
+	var tScene: Control = null
+	var place: Node2D = null
+	var pickUp: Area2D = null # must have the "pickUpTool" Group
+	
+	func initiate() -> void:
+		place = tScene.get_node("placer")
+		pickUp = tScene.get_node("placer/pickUp")
+	
+	func _to_string() -> String:
+		if tScene == null:
+			return "null"
+		else:
+			return tScene.name

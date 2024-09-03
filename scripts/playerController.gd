@@ -101,7 +101,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	signalBus.deactivate.emit(false)
 	if win:
 		globalVariables.scoreMult *= 3
-	var time: float = $timer.t
+	var time: float = globalVariables.playTime
 	var msg: int = randi_range(0, 100)
 	if win:
 		match msg:

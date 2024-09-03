@@ -1,39 +1,174 @@
-[gd_scene load_steps=4 format=3 uid="uid://k1tqb2qaw6ao"]
+[gd_scene load_steps=9 format=3 uid="uid://k1tqb2qaw6ao"]
 
 [ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="1_6wpoy"]
 [ext_resource type="Script" path="res://scripts/toolBox.gd" id="1_k0rmo"]
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="3_d1wq5"]
+[ext_resource type="Texture2D" uid="uid://b7aha7v5qshar" path="res://assets/textures/UI-elements/tBox.png" id="4_4h03f"]
+[ext_resource type="Texture2D" uid="uid://bjyi8w32og7uq" path="res://assets/textures/UI-elements/cog.png" id="5_77lnf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_438bj"]
-size = Vector2(420, 50)
+[sub_resource type="Animation" id="Animation_h7ude"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 700), Vector2(10, 340)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.71239]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cog:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(460, 20), Vector2(460, 380)]
+}
+
+[sub_resource type="Animation" id="Animation_6336e"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 340), Vector2(10, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.71239, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cog:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(460, 380), Vector2(460, 20)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"lowSanity"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e32b"]
+_data = {
+"close": SubResource("Animation_6336e"),
+"open": SubResource("Animation_h7ude")
+}
 
 [node name="toolBox" type="Control"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
+offset_left = 10.0
+offset_top = 700.0
+offset_right = 10.0
+offset_bottom = 700.0
 mouse_filter = 1
 script = ExtResource("1_k0rmo")
 
-[node name="panelContainer" type="PanelContainer" parent="."]
+[node name="background" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_top = -24.0
 offset_right = 420.0
-offset_bottom = 396.0
+offset_bottom = 431.0
 grow_horizontal = 2
 mouse_filter = 1
 theme = ExtResource("1_6wpoy")
 
-[node name="container" type="Container" parent="."]
+[node name="edge" type="MarginContainer" parent="background"]
+layout_mode = 2
+theme = ExtResource("1_6wpoy")
+
+[node name="toolGrid" type="Container" parent="background/edge"]
+layout_mode = 2
+
+[node name="toolTip" type="Control" parent="."]
+anchors_preset = 0
 offset_top = -40.0
 offset_right = 420.0
 offset_bottom = 8.0
 tooltip_text = "ttTB"
 
-[node name="pullBar" type="Area2D" parent="container"]
+[node name="opener" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5e32b")
+}
 
-[node name="pullRect" type="CollisionShape2D" parent="container/pullBar"]
-position = Vector2(210, 20)
-shape = SubResource("RectangleShape2D_438bj")
+[node name="tBox" type="PanelContainer" parent="."]
+z_index = 2
+offset_top = -115.0
+offset_right = 72.0
+offset_bottom = -19.0
+theme_override_styles/panel = ExtResource("3_d1wq5")
 
-[connection signal="input_event" from="container/pullBar" to="." method="_on_pick_up_input_event"]
+[node name="centerer" type="CenterContainer" parent="tBox"]
+layout_mode = 2
+
+[node name="stacker" type="VBoxContainer" parent="tBox/centerer"]
+layout_mode = 2
+
+[node name="toolBoxButton" type="TextureButton" parent="tBox/centerer/stacker" groups=["buttonClick"]]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("4_4h03f")
+
+[node name="cog" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(460, 20)
+texture = ExtResource("5_77lnf")
+
+[connection signal="mouse_entered" from="background" to="." method="_on_tool_box" binds= [true]]
+[connection signal="mouse_exited" from="background" to="." method="_on_tool_box" binds= [false]]
+[connection signal="toggled" from="tBox/centerer/stacker/toolBoxButton" to="." method="_on_open_toggled"]

@@ -1,9 +1,9 @@
 extends Camera2D
-const minZoom: float = 0.25
-const maxZoom: float = 3.0
+const minZoom: float = 0.5
+const maxZoom: float = 2.0
 const zoomInc: float = 0.05
 const zoomRate: float = 7.0
-var tZoom: float = 1.0
+var tZoom: float = 2.0
 
 func _physics_process(delta):
 	if not globalVariables.paused:

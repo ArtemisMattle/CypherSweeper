@@ -57,5 +57,5 @@ func _on_musicMute_toggled(toggled_on: bool) -> void:
 
 func _process(delta: float) -> void:
 	t += delta
-	if t >= 1:
+	if t >= .3:
 		fade.play("fadeOut")
