@@ -12,7 +12,11 @@ func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 		signalBus.getRandomUnrevealed.emit()
 
 func findUnrevealed(i: String, p: Vector2) -> void:
-	$placer.global_position = p
+	var offset: Vector2
+	if globalVariables.sanity < 75:
+			offset = Vector2.from_angle(randf_range(0, 2 * PI))
+			offset *= clampf(randf_range(0, 150 / globalVariables.sanity), 0, 33)
+	$placer.global_position = p + offset
 	$placer/toolSprite/ingredient.texture = load("res://assets/textures/ingredients/" + i + ".png")
 	$placer/toolSprite.texture = load("res://assets/textures/tools/coin-blank.png")
 	$placer.rotate(randf_range(0, 2 * PI))
