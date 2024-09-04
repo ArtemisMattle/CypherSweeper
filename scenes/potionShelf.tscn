@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://qxhusqbo07v"]
+
+[ext_resource type="Script" path="res://scripts/potionShelf.gd" id="1_gdo7p"]
+[ext_resource type="Theme" uid="uid://dbccppv6nmh7f" path="res://assets/textures/UI-themes/potionShelf.tres" id="2_axlfl"]
+[ext_resource type="Texture2D" uid="uid://ciqbl4ayaah6i" path="res://assets/textures/tools/coin-pi.png" id="3_8ohuq"]
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_ww7dk"]
+[ext_resource type="Texture2D" uid="uid://buu0spue538i4" path="res://assets/textures/UI-elements/potion.png" id="5_is0vx"]
+
+[sub_resource type="Animation" id="Animation_u1yki"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("place:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ymdkw"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("place:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwmsl"]
+_data = {
+"close": SubResource("Animation_ymdkw"),
+"open": SubResource("Animation_u1yki")
+}
+
+[node name="potionShelf" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_gdo7p")
+
+[node name="place" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="background" type="PanelContainer" parent="place"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme = ExtResource("2_axlfl")
+
+[node name="edge" type="MarginContainer" parent="place/background"]
+layout_mode = 2
+
+[node name="potions" type="HBoxContainer" parent="place/background/edge"]
+layout_mode = 2
+
+[node name="textureButton3" type="TextureButton" parent="place/background/edge/potions"]
+layout_mode = 2
+texture_normal = ExtResource("3_8ohuq")
+
+[node name="textureButton2" type="TextureButton" parent="place/background/edge/potions"]
+layout_mode = 2
+texture_normal = ExtResource("3_8ohuq")
+
+[node name="textureButton" type="TextureButton" parent="place/background/edge/potions"]
+layout_mode = 2
+texture_normal = ExtResource("3_8ohuq")
+
+[node name="textureButton4" type="TextureButton" parent="place/background/edge/potions"]
+layout_mode = 2
+texture_normal = ExtResource("3_8ohuq")
+
+[node name="pShelf" type="PanelContainer" parent="place"]
+z_index = 2
+offset_left = -52.0
+offset_right = -4.0
+offset_bottom = 72.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("4_ww7dk")
+
+[node name="centerer" type="CenterContainer" parent="place/pShelf"]
+layout_mode = 2
+
+[node name="stacker" type="VBoxContainer" parent="place/pShelf/centerer"]
+layout_mode = 2
+
+[node name="potionShelfButton" type="TextureButton" parent="place/pShelf/centerer/stacker" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+toggle_mode = true
+texture_normal = ExtResource("5_is0vx")
+
+[node name="opener" type="AnimationPlayer" parent="place"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_fwmsl")
+}
+
+[connection signal="toggled" from="place/pShelf/centerer/stacker/potionShelfButton" to="." method="_on_open_toggled"]

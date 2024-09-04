@@ -6,6 +6,7 @@ var speed: float = 50
 
 func _ready() -> void:
 	signalBus.toolTrans.connect(takeTool)
+	signalBus.deactivate.connect(deactivate)
 	set_physics_process(false)
 	
 func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the parent juggling
@@ -23,7 +24,6 @@ func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the paren
 
 func _physics_process(delta: float) -> void:
 	held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
-	
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: #handles the drag&drop for the tools, as well as the parent juggling
 	if Input.is_action_pressed("pickUpTool"):
@@ -44,3 +44,7 @@ func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariab
 			if globalVariables.boxing:
 				signalBus.toolTrans.emit(t)
 				t.pickUp.input_event.disconnect(giveTool)
+
+func deactivate() -> void:
+	globalVariables.holdable = false
+	held = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=41 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_jcres"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://c35pg3fntua3o" path="res://assets/audio/sfx/SFX-PR-7.mp3" id="29_xkd54"]
 [ext_resource type="TileSet" uid="uid://d13hh7latkhmy" path="res://assets/textures/background/pergamentTiles.tres" id="32_2xwlq"]
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
+[ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_63s4n"]
 action = &"pause"
@@ -570,15 +571,18 @@ volume_db = -9.0
 pitch_scale = 10.0
 bus = &"sfx"
 
+[node name="potionShelf" parent="UI" instance=ExtResource("32_pfg14")]
+offset_left = 1280.0
+offset_bottom = -720.0
+mouse_filter = 2
+
 [node name="toolBox" type="CanvasLayer" parent="."]
 
 [node name="toolBox" parent="toolBox" instance=ExtResource("20_3h17r")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 0.0
 offset_top = 0.0
-offset_right = 0.0
 offset_bottom = 0.0
 grow_vertical = 0
 
