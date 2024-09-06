@@ -11,17 +11,19 @@ var activeTrack: int = 10
 @onready var click: AudioStreamPlayer = $clickSound
 @onready var hover: AudioStreamPlayer = $hoverSound
 @onready var hovers: AudioStreamPlayer = $hoverSoundS
+@onready var levelUp: AudioStreamPlayer = $levelUp
+@onready var damageSFX: AudioStreamPlayer = $damage
 var tracks: Array[String] = [
-	"res://assets/audio/music/level/Main Game Sanity 9 - 0.wav",
-	"res://assets/audio/music/level/Main Game Sanity 19 - 10.wav",
-	"res://assets/audio/music/level/Main Game Sanity 29 - 20.wav",
-	"res://assets/audio/music/level/Main Game Sanity 39 - 30.wav",
-	"res://assets/audio/music/level/Main Game Sanity 49 - 40.wav",
-	"res://assets/audio/music/level/Main Game Sanity 59 - 50.wav",
-	"res://assets/audio/music/level/Main Game Sanity 69 - 60.wav",
-	"res://assets/audio/music/level/Main Game Sanity 79 - 70.wav",
-	"res://assets/audio/music/level/Main Game Sanity 89 - 80.wav",
-	"res://assets/audio/music/level/Main Game Sanity 100 - 90.wav",]
+	"res://assets/audio/music/level/Main Game Sanity 9 - 0.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 19 - 10.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 29 - 20.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 39 - 30.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 49 - 40.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 59 - 50.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 69 - 60.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 79 - 70.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 89 - 80.mp3",
+	"res://assets/audio/music/level/Main Game Sanity 100 - 90.mp3",]
 
 #@onready var bB=$"../../buttonBlocker"
 
@@ -116,6 +118,20 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false
 	$gameOver.visible = true
+	
+	if win: # changes the music to after game loops, also plays a short jingle
+		music[not activeMusic].stream = load("res://assets/audio/music/Setting Menu.mp3")
+		$endGameJingle.stream = load("res://assets/audio/sfx/endGame/Sieg Option 2.mp3")
+	else:
+		music[not activeMusic].stream = load("res://assets/audio/music/Pause Menu.mp3")
+		$endGameJingle.stream = load("res://assets/audio/sfx/endGame/Niederlage Opt 2.mp3")
+	$endGameJingle.play()
+	music[not activeMusic].play(music[activeMusic].get_playback_position())
+	if activeMusic: # does a crossfade
+		fade.play("fade1")
+	else:
+		fade.play("fade2")
+	activeMusic = not activeMusic
 
 func score(time: float) -> int: #calculates the score
 	var s: float = 0
@@ -141,9 +157,13 @@ func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 		"Shadow":
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
 			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
+	levelUp.play(0.9)
 
 func Flamel() -> void: # shows the Flamel when it's time to reveal it
 	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
+	levelUp.play(0.9)
+	levelUp.play(0.6)
+	levelUp.play(0.5)
 
 func _on_pause_button_toggled(toggled_on: bool) -> void: # pauses the game and shows a pause menu
 	$pauseMenu.visible = toggled_on
@@ -183,7 +203,6 @@ func buttonClickSound() -> void: # searches all buttons and connects them to the
 		buttons.mouse_entered.connect(sfxPlay.bind(2))
 	for buttons: Node in get_tree().get_nodes_in_group("buttonHoverS"):
 		buttons.mouse_entered.connect(sfxPlay.bind(3))
-	
 
 func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:

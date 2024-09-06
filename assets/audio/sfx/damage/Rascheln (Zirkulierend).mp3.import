@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ckyrmnyt1ccne"
+path="res://.godot/imported/Rascheln (Zirkulierend).mp3-9af75f2ad38d869dff3842b16ca989e6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/damage/Rascheln (Zirkulierend).mp3"
+dest_files=["res://.godot/imported/Rascheln (Zirkulierend).mp3-9af75f2ad38d869dff3842b16ca989e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

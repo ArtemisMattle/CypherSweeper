@@ -6,45 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b7aha7v5qshar" path="res://assets/textures/UI-elements/tBox.png" id="4_4h03f"]
 [ext_resource type="Texture2D" uid="uid://bjyi8w32og7uq" path="res://assets/textures/UI-elements/cog.png" id="5_77lnf"]
 
-[sub_resource type="Animation" id="Animation_h7ude"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 700), Vector2(0, 340)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cog:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 4.71239]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("cog:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(460, 20), Vector2(460, 380)]
-}
-
 [sub_resource type="Animation" id="Animation_6336e"]
 resource_name = "close"
 tracks/0/type = "value"
@@ -98,6 +59,45 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_h7ude"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 700), Vector2(0, 340)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cog:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.71239]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cog:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(460, 20), Vector2(460, 380)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5e32b"]
 _data = {
 "close": SubResource("Animation_6336e"),
@@ -147,6 +147,7 @@ libraries = {
 
 [node name="tBox" type="PanelContainer" parent="."]
 z_index = 2
+layout_mode = 0
 offset_top = -115.0
 offset_right = 72.0
 offset_bottom = -19.0

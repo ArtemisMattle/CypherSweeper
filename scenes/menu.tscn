@@ -10,13 +10,13 @@
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_77w3h"]
 [ext_resource type="Texture2D" uid="uid://bnmeabab7bh70" path="res://assets/textures/Logo-agender.svg" id="11_6rgdl"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="13_l1v7u"]
+[ext_resource type="AudioStream" uid="uid://3hrmx0speedw" path="res://assets/audio/music/Main Menu and Credits .mp3" id="13_sg5g6"]
 [ext_resource type="AudioStream" uid="uid://bbkl8a8d15bkg" path="res://assets/audio/sfx/Button Sound Raphi Option.mp3" id="14_ahvhn"]
 [ext_resource type="ButtonGroup" uid="uid://b1oevm04u8h1w" path="res://assets/textures/UI-elements/buttonGroups/populationGroup.tres" id="14_bj10x"]
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="15_1wson"]
 [ext_resource type="ButtonGroup" uid="uid://ph6tg01bs3cx" path="res://assets/textures/UI-elements/buttonGroups/difficultyGroup.tres" id="15_82b6h"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
-[ext_resource type="AudioStream" uid="uid://bjejdk8y7gfia" path="res://assets/audio/music/Main Menu and Credits .wav" id="19_5q6yt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
 texture = ExtResource("3_gogsx")
@@ -616,7 +616,7 @@ layout_mode = 2
 text = "Level 9"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_5q6yt")
+stream = ExtResource("13_sg5g6")
 volume_db = -12.0
 autoplay = true
 bus = &"music"
