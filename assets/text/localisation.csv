@@ -1,42 +1,42 @@
 key,en,de,fr,es,en_GB,eo
-btnPStory,Play Story,Geschichte,place,holder,,Ludi Etaƒùo
-btnPArcade,Play Arcade,Arkade,,,,Ludi Arkado
-btnPRogue,Play Rogue,Rogue,,,,Ludi Ruƒµo
-btnSettings,Settings,Optionen,,,Se‚Äôings,Agordoj
-btnCredits,Credits,Vorspann,,,Credi‚Äôs,Kreditoj
-btnBack,Back,Zur√ºck,,,,Reveno
-ttcs!,Coming Soon!,Bald Verf√ºgbar!,,,,Balda≈≠ Venos!
-lbLang,Languages:,Sprachen:,,,Tongues:,Lingvoj
-btnEN,English,Englisch,,,,Angla
-btnDE,German,Deutsch,,,,Germana
-btnFR,French,Franz√∂sisch,,,,Franca
-btnES,Spanish,Spanisch,,,,Hispana
-btnENGB,British,Britisch,,,Bri‚Äôish,Brita
-btnEO,Esperanto,Esperanto,,,,Esperanto
-btnZippy,Zippy,Flott,,,,Tre Rapide
-btnFast,Fast,Schnell,,,,Rapida
-btnNormal,Normal,Normal,,,,Normala
-lbSMode,Speed Mode,Tempo,,,,Rapido Reƒùimo
-selSize,Size,Gr√∂√üe,,,,Grandeco
-ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenl√§nge, gr√∂√üere Felder sind schwerer und brauchen mehr Zeit!",,,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
-btnHigh,High,Hoch,,,,Alta
-btnMedium,Medium,Mittel,,,,Mezumo
-btnLow,Low,Niedrig,,,,Malalta
-lbPopMode,Population Mode,Dichte,,,,Loƒùantaro
-btnExtreme,Extreme,Extrem,,,,Ekstrema
-lbDiffMode,Difficulty Mode,Schwierigkeit,,,,Malfacileco
-btnPlay,Play,Spielen,,,,Ludi
-ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort f√ºr alle deine Werkzeuge",,,,"Utila kesto, loko por ƒâiuj viaj iloj"
-btnExit,Exit,,,,,Elirejo
-lbWarning,Exiting deletes your progress.,,,,,Eliro forigas vian progreson
-lbHerb,Herb,,,,,Herbo
-lbShroom,Fungi,,,,,Fungo
-lbSalt,Salt,,,,,Salo
-lbShadow,Shadow,,,,,Ombro
-lbGameOver,Game Over!,,,,,La Ludo Finiƒùis!
-lbWon,You Won!,,,,,Vi Venkis!
-lbTime,You took,,,,,Vi uzis
-lbMod,Your modifyer is,,,,,Via modifilo estas
-lbScore,You scored,,,,,Vi gajnis
-lbMin,Minutes and,,,,,Minutojn kaj
+btnPStory,Play Story,Geschichte,Mode Narratif,holder,,Ludi Eta?o
+btnPArcade,Play Arcade,Arkade,Mode Arcade,,,Ludi Arkado
+btnPRogue,Play Rogue,Rogue,Mode Rogue-like,,,Ludi Ru?o
+btnSettings,Settings,Optionen,Options,,Seíings,Agordoj
+btnCredits,Credits,Mitwirkende,Collaborateurs,,Crediís,Kreditoj
+btnBack,Back,Zur¸ck,Retour,,,Reveno
+ttcs!,Coming Soon!,Bald Verf¸gbar!,Disponible tÙt!,,,Balda? Venos!
+lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
+btnEN,English,Englisch,anglais,,,Angla
+btnDE,German,Deutsch,allemand,,,Germana
+btnFR,French,Franzˆsisch,franÁais,,,Franca
+btnES,Spanish,Spanisch,espagnol,,,Hispana
+btnENGB,British,Britisch,britannique,,Briíish,Brita
+btnEO,Esperanto,Esperanto,espÈranto,,,Esperanto
+btnZippy,Zippy,Flott,immÈdiatement,,,Tre Rapide
+btnFast,Fast,Schnell,vite,,,Rapida
+btnNormal,Normal,Normal,normal,,,Normala
+lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Re?imo
+selSize,Size,Grˆﬂe,Taille,,,Grandeco
+ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenl‰nge, grˆﬂere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, des valeurs plus ÈlevÈes indiquent un jeu plus difficile et long!",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
+btnHigh,High,Hoch,grande,,,Alta
+btnMedium,Medium,Mittel,moyenne,,,Mezumo
+btnLow,Low,Niedrig,petite,,,Malalta
+lbPopMode,Population Mode,Dichte,densitÈ,,,Lo?antaro
+btnExtreme,Extreme,Extrem,extrÍme,,,Ekstrema
+lbDiffMode,Difficulty Mode,Schwierigkeit,difficultÈ,,,Malfacileco
+btnPlay,Play,Spielen,Jouer,,,Ludi
+ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein Ort f¸r alle deine Werkzeuge","BoÓte ‡ outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ?iuj viaj iloj"
+btnExit,Exit,Beenden,Quiter,,,Elirejo
+lbWarning,Exiting deletes your progress.,Beenden zerstˆrt deinen Fortschritt.,Quiter dÈtruit ton progrËs.,,,Eliro forigas vian progreson
+lbHerb,Herb,Kr‰uter,herbes,,,Herbo
+lbShroom,Fungi,Pilze,champignons,,,Fungo
+lbSalt,Salt,Salz,sel,,,Salo
+lbShadow,Shadow,Schatten,ombres,,,Ombro
+lbGameOver,Game Over!,Verloren!,DÈfaite!,,,La Ludo Fini?is!
+lbWon,You Won!,Gewonnen!,Victoire!,,,Vi Venkis!
+lbTime,You took,Du brauchtest,Tu as pris,,,Vi uzis
+lbMod,Your modifyer is,Dein Multiplikator ist,Ton modificateur est,,,Via modifilo estas
+lbScore,You scored,Minuten und,minutes et,,,Vi gajnis
+lbMin,Minutes and,Sekunden,secondes,,,Minutojn kaj
 lbSec,Seconds,,,,,Sekundojn
