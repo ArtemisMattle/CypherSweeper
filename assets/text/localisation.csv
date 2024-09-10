@@ -1,39 +1,39 @@
-key,en,de,fr,es,en_GB,eo
+ï»¿key,en,de,fr,es,en_GB,eo
 btnPStory,Play Story,Geschichte,Mode Narratif,holder,,Ludi Eta?o
 btnPArcade,Play Arcade,Arkade,Mode Arcade,,,Ludi Arkado
 btnPRogue,Play Rogue,Rogue,Mode Rogue-like,,,Ludi Ru?o
-btnSettings,Settings,Optionen,Options,,Se’ings,Agordoj
-btnCredits,Credits,Mitwirkende,Collaborateurs,,Credi’s,Kreditoj
-btnBack,Back,Zurück,Retour,,,Reveno
-ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Balda? Venos!
+btnSettings,Settings,Optionen,Options,,Seâ€™ings,Agordoj
+btnCredits,Credits,Mitwirkende,Collaborateurs,,Crediâ€™s,Kreditoj
+btnBack,Back,ZurÃ¼ck,Retour,,,Reveno
+ttcs!,Coming Soon!,Bald VerfÃ¼gbar!,Disponible tÃ´t!,,,Balda? Venos!
 lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
 btnEN,English,Englisch,anglais,,,Angla
 btnDE,German,Deutsch,allemand,,,Germana
-btnFR,French,Französisch,français,,,Franca
+btnFR,French,FranzÃ¶sisch,franÃ§ais,,,Franca
 btnES,Spanish,Spanisch,espagnol,,,Hispana
-btnENGB,British,Britisch,britannique,,Bri’ish,Brita
-btnEO,Esperanto,Esperanto,espéranto,,,Esperanto
-btnZippy,Zippy,Flott,immédiatement,,,Tre Rapide
+btnENGB,British,Britisch,britannique,,Briâ€™ish,Brita
+btnEO,Esperanto,Esperanto,espÃ©ranto,,,Esperanto
+btnZippy,Zippy,Flott,immÃ©diatement,,,Tre Rapide
 btnFast,Fast,Schnell,vite,,,Rapida
 btnNormal,Normal,Normal,normal,,,Normala
 lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Re?imo
-selSize,Size,Größe,Taille,,,Grandeco
-ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, des valeurs plus élevées indiquent un jeu plus difficile et long!",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
+selSize,Size,GrÃ¶ÃŸe,Taille,,,Grandeco
+ttselSize,The length of the edges. Higher values are more difficult and take more time!,Die KantenlÃ¤nge. GrÃ¶ÃŸere Felder sind schwerer und brauchen mehr Zeit!,La longueur des bords. Des valeurs plus Ã©levÃ©es indiquent un jeu plus difficile et long!,,,La longo de la randoj. Pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo
 btnHigh,High,Hoch,grande,,,Alta
 btnMedium,Medium,Mittel,moyenne,,,Mezumo
 btnLow,Low,Niedrig,petite,,,Malalta
-lbPopMode,Population Mode,Dichte,densité,,,Lo?antaro
-btnExtreme,Extreme,Extrem,extrême,,,Ekstrema
-lbDiffMode,Difficulty Mode,Schwierigkeit,difficulté,,,Malfacileco
+lbPopMode,Population Mode,Dichte,densitÃ©,,,Lo?antaro
+btnExtreme,Extreme,Extrem,extrÃªme,,,Ekstrema
+lbDiffMode,Difficulty Mode,Schwierigkeit,difficultÃ©,,,Malfacileco
 btnPlay,Play,Spielen,Jouer,,,Ludi
-ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein Ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ?iuj viaj iloj"
+ttTB,Toolbox. A place for all your tools,Werkzeugkiste. Ein Ort fÃ¼r alle deine Werkzeuge,BoÃ®te Ã  outils. Un endroit pour tous vos outils,,,Utila kesto Loko por ?iuj viaj iloj
 btnExit,Exit,Beenden,Quiter,,,Elirejo
-lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
-lbHerb,Herb,Kräuter,herbes,,,Herbo
+lbWarning,Exiting deletes your progress.,Beenden zerstÃ¶rt deinen Fortschritt.,Quiter dÃ©truit ton progrÃ¨s.,,,Eliro forigas vian progreson
+lbHerb,Herb,KrÃ¤uter,herbes,,'erbs,Herbo
 lbShroom,Fungi,Pilze,champignons,,,Fungo
-lbSalt,Salt,Salz,sel,,,Salo
+lbSalt,Salt,Salz,sel,,Sal's,Salo
 lbShadow,Shadow,Schatten,ombres,,,Ombro
-lbGameOver,Game Over!,Verloren!,Défaite!,,,La Ludo Fini?is!
+lbGameOver,Game Over!,Verloren!,DÃ©faite!,,,La Ludo Fini?is!
 lbWon,You Won!,Gewonnen!,Victoire!,,,Vi Venkis!
 lbTime,You took,Du brauchtest,Tu as pris,,,Vi uzis
 lbMod,Your modifyer is,Dein Multiplikator ist,Ton modificateur est,,,Via modifilo estas
