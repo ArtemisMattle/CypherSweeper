@@ -24,7 +24,8 @@ func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the paren
 		set_physics_process(true)
 
 func _physics_process(delta: float) -> void:
-	held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
+	if held != null:
+		held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: #handles the drag&drop for the tools, as well as the parent juggling
 	if Input.is_action_pressed("pickUpTool"):
@@ -50,3 +51,4 @@ func deactivate(r: bool) -> void:
 	globalVariables.holdable = false
 	held = null
 	deactivated = not r
+	set_physics_process(false)
