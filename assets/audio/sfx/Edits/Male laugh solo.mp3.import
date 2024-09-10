@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://r0fib4isw4oh"
+path="res://.godot/imported/Male laugh solo.mp3-5d1e5f09b8437cb42ef0da80bca15697.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Edits/Male laugh solo.mp3"
+dest_files=["res://.godot/imported/Male laugh solo.mp3-5d1e5f09b8437cb42ef0da80bca15697.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

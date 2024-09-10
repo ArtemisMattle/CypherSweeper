@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://w2h5i14tsgbi"
+path="res://.godot/imported/Glass shattering, but its a bit longer.mp3-71ca6b239ecd0cfe7c15b3d028d3ad32.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Edits/Glass shattering, but its a bit longer.mp3"
+dest_files=["res://.godot/imported/Glass shattering, but its a bit longer.mp3-71ca6b239ecd0cfe7c15b3d028d3ad32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
