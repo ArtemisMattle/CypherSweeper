@@ -3,6 +3,7 @@ extends Node2D
 var tools: Array[globalVariables.tool] # array for all tools in the toolHandler, aka the worldSpace
 var held: globalVariables.tool = null
 var speed: float = 50
+var deactivated: bool = false
 
 func _ready() -> void:
 	signalBus.toolTrans.connect(takeTool)
@@ -45,6 +46,7 @@ func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariab
 				signalBus.toolTrans.emit(t)
 				t.pickUp.input_event.disconnect(giveTool)
 
-func deactivate() -> void:
+func deactivate(r: bool) -> void:
 	globalVariables.holdable = false
 	held = null
+	deactivated = not r

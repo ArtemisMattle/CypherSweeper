@@ -119,6 +119,7 @@ text = "btnCredits"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -140,7 +141,6 @@ text = "Cypher
    Sweeper"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="settingsSpace" type="Container" parent="background/edge/menu/settings"]

@@ -33,7 +33,7 @@ texture = ExtResource("3_g4pa2")
 show_behind_parent = true
 z_index = -2
 texture_filter = 1
-position = Vector2(-160, 0)
+position = Vector2(-159, 0)
 texture = ExtResource("4_iy5k2")
 region_rect = Rect2(104.5, 104.5, 91, 91)
 
