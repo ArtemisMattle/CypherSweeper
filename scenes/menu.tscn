@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=21 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -20,16 +20,6 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
 texture = ExtResource("3_gogsx")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lcemw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fee1l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7hnlr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xdtd2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v2eht"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2uwsx"]
 playback_mode = 1
@@ -334,17 +324,6 @@ alignment = 1
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="random" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay"]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_lcemw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_fee1l")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7hnlr")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_xdtd2")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v2eht")
-toggle_mode = true
-button_pressed = true
-
 [node name="play" type="Button" parent="background/edge/menu/arcade/arcade/sizeandplay" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -481,6 +460,24 @@ size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "lbDiffMode"
+
+[node name="seedContainer" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
+layout_mode = 2
+
+[node name="container" type="Container" parent="background/edge/menu/arcade/arcade/seedContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="seedInput" type="LineEdit" parent="background/edge/menu/arcade/arcade/seedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+placeholder_text = "Seed"
+max_length = 8
+
+[node name="container2" type="Container" parent="background/edge/menu/arcade/arcade/seedContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
 
 [node name="credits" type="HBoxContainer" parent="background/edge/menu"]
 visible = false

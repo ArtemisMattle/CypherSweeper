@@ -273,12 +273,15 @@ func _on_arcade_pressed():
 	globalVariables.sanity = 100
 	globalVariables.leveled1 = false
 	signalBus.upsane.emit()
+	var seed=($background/edge/menu/arcade/arcade/seedContainer/seedInput.text)
+	if seed != "":
+		globalVariables.rngseed=int(hash(seed))
+	else:
+		globalVariables.rngseed=hash(randi_range(0,99999999))
 	for i in globalVariables.level:
 		globalVariables.level[i] = 0
 	empty = globalVariables.n
 	globalVariables.lvl1 = globalVariables.ingr.pick_random()
-	if $background/edge/menu/arcade/arcade/sizeandplay/random.button_pressed:
-		globalVariables.rngseed = randi()
 	
 	if $background/edge/menu/arcade/arcade/population/populationModes/high/highMode.button_pressed:
 		for i in globalVariables.ingredientStack:
