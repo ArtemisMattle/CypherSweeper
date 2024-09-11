@@ -1,0 +1,42 @@
+﻿key,en,de,fr,es,en_GB,eo
+btnPStory,Play Story,Geschichte,Mode Narratif,holder,,Ludi Eta?o
+btnPArcade,Play Arcade,Arkade,Mode Arcade,,,Ludi Arkado
+btnPRogue,Play Rogue,Rogue,Mode Rogue-like,,,Ludi Ru?o
+btnSettings,Settings,Optionen,Options,,Se’ings,Agordoj
+btnCredits,Credits,Mitwirkende,Collaborateurs,,Credi’s,Kreditoj
+btnBack,Back,Zurück,Retour,,,Reveno
+ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Balda? Venos!
+lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
+btnEN,English,Englisch,anglais,,,Angla
+btnDE,German,Deutsch,allemand,,,Germana
+btnFR,French,Französisch,français,,,Franca
+btnES,Spanish,Spanisch,espagnol,,,Hispana
+btnENGB,British,Britisch,britannique,,Bri’ish,Brita
+btnEO,Esperanto,Esperanto,espéranto,,,Esperanto
+btnZippy,Zippy,Flott,immédiatement,,,Tre Rapide
+btnFast,Fast,Schnell,vite,,,Rapida
+btnNormal,Normal,Normal,normal,,,Normala
+lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Re?imo
+selSize,Size,Größe,Taille,,,Grandeco
+ttselSize,The length of the edges. Higher values are more difficult and take more time!,Die Kantenlänge. Größere Felder sind schwerer und brauchen mehr Zeit!,La longueur des bords. Des valeurs plus élevées indiquent un jeu plus difficile et long!,,,La longo de la randoj. Pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo
+btnHigh,High,Hoch,grande,,,Alta
+btnMedium,Medium,Mittel,moyenne,,,Mezumo
+btnLow,Low,Niedrig,petite,,,Malalta
+lbPopMode,Population Mode,Dichte,densité,,,Lo?antaro
+btnExtreme,Extreme,Extrem,extrême,,,Ekstrema
+lbDiffMode,Difficulty Mode,Schwierigkeit,difficulté,,,Malfacileco
+btnPlay,Play,Spielen,Jouer,,,Ludi
+ttTB,Toolbox. A place for all your tools,Werkzeugkiste. Ein Ort für alle deine Werkzeuge,Boîte à outils. Un endroit pour tous vos outils,,,Utila kesto Loko por ?iuj viaj iloj
+btnExit,Exit,Beenden,Quiter,,,Elirejo
+lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
+lbHerb,Herb,Kräuter,herbes,,'erbs,Herbo
+lbShroom,Fungi,Pilze,champignons,,,Fungo
+lbSalt,Salt,Salz,sel,,Sal's,Salo
+lbShadow,Shadow,Schatten,ombres,,,Ombro
+lbGameOver,Game Over!,Verloren!,Défaite!,,,La Ludo Fini?is!
+lbWon,You Won!,Gewonnen!,Victoire!,,,Vi Venkis!
+lbTime,You took,Du brauchtest,Tu as pris,,,Vi uzis
+lbMod,Your modifyer is,Dein Multiplikator ist,Ton modificateur est,,,Via modifilo estas
+lbScore,You scored,Minuten und,minutes et,,,Vi gajnis
+lbMin,Minutes and,Sekunden,secondes,,,Minutojn kaj
+lbSec,Seconds,,,,,Sekundojn

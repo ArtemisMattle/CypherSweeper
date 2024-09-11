@@ -74,7 +74,49 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_50dck")
 
-[node name="playStory" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+[node name="play" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_50dck")
+text = "btnPlay"
+alignment = 0
+
+[node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="settings" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_50dck")
+text = "btnSettings"
+alignment = 0
+
+[node name="achivements" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+layout_mode = 2
+text = "btnFeats"
+alignment = 0
+
+[node name="statistics" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+layout_mode = 2
+text = "btnStatistics"
+alignment = 0
+
+[node name="credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_50dck")
+text = "btnCredits"
+alignment = 0
+
+[node name="play" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("2_50dck")
+
+[node name="playStory" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "ttcs!"
 mouse_filter = 1
@@ -83,14 +125,14 @@ disabled = true
 text = "btnPStory"
 alignment = 0
 
-[node name="playArcade" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+[node name="playArcade" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "btnPArcade"
 alignment = 0
 
-[node name="playRogue" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
+[node name="playRogue" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "ttcs!"
 mouse_filter = 1
@@ -99,27 +141,13 @@ disabled = true
 text = "btnPRogue"
 alignment = 0
 
-[node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
-custom_minimum_size = Vector2(0, 30)
+[node name="back" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
-
-[node name="Settings" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("2_50dck")
-text = "btnSettings"
-alignment = 0
-
-[node name="Credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("2_50dck")
-text = "btnCredits"
+size_flags_vertical = 10
+text = "btnBack"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -141,6 +169,7 @@ text = "Cypher
    Sweeper"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="settingsSpace" type="Container" parent="background/edge/menu/settings"]
@@ -631,10 +660,12 @@ stream = SubResource("AudioStreamRandomizer_2tlx6")
 pitch_scale = 10.0
 bus = &"sfx"
 
-[connection signal="pressed" from="background/edge/menu/mainbuttons/playStory" to="." method="_on_play_story_pressed"]
-[connection signal="pressed" from="background/edge/menu/mainbuttons/playArcade" to="." method="_on_play_arcade_pressed"]
-[connection signal="pressed" from="background/edge/menu/mainbuttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="background/edge/menu/mainbuttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/play" to="." method="_toPlay"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="background/edge/menu/mainbuttons/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="background/edge/menu/play/playStory" to="." method="_on_play_story_pressed"]
+[connection signal="pressed" from="background/edge/menu/play/playArcade" to="." method="_on_play_arcade_pressed"]
+[connection signal="pressed" from="background/edge/menu/play/back" to="." method="_toMain"]
 [connection signal="item_selected" from="background/edge/menu/settings/settings/language/languageSelector" to="." method="_on_language_selected"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]

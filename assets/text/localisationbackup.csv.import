@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c6221f2vuu8ir"
+
+[deps]
+
+files=["res://assets/text/localisationbackup.en.translation", "res://assets/text/localisationbackup.de.translation", "res://assets/text/localisationbackup.fr.translation", "res://assets/text/localisationbackup.es.translation", "res://assets/text/localisationbackup.en_GB.translation", "res://assets/text/localisationbackup.eo.translation"]
+
+source_file="res://assets/text/localisationbackup.csv"
+dest_files=["res://assets/text/localisationbackup.en.translation", "res://assets/text/localisationbackup.de.translation", "res://assets/text/localisationbackup.fr.translation", "res://assets/text/localisationbackup.es.translation", "res://assets/text/localisationbackup.en_GB.translation", "res://assets/text/localisationbackup.eo.translation"]
+
+[params]
+
+compress=true
+delimiter=0

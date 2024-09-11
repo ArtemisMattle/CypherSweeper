@@ -1,13 +1,16 @@
 extends Node2D
 
 # save buttons to vars for further use
-@onready var storyBtn=$background/edge/menu/mainbuttons/playStory
-@onready var arcadeBtn=$background/edge/menu/mainbuttons/playArcade
-@onready var settingsBtn=$background/edge/menu/mainbuttons/Settings
-@onready var creditsBtn=$background/edge/menu/mainbuttons/Credits
-@onready var rogueBtn=$background/edge/menu/mainbuttons/playRogue
+@onready var playBtn: Button = $background/edge/menu/mainbuttons/play
+@onready var storyBtn=$background/edge/menu/play/playStory
+@onready var arcadeBtn=$background/edge/menu/play/playArcade
+@onready var rogueBtn=$background/edge/menu/play/playRogue
+@onready var settingsBtn=$background/edge/menu/mainbuttons/settings
+@onready var creditsBtn=$background/edge/menu/mainbuttons/credits
 
 # save menu pages to vars for further use
+@onready var mainPg: VBoxContainer = $background/edge/menu/mainbuttons
+@onready var playPg: VBoxContainer = $background/edge/menu/play
 @onready var storyPg=$background/edge/menu/levelSelect
 @onready var arcadePg=$background/edge/menu/arcade
 @onready var settingsPg=$background/edge/menu/settings
@@ -37,6 +40,7 @@ func _ready() -> void:
 			langSel.select(id)
 	
 	
+	playPg.visible = false
 	_toTitle()
 	buttonClickSound()
 
@@ -74,8 +78,23 @@ func disconnectBtnFunc(btn:Signal) -> void:
 	for i in btn.get_connections():
 		if mainBtn.has(i.callable):
 			btn.disconnect(i.callable)
-			
-		
+
+func _toPlay() -> void:
+	exitPg()
+	playPg.visible = true
+	mainPg.visible = false
+
+func _toStory() -> void:
+	exitPg()
+	storyPg.visible=true
+	storyBtn.pressed.connect(_toTitle)
+	storyBtn.text= "btnBack"
+
+func _toArcade() -> void:
+	exitPg()
+	arcadePg.visible=true
+	arcadeBtn.pressed.connect(_toTitle)
+	arcadeBtn.text= "btnBack"
 
 func _toRogue() -> void:
 	exitPg()
@@ -83,25 +102,18 @@ func _toRogue() -> void:
 	rogueBtn.pressed.connect(_toTitle)
 	rogueBtn.text= "btnBack"
 
+func _toMain() -> void:
+	exitPg()
+	mainPg.visible = true
+	playPg.visible = false
+	_toTitle()
+
 func _toSettings() -> void:
 	exitPg()
 	settingsPg.visible=true
 	settingsBtn.pressed.connect(_toTitle)
 	settingsBtn.text= "btnBack"
 
-
-func _toArcade() -> void:
-	exitPg()
-	arcadePg.visible=true
-	arcadeBtn.pressed.connect(_toTitle)
-	arcadeBtn.text= "btnBack"
-	
-func _toStory() -> void:
-	exitPg()
-	storyPg.visible=true
-	storyBtn.pressed.connect(_toTitle)
-	storyBtn.text= "btnBack"
-	
 func _toCredits() -> void:
 	exitPg()
 	creditsPg.visible=true
