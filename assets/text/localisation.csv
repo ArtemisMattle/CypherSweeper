@@ -6,7 +6,7 @@ btnPRogue,Play Rogue,Rogue,Rogue-Like,,,Ludi Ruĵo
 btnSettings,Settings,Optionen,Options,,Se’ings,Agordoj
 btnFeats,Feats,Erfolge,Réussites,,,Plenumoj
 btnStatistics,Statistics,Statistik,Statistique,,,Statistiko
-btnCredits,Credits,Mitwirkende,Collaborateurs,,Credi’s,Kreditoj
+btnCredits,Credits,Mitwirkende,Équipe,,Credi’s,Kreditoj
 btnBack,Back,Zurück,Retour,,,Reveno
 ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Baldaŭ Venos!
 lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
@@ -33,7 +33,7 @@ ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle dei
 btnExit,Exit,Beenden,Quiter,,,Elirejo
 lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
 lbHerb,Herb,Kraut,Herbe,,,Herbo
-lbShroom,Fungi,Pilz,Champignons,,,Fungo
+lbShroom,Fungi,Pilz,Cèpe,,,Fungo
 lbSalt,Salt,Salz,Sel,,,Salo
 lbShadow,Shadow,Schatten,Ombres,,,Ombro
 lbGameOver,Game Over!,Verloren!,Defaite!,,,La Ludo Finiĝis!
