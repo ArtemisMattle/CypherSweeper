@@ -48,7 +48,7 @@ func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariab
 				t.pickUp.input_event.disconnect(giveTool)
 
 func deactivate(r: bool) -> void:
-	globalVariables.holdable = false
+	globalVariables.holdable = r
 	held = null
 	deactivated = not r
 	set_physics_process(false)
