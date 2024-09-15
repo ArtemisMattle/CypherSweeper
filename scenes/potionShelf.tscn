@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/potionShelf.gd" id="1_gdo7p"]
 [ext_resource type="Theme" uid="uid://dbccppv6nmh7f" path="res://assets/textures/UI-themes/potionShelf.tres" id="2_axlfl"]
-[ext_resource type="Texture2D" uid="uid://ciqbl4ayaah6i" path="res://assets/textures/tools/coin-pi.png" id="3_8ohuq"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_ww7dk"]
+[ext_resource type="AudioStream" uid="uid://c76q3xqdc3ckm" path="res://assets/audio/sfx/Schlürfen.mp3" id="5_3b2h4"]
 [ext_resource type="Texture2D" uid="uid://buu0spue538i4" path="res://assets/textures/UI-elements/potion.png" id="5_is0vx"]
 
 [sub_resource type="Animation" id="Animation_ymdkw"]
@@ -67,22 +67,6 @@ layout_mode = 2
 [node name="potions" type="HBoxContainer" parent="place/background/edge"]
 layout_mode = 2
 
-[node name="textureButton3" type="TextureButton" parent="place/background/edge/potions"]
-layout_mode = 2
-texture_normal = ExtResource("3_8ohuq")
-
-[node name="textureButton2" type="TextureButton" parent="place/background/edge/potions"]
-layout_mode = 2
-texture_normal = ExtResource("3_8ohuq")
-
-[node name="textureButton" type="TextureButton" parent="place/background/edge/potions"]
-layout_mode = 2
-texture_normal = ExtResource("3_8ohuq")
-
-[node name="textureButton4" type="TextureButton" parent="place/background/edge/potions"]
-layout_mode = 2
-texture_normal = ExtResource("3_8ohuq")
-
 [node name="pShelf" type="PanelContainer" parent="place"]
 z_index = 2
 layout_mode = 0
@@ -109,5 +93,11 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_fwmsl")
 }
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3b2h4")
+volume_db = 24.0
+mix_target = 2
+bus = &"sfx"
 
 [connection signal="toggled" from="place/pShelf/centerer/stacker/potionShelfButton" to="." method="_on_open_toggled"]
