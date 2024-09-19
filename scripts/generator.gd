@@ -1,11 +1,14 @@
 extends Node2D
 var size: int
+var n: int
 var l: int
 var width: int
 var hight: int
 var ends: Array[int]
 var pos: Array[gridCell] = []
 var hex: PackedScene = preload("res://scenes/hex.tscn")
+var mode: String = "hexNormal"
+@export var usage: String = "game"
 var ingredientStack: Dictionary
 var ingredientList: Dictionary = {}
 var ingList: Dictionary = {}
@@ -18,20 +21,75 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 enum sMode {normal, fast, zippy}
 
 func _ready()-> void:
+	match mode:
+		"hexNormal": pass
+		_: pass
+	match usage:
+		"game": readyGame()
+		"lexNeigh":
+			size = 3
+			n = 19
+			var c: int = 9
+			l = 5
+			get_ends()
+			def_hex()
+			for i: int in n:
+				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
+				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
+			pos[c].cell.get_node("colour/button").queue_free()
+			pos[c].cell.get_node("colour/backshadow").queue_free()
+			pos[c].hint.text = "C"
+			pos[c].hint.visible = true
+			for i: int in pos[c].neighbors:
+				pos[i].cell.get_node("colour/backshadow").modulate = Color8(160, 100, 175, 150)
+		"lexHint":
+			size = 3
+			n = 19
+			var c: int = 9
+			l = 5
+			get_ends()
+			def_hex()
+			for i: int in n:
+				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
+				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
+			pos[c].cell.get_node("colour/button").queue_free()
+			pos[c].cell.get_node("colour/backshadow").queue_free()
+			pos[c].cell.get_node("indicator/indicatorHerb").visible = true
+			pos[c].cell.get_node("indicator/indicatorShroom").visible = true
+			pos[c].cell.get_node("indicator/indicatorSalt").visible = true
+			pos[c].cell.get_node("indicator").visible = true
+			pos[c].hint.text = "7"
+			pos[c].hint.visible = true
+			for i: int in pos[c].neighbors:
+				pos[i].cell.get_node("colour/button").queue_free()
+				pos[i].cell.get_node("colour/backshadow").queue_free()
+			var iStack: Array[String] = ["herb1", "shroom1", "shroom2", "salt3"]
+			for i: String in iStack:
+				var x: int = pos[c].neighbors.keys().pick_random()
+				while pos[x].ingredient != "Nothing0":
+					x = pos[c].neighbors.keys().pick_random()
+				pos[x].ingredient = i
+				pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
+				pos[x].sprIng.visible = true
+			
+
+func readyGame()-> void: # sets everything into motion for a normal round to start
 	rng.seed=globalVariables.rngseed
 	
 	size = globalVariables.size
+	n = globalVariables.n
 	ingredientStack = globalVariables.ingredientStack.duplicate()
 	
 	for i: String in globalVariables.uncoveredIngred:
 		globalVariables.uncoveredIngred[i] = 0
 	globalVariables.uncovered = 0
 	
-	globalVariables.n = 1 - (3 * size) + (3 * (size * size))
 	l = 2 * size - 1
 	width = l * 48 + 100
 	hight = l * 34 + 400
 	$PanelContainer.size = Vector2i(width, hight)
+	$PanelContainer.set_position(Vector2(-width/2, -hight/2))
+	$PanelContainer.visible = true
 	get_viewport()
 	get_ends()
 	def_hex()
@@ -55,16 +113,16 @@ func get_ends() -> void:# calculates where the line breaks in the hex grid
 
 func positionate(cell: gridCell) -> void: # positionates the gridCells to make a hexgrid
 	@warning_ignore("integer_division")
-	if cell.line < ends.size()/2: # differentiates between the upper half and the lower half
+	if cell.line < l/2: # differentiates between the upper half and the lower half
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*46-(cell.line-ends.size()/2)*23,cell.line*35))
+		cell.cell.translate(Vector2(cell.lpos*46-(cell.line-ends.size()/2)*23-(l/2)*46, (cell.line-l/2)*35))
 	else:
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*46+(cell.line-ends.size()/2)*23,cell.line*35))
+		cell.cell.translate(Vector2(cell.lpos*46+(cell.line-ends.size()/2)*23-(l/2)*46,(cell.line-l/2)*35))
 
 func def_hex() -> void:# generates the gridcells with the position and their neigborhood
 	var line: int = 0 # initiates the line counter
-	for i: int in globalVariables.n:
+	for i: int in n:
 		pos.append(gridCell.new()) # makes a gridCell for each position
 		pos[i].cell = hex.instantiate() # instanciates a hex scene for each gridCell
 		add_child(pos[i].cell)
@@ -121,7 +179,7 @@ func populate() -> void:# generates the ingredients
 	while not ingredientStack.is_empty():
 		for i: String in ingredientStack:# ingredientstack is defined for consistent amounts of ingredients
 			if ingredientStack[i] != 0:# seeded random placement of ingredients in empty hexes
-				var x: int = rng.randi_range(0, globalVariables.n-1)
+				var x: int = rng.randi_range(0, n-1)
 				if pos[x].ingredient == "Nothing0":# empty cells only ;P
 					pos[x].ingredient = i
 					ingredientStack[i] -= 1
@@ -153,7 +211,7 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 		salt.visible = "Salt" in pos[i].eigenIndicator
 
 func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random empty space, returns if it was successful
-	var x: int = rng.randi_range(0, globalVariables.n-1)
+	var x: int = rng.randi_range(0, n-1)
 	if pos[x].ingredient == "Nothing0":# empty cells only ;P
 		if not pos[x].revealed:
 			pos[x].ingredient = pos[opos].ingredient
@@ -192,10 +250,11 @@ func reveal(i:int) -> void: # reveals a gridCell
 						x += 1
 						if x > 1000: break
 		pos[i].cell.get_node("colour/button").queue_free()
+		pos[i].cell.get_node("colour/backshadow").queue_free()
 		tTune.play() # plays a sound effect
 		globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")
 		globalVariables.uncovered += 1 # keeps track of uncovered tiles (to escape needing to sum up the dictionary)
-		if globalVariables.uncovered == globalVariables.n - 1: # checks for if all but the flamel are uncovered
+		if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
 			signalBus.lvlFlamel.emit()
 		if pos[i].ingredient == "Nothing0": # reduces workload by only looking at one half
 			if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
@@ -230,10 +289,11 @@ func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time pass
 		if not pos[i].revealed:
 			pos[i].revealed = true
 			pos[i].cell.get_node("colour/button").queue_free()
+			pos[i].cell.get_node("colour/backshadow").queue_free()
 			tTune.play()
 			globalVariables.uncoveredIngred[pos[i].ingredient] += 1
 			globalVariables.uncovered += 1
-			if globalVariables.uncovered == globalVariables.n - 1:
+			if globalVariables.uncovered == n - 1:
 				signalBus.lvlFlamel.emit()
 			if pos[i].ingredient == "Nothing0":
 				if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
@@ -277,7 +337,7 @@ func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time pass
 			openRevealers.erase(i)
 
 func deactivate(r: bool) -> void: # deactivates all interactivity with the map
-	for i: int in globalVariables.n:
+	for i: int in n:
 		if not pos[i].revealed:
 			if r:
 				pos[i].cell.get_node("colour/button").set("mouse_filter", 1)

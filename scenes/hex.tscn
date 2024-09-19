@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="4_6ls2f"]
 [ext_resource type="Texture2D" uid="uid://b8uf5qa7kcu3w" path="res://assets/textures/button/buttonhexPress.png" id="5_oi06e"]
 [ext_resource type="Texture2D" uid="uid://bkvw6u361pa66" path="res://assets/textures/button/buttonhexHover.png" id="6_7871n"]
+[ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="7_e2h0a"]
 [ext_resource type="BitMap" uid="uid://d3rgfsdiogqv6" path="res://assets/textures/button/buttonhexClickMask.bmp" id="7_t1nj5"]
 [ext_resource type="Texture2D" uid="uid://c4cbvpj58gsql" path="res://assets/textures/ingredients/colourblindIcons/leaf_smol.png" id="8_1jf5c"]
 [ext_resource type="Texture2D" uid="uid://w100vlif4k7y" path="res://assets/textures/ingredients/colourblindIcons/shroom_smol.png" id="9_va2dq"]
@@ -21,9 +22,6 @@ data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_tqosc"]
 image = SubResource("Image_oox25")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_46kun"]
-load_path = "res://.godot/imported/buttonhexColour.png-7ad58670276a36b2e8aacd001cb451c5.ctex"
 
 [sub_resource type="Gradient" id="Gradient_ovmqd"]
 interpolation_mode = 2
@@ -58,7 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="colour" type="Node2D" parent="."]
-modulate = Color(0.647059, 0.486275, 0.682353, 1)
+modulate = Color(0.694874, 0.448615, 0.717112, 1)
 
 [node name="button" type="TextureButton" parent="colour" groups=["buttonHoverS"]]
 anchors_preset = 8
@@ -88,12 +86,13 @@ texture = ExtResource("2_skg66")
 texture = ExtResource("4_6ls2f")
 flip_h = true
 
-[node name="indicator" type="Sprite2D" parent="."]
+[node name="backshadow" type="Sprite2D" parent="colour"]
+modulate = Color(0, 0, 0, 0.223529)
+texture = ExtResource("7_e2h0a")
+flip_h = true
+
+[node name="indicator" type="Node2D" parent="."]
 visible = false
-clip_children = 1
-z_index = -2
-texture_filter = 2
-texture = SubResource("CompressedTexture2D_46kun")
 
 [node name="indicatorHerb" type="Sprite2D" parent="indicator"]
 visible = false

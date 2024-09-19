@@ -77,6 +77,7 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
 	if playing:
+		damageSFX.play()
 		if counts:
 			globalVariables.lostsanity += damage[level]
 		globalVariables.sanity = clampi(globalVariables.sanity - damage[level], 0, 100)

@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://87b3b6agtqvw"]
+[gd_scene load_steps=7 format=3 uid="uid://87b3b6agtqvw"]
 
 [ext_resource type="Texture2D" uid="uid://ciyugeuivgjop" path="res://assets/textures/tools/lexicon.png" id="1_rj0x8"]
+[ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="2_r5aqs"]
+[ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="3_i6epw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58n0f"]
 size = Vector2(74, 96.5275)
+
+[sub_resource type="Gradient" id="Gradient_8sgac"]
+offsets = PackedFloat32Array(0.0183486, 0.522936, 0.683486)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_78p3a"]
+gradient = SubResource("Gradient_8sgac")
+width = 175
+height = 175
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
 
 [node name="lexicon" type="Control"]
 custom_minimum_size = Vector2(128, 128)
@@ -25,3 +39,29 @@ texture = ExtResource("1_rj0x8")
 position = Vector2(-11.7678, 1.4421)
 rotation = -0.244346
 shape = SubResource("RectangleShape2D_58n0f")
+
+[node name="bigLexicon" type="CanvasLayer" parent="."]
+
+[node name="background" type="PanelContainer" parent="bigLexicon"]
+offset_left = 75.0
+offset_top = 75.0
+offset_right = 1205.0
+offset_bottom = 645.0
+mouse_filter = 2
+theme = ExtResource("2_r5aqs")
+
+[node name="neighborhood" type="Sprite2D" parent="bigLexicon"]
+clip_children = 1
+position = Vector2(891, 414)
+texture = SubResource("GradientTexture2D_78p3a")
+
+[node name="generator" parent="bigLexicon/neighborhood" instance=ExtResource("3_i6epw")]
+usage = "lexNeigh"
+
+[node name="hint" type="Sprite2D" parent="bigLexicon"]
+clip_children = 1
+position = Vector2(788, 232)
+texture = SubResource("GradientTexture2D_78p3a")
+
+[node name="generator" parent="bigLexicon/hint" instance=ExtResource("3_i6epw")]
+usage = "lexHint"
