@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1m4i878ftj7y"
+path="res://.godot/imported/Toolbox opening.mp3-3d591459fe5e39abf5818c0c8250f6ff.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/new/Toolbox/Toolbox opening.mp3"
+dest_files=["res://.godot/imported/Toolbox opening.mp3-3d591459fe5e39abf5818c0c8250f6ff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

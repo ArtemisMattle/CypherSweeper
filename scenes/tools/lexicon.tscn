@@ -41,6 +41,7 @@ rotation = -0.244346
 shape = SubResource("RectangleShape2D_58n0f")
 
 [node name="bigLexicon" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="background" type="PanelContainer" parent="bigLexicon"]
 offset_left = 75.0
