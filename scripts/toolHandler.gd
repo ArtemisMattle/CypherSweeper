@@ -6,6 +6,7 @@ var speed: float = 50
 var deactivated: bool = false
 
 func _ready() -> void:
+	globalVariables.holdable = true
 	signalBus.toolTrans.connect(takeTool)
 	signalBus.deactivate.connect(deactivate)
 	set_physics_process(false)

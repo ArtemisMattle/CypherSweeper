@@ -342,6 +342,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 2
 
+[node name="populationMode" type="Label" parent="background/edge/menu/arcade/arcade/population"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "lbPopMode"
+
 [node name="populationSpace" type="Container" parent="background/edge/menu/arcade/arcade/population"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -401,19 +408,23 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
 text = "btnLow"
 
-[node name="populationMode" type="Label" parent="background/edge/menu/arcade/arcade/population"]
+[node name="populationSpace2" type="Container" parent="background/edge/menu/arcade/arcade/population"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "lbPopMode"
 
 [node name="difficulty" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
 layout_mode = 2
 size_flags_vertical = 2
 
+[node name="difficultyMode" type="Label" parent="background/edge/menu/arcade/arcade/difficulty"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "lbDiffMode"
+
 [node name="difficultySpace" type="Container" parent="background/edge/menu/arcade/arcade/difficulty"]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
 [node name="difficultyModes" type="VBoxContainer" parent="background/edge/menu/arcade/arcade/difficulty"]
@@ -454,12 +465,9 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 21
 text = "btnNormal"
 
-[node name="difficultyMode" type="Label" parent="background/edge/menu/arcade/arcade/difficulty"]
+[node name="difficultySpace2" type="Container" parent="background/edge/menu/arcade/arcade/difficulty"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 10
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "lbDiffMode"
 
 [node name="seedContainer" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
 layout_mode = 2
