@@ -31,7 +31,6 @@ func _ready() -> void:
 	signalBus.lvlNothing.connect(lvl1.bind(globalVariables.lvl1))
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
-	signalBus.upsane.connect(musicCurser)
 	globalVariables.lostsanity = 0
 	
 	#pause button setup
