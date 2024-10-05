@@ -96,8 +96,7 @@ libraries = {
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3b2h4")
-volume_db = 24.0
-mix_target = 2
+volume_db = 6.0
 bus = &"sfx"
 
 [connection signal="toggled" from="place/pShelf/centerer/stacker/potionShelfButton" to="." method="_on_open_toggled"]
