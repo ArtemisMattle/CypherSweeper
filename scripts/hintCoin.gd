@@ -18,5 +18,5 @@ func findUnrevealed(i: String, p: Vector2) -> void:
 			offset *= clampf(randf_range(0, 150 / globalVariables.sanity), 0, 33)
 	$placer.global_position = p + offset
 	$placer/toolSprite/ingredient.texture = load("res://assets/textures/ingredients/" + i + ".png")
-	$placer/toolSprite.texture = load("res://assets/textures/tools/coin-blank.png")
-	$placer.rotate(randf_range(0, 2 * PI))
+	$placer/toolSprite.texture = load("res://assets/textures/tools/coin-blank_04.png")
+	$placer.rotate(randf_range(0, (2 * PI) / globalVariables.sanity))
