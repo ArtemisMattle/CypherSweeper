@@ -24,6 +24,7 @@ func _ready() -> void:
 		"clock",
 		"hintCoin",
 	]
+	
 	for x: int in Tools.size():
 		tools.append(globalVariables.tool.new())
 		tools[x].tScene = load("res://scenes/tools/"+Tools[x]+".tscn").instantiate()
@@ -53,7 +54,6 @@ func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the paren
 		if globalVariables.sanity < 75:
 			offset = Vector2.from_angle(randf_range(0, 2 * PI))
 			offset *= randf_range(0, 1000 / globalVariables.sanity)
-		print(offset)
 		t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling

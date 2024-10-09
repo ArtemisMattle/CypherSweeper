@@ -29,6 +29,7 @@ mouse_filter = 2
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(64, 64)
+metadata/rot = true
 
 [node name="toolSprite" type="Sprite2D" parent="placer"]
 texture = ExtResource("1_rj0x8")
