@@ -1,0 +1,205 @@
+[gd_scene load_steps=20 format=3 uid="uid://dcbjsa16dkefd"]
+
+[ext_resource type="Theme" uid="uid://cocd6t67hi5bf" path="res://assets/textures/UI-themes/lexicon.tres" id="1_lkhts"]
+[ext_resource type="Script" path="res://scenes/tools/lexicon_content.gd" id="2_hafsu"]
+[ext_resource type="Texture2D" uid="uid://cwprrvlr05r6j" path="res://assets/textures/UI-elements/upDown.png" id="2_w7mwi"]
+[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel5.png" id="3_qf4pl"]
+[ext_resource type="Texture2D" uid="uid://c3lfi4o7qss32" path="res://assets/textures/ingredients/Herb1.png" id="4_4p2gr"]
+[ext_resource type="Texture2D" uid="uid://cupd04x1g6lbm" path="res://assets/textures/ingredients/Herb2.png" id="5_mxvma"]
+[ext_resource type="Texture2D" uid="uid://grwvhu4gmm5x" path="res://assets/textures/ingredients/Herb3.png" id="6_sg5kp"]
+[ext_resource type="Texture2D" uid="uid://d2ofooyi8ub70" path="res://assets/textures/ingredients/Salt1.png" id="7_tl8jt"]
+[ext_resource type="Texture2D" uid="uid://dj0v5iv8n3yd2" path="res://assets/textures/ingredients/Salt2.png" id="8_lc271"]
+[ext_resource type="Texture2D" uid="uid://lye0u8ej54fa" path="res://assets/textures/ingredients/Salt3.png" id="9_qerc0"]
+[ext_resource type="Texture2D" uid="uid://dbmhf0imu4r7l" path="res://assets/textures/ingredients/Shroom1.png" id="10_4jxgo"]
+[ext_resource type="Texture2D" uid="uid://nhkghaux74wf" path="res://assets/textures/ingredients/Shroom2.png" id="11_p7a7n"]
+[ext_resource type="Texture2D" uid="uid://clsag71xv2p7c" path="res://assets/textures/ingredients/Shroom3.png" id="12_u37iy"]
+[ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="13_idc34"]
+[ext_resource type="Texture2D" uid="uid://cchffdtccgci6" path="res://assets/textures/tools/fullscreen.png" id="14_j8xq6"]
+
+[sub_resource type="Gradient" id="Gradient_8sgac"]
+offsets = PackedFloat32Array(0.0183486, 0.522936, 0.683486)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_78p3a"]
+gradient = SubResource("Gradient_8sgac")
+width = 175
+height = 175
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_jejxk"]
+offsets = PackedFloat32Array(0.0183486, 0.522936, 0.683486)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_edva6"]
+gradient = SubResource("Gradient_jejxk")
+width = 175
+height = 175
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="lexiconContent" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -160.0
+offset_right = 256.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("1_lkhts")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("2_hafsu")
+
+[node name="back" type="TextureButton" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 1
+texture_normal = ExtResource("2_w7mwi")
+
+[node name="next" type="TextureButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 1
+texture_normal = ExtResource("2_w7mwi")
+
+[node name="lexText" type="RichTextLabel" parent="."]
+texture_filter = 2
+layout_mode = 2
+mouse_filter = 2
+text = "In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+
+Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
+
+Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr."
+
+[node name="flamel5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(324, 226)
+rotation = 0.198968
+scale = Vector2(2, 2)
+texture = ExtResource("3_qf4pl")
+
+[node name="ingredients" type="Control" parent="."]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="herb1" type="Sprite2D" parent="ingredients"]
+position = Vector2(34, 224)
+scale = Vector2(2, 2)
+texture = ExtResource("4_4p2gr")
+
+[node name="herb2" type="Sprite2D" parent="ingredients"]
+position = Vector2(64, 256)
+scale = Vector2(2, 2)
+texture = ExtResource("5_mxvma")
+
+[node name="herb3" type="Sprite2D" parent="ingredients"]
+position = Vector2(132, 242)
+scale = Vector2(2, 2)
+texture = ExtResource("6_sg5kp")
+
+[node name="lbHerb" type="Label" parent="ingredients"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 74.0
+offset_top = 196.0
+offset_right = 117.0
+offset_bottom = 221.0
+text = "lbHerb"
+
+[node name="salt1" type="Sprite2D" parent="ingredients"]
+position = Vector2(352, 190)
+scale = Vector2(2, 2)
+texture = ExtResource("7_tl8jt")
+
+[node name="salt2" type="Sprite2D" parent="ingredients"]
+position = Vector2(386, 234)
+scale = Vector2(2, 2)
+texture = ExtResource("8_lc271")
+
+[node name="salt3" type="Sprite2D" parent="ingredients"]
+position = Vector2(440, 210)
+scale = Vector2(2, 2)
+texture = ExtResource("9_qerc0")
+
+[node name="lbSalt" type="Label" parent="ingredients"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 376.0
+offset_top = 184.0
+offset_right = 419.0
+offset_bottom = 209.0
+text = "lbSalt"
+
+[node name="shroom1" type="Sprite2D" parent="ingredients"]
+position = Vector2(180, 214)
+scale = Vector2(2, 2)
+texture = ExtResource("10_4jxgo")
+
+[node name="shroom2" type="Sprite2D" parent="ingredients"]
+position = Vector2(218, 238)
+scale = Vector2(2, 2)
+texture = ExtResource("11_p7a7n")
+
+[node name="shroom3" type="Sprite2D" parent="ingredients"]
+position = Vector2(292, 208)
+scale = Vector2(2, 2)
+texture = ExtResource("12_u37iy")
+
+[node name="lbShroom" type="Label" parent="ingredients"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 206.0
+offset_top = 190.0
+offset_right = 268.0
+offset_bottom = 215.0
+text = "lbShroom"
+
+[node name="neighborhood" type="Sprite2D" parent="."]
+visible = false
+clip_children = 1
+position = Vector2(414, 186)
+texture = SubResource("GradientTexture2D_78p3a")
+
+[node name="generator" parent="neighborhood" instance=ExtResource("13_idc34")]
+usage = "lexNeigh"
+
+[node name="hint" type="Sprite2D" parent="."]
+visible = false
+clip_children = 1
+position = Vector2(384, 214)
+texture = SubResource("GradientTexture2D_edva6")
+
+[node name="generator" parent="hint" instance=ExtResource("13_idc34")]
+usage = "lexHint"
+
+[node name="pageLable" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+
+[node name="bigLex" type="TextureButton" parent="." groups=["bigLex"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+texture_normal = ExtResource("14_j8xq6")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

@@ -46,13 +46,41 @@ lbSec,Seconds,Sekunden,secondes,,,Sekundojn
 lex0,"In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
 Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ","In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
 Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ",,,,
-lex1,"In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+lex1,"Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
+
+Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
+
+Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.",,,,
+lex2,"Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. 
+
+Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.","Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. 
+
+Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.",,,,
+lex3,"In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+
 Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
+
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+
 Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
+
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.",,,,
-lex2,,,,,,
-lex3,,,,,,
-lex4,,,,,,
-lex5,,,,,,
-lex6,,,,,,
+lex4,"Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+
+Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
+gibt sie dir einen Indikator und
+wenn sie selbst keine Zutat hat,
+Auch einen Hinweis.","Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+
+Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
+gibt sie dir einen Indikator und
+wenn sie selbst keine Zutat hat,
+Auch einen Hinweis.",,,,
+lex5,"Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
+
+Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
+Vertreten sind.","Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
+
+Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
+Vertreten sind.",,,,
+lex6,"In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ","In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ",,,,
