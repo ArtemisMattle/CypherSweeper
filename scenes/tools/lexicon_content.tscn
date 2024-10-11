@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://dcbjsa16dkefd"]
 
 [ext_resource type="Theme" uid="uid://cocd6t67hi5bf" path="res://assets/textures/UI-themes/lexicon.tres" id="1_lkhts"]
-[ext_resource type="Script" path="res://scenes/tools/lexicon_content.gd" id="2_hafsu"]
+[ext_resource type="Script" path="res://scripts/lexicon_content.gd" id="2_nfui3"]
 [ext_resource type="Texture2D" uid="uid://cwprrvlr05r6j" path="res://assets/textures/UI-elements/upDown.png" id="2_w7mwi"]
 [ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel5.png" id="3_qf4pl"]
 [ext_resource type="Texture2D" uid="uid://c3lfi4o7qss32" path="res://assets/textures/ingredients/Herb1.png" id="4_4p2gr"]
@@ -58,7 +58,7 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-script = ExtResource("2_hafsu")
+script = ExtResource("2_nfui3")
 
 [node name="back" type="TextureButton" parent="."]
 visible = false

@@ -6,7 +6,7 @@ extends MarginContainer
 @onready var back: TextureButton = $back
 @onready var next: TextureButton = $next
 
-func changePage() -> void: # changes the page TODO
+func changePage() -> void: # changes the page
 	pLable.text = str(globalVariables.lexPage + 1)
 	lex.text = tr("lex" + str(globalVariables.lexPage))
 	back.visible = true

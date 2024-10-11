@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xkc12b53rvg"]
+[gd_scene load_steps=13 format=3 uid="uid://xkc12b53rvg"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_bs0q8"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="2_ttfvn"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bflhkitpec04m" path="res://assets/audio/sfx/SFX-PR-5.mp3" id="8_8yavv"]
 [ext_resource type="AudioStream" uid="uid://bv8cviy8e7yqx" path="res://assets/audio/sfx/SFX-PR-6.mp3" id="9_b8oxw"]
 [ext_resource type="AudioStream" uid="uid://c35pg3fntua3o" path="res://assets/audio/sfx/SFX-PR-7.mp3" id="10_df61s"]
+[ext_resource type="PackedScene" uid="uid://dyq0gx4h0as47" path="res://scenes/flagging.tscn" id="11_omi25"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jv2ja"]
 random_pitch = 1.1
@@ -179,5 +180,13 @@ stream = SubResource("AudioStreamRandomizer_jv2ja")
 pitch_scale = 2.0
 max_polyphony = 50
 bus = &"sfx"
+
+[node name="flagging" parent="." instance=ExtResource("11_omi25")]
+visible = false
+z_index = 10
+offset_left = 660.268
+offset_top = 405.928
+offset_right = 660.268
+offset_bottom = 405.928
 
 [connection signal="timeout" from="turnTimer" to="." method="_on_turn_timer_timeout"]
