@@ -241,6 +241,22 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		return
 	# m: mode changes a few specifics, 0 is the default (click), 1 is for timed revealing, 2 is for the magnifyer
 	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
+		
+		if m == 0: # stuff that happens only with manual reveal
+			if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
+				var neigh: bool = true
+				for j: int in pos[i].neighbors:
+					if pos[j].revealed:
+						neigh = false
+						break
+				if neigh:
+					globalVariables.buff["shield"] -= 1 # reduces the shield buff
+					if pos[i].ingredient != "Nothing0":
+						var x: int = 0
+						while not moveIngredient(i):
+							x += 1
+							if x > 1000: break
+		
 		# stuff that happens with every reveal
 		
 		# variable manipulation
@@ -263,20 +279,7 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		tTune.play() # plays a sound effect
 		
 		
-		if m == 0: # stuff that happens only with manual reveal
-			if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
-				var neigh: bool = true
-				for j: int in pos[i].neighbors:
-					if pos[j].revealed:
-						neigh = false
-						break
-				if neigh:
-					globalVariables.buff["shield"] -= 1 # reduces the shield buff
-					if pos[i].ingredient != "Nothing0":
-						var x: int = 0
-						while not moveIngredient(i):
-							x += 1
-							if x > 1000: break
+		
 		
 		# chain revealing / cascading stuff
 		if pos[i].eigenValue == 0: # checks for empty gridCells

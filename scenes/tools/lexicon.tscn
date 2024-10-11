@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://87b3b6agtqvw"]
+[gd_scene load_steps=13 format=3 uid="uid://87b3b6agtqvw"]
 
+[ext_resource type="Script" path="res://scripts/lexicon.gd" id="1_avxf4"]
 [ext_resource type="Texture2D" uid="uid://ciyugeuivgjop" path="res://assets/textures/tools/lexicon.png" id="1_rj0x8"]
 [ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="2_r5aqs"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="3_i6epw"]
+[ext_resource type="Texture2D" uid="uid://cchffdtccgci6" path="res://assets/textures/tools/page.png" id="3_kbikd"]
+[ext_resource type="Texture2D" uid="uid://cwprrvlr05r6j" path="res://assets/textures/UI-elements/upDown.png" id="4_ph7xt"]
+[ext_resource type="Theme" uid="uid://cocd6t67hi5bf" path="res://assets/textures/UI-themes/lexicon.tres" id="4_v4syi"]
+[ext_resource type="Texture2D" uid="uid://ca4mpp3v7wvod" path="res://assets/textures/ingredients/Flamel5.png" id="6_q63be"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58n0f"]
 size = Vector2(74, 96.5275)
@@ -19,6 +24,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 metadata/_snap_enabled = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ydt"]
+size = Vector2(253, 157)
+
 [node name="lexicon" type="Control"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 3
@@ -26,6 +34,7 @@ anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 2
+script = ExtResource("1_avxf4")
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(64, 64)
@@ -34,12 +43,93 @@ metadata/rot = true
 [node name="toolSprite" type="Sprite2D" parent="placer"]
 texture = ExtResource("1_rj0x8")
 
+[node name="author" type="Label" parent="placer/toolSprite"]
+offset_left = -19.0
+offset_top = 8.0
+offset_right = 21.0
+offset_bottom = 31.0
+rotation = -0.174533
+theme_override_colors/font_color = Color(0.803922, 0.670588, 0.552941, 1)
+text = "徐 巿"
+
 [node name="pickUp" type="Area2D" parent="placer"]
+visible = false
 
 [node name="box" type="CollisionShape2D" parent="placer/pickUp"]
 position = Vector2(-11.7678, 1.4421)
 rotation = -0.244346
 shape = SubResource("RectangleShape2D_58n0f")
+
+[node name="openBook" type="Sprite2D" parent="placer"]
+visible = false
+texture = ExtResource("3_kbikd")
+
+[node name="edge" type="MarginContainer" parent="placer/openBook"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -160.0
+offset_right = 256.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_v4syi")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="back" type="TextureButton" parent="placer/openBook/edge"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("4_ph7xt")
+
+[node name="next" type="TextureButton" parent="placer/openBook/edge"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("4_ph7xt")
+
+[node name="lexText" type="RichTextLabel" parent="placer/openBook/edge"]
+texture_filter = 2
+layout_mode = 2
+mouse_filter = 2
+text = "In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern.
+Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du."
+
+[node name="flamel5" type="Sprite2D" parent="placer/openBook/edge"]
+position = Vector2(324, 226)
+rotation = 0.198968
+scale = Vector2(2, 2)
+texture = ExtResource("6_q63be")
+
+[node name="neighborhood" type="Sprite2D" parent="placer/openBook/edge"]
+visible = false
+clip_children = 1
+position = Vector2(414, 106)
+texture = SubResource("GradientTexture2D_78p3a")
+
+[node name="generator" parent="placer/openBook/edge/neighborhood" instance=ExtResource("3_i6epw")]
+usage = "lexNeigh"
+
+[node name="pageLable" type="Label" parent="placer/openBook/edge"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+
+[node name="pickUpOpen" type="Area2D" parent="placer"]
+visible = false
+
+[node name="box" type="CollisionShape2D" parent="placer/pickUpOpen"]
+shape = SubResource("RectangleShape2D_f4ydt")
 
 [node name="bigLexicon" type="CanvasLayer" parent="."]
 visible = false
@@ -67,3 +157,12 @@ texture = SubResource("GradientTexture2D_78p3a")
 
 [node name="generator" parent="bigLexicon/hint" instance=ExtResource("3_i6epw")]
 usage = "lexHint"
+
+[node name="hysterese" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="input_event" from="placer/pickUp" to="." method="_on_pick_up_input_event"]
+[connection signal="pressed" from="placer/openBook/edge/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="placer/openBook/edge/next" to="." method="_on_next_pressed"]
+[connection signal="input_event" from="placer/pickUpOpen" to="." method="_on_pick_up_input_event"]
+[connection signal="timeout" from="hysterese" to="." method="_on_hysterese_timeout"]
