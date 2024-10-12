@@ -15,8 +15,11 @@ const spriteSize: Vector2 = Vector2(32, 32)
 var flagOptions: int = 6
 
 var selection: String = "neutral"
+var selNr: int
 
 var options: Array[optSlice] = []
+
+@onready var sfx: AudioStreamPlayer = $hoverSound
 
 func _ready() -> void:
 	for i: int in flagOptions:
@@ -31,32 +34,51 @@ func _ready() -> void:
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, outRad, bgColour)
 	
-	var ppArc: int = 32
-	
 	var radInc: float = PI * 2 / (len(options) - 1)
+	var rads: float = (selNr - 1) * radInc - PI/2 - radInc/2
+	var ppArc: int = 32
+	var points: Vector2 = Vector2.from_angle(rads)
+	var pInner: PackedVector2Array
+	var pOuter: PackedVector2Array
+	
+	
+	
+	if selection == "flamel":
+		for i: int in ppArc:
+			var ang = rads + i * radInc / (ppArc-1)
+			pInner.append(inRad * Vector2.from_angle(ang))
+			pOuter.append(outRad * Vector2.from_angle(ang))
+	elif selection.left(-1) == "numbered":
+		var ring: float = (outRad - inRad) / 2
+		var radius: int = 1
+		var numRadInc: float = radInc
+		if selection.to_int() < 4:
+			radius = 2
+			numRadInc /= 3
+		else:
+			numRadInc /= 2
+		for i: int in ppArc/2:
+			var ang = rads + numRadInc * ((selection.to_int() - 1) % 3) + i * numRadInc / (ppArc/2-1)
+			pInner.append((inRad + (ring * (radius - 1))) * Vector2.from_angle(ang))
+			pOuter.append((inRad + (ring * radius)) * Vector2.from_angle(ang))
+	elif selection != "neutral":
+		var ring: float = (outRad - inRad) / options[selNr].levels
+		for i: int in ppArc:
+			var ang = rads + i * radInc / (ppArc-1)
+			pInner.append((inRad + (ring * (selection.to_int() - 1))) * Vector2.from_angle(ang))
+			pOuter.append((inRad + (ring * selection.to_int())) * Vector2.from_angle(ang))
+		
+	
+	if selection == "neutral":
+		draw_circle(Vector2.ZERO, inRad, hlColour)
+	else:
+		pOuter.reverse()
+		var hl: PackedColorArray = PackedColorArray([hlColour])
+		draw_polygon((pInner + pOuter), hl)
 	
 	for i: int in range(len(options) -1):
-		var rads: float = i * radInc - PI/2 - radInc/2
-		var points: Vector2 = Vector2.from_angle(rads)
-		
-		var pInner: PackedVector2Array
-		var pOuter: PackedVector2Array
-	
-		if i == 0:
-			if selection == "neutral":
-					draw_circle(Vector2.ZERO, inRad, hlColour)
-			elif selection == "flamel":
-					for j: int in ppArc:
-						var ang = rads + j * radInc / (ppArc-1)
-						pInner.append(inRad * Vector2.from_angle(ang))
-						pOuter.append(outRad * Vector2.from_angle(ang))
-			
-			pOuter.reverse()
-			
-			if selection == "flamel":
-				var hl: PackedColorArray = PackedColorArray([hlColour])
-				draw_polygon((pInner + pOuter), hl)
-		
+		rads = i * radInc - PI/2 - radInc/2
+		points = Vector2.from_angle(rads)
 		draw_line(points * inRad, points * outRad, sepColour, lineWidth, false)
 		for j: int in options[i+1].levels:
 			if i == 1:
@@ -110,16 +132,23 @@ func _draw() -> void:
 func _process(_delta: float) -> void:
 	var mousePos: Vector2 = get_local_mouse_position()
 	var mouseRad: float = mousePos.length()
-	
+	var sel: String = ""
 	if mouseRad < inRad:
-		selection = "neutral"
+		sel = "neutral"
 	else:
 		var mouseRads: float = fposmod(mousePos.angle() + PI/2 + (PI / (len(options)-1)), 2 * PI)
-		selection = options[ceil(mouseRads / ((2 * PI) / (len(options)-1)))].name
-	#print(mousePos)
-	#print(selection)
-	
-	
+		selNr = ceil(mouseRads / ((2 * PI) / (len(options)-1)))
+		sel = options[selNr].name
+		if sel == "shroom" or sel == "salt" or sel == "herb":
+			sel += str(clamp(ceil(((mouseRad-inRad) / (outRad-inRad)) * options[selNr].levels), 1, options[selNr].levels))
+		if sel == "numbered":
+			if mouseRad < inRad + (outRad - inRad) / 2:
+				sel += str(ceil(mouseRads / ((2 * PI) / (2*(len(options)-1))))+1)
+			else:
+				sel += str(ceil(mouseRads / ((2 * PI) / (3*(len(options)-1))))-3)
+	if selection != sel:
+		selection = sel
+		sfx.play()
 	queue_redraw()
 
 

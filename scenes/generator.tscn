@@ -188,6 +188,5 @@ offset_left = 660.268
 offset_top = 405.928
 offset_right = 660.268
 offset_bottom = 405.928
-hlColour = null
 
 [connection signal="timeout" from="turnTimer" to="." method="_on_turn_timer_timeout"]
