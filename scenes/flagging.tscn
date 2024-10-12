@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyq0gx4h0as47"]
+[gd_scene load_steps=2 format=3 uid="uid://bjk4atu1b8ou0"]
 
 [ext_resource type="Script" path="res://scripts/flagging.gd" id="1_bsku8"]
 
@@ -15,6 +15,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_bsku8")
 bgColour = Color(0.636279, 0.453951, 0.842126, 0.623529)
+hlColour = Color(1, 0.12549, 0.0862745, 0.427451)
 sepColour = Color(0.654902, 0.654902, 0.654902, 1)
 outRad = 96
 inRad = 24
