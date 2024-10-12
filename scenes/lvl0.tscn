@@ -18,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://buvluwn3kaoia" path="res://assets/audio/sfx/level Up/Level Up Option 2.mp3" id="17_xkyus"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
-[ext_resource type="PackedScene" path="res://scenes/toolBox.tscn" id="20_3h17r"]
+[ext_resource type="PackedScene" uid="uid://k1tqb2qaw6ao" path="res://scenes/toolBox.tscn" id="20_3h17r"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="22_qg68g"]
 [ext_resource type="TileSet" uid="uid://d13hh7latkhmy" path="res://assets/textures/background/pergamentTiles.tres" id="32_2xwlq"]
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]

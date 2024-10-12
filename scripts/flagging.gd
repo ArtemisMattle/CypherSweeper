@@ -41,21 +41,21 @@ func _draw() -> void:
 		
 		var pInner: PackedVector2Array
 		var pOuter: PackedVector2Array
-		
-		if selection == "neutral": 
-			draw_circle(Vector2.ZERO, inRad, hlColour)
-		elif selection == "flamel":
-			if i == 0:
-				for j: int in ppArc:
-					var ang = rads + j * radInc / (ppArc-1)
-					pInner.append(inRad * Vector2.from_angle(ang))
-					pOuter.append(outRad * Vector2.from_angle(ang))
-		
-		pOuter.reverse()
-		
-		if selection == "flamel":
-			var hl: PackedColorArray = PackedColorArray([hlColour])
-			draw_polygon(pInner + pOuter, hl)
+	
+		if i == 0:
+			if selection == "neutral":
+					draw_circle(Vector2.ZERO, inRad, hlColour)
+			elif selection == "flamel":
+					for j: int in ppArc:
+						var ang = rads + j * radInc / (ppArc-1)
+						pInner.append(inRad * Vector2.from_angle(ang))
+						pOuter.append(outRad * Vector2.from_angle(ang))
+			
+			pOuter.reverse()
+			
+			if selection == "flamel":
+				var hl: PackedColorArray = PackedColorArray([hlColour])
+				draw_polygon((pInner + pOuter), hl)
 		
 		draw_line(points * inRad, points * outRad, sepColour, lineWidth, false)
 		for j: int in options[i+1].levels:
@@ -114,8 +114,11 @@ func _process(_delta: float) -> void:
 	if mouseRad < inRad:
 		selection = "neutral"
 	else:
-		var mouseRads: float = fposmod(mousePos.angle() * -1 - PI/2, 2 * PI)
-		selection = options[ceil(mouseRads / (2 * PI) * (len(options)-1))].name
+		var mouseRads: float = fposmod(mousePos.angle() + PI/2 + (PI / (len(options)-1)), 2 * PI)
+		selection = options[ceil(mouseRads / ((2 * PI) / (len(options)-1)))].name
+	#print(mousePos)
+	#print(selection)
+	
 	
 	queue_redraw()
 
@@ -130,3 +133,6 @@ class optSlice:
 		levels = l
 		for i: int in len(s):
 			symbols.append(load("res://assets/textures/ingredients/" + s[i] + ".png"))
+	
+	func _to_string() -> String:
+		return name
