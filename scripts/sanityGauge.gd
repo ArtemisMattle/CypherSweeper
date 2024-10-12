@@ -23,8 +23,8 @@ func updateSanity():
 func glance():
 	var mpos=(get_local_mouse_position()-eyePos) / (get_window().content_scale_factor * 1000)
 	
-	eye.position.x=-160+sin(clamp(mpos.x,-1.5,1.5))*25+randi_range(-4,4)*(60-globalVariables.sanity)/120
-	eye.position.y=sin(clamp(mpos.y,-1.5,1.5))*20+randi_range(-3,3)*(60-globalVariables.sanity)/120
+	eye.position.x=-160+sin(clamp(mpos.x,-1.5,1.5))*25+randi_range(-1,1)*(60-globalVariables.sanity)/30
+	eye.position.y=sin(clamp(mpos.y,-1.5,1.5))*20+randi_range(-1,1)*(60-globalVariables.sanity)/40
 	eye.scale.x=0.25+0.75*cos(clamp(mpos.x,-1.5,1.5))+randf_range(-.01,.01)*(60-globalVariables.sanity)/120
 	eye.scale.y=0.6+0.4*cos(clamp(mpos.y,-1.5,1.5))+randf_range(-.01,.01)*(60-globalVariables.sanity)/120
 	
