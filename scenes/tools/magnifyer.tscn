@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7gb1ry43pdlv"]
+[gd_scene load_steps=7 format=3 uid="uid://7gb1ry43pdlv"]
 
+[ext_resource type="Script" path="res://scripts/magnifyer.gd" id="1_i7g38"]
 [ext_resource type="Texture2D" uid="uid://cdeeu7rv5218x" path="res://assets/textures/tools/magnifyer.png" id="1_p6v4o"]
+[ext_resource type="Texture2D" uid="uid://dev6mkuev6wcq" path="res://assets/textures/tools/dot.png" id="3_yvmk4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6o7e2"]
 
@@ -15,6 +17,8 @@ anchors_preset = 0
 offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 2
+script = ExtResource("1_i7g38")
+cArray = Array[Color]([Color(0, 0, 0, 1), Color(0.717251, 0, 0, 1), Color(0.447059, 0, 0.501961, 1)])
 metadata/rotate = true
 
 [node name="placer" type="Node2D" parent="."]
@@ -22,6 +26,11 @@ position = Vector2(64, 64)
 
 [node name="toolSprite" type="Sprite2D" parent="placer"]
 texture = ExtResource("1_p6v4o")
+
+[node name="dot" type="Sprite2D" parent="placer/toolSprite"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-30, 30)
+texture = ExtResource("3_yvmk4")
 
 [node name="pickUp" type="Area2D" parent="placer"]
 monitoring = false
@@ -41,11 +50,15 @@ shape = SubResource("RectangleShape2D_t1bet")
 collision_layer = 2
 collision_mask = 2
 metadata/enabled = false
-metadata/mode = 1
+metadata/mode = 0
 
 [node name="uncoverCircle" type="CollisionShape2D" parent="placer/uncover"]
 scale = Vector2(3.7, 3.7)
 shape = SubResource("CircleShape2D_7hx0r")
 debug_color = Color(0.867084, 0.195275, 0.729305, 0.42)
 
-[connection signal="input_event" from="placer/pickUp" to="placer" method="_on_pick_up_input_event"]
+[node name="hysterese" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="input_event" from="placer/pickUp" to="." method="_on_pick_up_input_event"]
+[connection signal="timeout" from="hysterese" to="." method="_on_hysterese_timeout"]

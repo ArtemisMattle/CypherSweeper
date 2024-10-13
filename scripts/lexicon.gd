@@ -39,6 +39,7 @@ func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 
 func _on_hysterese_timeout() -> void: # prevents flapping
 	time = true
+	$hysterese.stop()
 
 func _on_big_lexicon_pressed() -> void:
 	$placer/openBook.visible = openBig
