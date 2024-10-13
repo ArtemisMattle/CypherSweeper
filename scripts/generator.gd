@@ -216,6 +216,8 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 
 func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random empty space, returns if it was successful
 	var x: int = rng.randi_range(0, n-1)
+	if pos[opos].neighbors.has(x):
+		return false
 	if pos[x].ingredient == "Nothing0":# empty cells only ;P
 		if not pos[x].revealed:
 			pos[x].ingredient = pos[opos].ingredient
@@ -295,12 +297,18 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		if m == 0: # stuff that happens only with manual reveal
 			if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
 				var neigh: bool = true
-				for j: int in pos[i].neighbors:
+				for j: int in getNeighNeighbors(i):
 					if pos[j].revealed:
 						neigh = false
 						break
 				if neigh:
 					globalVariables.buff["shield"] -= 1 # reduces the shield buff
+					for j: int in pos[i].neighbors:
+						if pos[j].ingredient != "Nothing0":
+							var x: int = 0
+							while not moveIngredient(j):
+								x += 1
+								if x > 1000: break
 					if pos[i].ingredient != "Nothing0":
 						var x: int = 0
 						while not moveIngredient(i):
@@ -391,6 +399,18 @@ func deactivate(r: bool) -> void: # deactivates all interactivity with the map
 func getUnrevealedIngredient() -> void: # emits a signal with a position and an ingredient
 	var p: int = ingList.keys().pick_random()
 	signalBus.returnUnrevealed.emit(pos[p].ingredient, pos[p].cell.global_position)
+
+func getNeighNeighbors(i: int) -> Array[int]: # returns all unique neighbors of the neighbors of a cell
+	var nNeighbors: Array[int] = []
+	for x: int in pos[i].neighbors:
+		for y: int in pos[x].neighbors:
+			if y == i:
+				pass
+			elif nNeighbors.has(y):
+				pass
+			else:
+				nNeighbors.append(y)
+	return nNeighbors
 
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors
