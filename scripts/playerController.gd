@@ -172,6 +172,7 @@ func _on_pause_button_toggled(toggled_on: bool) -> void: # pauses the game and s
 	globalVariables.paused = toggled_on
 	signalBus.deactivate.emit(not toggled_on)
 	#bB.visible=toggled_on
+	$pause/centerer/stacker/pauseButton.button_pressed = toggled_on 
 
 func _on_settings_pressed() -> void: # goes into the settings menu
 	$pauseMenu/centerer/settings.visible = true
@@ -209,3 +210,7 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:click.play()
 		2:hover.play()
 		3:hovers.play()
+
+
+func _on_return_pressed():
+	pass # Replace with function body.
