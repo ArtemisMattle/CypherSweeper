@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkic012naof5p"
-path="res://.godot/imported/OpenDyslexicThree-4.png-5755ead1570b6b667d7dd98031e1aa37.ctex"
+uid="uid://c41r1pp742b2t"
+path="res://.godot/imported/salt1.png-8e75e73b7b4f8d67b97605763fc85657.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/OpenDyslexicThree-4.png"
-dest_files=["res://.godot/imported/OpenDyslexicThree-4.png-5755ead1570b6b667d7dd98031e1aa37.ctex"]
+source_file="res://assets/textures/ingredients/flags/salt1.png"
+dest_files=["res://.godot/imported/salt1.png-8e75e73b7b4f8d67b97605763fc85657.ctex"]
 
 [params]
 

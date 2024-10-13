@@ -26,7 +26,7 @@ func _ready() -> void:
 		options.append(optSlice.new())
 	options[0].initiate("neutral", 1, ["flagNeutral"])
 	options[1].initiate("flamel", 1, ["Flamel5"])
-	options[2].initiate("numbered", 5, ["OpenDyslexicThree-1","OpenDyslexicThree-2","OpenDyslexicThree-3","OpenDyslexicThree-4","OpenDyslexicThree-5"])
+	options[2].initiate("numbered", 5, [""])
 	options[3].initiate("herb", 3, ["Herb1", "Herb2", "Herb3"])
 	options[4].initiate("salt", 3, ["Salt1", "Salt2", "Salt3"])
 	options[5].initiate("shroom", 3, ["Shroom1", "Shroom2", "Shroom3"])
@@ -128,7 +128,6 @@ func _draw() -> void:
 			if i > 1:
 				draw_texture(options[i+1].symbols[j], Vector2.from_angle(mRads + radInc/3 * (j % 2)) * ((incRad * (j + .5)) + inRad) - spriteSize/2)
 
-
 func _process(_delta: float) -> void:
 	var mousePos: Vector2 = get_local_mouse_position()
 	var mouseRad: float = mousePos.length()
@@ -150,7 +149,12 @@ func _process(_delta: float) -> void:
 		selection = sel
 		sfx.play()
 	queue_redraw()
+	if mouseRad > outRad * 1.3:
+		signalBus.flagging.emit("")
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_released():
+		signalBus.flagging.emit(selection)
 
 class optSlice:
 	var name: String

@@ -17,8 +17,10 @@ var toBeRevealedLater: Array[int] = []
 var openRevealers: Array[int] = []
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var tTimer: Timer = $turnTimer
+@onready var fTimer: Timer = $flagTimer
 @onready var tTune: AudioStreamPlayer = $turnSFX
-@onready var flagTool: Control = $flagging
+var fTool: PackedScene = preload("res://scenes/flagging.tscn")
+var flagTool: Control = null
 var active: bool = true
 
 enum sMode {normal, fast, zippy}
@@ -232,29 +234,44 @@ func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random
 		return false
 
 func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates between left and rightclick on the hex buttons
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.is_released():
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				reveal(i, 0)
 			MOUSE_BUTTON_RIGHT:
+				active = false
 				flag(i)
 
 func flag(i: int) -> void: # flaggs cells
 	var flag: Sprite2D = pos[i].cell.get_node("flag")
 	if pos[i].flagged == "":
-		flagTool.visible = true
+		flagTool = fTool.instantiate()
+		add_child(flagTool)
 		flagTool.set_position(pos[i].cell.position)
+		signalBus.flagging.connect(flagFinish.bind(i))
 	else:
 		pos[i].flagged = ""
 		flag.texture = null
+		active = true
+
+func flagFinish(flag: String, i: int) -> void:
+	pos[i].flagged = flag
+	pos[i].cell.get_node("flag").texture = load("res://assets/textures/ingredients/flags/" + flag + ".png")
+	fTimer.start()
+	signalBus.flagging.disconnect(flagFinish)
+	flagTool.queue_free()
+
+func _on_flag_timer_timeout() -> void:
+	fTimer.stop()
+	active = true
 
 func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
 	if body.get_meta("enabled"):
 		reveal(i, 2)
 
 func reveal(i : int, m : int) -> void: # reveals a gridCell
-	#if not active:
-	#	return
+	if not active:
+		return
 	if usage != "game": # ensures no utility usage of this script leads to bugs
 		return
 	# m: mode changes a few specifics, 0 is the default (click), 1 is for timed revealing, 2 is for the magnifyer
@@ -385,5 +402,7 @@ class gridCell: # Data type for the grid cells
 	func _to_string() -> String:
 		return ingredient + " x: " + str(line) + " y: " + str(lpos) + " value: " + str(eigenValue)
 	
+
+
 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w4gcvf1v14fo"
-path="res://.godot/imported/OpenDyslexicThree-2.png-032cfb7c128da5ac6faef347a391c09a.ctex"
+uid="uid://djwfrnjbkm6c"
+path="res://.godot/imported/herb2.png-d7a2b54ecd9d6da519dfc61ef73d77f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/OpenDyslexicThree-2.png"
-dest_files=["res://.godot/imported/OpenDyslexicThree-2.png-032cfb7c128da5ac6faef347a391c09a.ctex"]
+source_file="res://assets/textures/ingredients/flags/herb2.png"
+dest_files=["res://.godot/imported/herb2.png-d7a2b54ecd9d6da519dfc61ef73d77f5.ctex"]
 
 [params]
 

@@ -9,3 +9,4 @@ signal populated
 signal toolTrans(tool)
 signal getRandomUnrevealed
 signal returnUnrevealed(ingredient: String, position: Vector2)
+signal flagging(flag: String)
