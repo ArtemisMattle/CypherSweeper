@@ -277,78 +277,91 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 	# m: mode changes a few specifics, 0 is the default (click), 1 is for timed revealing, 2 is for the magnifyer
 	if not pos[i].revealed: # checks if reveal is called on a revealed gridCell
 		if pos[i].flagged != "":
-			pass
-		else:
-			if m == 0: # stuff that happens only with manual reveal
-				if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
-					var neigh: bool = true
-					for j: int in pos[i].neighbors:
-						if pos[j].revealed:
-							neigh = false
-							break
-					if neigh:
-						globalVariables.buff["shield"] -= 1 # reduces the shield buff
-						if pos[i].ingredient != "Nothing0":
-							var x: int = 0
-							while not moveIngredient(i):
-								x += 1
-								if x > 1000: break
-			
-			# stuff that happens with every reveal
-			
-			# variable manipulation
-			pos[i].revealed = true
-			globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")
-			globalVariables.uncovered += 1 # keeps track of uncovered tiles (to escape needing to sum up the dictionary)
-			
-			if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
-				signalBus.lvlFlamel.emit()
-			
-			if pos[i].ingredient == "Nothing0": # reduces workload by only looking at relevant cells
-				if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
-					signalBus.lvlNothing.emit() # allows for undamaged uncovering of the first ingredients
-			else:
-				ingList.erase(i)
-				signalBus.uncoverIngr.emit(pos[i].ingredient, not ingList.values().has(pos[i].ingredient)) # sends the uncovered ingredient for damage calculation and similar
-			
-			pos[i].cell.get_node("colour/button").queue_free()
-			pos[i].cell.get_node("colour/backshadow").queue_free()
-			tTune.play() # plays a sound effect
-			
-			
-			
-			
-			# chain revealing / cascading stuff
-			if pos[i].eigenValue == 0: # checks for empty gridCells
-				var revealer: Array[int] = []
-				if settings.speedMode == sMode.normal: # checks for speedMode
-					var revSoon: Array[int] = []
-					for j: int in pos[i].neighbors:
-						if not pos[j].revealed:
-							revSoon.append(j)
-					if not revSoon.is_empty():
-						if m != 2:
-							openRevealers.append(i)
-						revealer.append(revSoon[randi_range(0, revSoon.size()-1)])
+			if pos[i].flagged == "Neutral":
+				return
+			elif pos[i].flagged == "Flamel":
+				if globalVariables.uncovered < n - 1:
+					return
+			elif pos[i].flagged.left(-1) == "Numbered":
+				if pos[i].flagged.to_int() <= globalVariables.minLvl():
+					pos[i].cell.get_node("flag").texture = null
 				else:
-					for j: int in pos[i].neighbors:
-						if not pos[j].revealed:
-							revealer.append(j)
-				match mode:
-					0: toBeRevealed.append_array(revealer)
-					1: 
-						if settings.speedMode == sMode.zippy:
-							toBeRevealed.append_array(revealer)
-						else:
-							toBeRevealedLater.append_array(revealer)
-					_: pass
-				tTimer.start() # starts the Timer to turn neighboring gridCells
-			
-			if pos[i].ingredient == "Nothing0":
-				pos[i].hint.visible = true # shows the numeric hint if there is no ingredient
+					return
+			elif globalVariables.level[pos[i].flagged.left(-1)] >= pos[i].flagged.to_int():
+				pos[i].cell.get_node("flag").texture = null
 			else:
-				pos[i].sprIng.visible = true # shows the ingredient otherwise
-			pos[i].cell.get_node("indicator").visible = true # shows the indicators for neighboring ingredients
+				return
+		
+		if m == 0: # stuff that happens only with manual reveal
+			if globalVariables.buff["shield"] > 0: # checks if there is an active shield buff
+				var neigh: bool = true
+				for j: int in pos[i].neighbors:
+					if pos[j].revealed:
+						neigh = false
+						break
+				if neigh:
+					globalVariables.buff["shield"] -= 1 # reduces the shield buff
+					if pos[i].ingredient != "Nothing0":
+						var x: int = 0
+						while not moveIngredient(i):
+							x += 1
+							if x > 1000: break
+		
+		# stuff that happens with every reveal
+		
+		# variable manipulation
+		pos[i].revealed = true
+		globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")
+		globalVariables.uncovered += 1 # keeps track of uncovered tiles (to escape needing to sum up the dictionary)
+		
+		if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
+			signalBus.lvlFlamel.emit()
+		
+		if pos[i].ingredient == "Nothing0": # reduces workload by only looking at relevant cells
+			if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
+				signalBus.lvlNothing.emit() # allows for undamaged uncovering of the first ingredients
+		else:
+			ingList.erase(i)
+			signalBus.uncoverIngr.emit(pos[i].ingredient, not ingList.values().has(pos[i].ingredient)) # sends the uncovered ingredient for damage calculation and similar
+		
+		pos[i].cell.get_node("colour/button").queue_free()
+		pos[i].cell.get_node("colour/backshadow").queue_free()
+		tTune.play() # plays a sound effect
+		
+		
+		
+		
+		# chain revealing / cascading stuff
+		if pos[i].eigenValue == 0: # checks for empty gridCells
+			var revealer: Array[int] = []
+			if settings.speedMode == sMode.normal: # checks for speedMode
+				var revSoon: Array[int] = []
+				for j: int in pos[i].neighbors:
+					if not pos[j].revealed:
+						revSoon.append(j)
+				if not revSoon.is_empty():
+					if m != 2:
+						openRevealers.append(i)
+					revealer.append(revSoon[randi_range(0, revSoon.size()-1)])
+			else:
+				for j: int in pos[i].neighbors:
+					if not pos[j].revealed:
+						revealer.append(j)
+			match mode:
+				0: toBeRevealed.append_array(revealer)
+				1: 
+					if settings.speedMode == sMode.zippy:
+						toBeRevealed.append_array(revealer)
+					else:
+						toBeRevealedLater.append_array(revealer)
+				_: pass
+			tTimer.start() # starts the Timer to turn neighboring gridCells
+		
+		if pos[i].ingredient == "Nothing0":
+			pos[i].hint.visible = true # shows the numeric hint if there is no ingredient
+		else:
+			pos[i].sprIng.visible = true # shows the ingredient otherwise
+		pos[i].cell.get_node("indicator").visible = true # shows the indicators for neighboring ingredients
 
 func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time passed, look at func reveal
 	tTimer.wait_time = 0.05 + randf_range(0.03, 0.07)

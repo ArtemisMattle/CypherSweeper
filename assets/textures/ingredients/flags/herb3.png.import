@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbvts8yd6fd7u"
-path="res://.godot/imported/herb3.png-11e6d4cc62bb15f907617b089836fa75.ctex"
+path="res://.godot/imported/Herb3.png-bf7bf5b699f226600921dafe042fb457.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/herb3.png"
-dest_files=["res://.godot/imported/herb3.png-11e6d4cc62bb15f907617b089836fa75.ctex"]
+source_file="res://assets/textures/ingredients/flags/Herb3.png"
+dest_files=["res://.godot/imported/Herb3.png-bf7bf5b699f226600921dafe042fb457.ctex"]
 
 [params]
 

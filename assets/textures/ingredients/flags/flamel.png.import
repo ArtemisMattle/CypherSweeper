@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lvei7mivgb7k"
-path="res://.godot/imported/flamel.png-7192d2b2052909d90af0529c16ce8747.ctex"
+path="res://.godot/imported/Flamel.png-1e9179ae22488ef1bf29edbfb62f0d95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/flamel.png"
-dest_files=["res://.godot/imported/flamel.png-7192d2b2052909d90af0529c16ce8747.ctex"]
+source_file="res://assets/textures/ingredients/flags/Flamel.png"
+dest_files=["res://.godot/imported/Flamel.png-1e9179ae22488ef1bf29edbfb62f0d95.ctex"]
 
 [params]
 

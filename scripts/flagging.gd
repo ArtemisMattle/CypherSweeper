@@ -24,12 +24,12 @@ var options: Array[optSlice] = []
 func _ready() -> void:
 	for i: int in flagOptions:
 		options.append(optSlice.new())
-	options[0].initiate("neutral", 1, ["flagNeutral"])
-	options[1].initiate("flamel", 1, ["Flamel5"])
-	options[2].initiate("numbered", 5, [""])
-	options[3].initiate("herb", 3, ["Herb1", "Herb2", "Herb3"])
-	options[4].initiate("salt", 3, ["Salt1", "Salt2", "Salt3"])
-	options[5].initiate("shroom", 3, ["Shroom1", "Shroom2", "Shroom3"])
+	options[0].initiate("Neutral", 1, ["flagNeutral"])
+	options[1].initiate("Flamel", 1, ["Flamel5"])
+	options[2].initiate("Numbered", 5, [""])
+	options[3].initiate("Herb", 3, ["Herb1", "Herb2", "Herb3"])
+	options[4].initiate("Salt", 3, ["Salt1", "Salt2", "Salt3"])
+	options[5].initiate("Shroom", 3, ["Shroom1", "Shroom2", "Shroom3"])
 
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, outRad, bgColour)
@@ -43,12 +43,12 @@ func _draw() -> void:
 	
 	
 	
-	if selection == "flamel":
+	if selection == "Flamel":
 		for i: int in ppArc:
 			var ang = rads + i * radInc / (ppArc-1)
 			pInner.append(inRad * Vector2.from_angle(ang))
 			pOuter.append(outRad * Vector2.from_angle(ang))
-	elif selection.left(-1) == "numbered":
+	elif selection.left(-1) == "Numbered":
 		var ring: float = (outRad - inRad) / 2
 		var radius: int = 1
 		var numRadInc: float = radInc
@@ -61,7 +61,7 @@ func _draw() -> void:
 			var ang = rads + numRadInc * ((selection.to_int() - 1) % 3) + i * numRadInc / (ppArc/2-1)
 			pInner.append((inRad + (ring * (radius - 1))) * Vector2.from_angle(ang))
 			pOuter.append((inRad + (ring * radius)) * Vector2.from_angle(ang))
-	elif selection != "neutral":
+	elif selection != "Neutral":
 		var ring: float = (outRad - inRad) / options[selNr].levels
 		for i: int in ppArc:
 			var ang = rads + i * radInc / (ppArc-1)
@@ -69,7 +69,7 @@ func _draw() -> void:
 			pOuter.append((inRad + (ring * selection.to_int())) * Vector2.from_angle(ang))
 		
 	
-	if selection == "neutral":
+	if selection == "Neutral":
 		draw_circle(Vector2.ZERO, inRad, hlColour)
 	else:
 		pOuter.reverse()
@@ -133,14 +133,14 @@ func _process(_delta: float) -> void:
 	var mouseRad: float = mousePos.length()
 	var sel: String = ""
 	if mouseRad < inRad:
-		sel = "neutral"
+		sel = "Neutral"
 	else:
 		var mouseRads: float = fposmod(mousePos.angle() + PI/2 + (PI / (len(options)-1)), 2 * PI)
 		selNr = ceil(mouseRads / ((2 * PI) / (len(options)-1)))
 		sel = options[selNr].name
-		if sel == "shroom" or sel == "salt" or sel == "herb":
+		if sel == "Shroom" or sel == "Salt" or sel == "Herb":
 			sel += str(clamp(ceil(((mouseRad-inRad) / (outRad-inRad)) * options[selNr].levels), 1, options[selNr].levels))
-		if sel == "numbered":
+		if sel == "Numbered":
 			if mouseRad < inRad + (outRad - inRad) / 2:
 				sel += str(ceil(mouseRads / ((2 * PI) / (2*(len(options)-1))))+1)
 			else:

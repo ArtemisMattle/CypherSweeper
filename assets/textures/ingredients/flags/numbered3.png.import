@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlpvcponthiq6"
-path="res://.godot/imported/numbered3.png-7e7dc3f3ae4aa3ed7adf92269498ca24.ctex"
+path="res://.godot/imported/Numbered3.png-bc46348289d22aeb7b514d39a440f394.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/numbered3.png"
-dest_files=["res://.godot/imported/numbered3.png-7e7dc3f3ae4aa3ed7adf92269498ca24.ctex"]
+source_file="res://assets/textures/ingredients/flags/Numbered3.png"
+dest_files=["res://.godot/imported/Numbered3.png-bc46348289d22aeb7b514d39a440f394.ctex"]
 
 [params]
 

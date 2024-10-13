@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://caab0qqc8rf2x"
-path="res://.godot/imported/numbered5.png-abf80585032d4d43db990d6e58499871.ctex"
+path="res://.godot/imported/Numbered5.png-c875d5d8421a207b7bc3a04d1f49569f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/numbered5.png"
-dest_files=["res://.godot/imported/numbered5.png-abf80585032d4d43db990d6e58499871.ctex"]
+source_file="res://assets/textures/ingredients/flags/Numbered5.png"
+dest_files=["res://.godot/imported/Numbered5.png-c875d5d8421a207b7bc3a04d1f49569f.ctex"]
 
 [params]
 

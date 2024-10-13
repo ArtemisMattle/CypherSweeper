@@ -69,6 +69,13 @@ func _ready() -> void: # provides setup for the cursor curser
 	click = load("res://assets/textures/cursors/pincherCl.png")
 	signalBus.upsane.connect(cursedCursor)
 
+func minLvl() -> int: # provides the lowest level
+	var lvl: int = 5
+	for i: String in level:
+		if level[i] < lvl:
+			lvl = level[i]
+	return lvl
+
 #cursor curser
 
 func cursedCursor() -> void:

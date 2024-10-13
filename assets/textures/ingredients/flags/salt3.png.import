@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mtq7kx057mes"
-path="res://.godot/imported/salt3.png-6d7f8b369086492883ee4d4170a1c3d3.ctex"
+path="res://.godot/imported/Salt3.png-d7be4d67847f23a4446f443af4d33544.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/salt3.png"
-dest_files=["res://.godot/imported/salt3.png-6d7f8b369086492883ee4d4170a1c3d3.ctex"]
+source_file="res://assets/textures/ingredients/flags/Salt3.png"
+dest_files=["res://.godot/imported/Salt3.png-d7be4d67847f23a4446f443af4d33544.ctex"]
 
 [params]
 

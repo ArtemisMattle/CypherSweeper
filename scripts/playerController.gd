@@ -56,7 +56,7 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 		else:
 			endGame(true)
 	else:
-		xp[ingredient.left(-1)] += ingredient.right(1).to_int()
+		xp[ingredient.left(-1)] += ingredient.to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
 			takeDamage(ingredient.right(1).to_int(), true, true)
 	if not globalVariables.leveled1: # gives xp to ingredients without level

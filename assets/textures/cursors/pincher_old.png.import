@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crlqbwgo05v7g"
-path="res://.godot/imported/Herb1.png-ad3c282437d7055389d2ab0e0c6b48e6.ctex"
+uid="uid://dxpnfwuv0cm5w"
+path="res://.godot/imported/pincher_old.png-818cfb4b1026640ec335b4bc152d5eb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/ingredients/flags/Herb1.png"
-dest_files=["res://.godot/imported/Herb1.png-ad3c282437d7055389d2ab0e0c6b48e6.ctex"]
+source_file="res://assets/textures/cursors/pincher_old.png"
+dest_files=["res://.godot/imported/pincher_old.png-818cfb4b1026640ec335b4bc152d5eb2.ctex"]
 
 [params]
 
