@@ -269,7 +269,12 @@ func _on_flag_timer_timeout() -> void:
 
 func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
 	if body.get_meta("enabled"):
-		reveal(i, 2)
+		match body.get_meta("mode"):
+			1:
+				reveal(i, 2)
+			2:
+				if pos[i].flagged != "":
+					reveal(i, 2)
 
 func reveal(i : int, m : int) -> void: # reveals a gridCell
 	if not active:
@@ -355,7 +360,7 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 				for j: int in pos[i].neighbors:
 					if not pos[j].revealed:
 						revealer.append(j)
-			match mode:
+			match m:
 				0: toBeRevealed.append_array(revealer)
 				1: 
 					if settings.speedMode == sMode.zippy:
