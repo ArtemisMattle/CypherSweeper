@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=38 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -17,9 +17,15 @@
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
 [ext_resource type="AudioStream" uid="uid://buvluwn3kaoia" path="res://assets/audio/sfx/level Up/Level Up Option 2.mp3" id="17_xkyus"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
+[ext_resource type="AudioStream" uid="uid://h1b4ovmjuvb6" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 1.mp3" id="18_xxwj4"]
+[ext_resource type="AudioStream" uid="uid://b12h8p34ken7l" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 2.mp3" id="19_hrqua"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
+[ext_resource type="AudioStream" uid="uid://bupctqwrhvwdl" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 3.mp3" id="20_3ague"]
 [ext_resource type="PackedScene" uid="uid://k1tqb2qaw6ao" path="res://scenes/toolBox.tscn" id="20_3h17r"]
+[ext_resource type="AudioStream" uid="uid://c5orp3pngxua4" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 4.mp3" id="21_kfdqh"]
+[ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="22_gjvw2"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="22_qg68g"]
+[ext_resource type="AudioStream" uid="uid://cfh7crptxwpnq" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5.mp3" id="23_8fldy"]
 [ext_resource type="TileSet" uid="uid://d13hh7latkhmy" path="res://assets/textures/background/pergamentTiles.tres" id="32_2xwlq"]
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
@@ -131,6 +137,24 @@ stream_0/stream = ExtResource("18_c2c1g")
 stream_0/weight = 20.149
 stream_1/stream = ExtResource("19_wd568")
 stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dki2l"]
+playback_mode = 2
+random_pitch = 1.05
+random_volume_offset_db = 1.0
+streams_count = 6
+stream_0/stream = ExtResource("18_xxwj4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("19_hrqua")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("20_3ague")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("21_kfdqh")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("23_8fldy")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("22_gjvw2")
+stream_5/weight = 1.0
 
 [node name="main2" type="Node2D"]
 
@@ -546,6 +570,7 @@ max_polyphony = 5
 bus = &"sfx"
 
 [node name="damage" type="AudioStreamPlayer" parent="UI/player"]
+stream = SubResource("AudioStreamRandomizer_dki2l")
 max_polyphony = 5
 bus = &"sfx"
 
