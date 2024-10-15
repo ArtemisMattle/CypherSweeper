@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcbjsa16dkefd"]
+[gd_scene load_steps=21 format=3 uid="uid://dcbjsa16dkefd"]
 
 [ext_resource type="Theme" uid="uid://cocd6t67hi5bf" path="res://assets/textures/UI-themes/lexicon.tres" id="1_lkhts"]
 [ext_resource type="Script" path="res://scripts/lexicon_content.gd" id="2_nfui3"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://clsag71xv2p7c" path="res://assets/textures/ingredients/Shroom3.png" id="12_u37iy"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="13_idc34"]
 [ext_resource type="Texture2D" uid="uid://cchffdtccgci6" path="res://assets/textures/tools/fullscreen.png" id="14_j8xq6"]
+[ext_resource type="Texture2D" uid="uid://dduvmm277f4v4" path="res://assets/textures/UI-elements/arrow.png" id="16_8r1rc"]
 
 [sub_resource type="Gradient" id="Gradient_8sgac"]
 offsets = PackedFloat32Array(0.0183486, 0.522936, 0.683486)
@@ -200,6 +201,10 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_filter = 1
 texture_normal = ExtResource("14_j8xq6")
+
+[node name="arrow" type="Sprite2D" parent="."]
+position = Vector2(250, 246)
+texture = ExtResource("16_8r1rc")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="next" to="." method="_on_next_pressed"]

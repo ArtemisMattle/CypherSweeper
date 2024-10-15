@@ -5,27 +5,46 @@ extends MarginContainer
 @onready var lex: RichTextLabel = $lexText
 @onready var back: TextureButton = $back
 @onready var next: TextureButton = $next
+var lastPage: int = 21
+
+@onready var arrow: Sprite2D = $arrow
+var arrowAim: Vector2
+var initCamPos: Vector2
+@onready var flamel: Sprite2D = $flamel5
+@onready var ingredients: Control = $ingredients
+@onready var neighborhood: Sprite2D = $neighborhood
+@onready var hint: Sprite2D = $hint
+
+func _ready() -> void:
+	initCamPos = globalVariables.camPos
+
+func _process(delta: float) -> void:
+	arrow.rotate(arrow.get_angle_to(arrowAim + globalVariables.camPos) * delta * 5)
 
 func changePage() -> void: # changes the page
 	pLable.text = str(globalVariables.lexPage + 1)
 	lex.text = tr("lex" + str(globalVariables.lexPage))
 	back.visible = true
 	next.visible = true
-	$flamel5.visible = false
-	$neighborhood.visible = false
-	$hint.visible = false
-	$ingredients.visible = false
+	arrow.visible = false
+	flamel.visible = false
+	neighborhood.visible = false
+	hint.visible = false
+	ingredients.visible = false
 	match globalVariables.lexPage:
 		0: 
 			back.visible = false
-			$flamel5.visible = true
+			flamel.visible = true
 		2:
-			$ingredients.visible = true
+			ingredients.visible = true
 		4:
-			$neighborhood.visible = true
+			neighborhood.visible = true
 		5:
-			$hint.visible = true
-		6: next.visible = false
+			hint.visible = true
+		6:
+			arrow.visible = true
+			arrowAim = Vector2(700, 650)
+		lastPage: next.visible = false
 		_: pass
 
 func _on_back_pressed() -> void: # last page

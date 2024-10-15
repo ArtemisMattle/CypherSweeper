@@ -42,6 +42,7 @@ func _ready() -> void:
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 
+
 func lvl1(ing: String) -> bool: # 
 	if globalVariables.level[ing] < 1:
 		xp[ing] = globalVariables.lvlUP["1"]
@@ -210,7 +211,3 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:click.play()
 		2:hover.play()
 		3:hovers.play()
-
-
-func _on_return_pressed():
-	pass # Replace with function body.
