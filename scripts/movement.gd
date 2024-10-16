@@ -27,7 +27,7 @@ func _unhandled_input(event: InputEvent):
 			pass
 		if Input.is_action_pressed("move left"):
 			pass
-		globalVariables.camPos = position
+	globalVariables.camPos = position
 
 func zoom_in():
 	tZoom = min(tZoom + zoomInc, maxZoom)

@@ -9,17 +9,18 @@ var lastPage: int = 21
 
 @onready var arrow: Sprite2D = $arrow
 var arrowAim: Vector2
-var initCamPos: Vector2
 @onready var flamel: Sprite2D = $flamel5
 @onready var ingredients: Control = $ingredients
 @onready var neighborhood: Sprite2D = $neighborhood
 @onready var hint: Sprite2D = $hint
 
-func _ready() -> void:
-	initCamPos = globalVariables.camPos
+
 
 func _process(delta: float) -> void:
-	arrow.rotate(arrow.get_angle_to(arrowAim + globalVariables.camPos) * delta * 5)
+	queue_redraw()
+
+func _draw() -> void:
+	draw_circle(globalVariables.camPos - 2 * global_position + Vector2(640, 360), 10, Color.BLACK)
 
 func changePage() -> void: # changes the page
 	pLable.text = str(globalVariables.lexPage + 1)

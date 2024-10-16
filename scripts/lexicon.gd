@@ -4,6 +4,7 @@ var openBig: bool = false
 var open: bool = false
 var time: bool = true
 
+
 func _ready() -> void:
 	$placer/toolSprite.visible = true
 	$placer/pickUp/boxClosed.visible = true

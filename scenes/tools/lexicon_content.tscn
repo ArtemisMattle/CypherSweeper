@@ -203,6 +203,7 @@ mouse_filter = 1
 texture_normal = ExtResource("14_j8xq6")
 
 [node name="arrow" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(250, 246)
 texture = ExtResource("16_8r1rc")
 

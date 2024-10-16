@@ -25,6 +25,7 @@ var active: bool = true
 
 enum sMode {normal, fast, zippy}
 
+
 func _ready()-> void:
 	match mode:
 		"hexNormal": pass
