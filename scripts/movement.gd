@@ -5,9 +5,12 @@ const zoomInc: float = 0.05
 const zoomRate: float = 7.0
 var tZoom: float = 2.0
 
+func _ready() -> void:
+	globalVariables.cam = self
+
 func _physics_process(delta):
 	if not globalVariables.paused:
-		zoom = lerp(zoom, tZoom * Vector2.ONE, zoomRate * delta)
+		zoom = lerp(zoom , tZoom * Vector2.ONE, zoomRate * delta)
 		set_physics_process(not is_equal_approx(zoom.x, tZoom))
 
 func _unhandled_input(event: InputEvent):
@@ -27,7 +30,6 @@ func _unhandled_input(event: InputEvent):
 			pass
 		if Input.is_action_pressed("move left"):
 			pass
-	globalVariables.camPos = position
 
 func zoom_in():
 	tZoom = min(tZoom + zoomInc, maxZoom)

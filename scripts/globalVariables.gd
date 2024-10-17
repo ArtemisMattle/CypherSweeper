@@ -57,7 +57,7 @@ var holdable: bool = true
 
 var lexPage: int = 0 # tells the lexicon on which page it is
 
-var camPos: Vector2
+var cam: Camera2D
 
 var scoreMult: float = 1
 var rngseed: int = 5

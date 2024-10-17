@@ -9,18 +9,26 @@ var lastPage: int = 21
 
 @onready var arrow: Sprite2D = $arrow
 var arrowAim: Vector2
+var Aim: Node
 @onready var flamel: Sprite2D = $flamel5
 @onready var ingredients: Control = $ingredients
 @onready var neighborhood: Sprite2D = $neighborhood
 @onready var hint: Sprite2D = $hint
 
+func _ready() -> void:
+	signalBus.returnAim.connect(aim)
 
+func aim(target: Node) -> void: # saves the node that is aimed at
+	Aim = target
+	
 
 func _process(delta: float) -> void:
-	queue_redraw()
-
-func _draw() -> void:
-	draw_circle(globalVariables.camPos - 2 * global_position + Vector2(640, 360), 10, Color.BLACK)
+	if arrow.visible:
+		arrow.rotate((Aim.global_position - arrow.global_position + get_viewport().get_camera_2d().position - Vector2(640, 500) + Vector2.DOWN * 100 / sqrt(get_viewport().get_camera_2d().zoom.y)).angle() - arrow.global_rotation)
+		#var pos: Vector2 = arrow.global_position - 
+		#var ang: float = -get_global_transform().get_rotation() + PI / 2 - arrow.rotation + pos.x / 200 - pos.y / (abs(pos.x)+100)
+		#arrow.rotate(ang)
+	
 
 func changePage() -> void: # changes the page
 	pLable.text = str(globalVariables.lexPage + 1)
@@ -44,7 +52,10 @@ func changePage() -> void: # changes the page
 			hint.visible = true
 		6:
 			arrow.visible = true
-			arrowAim = Vector2(700, 650)
+			signalBus.getAim.emit(0) # asks the void for an aim (the playerController answers)
+		7:
+			arrow.visible = true
+			signalBus.getAim.emit(1)
 		lastPage: next.visible = false
 		_: pass
 

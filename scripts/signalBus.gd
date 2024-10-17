@@ -10,3 +10,6 @@ signal toolTrans(tool)
 signal getRandomUnrevealed
 signal returnUnrevealed(ingredient: String, position: Vector2)
 signal flagging(flag: String)
+
+signal getAim(target: int)
+signal returnAim(target: Node)
