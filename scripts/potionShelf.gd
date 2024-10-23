@@ -4,18 +4,22 @@ extends Control
 @onready var shelf: HBoxContainer = $place/background/edge/potions
 @onready var sound: AudioStreamPlayer = $sfx
 var active: bool = true
-var storage: int = 0
+var pot: Array[Control]
 var maxstorage: int = 4
+
+var potion: PackedScene = preload("res://scenes/potion.tscn")
+var shield: Texture2D = preload("res://assets/textures/potions/potionLableShield.png")
+var hint: Texture2D = preload("res://assets/textures/potions/potionLableHint.png")
 
 enum potions {shield, hint}
 
 func _ready() -> void:
 	signalBus.deactivate.connect(deactivate)
-	gainPotion(potions.shield)
-	gainPotion(potions.hint)
-	gainPotion(potions.hint)
-	gainPotion(potions.shield)
-	gainPotion(potions.shield)
+	for i: int in maxstorage:
+		pot.append(null)
+	
+	for i: int in 3:
+		_on_button_pressed()
 	
 
 func deactivate(r: bool) -> void: #processes the deactivation when paused or ended
@@ -36,25 +40,34 @@ func _on_open_toggled(toggled_on: bool) -> void: #processes the opening and clos
 		else:
 			opener.queue("close")
 
-func gainPotion(potion: int) -> void: #process the gaining of potions
-	if storage < maxstorage:
-		storage += 1
-		var pot: TextureButton = TextureButton.new()
-		shelf.add_child(pot)
-		match potion:
-			potions.shield:
-				pot.texture_normal = load("res://assets/textures/tools/coin-pi.png")
-				pot.pressed.connect(_on_drink.bind(potions.shield, pot))
-			potions.hint:
-				pot.texture_normal = load("res://assets/textures/tools/clock.png")
-				pot.pressed.connect(_on_drink.bind(potions.hint, pot))
+func gainPotion(poti: int) -> void: #process the gaining of potions
+	for i: int in maxstorage:
+		if pot[i] == null:
+			pot[i] = potion.instantiate()
+			shelf.add_child(pot[i])
+			pot[i].set_meta("Type", poti)
+			pot[i].get_node("potionBottle").pressed.connect(_on_drink.bind(poti, i))
+			match pot[i].get_meta("Type"):
+				potions.shield:
+					pot[i].get_node("potionLiquid").modulate = Color.AQUA
+					pot[i].get_node("potionLable").texture.diffuse_texture = shield
+					pot[i].tooltip_text = "ttShieldPotion"
+				potions.hint:
+					pot[i].get_node("potionLiquid").modulate = Color.GOLD
+					pot[i].get_node("potionLable").texture.diffuse_texture = hint
+					pot[i].tooltip_text = "ttHintPotion"
+			break
 
-func _on_drink(potion: int, pot: TextureButton) -> void: #processes the drinking of potions and the effects they have
-	match potion:
+func _on_drink(poti: int, pos: int) -> void: #processes the drinking of potions and the effects they have
+	match poti:
 		potions.shield:
 			globalVariables.buff["shield"] += 1
 		potions.hint:
 			globalVariables.buff["freeHint"] += 2
-	storage -= 1
-	pot.queue_free()
+	pot[pos].queue_free()
+	pot[pos] = null
 	sound.play()
+
+
+func _on_button_pressed() -> void:
+	gainPotion(randi_range(0,1))

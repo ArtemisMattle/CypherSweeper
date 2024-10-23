@@ -1,8 +1,10 @@
 extends MarginContainer
 
 
-@onready var pLable: Label = $pageLable
-@onready var lex: RichTextLabel = $lexText
+@onready var pLablel: Label = $textBox/leftBox/pageLable
+@onready var pLabler: Label = $textBox/rightBox/pageLable
+@onready var lexl: RichTextLabel = $textBox/leftBox/lexTextl
+@onready var lexr: RichTextLabel = $textBox/rightBox/lexTextr
 @onready var back: TextureButton = $back
 @onready var next: TextureButton = $next
 var lastPage: int = 21
@@ -31,8 +33,10 @@ func _process(delta: float) -> void:
 	
 
 func changePage() -> void: # changes the page
-	pLable.text = str(globalVariables.lexPage + 1)
-	lex.text = tr("lex" + str(globalVariables.lexPage))
+	pLablel.text = str(2 * globalVariables.lexPage + 1)
+	pLabler.text = str(2 * globalVariables.lexPage + 2)
+	lexl.text = tr("lexl" + str(globalVariables.lexPage))
+	lexr.text = tr("lexr" + str(globalVariables.lexPage))
 	back.visible = true
 	next.visible = true
 	arrow.visible = false
@@ -44,7 +48,7 @@ func changePage() -> void: # changes the page
 		0: 
 			back.visible = false
 			flamel.visible = true
-		2:
+		3:
 			ingredients.visible = true
 		4:
 			neighborhood.visible = true
@@ -62,7 +66,6 @@ func changePage() -> void: # changes the page
 func _on_back_pressed() -> void: # last page
 	globalVariables.lexPage -= 1
 	changePage()
-
 
 func _on_next_pressed() -> void: # next page
 	globalVariables.lexPage += 1

@@ -18,17 +18,16 @@ var uncoveredIngred: Dictionary = {
 	"Flamel5" = 0,}
 var uncovered: int = 0
 var size: int
-var n: int 
+var n: int
+var xp: Dictionary = {
+	"Herb" = 0.0, 
+	"Shroom" = 0.0, 
+	"Salt" = 0.0,}
 var level: Dictionary = {
 	"Herb" = 0, 
 	"Shroom" = 0, 
 	"Salt" = 0,}
-var lvlUP: Dictionary = {
-	"Nothing0" = 21, 
-	"1" = 5,
-	"2" = 15,
-	"3" = 30,
-	"4" = 999999,}
+var lvlNothing: int
 var lvl1: String = "Herb"
 var leveled1: bool = false
 var ingr: Array[String] = ["Herb", "Shroom", "Salt"]

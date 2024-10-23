@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/lexicon.gd" id="1_avxf4"]
 [ext_resource type="Texture2D" uid="uid://ciyugeuivgjop" path="res://assets/textures/tools/lexicon.png" id="1_rj0x8"]
 [ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="2_r5aqs"]
-[ext_resource type="Texture2D" uid="uid://dop83e81phkoq" path="res://assets/textures/tools/page.png" id="3_kbikd"]
+[ext_resource type="Texture2D" uid="uid://cac5763e8sk74" path="res://assets/textures/tools/Lexicon_open_big.png" id="3_mnorv"]
 [ext_resource type="PackedScene" uid="uid://dcbjsa16dkefd" path="res://scenes/tools/lexicon_content.tscn" id="4_33ldb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58n0f"]
@@ -52,7 +52,8 @@ visible = false
 shape = SubResource("RectangleShape2D_f4ydt")
 
 [node name="openBook" type="Sprite2D" parent="placer"]
-texture = ExtResource("3_kbikd")
+visible = false
+texture = ExtResource("3_mnorv")
 
 [node name="lexiconContent" parent="placer/openBook" instance=ExtResource("4_33ldb")]
 

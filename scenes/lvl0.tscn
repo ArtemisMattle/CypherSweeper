@@ -618,6 +618,12 @@ position = Vector2(640, 360)
 tile_set = ExtResource("32_2xwlq")
 format = 2
 
+[node name="light" type="DirectionalLight2D" parent="."]
+rotation = 2.26893
+blend_mode = 2
+range_layer_max = 10
+height = 0.69
+
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/return" to="UI/player" method="_on_pause_button_toggled" binds= [false]]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]

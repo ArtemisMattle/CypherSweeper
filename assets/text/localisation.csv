@@ -43,75 +43,92 @@ lbMod,Your modifyer is,Dein Multiplikator ist,Ton multiplicateur est,,,Via modif
 lbScore,You scored,Dein Score ist,Ton Score est,,,Vi gajnis
 lbMin,Minutes and,Minuten und,minutes et,,,Minutojn kaj
 lbSec,Seconds,Sekunden,secondes,,,Sekundojn
-lex0,"In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
-Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ","In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
+lexl0,In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. ,"In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
 Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ",,,,
-lex1,"Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
-
-Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
+lexr0,"Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ",,,,,
+lexl1,"Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! ","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
 
 Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.",,,,
-lex2,"Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. 
+lexr1,"Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.
 
-Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.","Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. 
-
-Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.",,,,
-lex3,"In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
-
-Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
-
-Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. ",,,,,
+lexl2,"Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.","
+",,,,
+lexr2,,,,,,
+lexl3,"In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
 
 Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
 
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.",,,,
-lex4,"Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+lexr3,"
+Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
 
-Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
-gibt sie dir einen Indikator und
-wenn sie selbst keine Zutat hat,
-Auch einen Hinweis.","Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.",,,,,
+lexl4,"Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+
+","Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
 
 Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
 gibt sie dir einen Indikator und
 wenn sie selbst keine Zutat hat,
 Auch einen Hinweis.",,,,
-lex5,"Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
+lexr4,"Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
+gibt sie dir einen Indikator und
+wenn sie selbst keine Zutat hat,
+Auch einen Hinweis.",,,,,
+lexl5,"Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
 
 Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
 Vertreten sind.","Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
 
 Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
 Vertreten sind.",,,,
-lex6,"Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.
-Welches Gefahrenlevel an Zutaten gerade sicher aufgedeckt werden kann, siehst du auf diesem Panel:","Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.
-Welches Gefahrenlevel an Zutaten gerade sicher aufgedeckt werden kann, siehst du auf diesem Panel:",,,,
-lex7,"Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ","Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ",,,,
-lex8,"In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ","In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ",,,,
-lex9,"Oft wird es dir passieren, dass du schon weißt, wo sich das Flamel befindet und du auf allen Zutaten Level drei erreicht hast. Um dir zu ersparen den ganzen Rest einzeln aufzudecken, gibt es die Lupe. Empfehlenswert für Aufräumarbeiten. 
+lexr5,,,,,,
+lexl6,"Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.","
+",,,,
+lexr6,"Welches Gefahrenlevel an Zutaten gerade sicher aufgedeckt werden kann, siehst du auf diesem Panel:",,,,,
+lexl7,"Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. ","Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ",,,,
+lexr7,"Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ",,,,,
+lexl8,"In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ","In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ",,,,
+lexr8,,,,,,
+lexl9,"Oft wird es dir passieren, dass du schon weißt, wo sich das Flamel befindet und du auf allen Zutaten Level drei erreicht hast. Um dir zu ersparen den ganzen Rest einzeln aufzudecken, gibt es die Lupe. Empfehlenswert für Aufräumarbeiten. 
 Die Lupe hat unterschiedliche Modi, schwarz - inaktiv, rot - aktiv, violet – selektiv","Oft wird es dir passieren, dass du schon weißt, wo sich das Flamel befindet und du auf allen Zutaten Level drei erreicht hast. Um dir zu ersparen den ganzen Rest einzeln aufzudecken, gibt es die Lupe. Empfehlenswert für Aufräumarbeiten. 
 Die Lupe hat unterschiedliche Modi, schwarz - inaktiv, rot - aktiv, violet – selektiv",,,,
-lex10,"Wirf diese Münze, indem du sie auf das Spielfeld legst und auf sie drückst. Sie springt dann auf magische Weise zu einer Zutat. Solltest du diese noch nicht aufdecken können, markiere sie ruhig mit dem Flagging Tool. 
+lexr9,,,,,,
+lexl10,"Wirf diese Münze, indem du sie auf das Spielfeld legst und auf sie drückst. Sie springt dann auf magische Weise zu einer Zutat. Solltest du diese noch nicht aufdecken können, markiere sie ruhig mit dem Flagging Tool. 
 Übermäßige Verwendung reduziert deinen Score.","Wirf diese Münze, indem du sie auf das Spielfeld legst und auf sie drückst. Sie springt dann auf magische Weise zu einer Zutat. Solltest du diese noch nicht aufdecken können, markiere sie ruhig mit dem Flagging Tool. 
 Übermäßige Verwendung reduziert deinen Score.",,,,
-lex11,"Modifier sind rundenbezogene Veränderungen, neben der Manipulation zentraler Spielmechaniken, wird auch der Score Multiplikator verändert.
+lexr10,,,,,,
+lexl11,"Modifier sind rundenbezogene Veränderungen, neben der Manipulation zentraler Spielmechaniken, wird auch der Score Multiplikator verändert.
 Die meisten Modifier machen das Spiel schwerer und deinen Score höher.
 Falls du dir nicht sicher bist, ob ein Modifier das Spiel leichter oder schwerer macht, schau auf den Einfluss auf den Score.","Modifier sind rundenbezogene Veränderungen, neben der Manipulation zentraler Spielmechaniken, wird auch der Score Multiplikator verändert.
 Die meisten Modifier machen das Spiel schwerer und deinen Score höher.
 Falls du dir nicht sicher bist, ob ein Modifier das Spiel leichter oder schwerer macht, schau auf den Einfluss auf den Score.",,,,
-lex12,,,,,,
-lex13,,,,,,
-lex14,,,,,,
-lex15,,,,,,
-lex16,,,,,,
-lex17,,,,,,
-lex18,,,,,,
-lex19,,,,,,
-lex20,,,,,,
-lex21,,,,,,
+lexr11,,,,,,
+lexl12,,,,,Tea ‘n’ Score,
+lexr12,,,,,,
+lexl13,,,,,,
+lexr13,,,,,,
+lexl14,,,,,,
+lexr14,,,,,,
+lexl15,,,,,,
+lexr15,,,,,,
+lexl16,,,,,,
+lexr16,,,,,,
+lexl17,,,,,,
+lexr17,,,,,,
+lexl18,,,,,,
+lexr18,,,,,,
+lexl19,,,,,,
+lexr19,,,,,,
+lexl20,,,,,,
+lexr20,,,,,,
+lexl21,,,,,,
+lexr21,,,,,,
 lexI0,Goal,Ziel,,,,
 lexI1,Sanity,Mentaler Zustand,,,,
-lexI2,Coffee & Score,Kaffee & Score,,,Tea ‘n’ Score,
+lexI2,Coffee & Score,Kaffee & Score,,,,
 lexI3,Ingredients,Zutaten,,,,
 lexI4,Neighborhood,Nachbarschaft,,,,
 lexI5,Hint & Indicator,Hinweis & Indikator,,,,

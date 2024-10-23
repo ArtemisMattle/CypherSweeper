@@ -106,4 +106,13 @@ stream = SubResource("AudioStreamRandomizer_xky4e")
 volume_db = 3.0
 bus = &"sfx"
 
+[node name="button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 119.0
+offset_right = 335.0
+offset_bottom = 127.0
+text = "new potion"
+
 [connection signal="toggled" from="place/pShelf/centerer/stacker/potionShelfButton" to="." method="_on_open_toggled"]
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

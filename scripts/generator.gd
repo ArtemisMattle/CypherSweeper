@@ -12,6 +12,7 @@ var mode: String = "hexNormal"
 var ingredientStack: Dictionary
 var ingredientList: Dictionary = {}
 var ingList: Dictionary = {}
+var flags: Dictionary = {}
 var toBeRevealed: Array[int] = []
 var toBeRevealedLater: Array[int] = []
 var openRevealers: Array[int] = []
@@ -254,6 +255,10 @@ func flag(i: int) -> void: # flaggs cells
 		signalBus.flagging.connect(flagFinish.bind(i))
 	else:
 		pos[i].flagged = ""
+		if flags[i]["right"]:
+			flags[i]["visible"] = false
+		else:
+			flags.erase(i)
 		flag.texture = null
 		active = true
 
@@ -263,6 +268,11 @@ func flagFinish(flag: String, i: int) -> void:
 	fTimer.start()
 	signalBus.flagging.disconnect(flagFinish)
 	flagTool.queue_free()
+	var preExist: bool = flags.has(i)
+	flags[i] = {"flag": flag, "visible": true, "right": pos[i].ingredient == flag}
+	if not preExist:
+		if flags[i]["right"]:
+			globalVariables.xp[flag.left(-1)] += 0.15
 
 func _on_flag_timer_timeout() -> void:
 	fTimer.stop()
@@ -332,7 +342,7 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 			signalBus.lvlFlamel.emit()
 		
 		if pos[i].ingredient == "Nothing0": # reduces workload by only looking at relevant cells
-			if globalVariables.uncovered == globalVariables.lvlUP["Nothing0"]:
+			if globalVariables.uncovered == globalVariables.lvlNothing:
 				signalBus.lvlNothing.emit() # allows for undamaged uncovering of the first ingredients
 		else:
 			ingList.erase(i)

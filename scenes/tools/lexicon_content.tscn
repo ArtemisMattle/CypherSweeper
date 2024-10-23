@@ -56,7 +56,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("1_lkhts")
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("2_nfui3")
@@ -76,20 +76,57 @@ size_flags_vertical = 8
 mouse_filter = 1
 texture_normal = ExtResource("2_w7mwi")
 
-[node name="lexText" type="RichTextLabel" parent="."]
-texture_filter = 2
+[node name="textBox" type="HBoxContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-text = "In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
 
-Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
+[node name="leftBox" type="VBoxContainer" parent="textBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="lexTextl" type="RichTextLabel" parent="textBox/leftBox"]
+texture_filter = 2
+custom_minimum_size = Vector2(235, 260)
+layout_mode = 2
+mouse_filter = 2
+text = "In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. "
+
+[node name="pageLable" type="Label" parent="textBox/leftBox"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+
+[node name="control" type="Control" parent="textBox"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="rightBox" type="VBoxContainer" parent="textBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="lexTextr" type="RichTextLabel" parent="textBox/rightBox"]
+texture_filter = 2
+custom_minimum_size = Vector2(220, 260)
+layout_mode = 2
+mouse_filter = 2
+text = "Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
 
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr."
 
+[node name="pageLable" type="Label" parent="textBox/rightBox"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "1"
+
 [node name="flamel5" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(324, 226)
-rotation = 0.198968
+position = Vector2(179, 208)
+rotation = -0.432842
 scale = Vector2(2, 2)
 texture = ExtResource("3_qf4pl")
 
@@ -173,7 +210,7 @@ text = "lbShroom"
 [node name="neighborhood" type="Sprite2D" parent="."]
 visible = false
 clip_children = 1
-position = Vector2(414, 186)
+position = Vector2(185, 214)
 texture = SubResource("GradientTexture2D_78p3a")
 
 [node name="generator" parent="neighborhood" instance=ExtResource("13_idc34")]
@@ -182,18 +219,11 @@ usage = "lexNeigh"
 [node name="hint" type="Sprite2D" parent="."]
 visible = false
 clip_children = 1
-position = Vector2(384, 214)
+position = Vector2(377, 124)
 texture = SubResource("GradientTexture2D_edva6")
 
 [node name="generator" parent="hint" instance=ExtResource("13_idc34")]
 usage = "lexHint"
-
-[node name="pageLable" type="Label" parent="."]
-texture_filter = 2
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "1"
 
 [node name="bigLex" type="TextureButton" parent="." groups=["bigLex"]]
 layout_mode = 2

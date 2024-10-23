@@ -1,7 +1,9 @@
 extends Node
 
 var damage: Array[int] = [1, 7, 13, 21, 30, 50, 101]
-var xp: Dictionary = {"Herb" = 0, "Shroom" = 0, "Salt" = 0}
+var xpdiff: float = 0.6
+var xpThold: Dictionary = {}
+var lvlMax: Dictionary
 var iniSan: int
 var playing: bool = true
 var activeMusic: bool = true
@@ -42,6 +44,8 @@ func _ready() -> void:
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 	signalBus.getAim.connect(targeter)
+	
+	xpThreshold()
 
 func targeter(target: int) -> void: # returns a target for the lexicon arrow
 	var aim: Node
@@ -54,7 +58,7 @@ func targeter(target: int) -> void: # returns a target for the lexicon arrow
 
 func lvl1(ing: String) -> bool: # 
 	if globalVariables.level[ing] < 1:
-		xp[ing] = globalVariables.lvlUP["1"]
+		globalVariables.xp[ing] = xpThold[ing + "1"]
 		lvlUp(ing)
 		return true
 	return false
@@ -63,25 +67,27 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 	if ingredient == "Flamel5":
 		if globalVariables.uncovered < globalVariables.n:
 			takeDamage(6, true, false)
+			return
 		else:
 			endGame(true)
 	else:
-		xp[ingredient.left(-1)] += ingredient.to_int()
+		globalVariables.xp[ingredient.left(-1)] += ingredient.to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
 			takeDamage(ingredient.right(1).to_int(), true, true)
 	if not globalVariables.leveled1: # gives xp to ingredients without level
 		if globalVariables.level.values().has(0):
 			for i: String in globalVariables.level:
 				if globalVariables.level[i] < 1:
-					@warning_ignore("integer_division")
-					xp[i] += randi_range(0,7) / 4
+					globalVariables.xp[i] += randi_range(0,7) * 0.25
 			if last: # forces lvlups if necessary for damageless running
 				while not lvl1(globalVariables.ingr.pick_random()):
 					pass
 		else:
 			globalVariables.leveled1 = true
 	for i: String in globalVariables.level: # levels up ingredients when xp thresholds are meet
-		if xp[i] >= globalVariables.lvlUP[str(globalVariables.level[i]+1)]:
+		if globalVariables.level[i] == lvlMax[i]:
+			pass
+		elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
 			lvlUp(i)
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
@@ -148,8 +154,8 @@ func score(time: float) -> int: #calculates the score
 	if globalVariables.lostsanity == 0:
 		globalVariables.scoreMult *= sqrt(2)
 	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size)) * 2 + 1, 1.0, 2.0)
-	for i: String in xp:
-		s += xp[i]
+	for i: String in globalVariables.xp:
+		s += globalVariables.xp[i]
 	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
@@ -174,6 +180,27 @@ func Flamel() -> void: # shows the Flamel when it's time to reveal it
 	levelUp.play(0.9)
 	levelUp.play(0.6)
 	levelUp.play(0.5)
+
+func xpThreshold() -> void: # calculates the thresholds for lvlUps
+	var empty: int = globalVariables.n
+	var xpType: Dictionary = {}
+	for i: String in globalVariables.ingredientStack:
+		empty -= globalVariables.ingredientStack[i]
+		if i == "Flamel5":
+			break
+		
+		if i.to_int() == 1:
+			xpType[i.left(-1)] = globalVariables.ingredientStack[i]
+			xpThold[i] = xpType[i.left(-1)] * xpdiff / 3
+			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
+		else:
+			xpType[i.left(-1)] += globalVariables.ingredientStack[i] * i.to_int()
+			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
+			lvlMax[i.left(-1)] = i.to_int()
+	globalVariables.lvlNothing = int(empty * xpdiff / 3)
+
+
+		# Menu stuff
 
 func _on_pause_button_toggled(toggled_on: bool) -> void: # pauses the game and shows a pause menu
 	$pauseMenu.visible = toggled_on

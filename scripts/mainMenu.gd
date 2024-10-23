@@ -32,7 +32,7 @@ func _ready() -> void:
 	var lang=TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()
 	if TranslationServer.get_locale().length()==5:
 		lang=lang+TranslationServer.get_locale().right(2)
-	
+	print(lang)
 	for id in langSel.get_selectable_item(true)+1:
 		if "btn"+lang==langSel.get_item_text(id):
 			langSel.select(id)
@@ -316,18 +316,6 @@ func _on_arcade_pressed():
 		if i != "Flamel5":
 			globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
 		empty -= globalVariables.ingredientStack[i]
-	
-	if $background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme/extremeMode.button_pressed:
-		globalVariables.lvlUP["Nothing0"] = int(empty * 0.5)
-		globalVariables.lvlUP["1"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.4), 1, 9999)
-		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 1), globalVariables.lvlUP["1"] + 1, 9999)
-		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
-		globalVariables.scoreMult *= 5
-	elif $background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal/normalMode.button_pressed:
-		globalVariables.lvlUP["Nothing0"] = int(empty * 0.2)
-		globalVariables.lvlUP["1"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.1), 1, 9999)
-		globalVariables.lvlUP["2"] = clamp(int(globalVariables.ingredientStack["Herb1"] * 0.6), globalVariables.lvlUP["1"] + 1, 9999)
-		globalVariables.lvlUP["3"] = clamp(int(globalVariables.ingredientStack["Herb2"] * 3), globalVariables.lvlUP["2"] + 1, 9999)
 	
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
