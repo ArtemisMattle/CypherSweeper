@@ -2,19 +2,19 @@ extends Node2D
 
 # save buttons to vars for further use
 @onready var playBtn: Button = $background/edge/menu/mainbuttons/play
-@onready var storyBtn=$background/edge/menu/play/playStory
-@onready var arcadeBtn=$background/edge/menu/play/playArcade
-@onready var rogueBtn=$background/edge/menu/play/playRogue
-@onready var settingsBtn=$background/edge/menu/mainbuttons/settings
-@onready var creditsBtn=$background/edge/menu/mainbuttons/credits
+@onready var storyBtn: Button =$background/edge/menu/play/playStory
+@onready var arcadeBtn: Button =$background/edge/menu/play/playArcade
+@onready var rogueBtn: Button =$background/edge/menu/play/playRogue
+@onready var settingsBtn: Button =$background/edge/menu/mainbuttons/settings
+@onready var creditsBtn: Button =$background/edge/menu/mainbuttons/credits
 
 # save menu pages to vars for further use
 @onready var mainPg: VBoxContainer = $background/edge/menu/mainbuttons
 @onready var playPg: VBoxContainer = $background/edge/menu/play
 @onready var storyPg=$background/edge/menu/levelSelect
-@onready var arcadePg=$background/edge/menu/arcade
-@onready var settingsPg=$background/edge/menu/settings
-@onready var creditsPg=$background/edge/menu/credits
+@onready var arcadePg: HBoxContainer =$background/edge/menu/arcade
+@onready var settingsPg: HBoxContainer =$background/edge/menu/settings
+@onready var creditsPg: HBoxContainer =$background/edge/menu/credits
 @onready var roguePg=null #TODO put rogue page ref here when implemented
 @onready var titlePg=$background/edge/menu/title
 
@@ -32,12 +32,18 @@ func _ready() -> void:
 	var lang=TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()
 	if TranslationServer.get_locale().length()==5:
 		lang=lang+TranslationServer.get_locale().right(2)
-	print(lang)
 	for id in langSel.get_selectable_item(true)+1:
 		if "btn"+lang==langSel.get_item_text(id):
 			langSel.select(id)
 		elif "btn"+lang.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
+
+	if lang.left(2) == "EN":
+		if lang.right(2) == "GB":
+			pass
+		else:
+			print("caught")
+			TranslationServer.set_locale("en")
 	
 	
 	playPg.visible = false
