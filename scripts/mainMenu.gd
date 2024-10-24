@@ -20,6 +20,9 @@ extends Node2D
 
 @onready var langSel=$background/edge/menu/settings/settings/language/languageSelector
 
+@onready var mods: GridContainer = $background/edge/menu/arcade/arcade/modContainer
+@onready var lbMult: Label = $background/edge/menu/arcade/arcade/seedContainer/lbMult
+
 @onready var click: AudioStreamPlayer = $clickSound
 @onready var hover: AudioStreamPlayer = $hoverSound
 
@@ -27,6 +30,10 @@ var mainBtn: Array[Callable] = [_toTitle, _toArcade, _toStory, _toCredits, _toRo
 var avLng:Array[String]=[]
 
 func _ready() -> void:
+	
+	globalVariables.mod = []
+	globalVariables.scoreMult = 1
+	
 	langSel.get_popup().get_viewport().transparent_bg = true
 	
 	var lang=TranslationServer.get_locale()[0].capitalize()+TranslationServer.get_locale()[1].capitalize()
@@ -42,13 +49,15 @@ func _ready() -> void:
 		if lang.right(2) == "GB":
 			pass
 		else:
-			print("caught")
 			TranslationServer.set_locale("en")
 	
 	
 	playPg.visible = false
 	_toTitle()
 	buttonClickSound()
+
+func _process(delta: float) -> void:
+	lbMult.text = "Score Modifyer: " + str(globalVariables.scoreMult)
 
 func exitPg() -> void:
 	storyPg.visible=false
@@ -273,7 +282,6 @@ func _startLvl(level) -> void:
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 func _on_arcade_pressed():
-	globalVariables.scoreMult = 1
 	globalVariables.size = $background/edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
@@ -289,39 +297,43 @@ func _on_arcade_pressed():
 	empty = globalVariables.n
 	globalVariables.lvl1 = globalVariables.ingr.pick_random()
 	
-	if $background/edge/menu/arcade/arcade/population/populationModes/high/highMode.button_pressed:
-		for i in globalVariables.ingredientStack:
-			globalVariables.ingredientStack[i] = 1
-		globalVariables.ingredientMult = (globalVariables.n / 9) * 0.45
-	elif $background/edge/menu/arcade/arcade/population/populationModes/medium/mediumMode.button_pressed:
-		globalVariables.ingredientStack["Herb1"] = 3
-		globalVariables.ingredientStack["Herb2"] = 2
-		globalVariables.ingredientStack["Herb3"] = 1
-		globalVariables.ingredientStack["Shroom1"] = 3
-		globalVariables.ingredientStack["Shroom2"] = 2
-		globalVariables.ingredientStack["Shroom3"] = 1
-		globalVariables.ingredientStack["Salt1"] = 3
-		globalVariables.ingredientStack["Salt2"] = 2
-		globalVariables.ingredientStack["Salt3"] = 1
-		globalVariables.ingredientStack["Flamel5"] = 1
-		globalVariables.ingredientMult = (globalVariables.n / 18) * 0.35
-	elif $background/edge/menu/arcade/arcade/population/populationModes/low/lowMode.button_pressed:
-		globalVariables.ingredientStack["Herb1"] = 5
-		globalVariables.ingredientStack["Herb2"] = 3
-		globalVariables.ingredientStack["Herb3"] = 1
-		globalVariables.ingredientStack["Shroom1"] = 5
-		globalVariables.ingredientStack["Shroom2"] = 3
-		globalVariables.ingredientStack["Shroom3"] = 1
-		globalVariables.ingredientStack["Salt1"] = 5
-		globalVariables.ingredientStack["Salt2"] = 3
-		globalVariables.ingredientStack["Salt3"] = 1
-		globalVariables.ingredientStack["Flamel5"] = 1
-		globalVariables.ingredientMult = (globalVariables.n / 27) * 0.25
+	for i: String in globalVariables.ingredientStack:
+		globalVariables.ingredientStack[i] = 1
+		if i.to_int() <= 1:
+			globalVariables.ingredientStack[i] += 1
+		if i.to_int() <= 2:
+			globalVariables.ingredientStack[i] += 1
+	
+	if globalVariables.mod.has("AA"):
+		for i: String in globalVariables.ingredientStack:
+			if i.to_int() > 1:
+				globalVariables.ingredientStack[i] += 1
+			if i.to_int() > 2:
+				globalVariables.ingredientStack[i] += 1
+	
+	if globalVariables.mod.has("BA"):
+		for i: String in globalVariables.ingredientStack:
+			if i.to_int() <= 1:
+				globalVariables.ingredientStack[i] += 1
+			if i.to_int() <= 2:
+				globalVariables.ingredientStack[i] += 1
+	var sum: int = 0
+	for i: String in globalVariables.ingredientStack:
+		sum += globalVariables.ingredientStack[i]
+	
+	var ingrMult: float = 0.33
+	if globalVariables.mod.has("DI"):
+		ingrMult = 0.45
+	elif globalVariables.mod.has("LR"):
+		ingrMult = 0.25
+	
+	globalVariables.ingredientMult = (globalVariables.n / sum) * ingrMult
 	
 	for i in globalVariables.ingredientStack:
-		if i != "Flamel5":
-			globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
+		globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
 		empty -= globalVariables.ingredientStack[i]
+	
+	print(globalVariables.ingredientStack)
 	
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1

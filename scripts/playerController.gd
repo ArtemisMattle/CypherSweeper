@@ -184,10 +184,12 @@ func Flamel() -> void: # shows the Flamel when it's time to reveal it
 func xpThreshold() -> void: # calculates the thresholds for lvlUps
 	var empty: int = globalVariables.n
 	var xpType: Dictionary = {}
+	
+	if globalVariables.mod.has("HEK") or globalVariables.mod.has("EC"):
+		xpdiff = 1
+	
 	for i: String in globalVariables.ingredientStack:
 		empty -= globalVariables.ingredientStack[i]
-		if i == "Flamel5":
-			break
 		
 		if i.to_int() == 1:
 			xpType[i.left(-1)] = globalVariables.ingredientStack[i]
@@ -197,7 +199,13 @@ func xpThreshold() -> void: # calculates the thresholds for lvlUps
 			xpType[i.left(-1)] += globalVariables.ingredientStack[i] * i.to_int()
 			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
 			lvlMax[i.left(-1)] = i.to_int()
+		print(xpType)
 	globalVariables.lvlNothing = int(empty * xpdiff / 3)
+	if globalVariables.mod.has("EC"):
+		for i: String in xpThold:
+			if i.to_int() == 3:
+				xpThold[i] += (globalVariables.ingredientStack[i] + globalVariables.ingredientStack[i.left(-1) + "2"]) * globalVariables.xpFlagBoon
+	print(xpThold)
 
 
 		# Menu stuff

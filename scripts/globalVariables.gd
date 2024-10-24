@@ -19,6 +19,7 @@ var uncoveredIngred: Dictionary = {
 var uncovered: int = 0
 var size: int
 var n: int
+var xpFlagBoon: float = 0.15
 var xp: Dictionary = {
 	"Herb" = 0.0, 
 	"Shroom" = 0.0, 
@@ -42,8 +43,9 @@ var ingredientStack: Dictionary = {
 	"Shroom3" = 0,
 	"Salt1" = 3,
 	"Salt2" = 0,
-	"Salt3" = 0,
-	"Flamel5" = 1,}
+	"Salt3" = 0,}
+
+var mod: Array[String] = []
 
 var buff: Dictionary = {
 	"shield" = 0,

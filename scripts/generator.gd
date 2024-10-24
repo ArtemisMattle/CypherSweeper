@@ -182,10 +182,14 @@ func def_hex() -> void:# generates the gridcells with the position and their nei
 				pos[i].neighbors[ends[pos[i].line]+pos[i].lpos+1] = y
 
 func populate() -> void:# generates the ingredients
+	var x: int = rng.randi_range(0, n-1)
+	pos[x].ingredient = "Flamel5"
+	ingredientList[x] = "Flamel5"
+	pos[x].sprIng.texture = load("res://assets/textures/ingredients/Flamel5.png")
 	while not ingredientStack.is_empty():
 		for i: String in ingredientStack:# ingredientstack is defined for consistent amounts of ingredients
 			if ingredientStack[i] != 0:# seeded random placement of ingredients in empty hexes
-				var x: int = rng.randi_range(0, n-1)
+				x = rng.randi_range(0, n-1)
 				if pos[x].ingredient == "Nothing0":# empty cells only ;P
 					pos[x].ingredient = i
 					ingredientStack[i] -= 1
@@ -272,7 +276,7 @@ func flagFinish(flag: String, i: int) -> void:
 	flags[i] = {"flag": flag, "visible": true, "right": pos[i].ingredient == flag}
 	if not preExist:
 		if flags[i]["right"]:
-			globalVariables.xp[flag.left(-1)] += 0.15
+			globalVariables.xp[flag.left(-1)] += globalVariables.xpFlagBoon
 
 func _on_flag_timer_timeout() -> void:
 	fTimer.stop()

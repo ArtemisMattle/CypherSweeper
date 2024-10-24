@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://pddgp7c634x5"]
+
+[ext_resource type="Script" path="res://scripts/modifyer.gd" id="1_3eqhf"]
+
+[sub_resource type="Theme" id="Theme_5sj0y"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/outline_size = 0
+Label/font_sizes/font_size = 16
+
+[node name="modContainer" type="GridContainer"]
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = SubResource("Theme_5sj0y")
+columns = 7
+script = ExtResource("1_3eqhf")

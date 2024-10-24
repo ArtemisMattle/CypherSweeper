@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=20 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
+[ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="10_76px3"]
@@ -12,9 +13,7 @@
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="13_l1v7u"]
 [ext_resource type="AudioStream" uid="uid://3hrmx0speedw" path="res://assets/audio/music/Main Menu and Credits .mp3" id="13_sg5g6"]
 [ext_resource type="AudioStream" uid="uid://bbkl8a8d15bkg" path="res://assets/audio/sfx/Button Sound Raphi Option.mp3" id="14_ahvhn"]
-[ext_resource type="ButtonGroup" uid="uid://b1oevm04u8h1w" path="res://assets/textures/UI-elements/buttonGroups/populationGroup.tres" id="14_bj10x"]
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="15_1wson"]
-[ext_resource type="ButtonGroup" uid="uid://ph6tg01bs3cx" path="res://assets/textures/UI-elements/buttonGroups/difficultyGroup.tres" id="15_82b6h"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
 
@@ -138,6 +137,7 @@ text = "btnBack"
 alignment = 0
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -284,7 +284,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -338,145 +337,19 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="population" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="populationMode" type="Label" parent="background/edge/menu/arcade/arcade/population"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "lbPopMode"
-
-[node name="populationSpace" type="Container" parent="background/edge/menu/arcade/arcade/population"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="populationModes" type="VBoxContainer" parent="background/edge/menu/arcade/arcade/population"]
-layout_mode = 2
-
-[node name="high" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/population/populationModes"]
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="highMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/high" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-button_group = ExtResource("14_bj10x")
-
-[node name="high" type="Label" parent="background/edge/menu/arcade/arcade/population/populationModes/high"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 21
-text = "btnHigh"
-
-[node name="medium" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/population/populationModes"]
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="mediumMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/medium" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-button_group = ExtResource("14_bj10x")
-
-[node name="medium" type="Label" parent="background/edge/menu/arcade/arcade/population/populationModes/medium"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 21
-text = "btnMedium"
-
-[node name="low" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/population/populationModes"]
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="lowMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/population/populationModes/low" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-button_pressed = true
-button_group = ExtResource("14_bj10x")
-
-[node name="low" type="Label" parent="background/edge/menu/arcade/arcade/population/populationModes/low"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 21
-text = "btnLow"
-
-[node name="populationSpace2" type="Container" parent="background/edge/menu/arcade/arcade/population"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-
-[node name="difficulty" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
-layout_mode = 2
-size_flags_vertical = 2
-
-[node name="difficultyMode" type="Label" parent="background/edge/menu/arcade/arcade/difficulty"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "lbDiffMode"
-
-[node name="difficultySpace" type="Container" parent="background/edge/menu/arcade/arcade/difficulty"]
-custom_minimum_size = Vector2(25, 0)
-layout_mode = 2
-
-[node name="difficultyModes" type="VBoxContainer" parent="background/edge/menu/arcade/arcade/difficulty"]
-layout_mode = 2
-
-[node name="extreme" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes"]
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="extremeMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-button_group = ExtResource("15_82b6h")
-
-[node name="extreme" type="Label" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/extreme"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 21
-text = "btnExtreme"
-
-[node name="normal" type="HSplitContainer" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes"]
-layout_mode = 2
-dragger_visibility = 1
-
-[node name="normalMode" type="CheckBox" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-button_pressed = true
-button_group = ExtResource("15_82b6h")
-
-[node name="normal" type="Label" parent="background/edge/menu/arcade/arcade/difficulty/difficultyModes/normal"]
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 21
-text = "btnNormal"
-
-[node name="difficultySpace2" type="Container" parent="background/edge/menu/arcade/arcade/difficulty"]
-custom_minimum_size = Vector2(100, 0)
+[node name="modContainer" parent="background/edge/menu/arcade/arcade" instance=ExtResource("8_cmtqk")]
 layout_mode = 2
 
 [node name="seedContainer" type="HBoxContainer" parent="background/edge/menu/arcade/arcade"]
 layout_mode = 2
+size_flags_vertical = 10
 
 [node name="container" type="Container" parent="background/edge/menu/arcade/arcade/seedContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="seedInput" type="LineEdit" parent="background/edge/menu/arcade/arcade/seedContainer"]
+custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.1
@@ -484,8 +357,15 @@ placeholder_text = "Seed"
 max_length = 8
 
 [node name="container2" type="Container" parent="background/edge/menu/arcade/arcade/seedContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+
+[node name="lbMult" type="Label" parent="background/edge/menu/arcade/arcade/seedContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "Score Modifyer: "
 
 [node name="credits" type="HBoxContainer" parent="background/edge/menu"]
 visible = false
