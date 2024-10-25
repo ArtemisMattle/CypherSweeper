@@ -34,6 +34,8 @@ func _ready() -> void:
 	signalBus.uncoverIngr.connect(uncover)
 	signalBus.lvlFlamel.connect(Flamel)
 	globalVariables.lostsanity = 0
+	for i: String in globalVariables.xp:
+		globalVariables.xp[i] = 0
 	
 	#pause button setup
 	globalVariables.paused = false
@@ -89,6 +91,7 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			pass
 		elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
 			lvlUp(i)
+	print(globalVariables.xp)
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
 	if playing:
