@@ -350,6 +350,33 @@ func stackIngredients() -> void: # takes care of the ingredient stack
 			if i.to_int() <= 2:
 				globalVariables.ingredientStack[i] += 1
 	
+	for i: String in globalVariables.ingredientStack:
+		if not globalVariables.mod.has("HE"):
+			if globalVariables.lvl1 == "Herb":
+				globalVariables.lvl1 = globalVariables.ingr.pick_random()
+			if i.left(-1) == "Herb":
+				globalVariables.ingredientStack[i] = 0
+		if not globalVariables.mod.has("ST"):
+			if globalVariables.lvl1 == "Salt":
+				globalVariables.lvl1 = globalVariables.ingr.pick_random()
+			if i.left(-1) == "Salt":
+				globalVariables.ingredientStack[i] = 0
+		if not globalVariables.mod.has("FU"):
+			if globalVariables.lvl1 == "Shroom":
+				globalVariables.lvl1 = globalVariables.ingr.pick_random()
+			if i.left(-1) == "Shroom":
+				globalVariables.ingredientStack[i] = 0
+	
+	if not globalVariables.mod.has("HE") and not globalVariables.mod.has("ST") and not globalVariables.mod.has("FU"):
+		return
+	
+	globalVariables.xp.clear()
+	if globalVariables.mod.has("HE"):
+		globalVariables.xp["Herb"] = 0.0
+	if globalVariables.mod.has("ST"):
+		globalVariables.xp["Salt"] = 0.0
+	if globalVariables.mod.has("FU"):
+		globalVariables.xp["Shroom"] = 0.0
 	
 	globalVariables.sum = 0 # finalising the ingredient multiplyer for 'normal modes'
 	for i: String in globalVariables.ingredientStack:

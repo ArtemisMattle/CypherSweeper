@@ -26,6 +26,8 @@ var active: bool = true
 
 enum sMode {normal, fast, zippy}
 
+var OF: bool = false
+
 
 func _ready()-> void:
 	match mode:
@@ -78,6 +80,7 @@ func _ready()-> void:
 				pos[x].ingredient = i
 				pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
 				pos[x].sprIng.visible = true
+	OF = globalVariables.mod.has("OF")
 
 func readyGame()-> void: # sets everything into motion for a normal round to start
 	rng.seed=globalVariables.rngseed
@@ -262,6 +265,12 @@ func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates betwe
 func flag(i: int) -> void: # flaggs cells
 	var flag: Sprite2D = pos[i].cell.get_node("flag")
 	if pos[i].flagged == "":
+		if OF:
+			flag.texture = load("res://assets/textures/ingredients/flags/Flamel.png")
+			pos[i].flagged = "Flamel"
+			flags[i] = {"flag": "Flamel", "visible": true, "right": pos[i].ingredient == "Flamel"}
+			active = true
+			return
 		flagTool = fTool.instantiate()
 		add_child(flagTool)
 		flagTool.set_position(pos[i].cell.position)

@@ -14,7 +14,6 @@ func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 				else:
 					uncoverer.set_meta("mode", uncoverer.get_meta("mode") + 1)
 				$placer/toolSprite/dot.modulate = cArray[uncoverer.get_meta("mode")]
-				print(uncoverer.get_meta("mode"))
 			time = false
 			$hysterese.start()
 

@@ -90,7 +90,7 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			takeDamage(ingredient.right(1).to_int(), true, true)
 	if not globalVariables.leveled1: # gives xp to ingredients without level
 		if globalVariables.level.values().has(0):
-			for i: String in globalVariables.level:
+			for i: String in globalVariables.xp:
 				if globalVariables.level[i] < 1:
 					globalVariables.xp[i] += randi_range(0,7) * 0.25
 			if last: # forces lvlups if necessary for damageless running
@@ -98,7 +98,7 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 					pass
 		else:
 			globalVariables.leveled1 = true
-	for i: String in globalVariables.level: # levels up ingredients when xp thresholds are meet
+	for i: String in globalVariables.xp: # levels up ingredients when xp thresholds are meet
 		if globalVariables.level[i] == lvlMax[i]:
 			pass
 		elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
@@ -163,10 +163,13 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 		fade.play("fade2")
 	activeMusic = not activeMusic
 
-func score(time: float) -> int: #calculates the score
+func score(time: float) -> float: #calculates the score
 	if globalVariables.lostsanity == 0:
 		globalVariables.scoreMult *= winbonus
 	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size * 2)) * 2 + 1, 1.0, 2.0)
+	if not globalVariables.mod.has("HE") and not globalVariables.mod.has("ST") and not globalVariables.mod.has("FU"):
+		globalVariables.scoreMult *= 10
+		return PI
 	for i: String in globalVariables.xp:
 		s += globalVariables.xp[i]
 	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)
