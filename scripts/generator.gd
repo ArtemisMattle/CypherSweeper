@@ -191,10 +191,16 @@ func populate() -> void:# generates the ingredients
 			if ingredientStack[i] != 0:# seeded random placement of ingredients in empty hexes
 				x = rng.randi_range(0, n-1)
 				if pos[x].ingredient == "Nothing0":# empty cells only ;P
-					pos[x].ingredient = i
-					ingredientStack[i] -= 1
-					ingredientList[x] = i
-					pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
+					if globalVariables.mod.has("OF"):
+						pos[x].ingredient = "Flamel5"
+						ingredientStack[i] -= 1
+						ingredientList[x] = "Flamel5"
+						pos[x].sprIng.texture = load("res://assets/textures/ingredients/Flamel5.png")
+					else:
+						pos[x].ingredient = i
+						ingredientStack[i] -= 1
+						ingredientList[x] = i
+						pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
 			else:
 				ingredientStack.erase(i)#removes empty ingredient slots for performance
 	ingList = ingredientList.duplicate()
@@ -207,8 +213,11 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 		pos[i].eigenValue = 0
 		pos[i].eigenIndicator = []
 		for j: int in pos[i].neighbors:
-			pos[i].eigenValue += pos[j].ingredient.right(1).to_int()
-			pos[i].eigenIndicator.append(pos[j].ingredient.left(-1))
+			if globalVariables.mod.has("OF"):
+				pos[i].eigenValue += pos[j].ingredient.to_int() / 5
+			else:
+				pos[i].eigenValue += pos[j].ingredient.right(1).to_int()
+				pos[i].eigenIndicator.append(pos[j].ingredient.left(-1))
 		if pos[i].eigenValue > 0:
 			pos[i].hint.text = str(pos[i].eigenValue)
 		else: 
@@ -290,6 +299,9 @@ func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the rev
 			2:
 				if pos[i].flagged != "":
 					reveal(i, 2)
+			3:
+				if pos[i].ingredient == "Nothing0":
+					reveal(i, 2)
 
 func reveal(i : int, m : int) -> void: # reveals a gridCell
 	if not active:
@@ -346,7 +358,10 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 			signalBus.lvlFlamel.emit()
 		
 		if pos[i].ingredient == "Nothing0": # reduces workload by only looking at relevant cells
-			if globalVariables.uncovered == globalVariables.lvlNothing:
+			if globalVariables.mod.has("OF"):
+				if globalVariables.uncovered == globalVariables.empty-1:
+					signalBus.lvlFlamel.emit()
+			elif globalVariables.uncovered == globalVariables.lvlNothing:
 				signalBus.lvlNothing.emit() # allows for undamaged uncovering of the first ingredients
 		else:
 			ingList.erase(i)

@@ -6,6 +6,8 @@ var xpThold: Dictionary = {}
 var lvlMax: Dictionary
 var iniSan: int
 var winbonus: float = sqrt(2)
+var s: float = 0
+var flamel: bool = false
 
 # music stuff
 var playing: bool = true
@@ -49,7 +51,8 @@ func _ready() -> void:
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 	signalBus.getAim.connect(targeter)
-	
+	if globalVariables.mod.has("OF"):
+		$playerInfo.queue_free()
 	xpThreshold()
 
 func targeter(target: int) -> void: # returns a target for the lexicon arrow
@@ -70,11 +73,17 @@ func lvl1(ing: String) -> bool: #
 
 func uncover(ingredient: String, last: bool) -> void: #workhorse function, determines what ingredient was uncovered and what should be done about it
 	if ingredient == "Flamel5":
-		if globalVariables.uncovered < globalVariables.n:
+		if not flamel:
 			takeDamage(6, true, false)
 			return
 		else:
-			endGame(true)
+			if not globalVariables.mod.has("OF"):
+				endGame(true)
+			else:
+				s += winbonus
+				if globalVariables.uncovered == globalVariables.n:
+					endGame(true)
+				return
 	else:
 		globalVariables.xp[ingredient.left(-1)] += ingredient.to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
@@ -155,7 +164,6 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	activeMusic = not activeMusic
 
 func score(time: float) -> int: #calculates the score
-	var s: float = 0
 	if globalVariables.lostsanity == 0:
 		globalVariables.scoreMult *= winbonus
 	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size * 2)) * 2 + 1, 1.0, 2.0)
@@ -167,21 +175,23 @@ func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
 	match ingredient:
 		"Herb": 
-			$playerInfo/edge/HBoxContainer/VBoxContainer/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
-			$playerInfo/edge/HBoxContainer/VBoxContainer/herb/number.text = str(globalVariables.level["Herb"])
+			$playerInfo/edge/lvlGauge/lvlGauge1/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
+			$playerInfo/edge/lvlGauge/lvlGauge1/herb/number.text = str(globalVariables.level["Herb"])
 		"Shroom":
-			$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/shroom.texture = load("res://assets/textures/ingredients/Shroom"+str(globalVariables.level["Shroom"])+".png")
-			$playerInfo/edge/HBoxContainer/VBoxContainer/shroom/number.text = str(globalVariables.level["Shroom"])
+			$playerInfo/edge/lvlGauge/lvlGauge1/shroom/shroom.texture = load("res://assets/textures/ingredients/Shroom"+str(globalVariables.level["Shroom"])+".png")
+			$playerInfo/edge/lvlGauge/lvlGauge1/shroom/number.text = str(globalVariables.level["Shroom"])
 		"Salt":
-			$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/salt.texture = load("res://assets/textures/ingredients/Salt"+str(globalVariables.level["Salt"])+".png")
-			$playerInfo/edge/HBoxContainer/VBoxContainer2/salt/number.text = str(globalVariables.level["Salt"])
+			$playerInfo/edge/lvlGauge/lvlGauge2/salt/salt.texture = load("res://assets/textures/ingredients/Salt"+str(globalVariables.level["Salt"])+".png")
+			$playerInfo/edge/lvlGauge/lvlGauge2/salt/number.text = str(globalVariables.level["Salt"])
 		"Shadow":
-			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
-			$playerInfo/edge/HBoxContainer/VBoxContainer2/shadow/number.text = str(globalVariables.level["Shadow"])
+			$playerInfo/edge/lvlGauge/lvlGauge2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
+			$playerInfo/edge/lvlGauge/lvlGauge2/shadow/number.text = str(globalVariables.level["Shadow"])
 	levelUp.play(0.9)
 
 func Flamel() -> void: # shows the Flamel when it's time to reveal it
-	$playerInfo/edge/HBoxContainer/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
+	flamel = true
+	if not globalVariables.mod.has("OF"):
+		$playerInfo/edge/lvlGauge/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
 	levelUp.play(0.9)
 	levelUp.play(0.6)
 	levelUp.play(0.5)
@@ -242,6 +252,7 @@ func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
 
 func _on_exit_pressed() -> void: # returns you to the menu
+	globalVariables.mod = []
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player

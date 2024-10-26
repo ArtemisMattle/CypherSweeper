@@ -18,7 +18,7 @@ offset_right = 128.0
 offset_bottom = 128.0
 mouse_filter = 2
 script = ExtResource("1_i7g38")
-cArray = Array[Color]([Color(0, 0, 0, 1), Color(0.717251, 0, 0, 1), Color(0.447059, 0, 0.501961, 1)])
+cArray = Array[Color]([Color(0, 0, 0, 1), Color(0.717251, 0, 0, 1), Color(0.447059, 0, 0.501961, 1), Color(0, 1, 0, 1)])
 metadata/rotate = true
 
 [node name="placer" type="Node2D" parent="."]

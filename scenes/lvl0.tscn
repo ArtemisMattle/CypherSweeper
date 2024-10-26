@@ -164,6 +164,9 @@ layer = 3
 [node name="player" type="Node" parent="UI"]
 script = ExtResource("1_vsuuo")
 
+[node name="SanGauge" parent="UI/player" instance=ExtResource("2_hqood")]
+position = Vector2(1070, 670)
+
 [node name="playerInfo" type="PanelContainer" parent="UI/player"]
 anchors_preset = 3
 anchor_left = 1.0
@@ -186,111 +189,108 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SanGauge" parent="UI/player/playerInfo/edge" instance=ExtResource("2_hqood")]
-position = Vector2(510, 50)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/player/playerInfo/edge"]
+[node name="lvlGauge" type="HBoxContainer" parent="UI/player/playerInfo/edge"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer"]
+[node name="lvlGauge1" type="VBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="herb" type="HBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer"]
+[node name="herb" type="HBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1"]
 layout_mode = 2
 
-[node name="herb" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/herb"]
+[node name="herb" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/herb"]
 custom_minimum_size = Vector2(28, 0)
 layout_mode = 2
 expand_mode = 1
 
-[node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/herb"]
+[node name="Label" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/herb"]
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "lbHerb"
 
-[node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/herb"]
+[node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/herb"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
 text = "0"
 
-[node name="shroom" type="HBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer"]
+[node name="shroom" type="HBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1"]
 layout_mode = 2
 
-[node name="shroom" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/shroom"]
+[node name="shroom" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/shroom"]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 expand_mode = 1
 
-[node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/shroom"]
+[node name="Label" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/shroom"]
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "lbShroom"
 autowrap_mode = 2
 
-[node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer/shroom"]
+[node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/shroom"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
 text = "0"
 
-[node name="flamel" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer"]
+[node name="flamel" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer"]
+[node name="lvlGauge2" type="VBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="salt" type="HBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2"]
+[node name="salt" type="HBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2"]
 layout_mode = 2
 
-[node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/salt"]
+[node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/salt"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 16
 text = "0"
 
-[node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/salt"]
+[node name="Label" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/salt"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
 text = "lbSalt"
 
-[node name="salt" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/salt"]
+[node name="salt" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/salt"]
 custom_minimum_size = Vector2(28, 20)
 layout_mode = 2
 size_flags_horizontal = 10
 expand_mode = 1
 
-[node name="shadow" type="HBoxContainer" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2"]
+[node name="shadow" type="HBoxContainer" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2"]
 visible = false
 layout_mode = 2
 
-[node name="number" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/shadow"]
+[node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/shadow"]
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "0"
 
-[node name="Label" type="Label" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/shadow"]
+[node name="Label" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/shadow"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
 text = "lbShadow"
 
-[node name="shadow" type="TextureRect" parent="UI/player/playerInfo/edge/HBoxContainer/VBoxContainer2/shadow"]
+[node name="shadow" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/shadow"]
 custom_minimum_size = Vector2(28, 20)
 layout_mode = 2
 size_flags_horizontal = 10

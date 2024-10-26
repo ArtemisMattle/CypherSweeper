@@ -44,6 +44,8 @@ var ingredientStack: Dictionary = {
 	"Salt1" = 3,
 	"Salt2" = 0,
 	"Salt3" = 0,}
+var empty: int
+var sum: int
 
 var mod: Array[String] = []
 

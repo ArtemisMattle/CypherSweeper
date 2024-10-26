@@ -30,8 +30,6 @@ var mainBtn: Array[Callable] = [_toTitle, _toArcade, _toStory, _toCredits, _toRo
 var avLng:Array[String]=[]
 
 func _ready() -> void:
-	
-	globalVariables.mod = []
 	globalVariables.scoreMult = 1
 	
 	langSel.get_popup().get_viewport().transparent_bg = true
@@ -145,8 +143,6 @@ func _on_fast_mode_pressed() -> void:
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
 
-var empty: int
-
 func _lvl1() -> void:
 	_startLvl((1))
 func _lvl2() -> void:
@@ -166,7 +162,7 @@ func _lvl8() -> void:
 func _lvl9() -> void:
 	_startLvl(9)
 func _startLvl(level) -> void:
-	match level:
+	'match level:
 		1:
 			for i in globalVariables.ingredientStack:
 				globalVariables.ingredientStack[i]=0
@@ -278,7 +274,7 @@ func _startLvl(level) -> void:
 	globalVariables.lvlUP["2"] = int(globalVariables.ingredientStack["Herb1"] * globalVariables.ingredientMult * 0.3)
 	globalVariables.lvlUP["3"] = int(globalVariables.ingredientStack["Herb2"] * globalVariables.ingredientMult * 0.75)
 	globalVariables.lvlUP["4"] = int(globalVariables.ingredientStack["Herb3"] * globalVariables.ingredientMult)
-	print(globalVariables.lvlUP)
+	print(globalVariables.lvlUP)'
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 func _on_arcade_pressed():
@@ -294,45 +290,10 @@ func _on_arcade_pressed():
 		globalVariables.rngseed=hash(randi_range(0,99999999))
 	for i in globalVariables.level:
 		globalVariables.level[i] = 0
-	empty = globalVariables.n
 	globalVariables.lvl1 = globalVariables.ingr.pick_random()
 	
-	for i: String in globalVariables.ingredientStack:
-		globalVariables.ingredientStack[i] = 1
-		if i.to_int() <= 1:
-			globalVariables.ingredientStack[i] += 1
-		if i.to_int() <= 2:
-			globalVariables.ingredientStack[i] += 1
-	
-	if globalVariables.mod.has("AA"):
-		for i: String in globalVariables.ingredientStack:
-			if i.to_int() > 1:
-				globalVariables.ingredientStack[i] += 1
-			if i.to_int() > 2:
-				globalVariables.ingredientStack[i] += 1
-	
-	if globalVariables.mod.has("BA"):
-		for i: String in globalVariables.ingredientStack:
-			if i.to_int() <= 1:
-				globalVariables.ingredientStack[i] += 1
-			if i.to_int() <= 2:
-				globalVariables.ingredientStack[i] += 1
-	var sum: int = 0
-	for i: String in globalVariables.ingredientStack:
-		sum += globalVariables.ingredientStack[i]
-	
-	var ingrMult: float = 0.33
-	if globalVariables.mod.has("DI"):
-		ingrMult = 0.45
-	elif globalVariables.mod.has("LR"):
-		ingrMult = 0.25
-	
-	globalVariables.ingredientMult = (globalVariables.n / sum) * ingrMult
-	
-	for i in globalVariables.ingredientStack:
-		globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
-		empty -= globalVariables.ingredientStack[i]
-	
+	stackIngredients()
+		
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
 	
@@ -361,5 +322,42 @@ func _on_language_selected(index: int) -> void: # changes the language (locale)
 		_: print(langSel.get_item_text(index) + "fehlt noch")
 		
 
-		
+func stackIngredients() -> void: # takes care of the ingredient stack
+	
+	var ingrMult: float = 0.35 # setting up the ingredient multiplyer
+	if globalVariables.mod.has("DI"):
+		ingrMult = 0.45
+	elif globalVariables.mod.has("LR"):
+		ingrMult = 0.25
+	
+	for i: String in globalVariables.ingredientStack:
+		globalVariables.ingredientStack[i] = 1
+		if i.to_int() <= 1:
+			globalVariables.ingredientStack[i] += 1
+		if i.to_int() <= 2:
+			globalVariables.ingredientStack[i] += 1
+	
+	if globalVariables.mod.has("AA"):
+		for i: String in globalVariables.ingredientStack:
+			if i.to_int() > 1:
+				globalVariables.ingredientStack[i] += 1
+			if i.to_int() > 2:
+				globalVariables.ingredientStack[i] += 1
+	elif globalVariables.mod.has("BA"):
+		for i: String in globalVariables.ingredientStack:
+			if i.to_int() <= 1:
+				globalVariables.ingredientStack[i] += 1
+			if i.to_int() <= 2:
+				globalVariables.ingredientStack[i] += 1
+	
+	
+	globalVariables.sum = 0 # finalising the ingredient multiplyer for 'normal modes'
+	for i: String in globalVariables.ingredientStack:
+		globalVariables.sum += globalVariables.ingredientStack[i]
+	globalVariables.empty = globalVariables.n
+	globalVariables.ingredientMult = (globalVariables.n / globalVariables.sum) * ingrMult
+	
+	for i in globalVariables.ingredientStack: # finalising the ingredient stack
+		globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
+		globalVariables.empty -= globalVariables.ingredientStack[i]
 

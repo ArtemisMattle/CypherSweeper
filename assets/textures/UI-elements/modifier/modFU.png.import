@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btgiy71snc1s4"
-path="res://.godot/imported/modDI.png-7882b92d47c715c70b3e59372b565a66.ctex"
+uid="uid://dltoyejeu4x60"
+path="res://.godot/imported/modFU.png-1c7ea6fafe4f6351692d2956a888668b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/UI-elements/modifier/modDI.png"
-dest_files=["res://.godot/imported/modDI.png-7882b92d47c715c70b3e59372b565a66.ctex"]
+source_file="res://assets/textures/UI-elements/modifier/modFU.png"
+dest_files=["res://.godot/imported/modFU.png-1c7ea6fafe4f6351692d2956a888668b.ctex"]
 
 [params]
 
