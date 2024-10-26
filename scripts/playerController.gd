@@ -5,6 +5,9 @@ var xpdiff: float = 0.6
 var xpThold: Dictionary = {}
 var lvlMax: Dictionary
 var iniSan: int
+var winbonus: float = sqrt(2)
+
+# music stuff
 var playing: bool = true
 var activeMusic: bool = true
 var activeTrack: int = 10
@@ -120,7 +123,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	globalVariables.paused = true
 	signalBus.deactivate.emit(false)
 	if win:
-		globalVariables.scoreMult *= sqrt(2)
+		globalVariables.scoreMult *= winbonus
 	var time: float = globalVariables.playTime
 	var msg: int = randi_range(0, 100)
 	if win:
@@ -154,8 +157,8 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 func score(time: float) -> int: #calculates the score
 	var s: float = 0
 	if globalVariables.lostsanity == 0:
-		globalVariables.scoreMult *= sqrt(2)
-	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size)) * 2 + 1, 1.0, 2.0)
+		globalVariables.scoreMult *= winbonus
+	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size * 2)) * 2 + 1, 1.0, 2.0)
 	for i: String in globalVariables.xp:
 		s += globalVariables.xp[i]
 	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)

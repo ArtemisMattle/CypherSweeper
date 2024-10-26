@@ -333,8 +333,6 @@ func _on_arcade_pressed():
 		globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
 		empty -= globalVariables.ingredientStack[i]
 	
-	print(globalVariables.ingredientStack)
-	
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
 	
