@@ -91,7 +91,6 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			pass
 		elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
 			lvlUp(i)
-	print(globalVariables.xp)
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
 	if playing:
@@ -121,7 +120,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	globalVariables.paused = true
 	signalBus.deactivate.emit(false)
 	if win:
-		globalVariables.scoreMult *= 3
+		globalVariables.scoreMult *= sqrt(2)
 	var time: float = globalVariables.playTime
 	var msg: int = randi_range(0, 100)
 	if win:
@@ -202,13 +201,11 @@ func xpThreshold() -> void: # calculates the thresholds for lvlUps
 			xpType[i.left(-1)] += globalVariables.ingredientStack[i] * i.to_int()
 			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
 			lvlMax[i.left(-1)] = i.to_int()
-		print(xpType)
 	globalVariables.lvlNothing = int(empty * xpdiff / 3)
 	if globalVariables.mod.has("EC"):
 		for i: String in xpThold:
 			if i.to_int() == 3:
 				xpThold[i] += (globalVariables.ingredientStack[i] + globalVariables.ingredientStack[i.left(-1) + "2"]) * globalVariables.xpFlagBoon
-	print(xpThold)
 
 
 		# Menu stuff

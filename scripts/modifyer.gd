@@ -9,7 +9,7 @@ var mods: Array[modifyer] = [
 	modifyer.new("AA", 3, ["BA"]), # main Menu
 	modifyer.new("BA", -3, ["AA"]), # main Menu
 	modifyer.new("DL", 5),#TODO
-	modifyer.new("BR", 4),#TODO
+	modifyer.new("BS", 4),#TODO
 ]
 
 func _ready() -> void:
