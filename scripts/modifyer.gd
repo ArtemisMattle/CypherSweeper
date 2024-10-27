@@ -9,11 +9,11 @@ var mods: Array[modifyer] = [
 	modifyer.new("AA", 3, ["BA"]), # main Menu
 	modifyer.new("BA", -3, ["AA"]), # main Menu
 	modifyer.new("DL", 5), #TODO
-	modifyer.new("BS", 4), #TODO
+	modifyer.new("BS", 4), # generator
 	modifyer.new("OF", 10, ["HE", "FU", "ST", "HEK", "EC", "AA", "BA"]), # generator & playerController
-	modifyer.new("HE", -2, [], true), #TODO
-	modifyer.new("FU", -2, [], true), #TODO
-	modifyer.new("ST", -2, [], true), #TODO
+	modifyer.new("HE", -2, [], true), # main Menu
+	modifyer.new("FU", -2, [], true), # main Menu
+	modifyer.new("ST", -2, [], true), # main Menu
 ]
 
 func _ready() -> void:

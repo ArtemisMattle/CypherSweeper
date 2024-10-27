@@ -367,9 +367,6 @@ func stackIngredients() -> void: # takes care of the ingredient stack
 			if i.left(-1) == "Shroom":
 				globalVariables.ingredientStack[i] = 0
 	
-	if not globalVariables.mod.has("HE") and not globalVariables.mod.has("ST") and not globalVariables.mod.has("FU"):
-		return
-	
 	globalVariables.xp.clear()
 	if globalVariables.mod.has("HE"):
 		globalVariables.xp["Herb"] = 0.0
@@ -377,6 +374,8 @@ func stackIngredients() -> void: # takes care of the ingredient stack
 		globalVariables.xp["Salt"] = 0.0
 	if globalVariables.mod.has("FU"):
 		globalVariables.xp["Shroom"] = 0.0
+	elif not globalVariables.mod.has("HE") and not globalVariables.mod.has("ST") and not globalVariables.mod.has("FU"):
+		return
 	
 	globalVariables.sum = 0 # finalising the ingredient multiplyer for 'normal modes'
 	for i: String in globalVariables.ingredientStack:

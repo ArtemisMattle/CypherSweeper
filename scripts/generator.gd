@@ -26,8 +26,8 @@ var active: bool = true
 
 enum sMode {normal, fast, zippy}
 
-var OF: bool = false
-
+var OF: bool = globalVariables.mod.has("OF")
+var Diagonal: bool = globalVariables.mod.has("DL")
 
 func _ready()-> void:
 	match mode:
@@ -42,6 +42,13 @@ func _ready()-> void:
 			l = 5
 			get_ends()
 			def_hex()
+			if Diagonal:
+				var diag: Dictionary = {}
+				for i: int in len(pos):
+					diag[i] = diagonals(i)
+				for i: int in len(pos):
+					for j: int in diag[i]:
+						pos[i].neighbors[j] = "Nothing0"
 			for i: int in n:
 				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
 				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
@@ -58,6 +65,13 @@ func _ready()-> void:
 			l = 5
 			get_ends()
 			def_hex()
+			if Diagonal:
+				var diag: Dictionary = {}
+				for i: int in len(pos):
+					diag[i] = diagonals(i)
+				for i: int in len(pos):
+					for j: int in diag[i]:
+						pos[i].neighbors[j] = "Nothing0"
 			for i: int in n:
 				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
 				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
@@ -80,7 +94,7 @@ func _ready()-> void:
 				pos[x].ingredient = i
 				pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
 				pos[x].sprIng.visible = true
-	OF = globalVariables.mod.has("OF")
+
 
 func readyGame()-> void: # sets everything into motion for a normal round to start
 	rng.seed=globalVariables.rngseed
@@ -102,6 +116,15 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 	get_viewport()
 	get_ends()
 	def_hex()
+	
+	if Diagonal:
+		var diag: Dictionary = {}
+		for i: int in len(pos):
+			diag[i] = diagonals(i)
+		for i: int in len(pos):
+			for j: int in diag[i]:
+				pos[i].neighbors[j] = "Nothing0"
+	
 	signalBus.populated.emit()
 	populate()
 	signalBus.deactivate.connect(deactivate)
@@ -184,6 +207,20 @@ func def_hex() -> void:# generates the gridcells with the position and their nei
 			if pos[i].line >= ends.size()/2 && i not in ends:
 				pos[i].neighbors[ends[pos[i].line]+pos[i].lpos+1] = y
 
+func diagonals(p: int) -> Array[int]:
+	var n: Array[int] = []
+	var m: Array[int] = []
+	for i: int in pos[p].neighbors:
+		var nei: Array = Array(pos[i].neighbors.keys())
+		for j: int in nei:
+			if j == p or pos[p].neighbors.has(j):
+				continue
+			if pos[i].neighbors[j] == "Nothing0":
+				if m.has(j):
+					n.append(j)
+				m.append(j)
+	return n
+
 func populate() -> void:# generates the ingredients
 	var x: int = rng.randi_range(0, n-1)
 	pos[x].ingredient = "Flamel5"
@@ -222,7 +259,10 @@ func updateNeighbors(gCell: int) -> void: # takes in a a gridCell position and t
 				pos[i].eigenValue += pos[j].ingredient.right(1).to_int()
 				pos[i].eigenIndicator.append(pos[j].ingredient.left(-1))
 		if pos[i].eigenValue > 0:
-			pos[i].hint.text = str(pos[i].eigenValue)
+			var lie: Array[int] = [0]
+			if globalVariables.mod.has("BS"):
+				lie = [-1,1]
+			pos[i].hint.text = str(pos[i].eigenValue + lie.pick_random())
 		else: 
 			pos[i].hint.text = " "
 		var herb: Sprite2D = pos[i].cell.get_node("indicator/indicatorHerb")
@@ -384,30 +424,30 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		
 		
 		# chain revealing / cascading stuff
-		if pos[i].eigenValue == 0: # checks for empty gridCells
-			var revealer: Array[int] = []
-			if settings.speedMode == sMode.normal: # checks for speedMode
-				var revSoon: Array[int] = []
-				for j: int in pos[i].neighbors:
-					if not pos[j].revealed:
-						revSoon.append(j)
-				if not revSoon.is_empty():
-					if m != 2:
+		if m != 2:
+			if pos[i].eigenValue == 0: # checks for empty gridCells
+				var revealer: Array[int] = []
+				if settings.speedMode == sMode.normal: # checks for speedMode
+					var revSoon: Array[int] = []
+					for j: int in pos[i].neighbors:
+						if not pos[j].revealed:
+							revSoon.append(j)
+					if not revSoon.is_empty():
 						openRevealers.append(i)
-					revealer.append(revSoon[randi_range(0, revSoon.size()-1)])
-			else:
-				for j: int in pos[i].neighbors:
-					if not pos[j].revealed:
-						revealer.append(j)
-			match m:
-				0: toBeRevealed.append_array(revealer)
-				1: 
-					if settings.speedMode == sMode.zippy:
-						toBeRevealed.append_array(revealer)
-					else:
-						toBeRevealedLater.append_array(revealer)
-				_: pass
-			tTimer.start() # starts the Timer to turn neighboring gridCells
+						revealer.append(revSoon[randi_range(0, revSoon.size()-1)])
+				else:
+					for j: int in pos[i].neighbors:
+						if not pos[j].revealed:
+							revealer.append(j)
+				match m:
+					0: toBeRevealed.append_array(revealer)
+					1: 
+						if settings.speedMode == sMode.zippy:
+							toBeRevealed.append_array(revealer)
+						else:
+							toBeRevealedLater.append_array(revealer)
+					_: pass
+				tTimer.start() # starts the Timer to turn neighboring gridCells
 		
 		if pos[i].ingredient == "Nothing0":
 			pos[i].hint.visible = true # shows the numeric hint if there is no ingredient
