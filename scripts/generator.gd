@@ -502,7 +502,13 @@ func deactivate(r: bool) -> void: # deactivates all interactivity with the map
 				pos[i].cell.get_node("colour/button").set("mouse_filter", 2)
 
 func getUnrevealedIngredient() -> void: # emits a signal with a position and an ingredient
-	var p: int = ingList.keys().pick_random()
+	var p: int
+	
+	for i: int in 100: # trys to find an unflagged ingredient
+		p = ingList.keys().pick_random()
+		if pos[p].flagged == "":
+			break
+	
 	signalBus.returnUnrevealed.emit(pos[p].ingredient, pos[p].cell.global_position)
 
 func getNeighNeighbors(i: int) -> Array[int]: # returns all unique neighbors of the neighbors of a cell
