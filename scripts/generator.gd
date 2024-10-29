@@ -4,6 +4,7 @@ var n: int
 var l: int
 var width: int
 var hight: int
+@onready var background: TileMap = $background
 var ends: Array[int]
 var pos: Array[gridCell] = []
 var hex: PackedScene = preload("res://scenes/hex.tscn")
@@ -107,12 +108,36 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 		globalVariables.uncoveredIngred[i] = 0
 	globalVariables.uncovered = 0
 	
+	var tileCoords: Array[Vector2i] = [Vector2i(0, 0)]
+	for i: int in size+1:
+		tileCoords.append(Vector2i( i+1, 0))
+		tileCoords.append(Vector2i(-i-1, 0))
+		tileCoords.append(Vector2i( 0, i+1))
+		tileCoords.append(Vector2i( 0,-i-1))
+		tileCoords.append(Vector2i( size - i/2, i+1))
+		tileCoords.append(Vector2i( size - i/2, -i-1))
+		tileCoords.append(Vector2i( -size + i/2, i+1))
+		tileCoords.append(Vector2i( -size + i/2, -i-1))
+		
+		for j: int in size/2+1:
+			tileCoords.append(Vector2i( j+1 , i+1))
+			tileCoords.append(Vector2i(-j-1 ,-i-1))
+			tileCoords.append(Vector2i(-j-1 , i+1))
+			tileCoords.append(Vector2i( j+1 ,-i-1))
+			
+			tileCoords.append(Vector2i( size - i/2-j, i+1))
+			tileCoords.append(Vector2i( size - i/2-j, -i-1))
+			tileCoords.append(Vector2i( -size + i/2+j-1, i+1))
+			tileCoords.append(Vector2i( -size + i/2+j-1, -i-1))
+		
+	background.set_cells_terrain_connect(0, tileCoords, 0, 0)
+	
 	l = 2 * size - 1
-	width = l * 48 + 100
+	'width = l * 48 + 100
 	hight = l * 34 + 400
 	$PanelContainer.size = Vector2i(width, hight)
 	$PanelContainer.set_position(Vector2(-width/2, -hight/2))
-	$PanelContainer.visible = false
+	$PanelContainer.visible = false'
 	get_viewport()
 	get_ends()
 	def_hex()
@@ -147,10 +172,10 @@ func positionate(cell: gridCell) -> void: # positionates the gridCells to make a
 	@warning_ignore("integer_division")
 	if cell.line < l/2: # differentiates between the upper half and the lower half
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*46-(cell.line-ends.size()/2)*23-(l/2)*46, (cell.line-l/2)*35))
+		cell.cell.translate(Vector2(cell.lpos*48-int(cell.line-l/2)*24-size*48, (cell.line-size)*36))
 	else:
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*46+(cell.line-ends.size()/2)*23-(l/2)*46,(cell.line-l/2)*35))
+		cell.cell.translate(Vector2(cell.lpos*48+int(cell.line-l/2)*24-size*48, (cell.line-size)*36))
 
 func def_hex() -> void:# generates the gridcells with the position and their neigborhood
 	var line: int = 0 # initiates the line counter
