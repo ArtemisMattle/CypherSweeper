@@ -108,7 +108,7 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 		globalVariables.uncoveredIngred[i] = 0
 	globalVariables.uncovered = 0
 	
-	var tileCoords: Array[Vector2i] = [Vector2i(0, 0)]
+	var tileCoords: Array[Vector2i] = [Vector2i(0, 0)] # background tiles
 	for i: int in size+1:
 		tileCoords.append(Vector2i( i+1, 0))
 		tileCoords.append(Vector2i(-i-1, 0))

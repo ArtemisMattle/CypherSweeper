@@ -10,7 +10,7 @@ var mods: Array[modifyer] = [
 	modifyer.new("BA", -3, ["AA"]), # main Menu
 	modifyer.new("DL", 5), #TODO
 	modifyer.new("BS", 4), # generator
-	modifyer.new("OF", 10, ["HE", "FU", "ST", "HEK", "EC", "AA", "BA"]), # generator & playerController
+	modifyer.new("OF", 10, ["HE", "FU", "ST", "HEK", "EC", "AA", "BA"]), # generator & playerController & main Menu
 	modifyer.new("HE", -2, [], true), # main Menu
 	modifyer.new("FU", -2, [], true), # main Menu
 	modifyer.new("ST", -2, [], true), # main Menu
