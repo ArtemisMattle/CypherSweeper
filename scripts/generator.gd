@@ -114,10 +114,6 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 		tileCoords.append(Vector2i(-i-1, 0))
 		tileCoords.append(Vector2i( 0, i+1))
 		tileCoords.append(Vector2i( 0,-i-1))
-		tileCoords.append(Vector2i( size - i/2, i+1))
-		tileCoords.append(Vector2i( size - i/2, -i-1))
-		tileCoords.append(Vector2i( -size + i/2, i+1))
-		tileCoords.append(Vector2i( -size + i/2, -i-1))
 		
 		for j: int in size/2+1:
 			tileCoords.append(Vector2i( j+1 , i+1))
@@ -127,9 +123,9 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 			
 			tileCoords.append(Vector2i( size - i/2-j, i+1))
 			tileCoords.append(Vector2i( size - i/2-j, -i-1))
-			tileCoords.append(Vector2i( -size + i/2+j-1, i+1))
-			tileCoords.append(Vector2i( -size + i/2+j-1, -i-1))
-		
+			tileCoords.append(Vector2i( -size + i/2+j-1, i))
+			tileCoords.append(Vector2i( -size + i/2+j-1, -i))
+	
 	background.set_cells_terrain_connect(0, tileCoords, 0, 0)
 	
 	l = 2 * size - 1
