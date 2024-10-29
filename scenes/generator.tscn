@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xkc12b53rvg"]
+[gd_scene load_steps=15 format=3 uid="uid://xkc12b53rvg"]
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_bs0q8"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="2_ttfvn"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bflhkitpec04m" path="res://assets/audio/sfx/SFX-PR-5.mp3" id="8_8yavv"]
 [ext_resource type="AudioStream" uid="uid://bv8cviy8e7yqx" path="res://assets/audio/sfx/SFX-PR-6.mp3" id="9_b8oxw"]
 [ext_resource type="AudioStream" uid="uid://c35pg3fntua3o" path="res://assets/audio/sfx/SFX-PR-7.mp3" id="10_df61s"]
+[ext_resource type="Texture2D" uid="uid://cqktkcdfhlxwe" path="res://assets/textures/tileset.png" id="11_k1dx2"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jv2ja"]
 random_pitch = 1.1
@@ -30,9 +31,27 @@ stream_5/weight = 1.0
 stream_6/stream = ExtResource("10_df61s")
 stream_6/weight = 1.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78ipo"]
+texture = ExtResource("11_k1dx2")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_yi38q"]
 tile_shape = 3
-tile_size = Vector2i(48, 48)
+tile_size = Vector2i(46, 46)
+sources/0 = SubResource("TileSetAtlasSource_78ipo")
 
 [node name="generator" type="Node2D"]
 script = ExtResource("1_bs0q8")
@@ -188,6 +207,7 @@ max_polyphony = 50
 bus = &"sfx"
 
 [node name="tileMap" type="TileMap" parent="."]
+position = Vector2(0, 12)
 tile_set = SubResource("TileSet_yi38q")
 format = 2
 

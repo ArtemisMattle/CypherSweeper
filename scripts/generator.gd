@@ -112,7 +112,7 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 	hight = l * 34 + 400
 	$PanelContainer.size = Vector2i(width, hight)
 	$PanelContainer.set_position(Vector2(-width/2, -hight/2))
-	$PanelContainer.visible = true
+	$PanelContainer.visible = false
 	get_viewport()
 	get_ends()
 	def_hex()
