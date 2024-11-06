@@ -296,7 +296,6 @@ size_flags_horizontal = 10
 expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
-visible = false
 z_index = 2
 offset_left = 140.0
 offset_top = 100.0
@@ -310,6 +309,7 @@ theme_override_styles/panel = ExtResource("3_78fr5")
 layout_mode = 2
 
 [node name="pause" type="VBoxContainer" parent="UI/player/pauseMenu/centerer"]
+visible = false
 layout_mode = 2
 
 [node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
@@ -335,11 +335,21 @@ theme_override_font_sizes/font_size = 24
 text = "lbWarning"
 
 [node name="settings" type="HBoxContainer" parent="UI/player/pauseMenu/centerer"]
-visible = false
 layout_mode = 2
 
-[node name="volume" parent="UI/player/pauseMenu/centerer/settings" instance=ExtResource("5_cmc5j")]
+[node name="vBoxContainer" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
 layout_mode = 2
+
+[node name="volume" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer" instance=ExtResource("5_cmc5j")]
+layout_mode = 2
+
+[node name="return" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer"]
+layout_mode = 2
+
+[node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "btnBack"
 
 [node name="settings" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -347,8 +357,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="language" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
-visible = false
 layout_mode = 2
+theme = ExtResource("4_ttsoy")
 
 [node name="languageSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
 custom_minimum_size = Vector2(25, 0)
@@ -357,8 +367,8 @@ layout_mode = 2
 [node name="languageLabel" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/language"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 42
-text = "Language:"
+theme_override_font_sizes/font_size = 36
+text = "lbLang"
 
 [node name="languageSelector" type="OptionButton" parent="UI/player/pauseMenu/centerer/settings/settings/language" groups=["buttonClick"]]
 layout_mode = 2
@@ -367,14 +377,20 @@ theme_override_styles/focus = ExtResource("12_7mhwv")
 theme_override_styles/normal = ExtResource("13_ixn2h")
 theme_override_styles/hover = ExtResource("12_7mhwv")
 theme_override_styles/pressed = ExtResource("12_7mhwv")
-item_count = 3
+item_count = 6
 selected = 0
-popup/item_0/text = "English"
+popup/item_0/text = "btnEN"
 popup/item_0/id = 0
-popup/item_1/text = "Bri'ish"
+popup/item_1/text = "btnENGB"
 popup/item_1/id = 1
-popup/item_2/text = "German"
+popup/item_2/text = "btnDE"
 popup/item_2/id = 2
+popup/item_3/text = "btnFR"
+popup/item_3/id = 4
+popup/item_4/text = "btnES"
+popup/item_4/id = 3
+popup/item_5/text = "btnEO"
+popup/item_5/id = 5
 
 [node name="speed" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2
@@ -442,22 +458,6 @@ size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "lbSMode"
-
-[node name="return" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
-layout_mode = 2
-
-[node name="returnSpace" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="returnButton" type="Button" parent="UI/player/pauseMenu/centerer/settings/settings/return" groups=["buttonClick"]]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "btnBack"
-
-[node name="returnSpace2" type="Container" parent="UI/player/pauseMenu/centerer/settings/settings/return"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
 
 [node name="pause" type="PanelContainer" parent="UI/player"]
 z_index = 2
@@ -623,9 +623,10 @@ height = 0.69
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/return" to="UI/player" method="_on_pause_button_toggled" binds= [false]]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" to="UI/player" method="_on_return_button_pressed"]
+[connection signal="item_selected" from="UI/player/pauseMenu/centerer/settings/settings/language/languageSelector" to="UI/player" method="_on_language_selected"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/return/returnButton" to="UI/player" method="_on_return_button_pressed"]
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_exit_pressed"]

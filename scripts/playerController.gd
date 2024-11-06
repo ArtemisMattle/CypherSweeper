@@ -32,6 +32,8 @@ var tracks: Array[String] = [
 	"res://assets/audio/music/level/Main Game Sanity 89 - 80.mp3",
 	"res://assets/audio/music/level/Main Game Sanity 100 - 90.mp3",]
 
+@onready var langSel: OptionButton = $pauseMenu/centerer/settings/settings/language/languageSelector
+
 #@onready var bB=$"../../buttonBlocker"
 
 func _ready() -> void:
@@ -42,12 +44,19 @@ func _ready() -> void:
 	for i: String in globalVariables.xp:
 		globalVariables.xp[i] = 0
 	
-	#pause button setup
 	globalVariables.paused = false
 	playing = true
+	#pause button setup
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
+	print(globalVariables.language)
+	for id in langSel.get_selectable_item(true)+1:
+		if "btn"+globalVariables.language==langSel.get_item_text(id):
+			langSel.select(id)
+		elif "btn"+globalVariables.language.left(2)==langSel.get_item_text(id):
+			langSel.select(id)
+	
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 	signalBus.getAim.connect(targeter)
@@ -272,3 +281,14 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:click.play()
 		2:hover.play()
 		3:hovers.play()
+
+func _on_language_selected(index: int) -> void:
+	match langSel.get_item_text(index):
+		"btnEN": TranslationServer.set_locale("en") 
+		"btnDE": TranslationServer.set_locale("de") 
+		"btnENGB": TranslationServer.set_locale("en_GB")
+		"btnFR": TranslationServer.set_locale("fr")
+		"btnES": TranslationServer.set_locale("es")
+		"btnEO": TranslationServer.set_locale("eo")
+		_: print(langSel.get_item_text(index) + "fehlt noch")
+	globalVariables.language = langSel.get_item_text(index).right(-3)

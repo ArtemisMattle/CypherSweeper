@@ -1,5 +1,7 @@
 extends Node
 
+var language: String = "EN"
+
 var sanity: int = 100
 var lostsanity: int = 0
 var playTime: float = 0

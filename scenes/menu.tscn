@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
 [ext_resource type="Script" path="res://scripts/tooltipper.gd" id="8_3qai5"]
 [ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
-[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="10_76px3"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_77w3h"]
+[ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="10_fwxph"]
 [ext_resource type="Texture2D" uid="uid://bnmeabab7bh70" path="res://assets/textures/Logo-agender.svg" id="11_6rgdl"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="13_l1v7u"]
 [ext_resource type="AudioStream" uid="uid://3hrmx0speedw" path="res://assets/audio/music/Main Menu and Credits .mp3" id="13_sg5g6"]
@@ -387,16 +387,17 @@ text = "Artemis D. Mattle"
 
 [node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis"]
 position = Vector2(665, 51)
-rotation = -0.240855
+rotation = -0.144862
 scale = Vector2(3, 3)
-texture = ExtResource("9_soarv")
+texture = ExtResource("10_fwxph")
 
 [node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/Sprite2D"]
 clip_children = 1
 texture = ExtResource("10_76px3")
 
 [node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/Sprite2D/Sprite2D"]
-rotation = 0.240855
+position = Vector2(0.079511, -0.323711)
+rotation = 0.144862
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("11_6rgdl")
 

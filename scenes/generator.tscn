@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/generator.gd" id="1_bs0q8"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="2_ttfvn"]
-[ext_resource type="Texture2D" uid="uid://oqup5tj2c726" path="res://assets/textures/background.png" id="3_lfipd"]
+[ext_resource type="Texture2D" uid="uid://oqup5tj2c726" path="res://assets/textures/background-depreciated.png" id="3_41ala"]
 [ext_resource type="AudioStream" uid="uid://cs7q0jvd0e3v0" path="res://assets/audio/sfx/SFX-PR-1.mp3" id="4_qvx6v"]
 [ext_resource type="AudioStream" uid="uid://ccuxtdn3eubpa" path="res://assets/audio/sfx/SFX-PR-2.mp3" id="5_2ncw6"]
 [ext_resource type="AudioStream" uid="uid://dbexxpmat6wbv" path="res://assets/audio/sfx/SFX-PR-3.mp3" id="6_fhl1a"]
@@ -169,7 +169,7 @@ z_index = -10
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("3_lfipd")
+texture = ExtResource("3_41ala")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]

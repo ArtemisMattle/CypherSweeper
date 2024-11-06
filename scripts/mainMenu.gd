@@ -43,11 +43,13 @@ func _ready() -> void:
 		elif "btn"+lang.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 
+	globalVariables.language = lang
 	if lang.left(2) == "EN":
 		if lang.right(2) == "GB":
 			pass
 		else:
 			TranslationServer.set_locale("en")
+			globalVariables.language = "EN"
 	
 	
 	playPg.visible = false
@@ -320,7 +322,7 @@ func _on_language_selected(index: int) -> void: # changes the language (locale)
 		"btnES": TranslationServer.set_locale("es")
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
-		
+	globalVariables.language = langSel.get_item_text(index).right(-3)
 
 func stackIngredients() -> void: # takes care of the ingredient stack
 	
