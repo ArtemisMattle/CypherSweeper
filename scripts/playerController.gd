@@ -143,7 +143,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
 	$gameOver/centerer/gameOver/time.text = tr("lbTime") + " " + str(floor(time/60)) + " " + tr("lbMin") + " " + str(fmod(floor(time),60)) + " " + tr("lbSec")
 	$gameOver/centerer/gameOver/score.text = tr("lbScore") + " " + str(score(time))
-	$gameOver/centerer/gameOver/mod.text = tr("lbMod") + " " + str(snappedf(globalVariables.scoreMult, 0.001))
+	$gameOver/centerer/gameOver/mod.text = tr("lbMod") + " " + str(snappedf(globalVariables.scoreMult, 0.0001))
 	globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false

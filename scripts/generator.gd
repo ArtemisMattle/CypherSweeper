@@ -189,6 +189,7 @@ func def_hex() -> void:# generates the gridcells with the position and their nei
 		positionate(pos[i])
 		pos[i].initiate()
 		pos[i].cell.get_node("colour/button").gui_input.connect(buttonForwarding.bind(i))
+		pos[i].cell.get_node("colour/button").pressed.connect(flag.bind(i))
 		pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
 		var y:String = "Nothing0"
 		
@@ -315,13 +316,15 @@ func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random
 		return false
 
 func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates between left and rightclick on the hex buttons
-	if event is InputEventMouseButton and event.is_released():
+	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				reveal(i, 0)
-			MOUSE_BUTTON_RIGHT:
-				active = false
-				flag(i)
+				if event.is_double_click():
+					reveal(i, 0)
+			#MOUSE_BUTTON_RIGHT:
+				#if event.is_released():
+					#active = false
+					#flag(i)
 
 func flag(i: int) -> void: # flaggs cells
 	var flag: Sprite2D = pos[i].cell.get_node("flag")

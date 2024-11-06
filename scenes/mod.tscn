@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwegtjmfm7msp"]
+[gd_scene load_steps=6 format=3 uid="uid://dwegtjmfm7msp"]
 
 [ext_resource type="Texture2D" uid="uid://dr11uqyjtxef4" path="res://assets/textures/UI-elements/modifier/modBaseInactive.png" id="1_lhcgc"]
 [ext_resource type="Texture2D" uid="uid://j0kkka3hp2um" path="res://assets/textures/UI-elements/modifier/modBasePressed.png" id="2_glfs3"]
 [ext_resource type="Texture2D" uid="uid://c62nv4lm2a3oh" path="res://assets/textures/UI-elements/modifier/modBase.png" id="2_kxv6x"]
 [ext_resource type="Texture2D" uid="uid://64it717c5vbk" path="res://assets/textures/UI-elements/modifier/modHEK.png" id="3_j3t25"]
+[ext_resource type="Script" path="res://scripts/tooltipper.gd" id="4_qr0h5"]
 
 [node name="mod" type="TextureButton" groups=["buttonClick"]]
 tooltip_text = "ttModHEK"
@@ -12,6 +13,7 @@ toggle_mode = true
 texture_normal = ExtResource("2_kxv6x")
 texture_pressed = ExtResource("2_glfs3")
 texture_disabled = ExtResource("1_lhcgc")
+script = ExtResource("4_qr0h5")
 
 [node name="modPic" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=21 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
+[ext_resource type="Script" path="res://scripts/tooltipper.gd" id="8_3qai5"]
 [ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
@@ -318,6 +319,7 @@ min_value = 5.0
 max_value = 21.0
 value = 13.0
 alignment = 1
+script = ExtResource("8_3qai5")
 
 [node name="playSpace2" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 custom_minimum_size = Vector2(50, 0)

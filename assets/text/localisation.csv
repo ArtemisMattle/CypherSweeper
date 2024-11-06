@@ -9,6 +9,9 @@ btnStatistics,Statistics,Statistik,Statistique,,,Statistiko
 btnCredits,Credits,Mitwirkende,Équipe,,Credi’s,Kreditoj
 btnBack,Back,Zurück,Retour,,,Reveno
 ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Baldaŭ Venos!
+ttMaster,[b]Mute Audio[/b],,,,,
+ttSFX,[b]Mute Sound Effects[/b],,,,,
+ttMusic,[b]Mute Music[/b],,,,,
 lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
 btnEN,English,Englisch,Anglais,,,Angla
 btnDE,German,Deutsch,Allemand,,,Germana
@@ -148,15 +151,15 @@ lexI18,,,,,,
 lexI19,,,,,,
 lexI20,,,,,,
 lexI21,,,,,,
-ttModHEK,Hard Earned Knowledge: Unlocking higher Ingredient Levels is more difficult!,,,,,
-ttModEC,Extreme Cypher: All Tricks and Tools will be necessary to have a chance!,,,,,
-ttModDI,Dense Information: There will be more Ingredients!,,,,,
-ttModLR,Light Reading: There will be less Ingredients!,,,,,
-ttModAA,Advanced Alchemy: There will be more dangerous Ingredients!,,,,,
-ttModBA,Alchemy 101: There will be less dangerouse Ingredients!,,,,,
-ttModDL,Diagonals: The Neighborhoods will include Diagonals!,,,,,
-ttModBS,Broken Sentences: The Hints will be off by 1!,,,,,
-ttModOF,"Only Flamel: There will only be Flamels, for a more… traditional Sweeping experience!",,,,,
-ttModHE,"Herbs: When active, there will be Herbs among the Ingredients!",,,,,
-ttModST,"Salts: When active, there will be Salts among the Ingredients!",,,,,
-ttModFU,"Fungi: When active, there will be Fungi amongus!",,,,,
+ttModHEK,[b]Hard Earned Knowledge:[/b] Unlocking higher Ingredient Levels is more difficult!,,,,,
+ttModEC,[b]Extreme Cypher:[/b] All Tricks and Tools will be necessary to have a chance!,,,,,
+ttModDI,[b]Dense Information:[/b] There will be more Ingredients!,,,,,
+ttModLR,[b]Light Reading:[/b] There will be less Ingredients!,,,,,
+ttModAA,[b]Advanced Alchemy:[/b] There will be more dangerous Ingredients!,,,,,
+ttModBA,[b]Alchemy 101:[/b] There will be less dangerouse Ingredients!,,,,,
+ttModDL,[b]Diagonals:[/b] The Neighborhoods will include Diagonals!,,,,,
+ttModBS,[b]Broken Sentences:[/b] The Hints will be off by 1!,,,,,
+ttModOF,"[b]Only Flamel:[/b] There will only be Flamels, for a more… traditional Sweeping experience!",,,,,
+ttModHE,"[b]Herbs:[/b] When active, there will be Herbs among the Ingredients!",,,,,
+ttModST,"[b]Salts:[/b] When active, there will be Salts among the Ingredients!",,,,,
+ttModFU,"[b]Fungi:[/b] When active, there will be Fungi amongus!",,,,,
