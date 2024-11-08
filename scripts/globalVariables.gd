@@ -54,6 +54,7 @@ var colours: Array[Color] = [
 	Color(0, 0, 0),
 	Color(0.694, 0.451, 0.718)
 	]
+var darkmode: bool = false
 
 var mod: Array[String] = []
 

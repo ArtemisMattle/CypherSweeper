@@ -502,7 +502,7 @@ layout_mode = 2
 texture = ExtResource("12_uvusu")
 stretch_mode = 3
 
-[node name="background" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/background" groups=["buttonClick"]]
+[node name="background" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/background" groups=["buttonClick", "colourPick"]]
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
@@ -536,7 +536,7 @@ texture = ExtResource("13_fv8xg")
 stretch_mode = 3
 flip_h = true
 
-[node name="shadow" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow" groups=["buttonClick"]]
+[node name="shadow" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow" groups=["buttonClick", "colourPick"]]
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
@@ -580,7 +580,7 @@ texture = ExtResource("13_fv8xg")
 stretch_mode = 3
 flip_h = true
 
-[node name="grid" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid" groups=["buttonClick"]]
+[node name="grid" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid" groups=["buttonClick", "colourPick"]]
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
@@ -755,8 +755,8 @@ height = 0.69
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1)]]
-[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1)]]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1), true]]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
 [connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/background/background" to="UI/player" method="singleMod" binds= [0]]
 [connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="UI/player" method="singleMod" binds= [1]]
 [connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="UI/player" method="singleMod" binds= [2]]

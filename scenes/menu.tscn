@@ -1,12 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=24 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
 [ext_resource type="Script" path="res://scripts/tooltipper.gd" id="8_3qai5"]
+[ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="8_8sdor"]
 [ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
+[ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="9_f0q6u"]
+[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
+[ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="10_2brgi"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="10_76px3"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="10_77w3h"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="10_fwxph"]
@@ -17,9 +21,6 @@
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="15_1wson"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hhrs"]
-texture = ExtResource("3_gogsx")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2uwsx"]
 playback_mode = 1
@@ -44,15 +45,18 @@ stream_1/weight = 1.0
 [node name="main" type="Node2D"]
 script = ExtResource("1_p3mkq")
 
-[node name="background" type="PanelContainer" parent="."]
+[node name="background" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
 theme = ExtResource("2_50dck")
-theme_override_styles/panel = SubResource("StyleBoxTexture_3hhrs")
+texture = ExtResource("3_gogsx")
+expand_mode = 2
 
 [node name="edge" type="MarginContainer" parent="background"]
 layout_mode = 2
+offset_right = 1280.0
+offset_bottom = 720.0
 theme = ExtResource("2_50dck")
 
 [node name="menu" type="HBoxContainer" parent="background/edge"]
@@ -283,6 +287,127 @@ theme_override_font_sizes/font_size = 42
 text = "lbSMode"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="colour" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
+layout_mode = 2
+theme = ExtResource("8_8sdor")
+theme_override_constants/separation = 15
+
+[node name="presets" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
+layout_mode = 2
+
+[node name="preset" type="Label" parent="background/edge/menu/settings/settings/colour/presets"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "lbPre"
+horizontal_alignment = 1
+
+[node name="presets" type="HBoxContainer" parent="background/edge/menu/settings/settings/colour/presets"]
+layout_mode = 2
+
+[node name="dark" type="TextureButton" parent="background/edge/menu/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("9_f0q6u")
+
+[node name="light" type="TextureButton" parent="background/edge/menu/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("10_2brgi")
+
+[node name="background" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="bgImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/background"]
+layout_mode = 2
+texture = ExtResource("10_76px3")
+stretch_mode = 3
+
+[node name="background" type="ColorPickerButton" parent="background/edge/menu/settings/settings/colour/background" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
+
+[node name="shadow" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="background/edge/menu/settings/settings/colour/shadow"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="bgImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_76px3")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_soarv")
+stretch_mode = 3
+flip_h = true
+
+[node name="shadow" type="ColorPickerButton" parent="background/edge/menu/settings/settings/colour/shadow" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
+
+[node name="grid" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="background/edge/menu/settings/settings/colour/grid"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="gridImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_fwxph")
+stretch_mode = 3
+
+[node name="bgImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_76px3")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="background/edge/menu/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_soarv")
+stretch_mode = 3
+flip_h = true
+
+[node name="grid" type="ColorPickerButton" parent="background/edge/menu/settings/settings/colour/grid" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
 layout_mode = 2
@@ -558,6 +683,8 @@ bus = &"sfx"
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
+[connection signal="pressed" from="background/edge/menu/settings/settings/colour/presets/presets/dark" to="." method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.286275, 0.286275, 0.286275, 1), Color(0.333333, 0, 0.145098, 1), true]]
+[connection signal="pressed" from="background/edge/menu/settings/settings/colour/presets/presets/light" to="." method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
 [connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="." method="_on_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container/lvl1" to="." method="_lvl1"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container2/lvl2" to="." method="_lvl2"]

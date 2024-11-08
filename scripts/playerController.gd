@@ -57,7 +57,8 @@ func _ready() -> void:
 		elif "btn"+globalVariables.language.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 	
-	shapeshift(globalVariables.colours[0], globalVariables.colours[1], globalVariables.colours[2])
+	shapeshift(globalVariables.colours[0], globalVariables.colours[1], globalVariables.colours[2], globalVariables.darkmode)
+	colourPickerResize()
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 	signalBus.getAim.connect(targeter)
@@ -307,30 +308,40 @@ func _on_language_selected(index: int) -> void:
 
 @onready var gridsample: TextureRect = $pauseMenu/centerer/settings/settings/colour/grid/sample/gridImg
 
+@onready var colourPicks: Array[ColorPickerButton] = [
+	$pauseMenu/centerer/settings/settings/colour/background/background,
+	$pauseMenu/centerer/settings/settings/colour/shadow/shadow,
+	$pauseMenu/centerer/settings/settings/colour/grid/grid
+]
 
 
 func singleMod(c: Color, pos: int) -> void: # forwards the colourpickers to modulate and adds the unchanged colours
 	match pos:
-		0: shapeshift(c, globalVariables.colours[1], globalVariables.colours[2])
-		1: shapeshift(globalVariables.colours[0], c, globalVariables.colours[2])
-		2: shapeshift(globalVariables.colours[0], globalVariables.colours[1], c)
+		0: shapeshift(c, globalVariables.colours[1], globalVariables.colours[2], globalVariables.darkmode)
+		1: shapeshift(globalVariables.colours[0], c, globalVariables.colours[2], globalVariables.darkmode)
+		2: shapeshift(globalVariables.colours[0], globalVariables.colours[1], c, globalVariables.darkmode)
 
-func shapeshift(bg: Color, sha: Color, grid: Color) -> void: # changes the colours of the samples and sends the necessary signals for the rest
-	#if bg != globalVariables.colours[0]:
+func colourPickerResize() -> void:
+	for cP: ColorPickerButton in get_tree().get_nodes_in_group("colourPick"):
+		cP.get_picker().hex_visible = false
+		cP.get_picker().deferred_mode = true
+		cP.get_picker().presets_visible = false
+		cP.get_picker().color_modes_visible = false
+		cP.get_popup().get_viewport().transparent_bg = true
+		cP.get_picker().get_child(0, true).get_child(0, true).get_child(1, true).get_child(2, true).visible = false
+
+func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # changes the colours of the samples and sends the necessary signals for the rest
 	globalVariables.colours[0] = bg
-	$pauseMenu/centerer/settings/settings/colour/background/background.color = bg
+	colourPicks[0].color = bg
 	for i: TextureRect in backgroundsample:
 		i.modulate = bg
-	
-	#if sha != globalVariables.colours[1]:
 	globalVariables.colours[1] = sha
-	$pauseMenu/centerer/settings/settings/colour/shadow/shadow.color = sha
+	colourPicks[1].color = sha
 	for i: TextureRect in shadowsample:
 		i.modulate = sha
-	
-	#if grid != globalVariables.colours[2]:
 	globalVariables.colours[2] = grid
-	$pauseMenu/centerer/settings/settings/colour/grid/grid.color = grid
+	colourPicks[2].color = grid
 	gridsample.modulate = grid
 	
+	globalVariables.darkmode = dark
 	signalBus.modulate.emit()

@@ -23,6 +23,8 @@ extends Node2D
 @onready var mods: GridContainer = $background/edge/menu/arcade/arcade/modContainer
 @onready var lbMult: Label = $background/edge/menu/arcade/arcade/seedContainer/lbMult
 
+@onready var background: TextureRect = $background
+
 @onready var click: AudioStreamPlayer = $clickSound
 @onready var hover: AudioStreamPlayer = $hoverSound
 
@@ -55,6 +57,8 @@ func _ready() -> void:
 	playPg.visible = false
 	_toTitle()
 	buttonClickSound()
+	colourPickerResize()
+	shapeshift(globalVariables.colours[0],globalVariables.colours[1],globalVariables.colours[2], globalVariables.darkmode)
 
 func _process(delta: float) -> void:
 	lbMult.text = "Score Modifyer: " + str(globalVariables.scoreMult)
@@ -301,17 +305,6 @@ func _on_arcade_pressed():
 	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
-func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
-	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
-		buttons.pressed.connect(sfxPlay.bind(1))
-		buttons.mouse_entered.connect(sfxPlay.bind(2))
-	for buttons: Node in get_tree().get_nodes_in_group("buttonHover"):
-		buttons.mouse_entered.connect(sfxPlay.bind(2))
-
-func sfxPlay(sound: int) -> void: # plays sounds for different events
-	match sound:
-		1:click.play()
-		2:hover.play()
 
 func _on_language_selected(index: int) -> void: # changes the language (locale)
 	match langSel.get_item_text(index):
@@ -397,3 +390,58 @@ func stackIngredients() -> void: # takes care of the ingredient stack
 		globalVariables.ingredientStack[i] = int(globalVariables.ingredientStack[i] * globalVariables.ingredientMult)
 		globalVariables.empty -= globalVariables.ingredientStack[i]
 
+func colourPickerResize() -> void:
+	for cP: ColorPickerButton in get_tree().get_nodes_in_group("colourPick"):
+		cP.get_picker().hex_visible = false
+		cP.get_picker().deferred_mode = true
+		cP.get_picker().presets_visible = false
+		cP.get_picker().color_modes_visible = false
+		cP.get_popup().get_viewport().transparent_bg = true
+		cP.get_picker().get_child(0, true).get_child(0, true).get_child(1, true).get_child(2, true).visible = false
+
+@onready var backgroundsample: Array[TextureRect] = [
+	$background/edge/menu/settings/settings/colour/background/bgImg,
+	$background/edge/menu/settings/settings/colour/shadow/sample/bgImg,
+	$background/edge/menu/settings/settings/colour/grid/sample/bgImg
+]
+@onready var shadowsample: Array[TextureRect] = [
+	$background/edge/menu/settings/settings/colour/shadow/sample/shaImg,
+	$background/edge/menu/settings/settings/colour/grid/sample/shaImg
+]
+@onready var gridsample: TextureRect = $background/edge/menu/settings/settings/colour/grid/sample/gridImg
+@onready var colourPicks: Array[ColorPickerButton] = [
+	$background/edge/menu/settings/settings/colour/background/background,
+	$background/edge/menu/settings/settings/colour/shadow/shadow,
+	$background/edge/menu/settings/settings/colour/grid/grid
+]
+
+func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # changes the colours of the samples and sends the necessary signals for the rest
+	globalVariables.colours[0] = bg
+	colourPicks[0].color = bg
+	for i: TextureRect in backgroundsample:
+		i.modulate = bg
+	globalVariables.colours[1] = sha
+	colourPicks[1].color = sha
+	for i: TextureRect in shadowsample:
+		i.modulate = sha
+	globalVariables.colours[2] = grid
+	colourPicks[2].color = grid
+	gridsample.modulate = grid
+	
+	globalVariables.darkmode = dark
+	if dark:
+		background.texture = load("res://assets/textures/splashscreens/CityNight.png")
+	else:
+		background.texture = load("res://assets/textures/splashscreens/City.png")
+
+func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
+	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
+		buttons.pressed.connect(sfxPlay.bind(1))
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
+	for buttons: Node in get_tree().get_nodes_in_group("buttonHover"):
+		buttons.mouse_entered.connect(sfxPlay.bind(2))
+
+func sfxPlay(sound: int) -> void: # plays sounds for different events
+	match sound:
+		1:click.play()
+		2:hover.play()

@@ -1,5 +1,21 @@
-[gd_resource type="Theme" format=3 uid="uid://2o7qow54lkux"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://2o7qow54lkux"]
+
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="1_2l4b4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt421"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_to35g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjm8t"]
 
 [resource]
+ColorPickerButton/colors/font_outline_color = Color(0, 0, 0, 1)
+ColorPickerButton/constants/outline_size = 4
+ColorPickerButton/font_sizes/font_size = 16
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/font_sizes/font_size = 24
+LineEdit/constants/minimum_character_width = 3
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_mt421")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_to35g")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_mjm8t")
+PopupPanel/styles/panel = ExtResource("1_2l4b4")
