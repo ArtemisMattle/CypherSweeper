@@ -49,6 +49,12 @@ var ingredientStack: Dictionary = {
 var empty: int 
 var sum: int
 
+var colours: Array[Color] = [
+	Color(0.878, 0.8, 0.533),
+	Color(0, 0, 0),
+	Color(0.694, 0.451, 0.718)
+	]
+
 var mod: Array[String] = []
 
 var buff: Dictionary = {

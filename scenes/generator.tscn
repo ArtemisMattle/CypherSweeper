@@ -305,7 +305,6 @@ bus = &"sfx"
 position = Vector2(-72, -60)
 tile_set = SubResource("TileSet_yi38q")
 format = 2
-layer_0/modulate = Color(0.878431, 0.8, 0.533333, 1)
 
 [connection signal="timeout" from="turnTimer" to="." method="_on_turn_timer_timeout"]
 [connection signal="timeout" from="flagTimer" to="." method="_on_flag_timer_timeout"]

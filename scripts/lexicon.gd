@@ -11,6 +11,8 @@ func _ready() -> void:
 	$placer/openBook.visible = false
 	$placer/pickUp/boxOpen.visible = false
 	$placer/openBook.rotate(PI/2)
+	shapeshift()
+	signalBus.modulate.connect(shapeshift)
 	
 	
 	for bigLexicon: TextureButton in get_tree().get_nodes_in_group("bigLex"):
@@ -53,3 +55,7 @@ func _on_big_lexicon_pressed() -> void:
 	else:
 		$placer/openBook/lexiconContent.changePage()
 
+func shapeshift() -> void:
+	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = globalVariables.colours[0]
+	$placer/openBook/lexiconOpenPaperGray.modulate = globalVariables.colours[0]
+	

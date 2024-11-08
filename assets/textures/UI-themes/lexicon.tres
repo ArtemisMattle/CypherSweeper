@@ -6,10 +6,10 @@
 [resource]
 Fonts/fonts/large = ExtResource("1_dmdu8")
 Fonts/fonts/normal = ExtResource("2_j6rcy")
-Label/colors/font_color = Color(0.0475577, 0.0475576, 0.0475576, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("2_j6rcy")
-RichTextLabel/colors/default_color = Color(0.12103, 0.12103, 0.12103, 1)
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/constants/line_separation = -12
 RichTextLabel/font_sizes/normal_font_size = 16
 RichTextLabel/fonts/bold_font = ExtResource("1_dmdu8")

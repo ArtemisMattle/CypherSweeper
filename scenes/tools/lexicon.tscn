@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://87b3b6agtqvw"]
+[gd_scene load_steps=10 format=3 uid="uid://87b3b6agtqvw"]
 
 [ext_resource type="Script" path="res://scripts/lexicon.gd" id="1_avxf4"]
 [ext_resource type="Texture2D" uid="uid://ciyugeuivgjop" path="res://assets/textures/tools/lexicon.png" id="1_rj0x8"]
 [ext_resource type="Texture2D" uid="uid://cac5763e8sk74" path="res://assets/textures/tools/Lexicon_open_big.png" id="3_mnorv"]
+[ext_resource type="Texture2D" uid="uid://5w8s7ecugu2l" path="res://assets/textures/tools/Lexicon_open_paper_gray.png" id="4_1u6h7"]
 [ext_resource type="PackedScene" uid="uid://dcbjsa16dkefd" path="res://scenes/tools/lexicon_content.tscn" id="4_33ldb"]
 [ext_resource type="Texture2D" uid="uid://drpj84xh46678" path="res://assets/textures/tools/Lexicon_open_fullscreen.png" id="5_r6h2j"]
+[ext_resource type="Texture2D" uid="uid://gru7kmkwftti" path="res://assets/textures/tools/Lexicon_open_fullscreen_paper_gray.png" id="7_xr6os"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58n0f"]
 size = Vector2(48.8835, 58.3987)
@@ -52,6 +54,9 @@ shape = SubResource("RectangleShape2D_f4ydt")
 visible = false
 texture = ExtResource("3_mnorv")
 
+[node name="lexiconOpenPaperGray" type="Sprite2D" parent="placer/openBook"]
+texture = ExtResource("4_1u6h7")
+
 [node name="lexiconContent" parent="placer/openBook" instance=ExtResource("4_33ldb")]
 
 [node name="bigLexicon" type="CanvasLayer" parent="."]
@@ -62,6 +67,9 @@ visible = false
 position = Vector2(616, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("5_r6h2j")
+
+[node name="lexiconOpenFullscreenPaperGray" type="Sprite2D" parent="bigLexicon/background"]
+texture = ExtResource("7_xr6os")
 
 [node name="lexiconContent" parent="bigLexicon/background" instance=ExtResource("4_33ldb")]
 offset_left = -512.0

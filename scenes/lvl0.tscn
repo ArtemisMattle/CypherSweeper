@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=43 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -9,12 +9,18 @@
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="5_cmc5j"]
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="8_xaoot"]
+[ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="10_0yiqo"]
+[ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="10_qm0cu"]
+[ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="11_3iya7"]
 [ext_resource type="Texture2D" uid="uid://bk6w3k153meyf" path="res://assets/textures/UI-elements/pauseDis.png" id="12_3pav5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="12_7mhwv"]
+[ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="12_uvusu"]
+[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="13_fv8xg"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="13_ixn2h"]
 [ext_resource type="AudioStream" uid="uid://duru6y346mfwg" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.mp3" id="13_ttcps"]
 [ext_resource type="AudioStream" uid="uid://dgrggbupho5yd" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.mp3" id="14_85mus"]
 [ext_resource type="ButtonGroup" uid="uid://dvfrb846jlrhr" path="res://assets/textures/UI-elements/buttonGroups/speedGroup.tres" id="14_pdgxm"]
+[ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="14_sac8b"]
 [ext_resource type="AudioStream" uid="uid://buvluwn3kaoia" path="res://assets/audio/sfx/level Up/Level Up Option 2.mp3" id="17_xkyus"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
 [ext_resource type="AudioStream" uid="uid://h1b4ovmjuvb6" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 1.mp3" id="18_xxwj4"]
@@ -296,6 +302,7 @@ size_flags_horizontal = 10
 expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
+visible = false
 z_index = 2
 offset_left = 140.0
 offset_top = 100.0
@@ -309,7 +316,6 @@ theme_override_styles/panel = ExtResource("3_78fr5")
 layout_mode = 2
 
 [node name="pause" type="VBoxContainer" parent="UI/player/pauseMenu/centerer"]
-visible = false
 layout_mode = 2
 
 [node name="settings" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
@@ -335,6 +341,7 @@ theme_override_font_sizes/font_size = 24
 text = "lbWarning"
 
 [node name="settings" type="HBoxContainer" parent="UI/player/pauseMenu/centerer"]
+visible = false
 layout_mode = 2
 
 [node name="vBoxContainer" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
@@ -458,6 +465,126 @@ size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "lbSMode"
+
+[node name="colour" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+theme = ExtResource("10_0yiqo")
+theme_override_constants/separation = 15
+
+[node name="presets" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="preset" type="Label" parent="UI/player/pauseMenu/centerer/settings/settings/colour/presets"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "lbPre"
+horizontal_alignment = 1
+
+[node name="presets" type="HBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/colour/presets"]
+layout_mode = 2
+
+[node name="dark" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("10_qm0cu")
+
+[node name="light" type="TextureButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("11_3iya7")
+
+[node name="background" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="bgImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/background"]
+layout_mode = 2
+texture = ExtResource("12_uvusu")
+stretch_mode = 3
+
+[node name="background" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/background" groups=["buttonClick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
+
+[node name="shadow" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="bgImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_uvusu")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_fv8xg")
+stretch_mode = 3
+flip_h = true
+
+[node name="shadow" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/shadow" groups=["buttonClick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
+
+[node name="grid" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="gridImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_sac8b")
+stretch_mode = 3
+
+[node name="bgImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_uvusu")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_fv8xg")
+stretch_mode = 3
+flip_h = true
+
+[node name="grid" type="ColorPickerButton" parent="UI/player/pauseMenu/centerer/settings/settings/colour/grid" groups=["buttonClick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+edit_alpha = false
 
 [node name="pause" type="PanelContainer" parent="UI/player"]
 z_index = 2
@@ -628,5 +755,10 @@ height = 0.69
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="UI/player" method="_on_normal_mode_pressed"]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1)]]
+[connection signal="pressed" from="UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1)]]
+[connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/background/background" to="UI/player" method="singleMod" binds= [0]]
+[connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="UI/player" method="singleMod" binds= [1]]
+[connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="UI/player" method="singleMod" binds= [2]]
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_exit_pressed"]

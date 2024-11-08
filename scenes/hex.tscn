@@ -64,11 +64,14 @@ theme = ExtResource("3_gis8a")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="hex" type="Sprite2D" parent="."]
+modulate = Color(0.694118, 0.45098, 0.717647, 1)
+texture = ExtResource("2_skg66")
+
 [node name="colour" type="Node2D" parent="."]
-modulate = Color(0.694874, 0.448615, 0.717112, 1)
+modulate = Color(0, 0, 0, 1)
 
 [node name="button" type="TextureButton" parent="colour" groups=["buttonHoverS"]]
-modulate = Color(0, 0, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -90,15 +93,11 @@ texture_focused = ExtResource("4_6ls2f")
 texture_click_mask = ExtResource("7_t1nj5")
 flip_h = true
 
-[node name="hex" type="Sprite2D" parent="colour"]
-texture = ExtResource("2_skg66")
-
 [node name="shadow" type="Sprite2D" parent="colour"]
 texture = ExtResource("4_6ls2f")
 flip_h = true
 
 [node name="backshadow" type="Sprite2D" parent="colour"]
-modulate = Color(0, 0, 0, 1)
 texture = SubResource("ImageTexture_pgxnh")
 flip_h = true
 

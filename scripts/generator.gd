@@ -95,6 +95,9 @@ func _ready()-> void:
 				pos[x].ingredient = i
 				pos[x].sprIng.texture = load("res://assets/textures/ingredients/"+pos[x].ingredient+".png")
 				pos[x].sprIng.visible = true
+	
+	shapeshift()
+	signalBus.modulate.connect(shapeshift)
 
 
 func readyGame()-> void: # sets everything into motion for a normal round to start
@@ -525,6 +528,13 @@ func getNeighNeighbors(i: int) -> Array[int]: # returns all unique neighbors of 
 			else:
 				nNeighbors.append(y)
 	return nNeighbors
+
+func shapeshift() -> void: # changes the colours
+	for i: int in len(pos):
+		pos[i].cell.get_node("hex").modulate = globalVariables.colours[2]
+		pos[i].cell.get_node("colour").modulate = globalVariables.colours[1]
+	if $background.visible:
+		$background.modulate = globalVariables.colours[0]
 
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors

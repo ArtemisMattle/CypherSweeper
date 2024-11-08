@@ -19,6 +19,7 @@ var Aim: Node
 
 func _ready() -> void:
 	signalBus.returnAim.connect(aim)
+	signalBus.modulate.connect(shapeshift)
 
 func aim(target: Node) -> void: # saves the node that is aimed at
 	Aim = target
@@ -71,3 +72,10 @@ func _on_next_pressed() -> void: # next page
 	globalVariables.lexPage += 1
 	changePage()
 
+func shapeshift() -> void:
+	$textBox.modulate = globalVariables.colours[1]
+	$ingredients/lbHerb.modulate = globalVariables.colours[1]
+	$ingredients/lbSalt.modulate = globalVariables.colours[1]
+	$ingredients/lbShroom.modulate = globalVariables.colours[1]
+	$next.modulate = globalVariables.colours[1]
+	$back.modulate = globalVariables.colours[1]

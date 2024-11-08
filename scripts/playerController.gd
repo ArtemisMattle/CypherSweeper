@@ -57,6 +57,7 @@ func _ready() -> void:
 		elif "btn"+globalVariables.language.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 	
+	shapeshift(globalVariables.colours[0], globalVariables.colours[1], globalVariables.colours[2])
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
 	signalBus.getAim.connect(targeter)
@@ -292,3 +293,44 @@ func _on_language_selected(index: int) -> void:
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
 	globalVariables.language = langSel.get_item_text(index).right(-3)
+
+@onready var backgroundsample: Array[TextureRect] = [
+	$pauseMenu/centerer/settings/settings/colour/background/bgImg,
+	$pauseMenu/centerer/settings/settings/colour/shadow/sample/bgImg,
+	$pauseMenu/centerer/settings/settings/colour/grid/sample/bgImg
+	]
+
+@onready var shadowsample: Array[TextureRect] = [
+	$pauseMenu/centerer/settings/settings/colour/shadow/sample/shaImg,
+	$pauseMenu/centerer/settings/settings/colour/grid/sample/shaImg
+	]
+
+@onready var gridsample: TextureRect = $pauseMenu/centerer/settings/settings/colour/grid/sample/gridImg
+
+
+
+func singleMod(c: Color, pos: int) -> void: # forwards the colourpickers to modulate and adds the unchanged colours
+	match pos:
+		0: shapeshift(c, globalVariables.colours[1], globalVariables.colours[2])
+		1: shapeshift(globalVariables.colours[0], c, globalVariables.colours[2])
+		2: shapeshift(globalVariables.colours[0], globalVariables.colours[1], c)
+
+func shapeshift(bg: Color, sha: Color, grid: Color) -> void: # changes the colours of the samples and sends the necessary signals for the rest
+	#if bg != globalVariables.colours[0]:
+	globalVariables.colours[0] = bg
+	$pauseMenu/centerer/settings/settings/colour/background/background.color = bg
+	for i: TextureRect in backgroundsample:
+		i.modulate = bg
+	
+	#if sha != globalVariables.colours[1]:
+	globalVariables.colours[1] = sha
+	$pauseMenu/centerer/settings/settings/colour/shadow/shadow.color = sha
+	for i: TextureRect in shadowsample:
+		i.modulate = sha
+	
+	#if grid != globalVariables.colours[2]:
+	globalVariables.colours[2] = grid
+	$pauseMenu/centerer/settings/settings/colour/grid/grid.color = grid
+	gridsample.modulate = grid
+	
+	signalBus.modulate.emit()
