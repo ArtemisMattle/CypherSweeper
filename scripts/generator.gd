@@ -171,10 +171,11 @@ func positionate(cell: gridCell) -> void: # positionates the gridCells to make a
 	@warning_ignore("integer_division")
 	if cell.line < l/2: # differentiates between the upper half and the lower half
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*48-int(cell.line-l/2)*24-size*48, (cell.line-size)*36))
+		cell.cell.translate(Vector2(cell.lpos*48-int(cell.line-l/2)*24-size*48+48, (cell.line-size)*36+36))
 	else:
 		@warning_ignore("integer_division")
-		cell.cell.translate(Vector2(cell.lpos*48+int(cell.line-l/2)*24-size*48, (cell.line-size)*36))
+		cell.cell.translate(Vector2(cell.lpos*48+int(cell.line-l/2)*24-size*48+48, (cell.line-size)*36+36))
+
 
 func def_hex() -> void:# generates the gridcells with the position and their neigborhood
 	var line: int = 0 # initiates the line counter

@@ -112,7 +112,6 @@ theme = ExtResource("2_50dck")
 
 [node name="playStory" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
-tooltip_text = "ttcs!"
 mouse_filter = 1
 theme = ExtResource("2_50dck")
 disabled = true
@@ -410,6 +409,7 @@ mouse_filter = 1
 edit_alpha = false
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -657,6 +657,26 @@ theme_override_constants/margin_bottom = 150
 layout_mode = 2
 text = "Level 9"
 
+[node name="story" type="VBoxContainer" parent="background/edge/menu"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="continue" type="Button" parent="background/edge/menu/story"]
+layout_mode = 2
+tooltip_text = "ttcs!"
+disabled = true
+text = "btnContinue"
+
+[node name="tutorials" type="Button" parent="background/edge/menu/story"]
+layout_mode = 2
+text = "btnTutorial"
+
+[node name="saves" type="Button" parent="background/edge/menu/story"]
+layout_mode = 2
+tooltip_text = "ttcs!"
+disabled = true
+text = "btnSaves"
+
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sg5g6")
 volume_db = -12.0
@@ -695,3 +715,4 @@ bus = &"sfx"
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container7/lvl7" to="." method="_lvl7"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container8/lvl8" to="." method="_lvl8"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container9/lvl9" to="." method="_lvl9"]
+[connection signal="pressed" from="background/edge/menu/story/tutorials" to="." method="_on_tutorials_pressed"]

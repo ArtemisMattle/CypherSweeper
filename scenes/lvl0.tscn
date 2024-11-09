@@ -161,7 +161,7 @@ stream_4/weight = 1.0
 stream_5/stream = ExtResource("22_gjvw2")
 stream_5/weight = 1.0
 
-[node name="main2" type="Node2D"]
+[node name="lvl" type="Node2D"]
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 3
@@ -725,7 +725,7 @@ offset_bottom = 0.0
 grow_vertical = 0
 
 [node name="mobileCanvas" type="CanvasLayer" parent="."]
-layer = 2
+layer = 0
 follow_viewport_enabled = true
 
 [node name="toolHandler" type="Node2D" parent="mobileCanvas"]

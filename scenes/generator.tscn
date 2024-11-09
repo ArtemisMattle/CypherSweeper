@@ -289,11 +289,11 @@ autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="turnTimer" type="Timer" parent="."]
-wait_time = 0.1
-
 [node name="flagTimer" type="Timer" parent="."]
 wait_time = 0.05
+
+[node name="turnTimer" type="Timer" parent="."]
+wait_time = 0.1
 
 [node name="turnSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_jv2ja")
@@ -302,9 +302,9 @@ max_polyphony = 50
 bus = &"sfx"
 
 [node name="background" type="TileMap" parent="."]
-position = Vector2(-72, -60)
+position = Vector2(-24, -24)
 tile_set = SubResource("TileSet_yi38q")
 format = 2
 
-[connection signal="timeout" from="turnTimer" to="." method="_on_turn_timer_timeout"]
 [connection signal="timeout" from="flagTimer" to="." method="_on_flag_timer_timeout"]
+[connection signal="timeout" from="turnTimer" to="." method="_on_turn_timer_timeout"]

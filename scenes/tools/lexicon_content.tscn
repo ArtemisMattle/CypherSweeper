@@ -234,7 +234,7 @@ texture_normal = ExtResource("14_j8xq6")
 
 [node name="arrow" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(250, 246)
+position = Vector2(317, 230)
 texture = ExtResource("16_8r1rc")
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

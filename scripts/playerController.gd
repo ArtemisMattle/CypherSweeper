@@ -61,19 +61,10 @@ func _ready() -> void:
 	colourPickerResize()
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
-	signalBus.getAim.connect(targeter)
 	if globalVariables.mod.has("OF"):
 		$playerInfo.queue_free()
 	xpThreshold()
 
-func targeter(target: int) -> void: # returns a target for the lexicon arrow
-	var aim: Node
-	match target:
-		0:
-			aim = $playerInfo/edge/HBoxContainer/flamel
-		1:
-			aim = $playerInfo/edge/SanGauge
-	signalBus.returnAim.emit(aim)
 
 func lvl1(ing: String) -> bool: # 
 	if globalVariables.level[ing] < 1:

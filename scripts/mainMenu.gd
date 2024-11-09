@@ -11,7 +11,7 @@ extends Node2D
 # save menu pages to vars for further use
 @onready var mainPg: VBoxContainer = $background/edge/menu/mainbuttons
 @onready var playPg: VBoxContainer = $background/edge/menu/play
-@onready var storyPg=$background/edge/menu/levelSelect
+@onready var storyPg: VBoxContainer = $background/edge/menu/story
 @onready var arcadePg: HBoxContainer =$background/edge/menu/arcade
 @onready var settingsPg: HBoxContainer =$background/edge/menu/settings
 @onready var creditsPg: HBoxContainer =$background/edge/menu/credits
@@ -283,6 +283,11 @@ func _startLvl(level) -> void:
 	print(globalVariables.lvlUP)'
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
+
+func _on_tutorials_pressed() -> void: # starts the tutorial
+	get_tree().change_scene_to_file("res://scenes/levels/tutorial.tscn")
+
+
 func _on_arcade_pressed():
 	globalVariables.size = $background/edge/menu/arcade/arcade/sizeandplay/sizeSelector.value
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
@@ -445,3 +450,4 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 	match sound:
 		1:click.play()
 		2:hover.play()
+
