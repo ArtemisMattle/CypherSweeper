@@ -7,7 +7,7 @@ extends MarginContainer
 @onready var lexr: RichTextLabel = $textBox/rightBox/lexTextr
 @onready var back: TextureButton = $back
 @onready var next: TextureButton = $next
-var lastPage: int = 21
+var lastPage: int = 10
 
 @onready var arrow: Sprite2D = $arrow
 var arrowAim: Vector2

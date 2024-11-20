@@ -114,7 +114,6 @@ theme = ExtResource("2_50dck")
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
-disabled = true
 text = "btnPStory"
 alignment = 0
 

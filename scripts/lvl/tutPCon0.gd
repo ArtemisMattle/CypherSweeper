@@ -34,6 +34,8 @@ var tracks: Array[String] = [
 
 @onready var langSel: OptionButton = $pauseMenu/centerer/settings/settings/language/languageSelector
 
+var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
+
 #@onready var bB=$"../../buttonBlocker"
 
 func _ready() -> void:
@@ -64,16 +66,19 @@ func _ready() -> void:
 	if globalVariables.mod.has("OF"):
 		$playerInfo.queue_free()
 	xpThreshold()
-
+	
+	
 
 func lvl1(ing: String) -> bool: # 
-	if globalVariables.level[ing] < 1:
-		globalVariables.xp[ing] = xpThold[ing + "1"]
-		lvlUp(ing)
-		return true
-	return false
+	lvlUp(ing)
+	return true
 
 func uncover(ingredient: String, last: bool) -> void: #workhorse function, determines what ingredient was uncovered and what should be done about it
+	var tst = msg.instantiate()
+	add_child(tst)
+	tst.position = Vector2i(640, 360)
+	tst.initi("das ist ein langer test text slfaopdsfjpoajsdgjhaslgjsdfka sadjfhaslfdhklasd afeihasd asdfjasdflas fasjdfhas ashgsa jkshflkasndfm sadjfhksladnfasdhflkhasm, asdhfklasndm, sdajfh")
+	
 	if ingredient == "Flamel5":
 		if not flamel:
 			takeDamage(6, true, false)
@@ -88,23 +93,10 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 				return
 	else:
 		globalVariables.xp[ingredient.left(-1)] += ingredient.to_int()
-		if globalVariables.level[ingredient.left(-1)] < ingredient.right(1).to_int():
-			takeDamage(ingredient.right(1).to_int(), true, true)
-	if not globalVariables.leveled1: # gives xp to ingredients without level
-		if globalVariables.level.values().has(0):
-			for i: String in globalVariables.xp:
-				if globalVariables.level[i] < 1:
-					globalVariables.xp[i] += randi_range(0,7) * 0.25
-			if last: # forces lvlups if necessary for damageless running
-				while not lvl1(globalVariables.ingr.pick_random()):
-					pass
-		else:
-			globalVariables.leveled1 = true
-	for i: String in globalVariables.xp: # levels up ingredients when xp thresholds are meet
-		if globalVariables.level[i] == lvlMax[i]:
-			pass
-		elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
-			lvlUp(i)
+		if globalVariables.level[ingredient.left(-1)] < ingredient.to_int():
+			takeDamage(ingredient.to_int(), true, true)
+
+
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
 	if playing:
@@ -133,21 +125,13 @@ func musicCurser(nextTrack: int ) -> void: #changes the background music
 func endGame(win: bool) -> void: #gets called when the game is done, handles everything after the last 'ingredient'
 	globalVariables.paused = true
 	signalBus.deactivate.emit(false)
-	if win:
-		globalVariables.scoreMult *= winbonus
-	var time: float = globalVariables.playTime
 	var msg: int = randi_range(0, 100)
-	msg = 100
 	if win:
 		match msg:
-			100:  $gameOver/centerer/gameOver/centerer/end.text = globalVariables.sToHex(tr("lbWon"))
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
 	else:
 		match msg:
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
-	$gameOver/centerer/gameOver/time.text = tr("lbTime") + " " + str(floor(time/60)) + " " + tr("lbMin") + " " + str(fmod(floor(time),60)) + " " + tr("lbSec")
-	$gameOver/centerer/gameOver/score.text = tr("lbScore") + " " + str(score(time))
-	$gameOver/centerer/gameOver/mod.text = tr("lbMod") + " " + str(snappedf(globalVariables.scoreMult, 0.0001))
 	globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false
@@ -167,66 +151,21 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 		fade.play("fade2")
 	activeMusic = not activeMusic
 
-func score(time: float) -> float: #calculates the score
-	if globalVariables.lostsanity == 0:
-		globalVariables.scoreMult *= winbonus
-	globalVariables.scoreMult *= clamp(exp(-time * log(2) / (globalVariables.size * globalVariables.size * 2)) * 2 + 1, 1.0, 2.0)
-	if not globalVariables.mod.has("HE") and not globalVariables.mod.has("ST") and not globalVariables.mod.has("FU"):
-		globalVariables.scoreMult *= 10
-		return PI
-	for i: String in globalVariables.xp:
-		s += globalVariables.xp[i]
-	return clamp(floor((globalVariables.uncovered  + (s * s) ) * 0.1 * globalVariables.scoreMult) - globalVariables.lostsanity, 0, 999999999)
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
-	match ingredient:
-		"Herb": 
-			$playerInfo/edge/lvlGauge/lvlGauge1/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")
-			$playerInfo/edge/lvlGauge/lvlGauge1/herb/number.text = str(globalVariables.level["Herb"])
-		"Shroom":
-			$playerInfo/edge/lvlGauge/lvlGauge1/shroom/shroom.texture = load("res://assets/textures/ingredients/Shroom"+str(globalVariables.level["Shroom"])+".png")
-			$playerInfo/edge/lvlGauge/lvlGauge1/shroom/number.text = str(globalVariables.level["Shroom"])
-		"Salt":
-			$playerInfo/edge/lvlGauge/lvlGauge2/salt/salt.texture = load("res://assets/textures/ingredients/Salt"+str(globalVariables.level["Salt"])+".png")
-			$playerInfo/edge/lvlGauge/lvlGauge2/salt/number.text = str(globalVariables.level["Salt"])
-		"Shadow":
-			$playerInfo/edge/lvlGauge/lvlGauge2/shadow/shadow.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Shadow"])+".png")
-			$playerInfo/edge/lvlGauge/lvlGauge2/shadow/number.text = str(globalVariables.level["Shadow"])
 	levelUp.play(0.9)
 
 func Flamel() -> void: # shows the Flamel when it's time to reveal it
 	flamel = true
-	if not globalVariables.mod.has("OF"):
-		$playerInfo/edge/lvlGauge/flamel.texture = load("res://assets/textures/ingredients/Flamel5.png")
 	levelUp.play(0.9)
 	levelUp.play(0.6)
 	levelUp.play(0.5)
 
 func xpThreshold() -> void: # calculates the thresholds for lvlUps
 	var empty: int = globalVariables.n
-	var xpType: Dictionary = {}
-	
-	if globalVariables.mod.has("HEK") or globalVariables.mod.has("EC"):
-		xpdiff = 1
-	
-	for i: String in globalVariables.ingredientStack:
-		empty -= globalVariables.ingredientStack[i]
-		
-		if i.to_int() == 1:
-			xpType[i.left(-1)] = globalVariables.ingredientStack[i]
-			xpThold[i] = xpType[i.left(-1)] * xpdiff / 3
-			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
-		else:
-			xpType[i.left(-1)] += globalVariables.ingredientStack[i] * i.to_int()
-			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
-			lvlMax[i.left(-1)] = i.to_int()
+	empty -= 20
 	globalVariables.lvlNothing = int(empty * xpdiff / 3)
-	if globalVariables.mod.has("EC"):
-		for i: String in xpThold:
-			if i.to_int() == 3:
-				xpThold[i] += (globalVariables.ingredientStack[i] + globalVariables.ingredientStack[i.left(-1) + "2"]) * globalVariables.xpFlagBoon
-
 
 		# Menu stuff
 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bss4smhfpfgit"]
+
+[ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="1_ayp00"]
+[ext_resource type="Script" path="res://scripts/lvl/tutMsg.gd" id="1_sngdh"]
+[ext_resource type="Texture2D" uid="uid://dduvmm277f4v4" path="res://assets/textures/UI-elements/arrow.png" id="2_g3hbb"]
+[ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="2_pxhyl"]
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="3_3r6lb"]
+
+[node name="tutMsg" type="Node2D"]
+script = ExtResource("1_sngdh")
+
+[node name="background" type="PanelContainer" parent="."]
+offset_left = -238.0
+offset_top = -87.0
+offset_right = 238.0
+offset_bottom = 87.0
+theme_override_styles/panel = ExtResource("1_ayp00")
+
+[node name="stacker" type="VBoxContainer" parent="background"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="message" type="RichTextLabel" parent="background/stacker"]
+texture_filter = 2
+custom_minimum_size = Vector2(450, 40)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_pxhyl")
+theme_override_fonts/bold_font = ExtResource("3_3r6lb")
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[center] [b] testtext [/b][/center]"
+
+[node name="continue" type="TextureButton" parent="background/stacker"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_g3hbb")
+
+[connection signal="pressed" from="background/stacker/continue" to="." method="_on_continue_pressed"]

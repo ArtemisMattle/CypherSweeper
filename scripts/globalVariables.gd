@@ -37,13 +37,13 @@ var ingr: Array[String] = ["Herb", "Shroom", "Salt"]
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
-	"Herb1" = 3,
+	"Herb1" = 0,
 	"Herb2" = 0,
 	"Herb3" = 0,
-	"Shroom1" = 3,
+	"Shroom1" = 0,
 	"Shroom2" = 0,
 	"Shroom3" = 0,
-	"Salt1" = 3,
+	"Salt1" = 0,
 	"Salt2" = 0,
 	"Salt3" = 0,}
 var empty: int 
@@ -112,6 +112,13 @@ func mouseHandler(event: InputEvent) -> void:
 		Input.set_custom_mouse_cursor(click)
 	if event.is_released() and event.button_index== 1: #1-> LMB, 2 -> RMB
 		Input.set_custom_mouse_cursor(cursor)
+
+func sToHex(x: String) -> String:
+	var y: String
+	while not x.is_empty():
+		y += x.left(1)#.to_utf8_buffer().hex_encode()
+		x.erase(0)
+	return y
 
 class tool: # class for non consumable tools, used by toolBox and toolHandler
 	var tScene: Control = null

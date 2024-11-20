@@ -323,7 +323,7 @@ func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates betwe
 	if event is InputEventMouseButton:
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				if event.is_double_click():
+				if event.is_pressed():
 					reveal(i, 0)
 			#MOUSE_BUTTON_RIGHT:
 				#if event.is_released():

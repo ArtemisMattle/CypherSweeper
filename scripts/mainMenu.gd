@@ -285,7 +285,7 @@ func _startLvl(level) -> void:
 
 
 func _on_tutorials_pressed() -> void: # starts the tutorial
-	get_tree().change_scene_to_file("res://scenes/levels/tutorial.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut0.tscn")
 
 
 func _on_arcade_pressed():

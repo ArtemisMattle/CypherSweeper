@@ -2,14 +2,14 @@ extends GridContainer
 
 var mod: PackedScene = preload("res://scenes/mod.tscn")
 var mods: Array[modifyer] = [
-	modifyer.new("HEK", 3, ["EC"]),# playerControler
-	modifyer.new("EC", 7, ["HEK"]),# playerControler
-	modifyer.new("DI", 3, ["LR"]), # main Menu
+	modifyer.new("HEK", 3, ["EC"]),# playerControler ,  not demo
+	modifyer.new("EC", 7, ["HEK"]),# playerControler , not demo
+	modifyer.new("DI", 3, ["LR"]), # main Menu ,  not demo
 	modifyer.new("LR", -3, ["DI"]), # main Menu
-	modifyer.new("AA", 3, ["BA"]), # main Menu
+	modifyer.new("AA", 3, ["BA"]), # main Menu ,  not demo
 	modifyer.new("BA", -3, ["AA"]), # main Menu
-	modifyer.new("DL", 5), #TODO
-	modifyer.new("BS", 4), # generator
+	modifyer.new("DL", 5), # generator  ,  not demo
+	modifyer.new("BS", 4), # generator  ,  not demo
 	modifyer.new("OF", 10, ["HE", "FU", "ST", "HEK", "EC", "AA", "BA"]), # generator & playerController & main Menu
 	modifyer.new("HE", -2, [], true), # main Menu
 	modifyer.new("FU", -2, [], true), # main Menu
@@ -35,6 +35,8 @@ func _ready() -> void:
 			# connects the buttons to the variable handler
 		mods[i].btn.toggled.connect(change.bind(mods[i]))
 		mods[i].btn.button_pressed = mods[i].onByDefault
+		if mods[i].n != "LR" and mods[i].n != "BA" and mods[i].n != "OF" and mods[i].n != "HE" and mods[i].n != "FU" and mods[i].n != "ST":
+			mods[i].btn.disabled = true
 
 func change(active: bool, m: modifyer) -> void: # mostly handles the variable manipulation for the modifyers
 	if active:
