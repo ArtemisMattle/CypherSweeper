@@ -256,7 +256,7 @@ theme_override_styles/focus = ExtResource("7_4bddd")
 theme_override_styles/normal = ExtResource("8_d0x4r")
 theme_override_styles/hover = ExtResource("7_4bddd")
 theme_override_styles/pressed = ExtResource("7_4bddd")
-item_count = 6
+item_count = 5
 selected = 0
 popup/item_0/text = "btnEN"
 popup/item_0/id = 0
@@ -266,10 +266,8 @@ popup/item_2/text = "btnDE"
 popup/item_2/id = 2
 popup/item_3/text = "btnFR"
 popup/item_3/id = 4
-popup/item_4/text = "btnES"
-popup/item_4/id = 3
-popup/item_5/text = "btnEO"
-popup/item_5/id = 5
+popup/item_4/text = "btnEO"
+popup/item_4/id = 5
 
 [node name="speed" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2

@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="3_3r6lb"]
 
 [node name="tutMsg" type="Node2D"]
+z_index = 10
 script = ExtResource("1_sngdh")
 
 [node name="background" type="PanelContainer" parent="."]

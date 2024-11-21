@@ -34,7 +34,7 @@ var tracks: Array[String] = [
 
 @onready var langSel: OptionButton = $pauseMenu/centerer/settings/settings/language/languageSelector
 
-var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
+
 
 #@onready var bB=$"../../buttonBlocker"
 
@@ -74,10 +74,6 @@ func lvl1(ing: String) -> bool: #
 	return true
 
 func uncover(ingredient: String, last: bool) -> void: #workhorse function, determines what ingredient was uncovered and what should be done about it
-	var tst = msg.instantiate()
-	add_child(tst)
-	tst.position = Vector2i(640, 360)
-	tst.initi("das ist ein langer test text slfaopdsfjpoajsdgjhaslgjsdfka sadjfhaslfdhklasd afeihasd asdfjasdflas fasjdfhas ashgsa jkshflkasndfm sadjfhksladnfasdhflkhasm, asdhfklasndm, sdajfh")
 	
 	if ingredient == "Flamel5":
 		if not flamel:
@@ -165,7 +161,7 @@ func Flamel() -> void: # shows the Flamel when it's time to reveal it
 func xpThreshold() -> void: # calculates the thresholds for lvlUps
 	var empty: int = globalVariables.n
 	empty -= 20
-	globalVariables.lvlNothing = int(empty * xpdiff / 3)
+	globalVariables.lvlNothing = 7
 
 		# Menu stuff
 
