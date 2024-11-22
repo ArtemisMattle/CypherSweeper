@@ -76,18 +76,20 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			takeDamage(6, true, false)
 			return
 		else:
-			if not globalVariables.mod.has("OF"):
+			s += winbonus
+			if globalVariables.uncovered == globalVariables.n:
 				endGame(true)
-			else:
-				s += winbonus
-				if globalVariables.uncovered == globalVariables.n:
-					endGame(true)
-				return
+			return
 	else:
 		globalVariables.xp[ingredient.left(-1)] += ingredient.to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.to_int():
 			takeDamage(ingredient.to_int(), true, true)
-
+			
+		for i: String in globalVariables.xp: # levels up ingredients when xp thresholds are meet
+			if globalVariables.level[i] == lvlMax[i]:
+				pass
+			elif globalVariables.xp[i] >= xpThold[i + str(globalVariables.level[i] + 1)]:
+				lvlUp(i)
 
 
 func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies the sanity when making mistakes, level determines severity & counts determines if it affects score
@@ -146,6 +148,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
+	signalBus.lvlUp.emit(globalVariables.level[ingredient])
 	levelUp.play(0.9)
 
 func Flamel() -> void: # shows the Flamel when it's time to reveal it
@@ -156,7 +159,19 @@ func Flamel() -> void: # shows the Flamel when it's time to reveal it
 
 func xpThreshold() -> void: # calculates the thresholds for lvlUps
 	var empty: int = globalVariables.n
-	empty -= 20
+	var xpType: Dictionary = {}
+	
+	for i: String in globalVariables.ingredientStack:
+		empty -= globalVariables.ingredientStack[i]
+		
+		if i.to_int() == 1:
+			xpType[i.left(-1)] = globalVariables.ingredientStack[i]
+			xpThold[i] = xpType[i.left(-1)] * xpdiff / 3
+			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
+		else:
+			xpType[i.left(-1)] += globalVariables.ingredientStack[i] * i.to_int()
+			xpThold[i.left(-1) + str(i.to_int() + 1)] = xpType[i.left(-1)] * xpdiff
+			lvlMax[i.left(-1)] = i.to_int()
 	globalVariables.lvlNothing = int(empty * xpdiff / 3)
 
 		# Menu stuff

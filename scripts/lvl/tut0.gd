@@ -7,6 +7,10 @@ var msgTxt: String = ""
 
 func _init():
 	globalVariables.size = 5
+	for i: String in globalVariables.level:
+		globalVariables.level[i] = 0
+	for i: String in globalVariables.ingredientStack:
+		globalVariables.ingredientStack[i] = 0
 	globalVariables.ingredientStack["Herb1"] = 13
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
@@ -15,25 +19,33 @@ func _init():
 	globalVariables.buff["shield"] = 1
 	globalVariables.xp.clear()
 	globalVariables.xp["Herb"] = 0.0
+	globalVariables.lvl1 = "Herb"
+	globalVariables.rngseed = randi_range(0,99)
 
 
 func _ready():
 	signalBus.lvlNothing.connect(lvlup)
+	signalBus.lvlFlamel.connect(flamel)
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.position = Vector2i(640, 360)
-	tst.initi("Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.")
+	tst.initi(tr("msgTut00"))
 
 func lvlup():
 	time.start()
-	msgTxt = "Now that you learned a bit about the recipe you are decyfering, you are ready for the more dangerous knowledge, or [b] Ingredients [/b] as we'll call them, but be careful not to touch the [b] Flamel [/b] yet, it has a value of 5."
+	msgTxt = tr("msgTut01")
 
 func flamel():
 	time.start()
-	msgTxt = "You have almost complete knowledge over that recipe, all that is left to do is uncover the [b] Flamel [/b] it functions similar to an 8 Ball in billiards."
+	msgTxt = tr("msgTut02")
 
 func _on_tut_msg_timer_timeout():
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.position = Vector2i(640, 360)
 	tst.initi(msgTxt)
+
+
+func _on_next_pressed() -> void:
+	globalVariables.mod = []
+	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut1.tscn")

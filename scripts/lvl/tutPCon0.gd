@@ -80,13 +80,10 @@ func uncover(ingredient: String, last: bool) -> void: #workhorse function, deter
 			takeDamage(6, true, false)
 			return
 		else:
-			if not globalVariables.mod.has("OF"):
+			s += winbonus
+			if globalVariables.uncovered == globalVariables.n:
 				endGame(true)
-			else:
-				s += winbonus
-				if globalVariables.uncovered == globalVariables.n:
-					endGame(true)
-				return
+			return
 	else:
 		globalVariables.xp[ingredient.left(-1)] += ingredient.to_int()
 		if globalVariables.level[ingredient.left(-1)] < ingredient.to_int():

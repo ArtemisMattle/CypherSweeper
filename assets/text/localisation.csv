@@ -26,12 +26,12 @@ lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Reĝimo
 selSize,Size,Größe,Taille,,,Grandeco
 ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, les valeurs plus élevées sont plus difficiles et prennent plus de temps !",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
 lbPre,Presets,,,,,
+btnNewGame,New Game,,,,,
+btnContinue,Continue,,,,,
+btnTutorial,Tutorials,,,,,
+btnSaves,Saves,,,,,
+btnNext,Next,,,,,
 ,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-,,,,,,
-btnPlay,Play,Spielen,Jouer,,,Ludi
 ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ĉiuj viaj iloj"
 btnExit,Exit,Beenden,Quiter,,,Elirejo
 lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
@@ -166,3 +166,14 @@ ttModOF,"[b]Only Flamel:[/b] There will only be Flamels, for a more… tradition
 ttModHE,"[b]Herbs:[/b] When active, there will be Herbs among the Ingredients!",,,,,
 ttModST,"[b]Salts:[/b] When active, there will be Salts among the Ingredients!",,,,,
 ttModFU,"[b]Fungi:[/b] When active, there will be Fungi amongus!",,,,,
+lbTut0,"Congratulations! You mastered the basics.
+Up next Levels!",,,,,
+msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.",,,,,
+msgTut01,"Now that you learned a bit about the recipe you are decyfering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.",,,,,
+msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.",,,,,
+lbTut1,"Congratulations! You mastered Levels.
+Up next Types!",,,,,
+msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b].",,,,,
+msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b], but be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix, the [b]Hints[/b], the numbers in the uncovered cells show the combined level of the [b]Ingredients[/b] around it.",,,,,
+msgTut12,"Now after having gathered more information you are able to uncover the second level of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",,,,,
+msgTut13,"You almost did it, you can now safely uncover all information in this recipe, except for the [b]Flamel[/b] of course, but you hopefully already know where it is and know that it’s the last cell to open.",,,,,

@@ -14,3 +14,6 @@ signal flagging(flag: String)
 
 signal getAim(target: int)
 signal returnAim(target: Node)
+
+
+signal lvlUp(lvl: int) # used for the tutorial to give the player messages

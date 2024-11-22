@@ -505,17 +505,30 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="congrats" type="Label" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
-theme_override_font_sizes/font_size = 24
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 30
 text = "lbTut0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="endSpace2" type="Container" parent="lvl/UI/player/gameOver/centerer/gameOver"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="return" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver" groups=["buttonClick"]]
+[node name="endbuttons" type="HBoxContainer" parent="lvl/UI/player/gameOver/centerer/gameOver"]
 layout_mode = 2
+
+[node name="next" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "btnNext"
+
+[node name="return" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 10
 text = "btnExit"
 
 [node name="music1" type="AudioStreamPlayer" parent="lvl/UI/player"]
@@ -600,5 +613,6 @@ one_shot = true
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="lvl/UI/player" method="singleMod" binds= [1]]
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="lvl/UI/player" method="singleMod" binds= [2]]
 [connection signal="toggled" from="lvl/UI/player/pause/centerer/stacker/pauseButton" to="lvl/UI/player" method="_on_pause_button_toggled"]
-[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/return" to="lvl/UI/player" method="_on_exit_pressed"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
 [connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]
