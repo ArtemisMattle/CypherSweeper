@@ -10,18 +10,19 @@
 z_index = 10
 script = ExtResource("1_sngdh")
 
-[node name="background" type="PanelContainer" parent="."]
-offset_left = -238.0
-offset_top = -87.0
-offset_right = 238.0
-offset_bottom = 87.0
+[node name="layer" type="CanvasLayer" parent="."]
+
+[node name="background" type="PanelContainer" parent="layer"]
+offset_left = -476.0
+offset_top = -174.0
+scale = Vector2(2, 2)
 theme_override_styles/panel = ExtResource("1_ayp00")
 
-[node name="stacker" type="VBoxContainer" parent="background"]
+[node name="stacker" type="VBoxContainer" parent="layer/background"]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="message" type="RichTextLabel" parent="background/stacker"]
+[node name="message" type="RichTextLabel" parent="layer/background/stacker"]
 texture_filter = 2
 custom_minimum_size = Vector2(450, 40)
 layout_mode = 2
@@ -34,9 +35,9 @@ theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "[center] [b] testtext [/b][/center]"
 
-[node name="continue" type="TextureButton" parent="background/stacker"]
+[node name="continue" type="TextureButton" parent="layer/background/stacker"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_g3hbb")
 
-[connection signal="pressed" from="background/stacker/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="layer/background/stacker/continue" to="." method="_on_continue_pressed"]

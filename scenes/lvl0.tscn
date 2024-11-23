@@ -213,7 +213,7 @@ expand_mode = 1
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "lbHerb"
+text = "Herb"
 
 [node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/herb"]
 texture_filter = 2
@@ -234,7 +234,7 @@ expand_mode = 1
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "lbShroom"
+text = "Shroom"
 autowrap_mode = 2
 
 [node name="number" type="Label" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge1/shroom"]
@@ -270,7 +270,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
-text = "lbSalt"
+text = "Salt"
 
 [node name="salt" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/salt"]
 custom_minimum_size = Vector2(28, 20)
@@ -293,7 +293,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
-text = "lbShadow"
+text = "Shadow"
 
 [node name="shadow" type="TextureRect" parent="UI/player/playerInfo/edge/lvlGauge/lvlGauge2/shadow"]
 custom_minimum_size = Vector2(28, 20)

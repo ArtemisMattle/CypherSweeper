@@ -28,7 +28,6 @@ func _ready():
 	signalBus.lvlFlamel.connect(flamel)
 	var tst = msg.instantiate()
 	add_child(tst)
-	tst.position = Vector2i(640, 360)
 	tst.initi(tr("msgTut00"))
 
 func lvlup():
@@ -42,7 +41,6 @@ func flamel():
 func _on_tut_msg_timer_timeout():
 	var tst = msg.instantiate()
 	add_child(tst)
-	tst.position = Vector2i(640, 360)
 	tst.initi(msgTxt)
 
 
