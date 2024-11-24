@@ -28,10 +28,18 @@ var active: bool = true
 
 enum sMode {normal, fast, zippy}
 
+var beanfield:Array[int] = [];
+@onready var bean = preload("res://scenes/bean.tscn")
+
 var OF: bool = globalVariables.mod.has("OF")
 var Diagonal: bool = globalVariables.mod.has("DL")
 
 func _ready()-> void:
+	#calculate coffee bean fields
+	#var nbean=n/100*globalVariables.beancount;
+	#for i in nbean:
+		#beanfield.append(randi_range(i*n/(nbean+2),(i+1)*n/(nbean+2)));
+		
 	match mode:
 		"hexNormal": pass
 		_: pass
@@ -427,11 +435,19 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		
 		# stuff that happens with every reveal
 		
+		
+		
 		# variable manipulation
 		pos[i].revealed = true
 		globalVariables.uncoveredIngred[pos[i].ingredient] += 1 # keeps track of uncovered ingredients (inclusive "Nothing0")
 		globalVariables.uncovered += 1 # keeps track of uncovered tiles (to escape needing to sum up the dictionary)
-		
+		#if randi_range(0,100)<=globalVariables.beanCount:
+			#print_debug("BEAN!")
+			#var newbean=bean.instantiate()
+			#add_child(newbean)
+			#
+			
+			
 		if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
 			signalBus.lvlFlamel.emit()
 		
@@ -483,6 +499,8 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		else:
 			pos[i].sprIng.visible = true # shows the ingredient otherwise
 		pos[i].cell.get_node("indicator").visible = true # shows the indicators for neighboring ingredients
+		
+		
 
 func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time passed, look at func reveal
 	tTimer.wait_time = 0.05 + randf_range(0.03, 0.07)

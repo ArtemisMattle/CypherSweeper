@@ -49,6 +49,8 @@ var ingredientStack: Dictionary = {
 var empty: int 
 var sum: int
 
+var beanCount=100; # Percentage of map with coffee beans
+
 var colours: Array[Color] = [
 	Color(0.878, 0.8, 0.533),
 	Color(0, 0, 0),
