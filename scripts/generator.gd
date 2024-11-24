@@ -23,6 +23,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var tTune: AudioStreamPlayer = $turnSFX
 var fTool: PackedScene = preload("res://scenes/flagging.tscn")
 var flagTool: Control = null
+var flaggingActive: bool = true
 var active: bool = true
 
 enum sMode {normal, fast, zippy}
@@ -193,7 +194,7 @@ func def_hex() -> void:# generates the gridcells with the position and their nei
 		positionate(pos[i])
 		pos[i].initiate()
 		pos[i].cell.get_node("colour/button").gui_input.connect(buttonForwarding.bind(i))
-		pos[i].cell.get_node("colour/button").pressed.connect(flag.bind(i))
+		pos[i].cell.get_node("colour/button").pressed.connect(reveal.bind(i, 0))
 		pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
 		var y:String = "Nothing0"
 		
@@ -322,13 +323,13 @@ func moveIngredient(opos: int)-> bool: # tries to move an ingredient to a random
 func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates between left and rightclick on the hex buttons
 	if event is InputEventMouseButton:
 		match event.button_index:
-			MOUSE_BUTTON_LEFT:
-				if event.is_pressed():
-					reveal(i, 0)
-			#MOUSE_BUTTON_RIGHT:
-				#if event.is_released():
-					#active = false
-					#flag(i)
+			#MOUSE_BUTTON_LEFT:
+			#	if event.is_pressed():
+			#		reveal(i, 0)
+			MOUSE_BUTTON_RIGHT:
+				if event.is_released():
+					active = false
+					flag(i)
 
 func flag(i: int) -> void: # flaggs cells
 	var flag: Sprite2D = pos[i].cell.get_node("flag")

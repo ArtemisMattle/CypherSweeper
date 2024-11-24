@@ -84,7 +84,6 @@ grow_vertical = 2
 pivot_offset = Vector2(24, 24)
 mouse_filter = 1
 theme = ExtResource("3_gis8a")
-button_mask = 2
 texture_normal = SubResource("ImageTexture_yusl3")
 texture_hover = ExtResource("4_6ls2f")
 texture_focused = ExtResource("4_6ls2f")
