@@ -140,7 +140,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	msg = 100
 	if win:
 		match msg:
-			100:  $gameOver/centerer/gameOver/centerer/end.text = globalVariables.sToHex(tr("lbWon"))
+			#100:  $gameOver/centerer/gameOver/centerer/end.text = globalVariables.sToHex(tr("lbWon"))
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
 	else:
 		match msg:
@@ -152,7 +152,6 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false
 	$gameOver.visible = true
-	
 	if win: # changes the music to after game loops, also plays a short jingle
 		music[not activeMusic].stream = load("res://assets/audio/music/Setting Menu.mp3")
 		$endGameJingle.stream = load("res://assets/audio/sfx/endGame/Sieg Option 2.mp3")
