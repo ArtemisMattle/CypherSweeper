@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bahknkbbjb87c"]
+[gd_scene load_steps=41 format=3 uid="uid://bahknkbbjb87c"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut0.gd" id="1_is280"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon0.gd" id="2_4kxse"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="16_onql3"]
 [ext_resource type="Texture2D" uid="uid://bk6w3k153meyf" path="res://assets/textures/UI-elements/pauseDis.png" id="17_ejj0d"]
 [ext_resource type="AudioStream" uid="uid://duru6y346mfwg" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.mp3" id="18_30w7k"]
+[ext_resource type="Texture2D" uid="uid://c6r75y5esvqlm" path="res://assets/textures/UI-elements/Reset.png" id="18_m4j34"]
 [ext_resource type="AudioStream" uid="uid://dgrggbupho5yd" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.mp3" id="19_qjbfg"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="20_3pyhw"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="21_gqdae"]
@@ -521,6 +522,12 @@ layout_mode = 2
 [node name="endbuttons" type="HBoxContainer" parent="lvl/UI/player/gameOver/centerer/gameOver"]
 layout_mode = 2
 
+[node name="reset" type="TextureButton" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("18_m4j34")
+
 [node name="next" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -613,6 +620,7 @@ one_shot = true
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="lvl/UI/player" method="singleMod" binds= [1]]
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="lvl/UI/player" method="singleMod" binds= [2]]
 [connection signal="toggled" from="lvl/UI/player/pause/centerer/stacker/pauseButton" to="lvl/UI/player" method="_on_pause_button_toggled"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/reset" to="lvl/UI/player" method="_on_reset_pressed"]
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
 [connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]

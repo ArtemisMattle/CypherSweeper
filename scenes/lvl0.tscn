@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=47 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://buvluwn3kaoia" path="res://assets/audio/sfx/level Up/Level Up Option 2.mp3" id="17_xkyus"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="18_c2c1g"]
 [ext_resource type="AudioStream" uid="uid://h1b4ovmjuvb6" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 1.mp3" id="18_xxwj4"]
+[ext_resource type="Texture2D" uid="uid://c6r75y5esvqlm" path="res://assets/textures/UI-elements/Reset.png" id="19_g7246"]
 [ext_resource type="AudioStream" uid="uid://b12h8p34ken7l" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 2.mp3" id="19_hrqua"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="19_wd568"]
 [ext_resource type="AudioStream" uid="uid://bupctqwrhvwdl" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 3.mp3" id="20_3ague"]
@@ -657,7 +658,16 @@ text = "lbScore"
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="return" type="Button" parent="UI/player/gameOver/centerer/gameOver" groups=["buttonClick"]]
+[node name="buttons" type="HBoxContainer" parent="UI/player/gameOver/centerer/gameOver"]
+layout_mode = 2
+
+[node name="reset" type="TextureButton" parent="UI/player/gameOver/centerer/gameOver/buttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("19_g7246")
+
+[node name="return" type="Button" parent="UI/player/gameOver/centerer/gameOver/buttons" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnExit"
 
@@ -774,7 +784,8 @@ position = Vector2(154, 248)
 [connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="UI/player" method="singleMod" binds= [1]]
 [connection signal="color_changed" from="UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="UI/player" method="singleMod" binds= [2]]
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
-[connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/return" to="UI/player" method="_on_exit_pressed"]
+[connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/buttons/reset" to="UI/player" method="_on_reset_pressed"]
+[connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/buttons/return" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="UI/player/SanGauge" method="updateSanity" flags=3]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="CoffeeMachine" method="drinkCoff"]
 [connection signal="button_up" from="bean/button" to="UI/player/SanGauge" method="updateSanity" flags=3]

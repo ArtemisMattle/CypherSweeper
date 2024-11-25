@@ -58,12 +58,27 @@ var colours: Array[Color] = [
 	]
 var darkmode: bool = false
 
-var mod: Array[String] = []
+var mod: Array[String] = [] # array of active modifyers
 
 var buff: Dictionary = {
 	"shield" = 0,
 	"freeHint" = 0,
 }
+
+var mods: Array[modifyer] = [ # array of all modifyers
+	modifyer.new("HEK", 3, ["EC"]),# playerControler ,  not demo
+	modifyer.new("EC", 7, ["HEK"]),# playerControler , not demo
+	modifyer.new("DI", 3, ["LR"]), # main Menu ,  not demo
+	modifyer.new("LR", -3, ["DI"]), # main Menu
+	modifyer.new("AA", 3, ["BA"]), # main Menu ,  not demo
+	modifyer.new("BA", -3, ["AA"]), # main Menu
+	modifyer.new("DL", 5), # generator  ,  not demo
+	modifyer.new("BS", 4), # generator  ,  not demo
+	modifyer.new("OF", 10, ["HE", "FU", "ST", "HEK", "EC", "AA", "BA"]), # generator & playerController & main Menu
+	modifyer.new("HE", -2, [], true), # main Menu
+	modifyer.new("FU", -2, [], true), # main Menu
+	modifyer.new("ST", -2, [], true), # main Menu
+]
 
 
 var boxing: bool = false # if a tool gets put back into the box
@@ -92,6 +107,12 @@ func minLvl() -> int: # provides the lowest level
 			lvl = level[i]
 	return lvl
 
+func baseScoreMult() -> float: # recalculates the ScoreMultiplyer
+	var x: float = 1.6
+	for m: String in mod:
+		var y: modifyer = mods[0].findNamed(m)
+		x += y.v / 10
+	return x
 #cursor curser
 
 func cursedCursor() -> void:
@@ -137,3 +158,22 @@ class tool: # class for non consumable tools, used by toolBox and toolHandler
 			return "null"
 		else:
 			return tScene.name
+
+class modifyer: # contains the few necessary informations for modifyers
+	var n: String
+	var v: int
+	var onByDefault: bool = false
+	var incompatible: Array[String]
+	var btn: TextureButton
+	
+	func _init(name: String, value: int = 0, incomp: Array[String] = [], oBD: bool = false) -> void:
+		n = name
+		v = value
+		onByDefault = oBD
+		incompatible = incomp
+	
+	func findNamed(name: String) -> modifyer: # finds modifyers by name instead of id
+		for i: modifyer in globalVariables.mods:
+			if i.n == name:
+				return i
+		return null

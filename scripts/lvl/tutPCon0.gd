@@ -194,6 +194,12 @@ func _on_exit_pressed() -> void: # returns you to the menu
 	globalVariables.mod = []
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
+
+func _on_reset_pressed() -> void:
+	globalVariables.mod = []
+	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut0.tscn")
+
+
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
 		buttons.pressed.connect(sfxPlay.bind(1))
@@ -270,3 +276,4 @@ func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # chang
 	
 	globalVariables.darkmode = dark
 	signalBus.modulate.emit()
+

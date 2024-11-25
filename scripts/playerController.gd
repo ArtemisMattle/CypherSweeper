@@ -137,7 +137,6 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 		globalVariables.scoreMult *= winbonus
 	var time: float = globalVariables.playTime
 	var msg: int = randi_range(0, 100)
-	msg = 100
 	if win:
 		match msg:
 			100:  
@@ -263,6 +262,19 @@ func _on_exit_pressed() -> void: # returns you to the menu
 	globalVariables.mod = []
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
+
+func _on_reset_pressed() -> void:
+	globalVariables.sanity = 100
+	globalVariables.leveled1 = false
+	signalBus.upsane.emit()
+	for i in globalVariables.level:
+		globalVariables.level[i] = 0
+	globalVariables.buff["shield"] = 1
+	globalVariables.buff["freeHint"] = 1
+	globalVariables.baseScoreMult()
+	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
+
+
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
 		buttons.pressed.connect(sfxPlay.bind(1))
@@ -339,3 +351,4 @@ func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # chang
 	
 	globalVariables.darkmode = dark
 	signalBus.modulate.emit()
+
