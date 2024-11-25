@@ -12,8 +12,7 @@ func _ready():
 	coffeegauge=get_child(0).get_child(0);
 	coffee=get_child(0).get_child(1);
 	coffeegauge.max_value=caffMax;
-	
-
+	signalBus.expresso.connect(brew)
 
 func bean():
 	caff+=1;
@@ -43,3 +42,6 @@ func drinkCoff():
 		rdycoff();
 	else:
 		coffee.set_position(Vector2(-60,coffee.position.y));
+
+func brew(sig: Signal) -> void:
+	sig.connect(bean)

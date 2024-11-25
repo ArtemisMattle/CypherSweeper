@@ -279,6 +279,14 @@ func populate() -> void:# generates the ingredients
 			else:
 				ingredientStack.erase(i)#removes empty ingredient slots for performance
 	ingList = ingredientList.duplicate()
+	for y: String in globalVariables.specials:
+		var i: int = 0
+		while i < globalVariables.specials[y]:
+			x = rng.randi_range(0, n-1)
+			if pos[x].ingredient == "Flamel5":
+				continue
+			pos[x].special = y
+			i += 1
 	for i: int in ingredientList:
 		updateNeighbors(i)
 
@@ -461,10 +469,19 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 			ingList.erase(i)
 			signalBus.uncoverIngr.emit(pos[i].ingredient, not ingList.values().has(pos[i].ingredient)) # sends the uncovered ingredient for damage calculation and similar
 		
-		pos[i].cell.get_node("colour/button").queue_free()
+		if pos[i].special == "coffee":
+			pos[i].cell.get_node("colour/button").texture_normal = null
+			pos[i].cell.get_node("colour/button").texture_focused = null
+			pos[i].cell.get_node("colour/button").texture_hover = null
+			pos[i].cell.get_node("flag").texture = load("res://assets/textures/ingredients/Coffeebean02.png")
+			pos[i].cell.get_node("colour/button").disconnect("gui_input", buttonForwarding)
+			pos[i].cell.get_node("colour/button").disconnect("pressed", reveal)
+			signalBus.expresso.emit(pos[i].cell.get_node("colour/button").pressed)
+			pos[i].cell.get_node("colour/button").pressed.connect(del.bind(i))
+		else:
+			pos[i].cell.get_node("colour/button").queue_free()
 		pos[i].cell.get_node("colour/backshadow").queue_free()
 		tTune.play() # plays a sound effect
-		
 		
 		
 		
@@ -518,6 +535,10 @@ func _on_turn_timer_timeout() -> void: # reveals empty gridCells after time pass
 		else:
 			openRevealers.erase(i)
 
+func del(i: int) -> void:
+	pos[i].cell.get_node("flag").texture = null
+	pos[i].cell.get_node("colour/button").queue_free()
+
 func deactivate(r: bool) -> void: # deactivates all interactivity with the map
 	active = r
 	for i: int in n:
@@ -559,6 +580,7 @@ func shapeshift() -> void: # changes the colours
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors
 	var ingredient: String = "Nothing0" # ingredient saved as string because toString() budget ran out
+	var special: String = "" # string for special things like coffee beans
 	var line: int = -1 # vertical position
 	var lpos: int = -1 # horizontal position
 	var eigenValue: int = 0 # sum of surrounding ingredient levels

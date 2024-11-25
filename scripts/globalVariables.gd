@@ -46,6 +46,9 @@ var ingredientStack: Dictionary = {
 	"Salt1" = 0,
 	"Salt2" = 0,
 	"Salt3" = 0,}
+var specials: Dictionary = {
+	"coffee" = 9,
+}
 var empty: int 
 var sum: int
 
@@ -111,7 +114,7 @@ func baseScoreMult() -> float: # recalculates the ScoreMultiplyer
 	var x: float = 1.6
 	for m: String in mod:
 		var y: modifyer = mods[0].findNamed(m)
-		x += y.v / 10
+		x += float(y.v) / 10
 	return x
 #cursor curser
 

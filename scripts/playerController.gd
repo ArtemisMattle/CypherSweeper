@@ -271,7 +271,7 @@ func _on_reset_pressed() -> void:
 		globalVariables.level[i] = 0
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
-	globalVariables.baseScoreMult()
+	globalVariables.scoreMult = globalVariables.baseScoreMult()
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 
