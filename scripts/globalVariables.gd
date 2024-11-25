@@ -116,10 +116,11 @@ func mouseHandler(event: InputEvent) -> void:
 		Input.set_custom_mouse_cursor(cursor)
 
 func sToHex(x: String) -> String:
+	
 	var y: String
 	while not x.is_empty():
-		y += x.left(1)#.to_utf8_buffer().hex_encode()
-		x.erase(0)
+		y += x.left(1).to_utf8_buffer().hex_encode()
+		x = x.erase(0)
 	return y
 
 class tool: # class for non consumable tools, used by toolBox and toolHandler

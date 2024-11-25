@@ -140,7 +140,9 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 	msg = 100
 	if win:
 		match msg:
-			#100:  $gameOver/centerer/gameOver/centerer/end.text = globalVariables.sToHex(tr("lbWon"))
+			100:  
+				$gameOver/centerer/gameOver/centerer/end.add_theme_font_size_override("font_size", 24)
+				$gameOver/centerer/gameOver/centerer/end.text = globalVariables.sToHex(tr("lbWon"))
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
 	else:
 		match msg:
