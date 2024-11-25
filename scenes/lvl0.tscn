@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=46 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -37,7 +37,6 @@
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
 [ext_resource type="Script" path="res://scenes/CoffeeMaker.gd" id="32_fd0d4"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
-[ext_resource type="PackedScene" path="res://scenes/bean.tscn" id="37_jj3y0"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_63s4n"]
 action = &"pause"
@@ -767,9 +766,6 @@ blend_mode = 2
 range_layer_max = 10
 height = 0.69
 
-[node name="bean" parent="." instance=ExtResource("37_jj3y0")]
-position = Vector2(154, 248)
-
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/settings" to="UI/player" method="_on_settings_pressed"]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/return" to="UI/player" method="_on_pause_button_toggled" binds= [false]]
 [connection signal="pressed" from="UI/player/pauseMenu/centerer/pause/exit" to="UI/player" method="_on_exit_pressed"]
@@ -788,8 +784,5 @@ position = Vector2(154, 248)
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/buttons/return" to="UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="UI/player/SanGauge" method="updateSanity" flags=3]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="CoffeeMachine" method="drinkCoff"]
-[connection signal="button_up" from="bean/button" to="UI/player/SanGauge" method="updateSanity" flags=3]
-[connection signal="pressed" from="bean/button" to="CoffeeMachine" method="bean"]
 
 [editable path="CoffeeMachine/CoffeeMach"]
-[editable path="bean"]
