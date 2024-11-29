@@ -42,6 +42,7 @@ func drinkCoff():
 		rdycoff();
 	else:
 		coffee.set_position(Vector2(-60,coffee.position.y));
+	signalBus.late.emit()
 
 func brew(sig: Signal) -> void:
 	sig.connect(bean)

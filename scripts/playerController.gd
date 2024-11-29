@@ -60,6 +60,7 @@ func _ready() -> void:
 	shapeshift(globalVariables.colours[0], globalVariables.colours[1], globalVariables.colours[2], globalVariables.darkmode)
 	colourPickerResize()
 	signalBus.populated.connect(buttonClickSound)
+	signalBus.late.connect(musicCurser)
 	#bB.visible=false
 	if globalVariables.mod.has("OF"):
 		$playerInfo.queue_free()
@@ -114,15 +115,15 @@ func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies t
 		globalVariables.sanity = clampi(globalVariables.sanity - damage[level], 0, 100)
 		signalBus.upsane.emit()
 		if globalVariables.sanity <= activeTrack * 10 - 10:
-			@warning_ignore("integer_division")
-			activeTrack = globalVariables.sanity / 10
-			musicCurser(activeTrack)
+			musicCurser()
 		if globalVariables.sanity == 0:
 			endGame(false)
 			playing = false
 
-func musicCurser(nextTrack: int ) -> void: #changes the background music 
-	music[not activeMusic].stream = load(tracks[nextTrack])
+func musicCurser() -> void: #changes the background music 
+	@warning_ignore("integer_division")
+	activeTrack = globalVariables.sanity / 10
+	music[not activeMusic].stream = load(tracks[activeTrack])
 	music[not activeMusic].play(music[activeMusic].get_playback_position())
 	if activeMusic: # does a crossfade
 		fade.play("fade1")

@@ -16,5 +16,6 @@ signal getAim(target: int)
 signal returnAim(target: Node)
 
 signal expresso(pressed: Signal)
+signal late()
 
 signal lvlUp(lvl: int) # used for the tutorial to give the player messages

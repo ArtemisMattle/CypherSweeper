@@ -88,12 +88,14 @@ alignment = 0
 
 [node name="achivements" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
+tooltip_text = "ttcs!"
 disabled = true
 text = "btnFeats"
 alignment = 0
 
 [node name="statistics" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
+tooltip_text = "ttcs!"
 disabled = true
 text = "btnStatistics"
 alignment = 0
