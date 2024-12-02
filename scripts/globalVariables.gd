@@ -35,6 +35,8 @@ var lvl1: String = "Herb"
 var leveled1: bool = false
 var ingr: Array[String] = ["Herb", "Shroom", "Salt"]
 
+var tutDamaged: bool = false
+
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
 	"Herb1" = 0,
@@ -146,6 +148,7 @@ func sToHex(x: String) -> String:
 		y += x.left(1).to_utf8_buffer().hex_encode()
 		x = x.erase(0)
 	return y
+
 
 class tool: # class for non consumable tools, used by toolBox and toolHandler
 	var tScene: Control = null
