@@ -603,7 +603,6 @@ range_layer_max = 10
 height = 0.69
 
 [node name="tutMsgTimer" type="Timer" parent="."]
-wait_time = 0.3
 one_shot = true
 
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/pause/settings" to="lvl/UI/player" method="_on_settings_pressed"]
