@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://er7aocccwple"]
+[gd_scene load_steps=2 format=3 uid="uid://bsfkjy6vm0bmm"]
 
-[ext_resource type="Theme" uid="uid://badx7j02a6t2u" path="res://assets/textures/UI-themes/GlassTubeBars.tres" id="1_gr2b2"]
+[ext_resource type="Theme" uid="uid://c7ulmp8mjmbdn" path="res://assets/textures/UI-themes/GlassTubeBars.tres" id="1_gr2b2"]
 
 [node name="CoffeeMach" type="Control"]
 layout_mode = 3

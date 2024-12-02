@@ -33,9 +33,9 @@
 [ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="22_gjvw2"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="22_qg68g"]
 [ext_resource type="AudioStream" uid="uid://cfh7crptxwpnq" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5.mp3" id="23_8fldy"]
-[ext_resource type="PackedScene" path="res://scenes/coffee_mach.tscn" id="32_0g10q"]
+[ext_resource type="PackedScene" uid="uid://bsfkjy6vm0bmm" path="res://scenes/coffee_mach.tscn" id="32_0g10q"]
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
-[ext_resource type="Script" path="res://scenes/CoffeeMaker.gd" id="32_fd0d4"]
+[ext_resource type="Script" path="res://scripts/CoffeeMaker.gd" id="32_fd0d4"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_63s4n"]

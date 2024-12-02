@@ -123,6 +123,8 @@ func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies t
 func musicCurser() -> void: #changes the background music 
 	@warning_ignore("integer_division")
 	activeTrack = globalVariables.sanity / 10
+	if activeTrack >= 10:
+		activeTrack = 9
 	music[not activeMusic].stream = load(tracks[activeTrack])
 	music[not activeMusic].play(music[activeMusic].get_playback_position())
 	if activeMusic: # does a crossfade
