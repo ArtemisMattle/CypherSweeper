@@ -172,6 +172,8 @@ msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn t
 msgTut01,"Now that you learned a bit about the recipe you are decyfering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.",,,,,
 msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.",,,,,
 msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.",,,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
+lbTutFail,"Welp, that wasn’t it, Try Again, …
+Or don’t, You don’t owe it to anyone",,,,,
 lbTut1,"Congratulations! You mastered Levels.
 Up next Types!",,,,,
 msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b].",,,,,

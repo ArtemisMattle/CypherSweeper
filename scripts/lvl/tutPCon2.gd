@@ -50,7 +50,6 @@ func _ready() -> void:
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
-	print(globalVariables.language)
 	for id in langSel.get_selectable_item(true)+1:
 		if "btn"+globalVariables.language==langSel.get_item_text(id):
 			langSel.select(id)
@@ -133,6 +132,15 @@ func musicCurser(nextTrack: int ) -> void: #changes the background music
 func endGame(win: bool) -> void: #gets called when the game is done, handles everything after the last 'ingredient'
 	globalVariables.paused = true
 	signalBus.deactivate.emit(false)
+	var msg: int = randi_range(0, 100)
+	if win:
+		match msg:
+			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
+	else:
+		match msg:
+			_: 
+				$gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
+				$gameOver/centerer/gameOver/congrats.text = tr("lbTutFail")
 	globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false

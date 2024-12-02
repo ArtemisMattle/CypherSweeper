@@ -50,7 +50,6 @@ func _ready() -> void:
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
-	print(globalVariables.language)
 	for id in langSel.get_selectable_item(true)+1:
 		if "btn"+globalVariables.language==langSel.get_item_text(id):
 			langSel.select(id)
