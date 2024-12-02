@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnjhu8xtfskyg"]
+[gd_scene load_steps=11 format=3 uid="uid://bnjhu8xtfskyg"]
 
 [ext_resource type="Texture2D" uid="uid://fn8xkc524hin" path="res://assets/textures/potions/potionEmpty.png" id="1_36b6y"]
+[ext_resource type="Script" path="res://scripts/tooltipper.gd" id="1_jpgv8"]
 [ext_resource type="Texture2D" uid="uid://cwgrukeuqie74" path="res://assets/textures/potions/potionNorm.png" id="2_3d2jl"]
 [ext_resource type="Texture2D" uid="uid://b5r8mtm7satq3" path="res://assets/textures/potions/potionLiquid.png" id="3_8riu4"]
 
@@ -31,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_jpgv8")
 metadata/type = ""
 
 [node name="potionBottle" type="TextureButton" parent="."]
