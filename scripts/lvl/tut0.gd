@@ -12,6 +12,7 @@ func _init():
 	for i: String in globalVariables.ingredientStack:
 		globalVariables.ingredientStack[i] = 0
 	globalVariables.ingredientStack["Herb1"] = 13
+	globalVariables.specials["Coffee"] = 0
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
 	globalVariables.leveled1 = false

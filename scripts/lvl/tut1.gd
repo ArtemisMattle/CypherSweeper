@@ -14,6 +14,7 @@ func _init():
 	globalVariables.ingredientStack["Shroom1"] = 13
 	globalVariables.ingredientStack["Shroom2"] = 7
 	globalVariables.ingredientStack["Shroom3"] = 3
+	globalVariables.specials["Coffee"] = 0
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
 	globalVariables.leveled1 = false
