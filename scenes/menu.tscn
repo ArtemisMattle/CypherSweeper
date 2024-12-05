@@ -662,17 +662,17 @@ text = "Level 9"
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="continue" type="Button" parent="background/edge/menu/story"]
+[node name="continue" type="Button" parent="background/edge/menu/story" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "ttcs!"
 disabled = true
 text = "btnContinue"
 
-[node name="tutorials" type="Button" parent="background/edge/menu/story"]
+[node name="tutorials" type="Button" parent="background/edge/menu/story" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnTutorial"
 
-[node name="saves" type="Button" parent="background/edge/menu/story"]
+[node name="saves" type="Button" parent="background/edge/menu/story" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "ttcs!"
 disabled = true
