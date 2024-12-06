@@ -590,6 +590,7 @@ bus = &"sfx"
 position = Vector2(640, 360)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 script = ExtResource("29_eegda")
 
 [node name="generator" parent="lvl" instance=ExtResource("30_0dal1")]
