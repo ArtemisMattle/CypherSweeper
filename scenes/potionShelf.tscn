@@ -1,10 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://qxhusqbo07v"]
+[gd_scene load_steps=12 format=3 uid="uid://qxhusqbo07v"]
 
 [ext_resource type="Script" path="res://scripts/potionShelf.gd" id="1_gdo7p"]
 [ext_resource type="Theme" uid="uid://dbccppv6nmh7f" path="res://assets/textures/UI-themes/potionShelf.tres" id="2_axlfl"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_ww7dk"]
 [ext_resource type="AudioStream" uid="uid://c76q3xqdc3ckm" path="res://assets/audio/sfx/Schlürfen.mp3" id="5_3b2h4"]
 [ext_resource type="Texture2D" uid="uid://buu0spue538i4" path="res://assets/textures/UI-elements/potion.png" id="5_is0vx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_e8hss"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_v8d76"]
+events = [SubResource("InputEventKey_e8hss")]
 
 [sub_resource type="Animation" id="Animation_ymdkw"]
 resource_name = "close"
@@ -93,6 +101,7 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
+shortcut = SubResource("Shortcut_v8d76")
 texture_normal = ExtResource("5_is0vx")
 
 [node name="opener" type="AnimationPlayer" parent="place"]

@@ -47,15 +47,22 @@ func gainPotion(poti: int) -> void: #process the gaining of potions
 			shelf.add_child(pot[i])
 			pot[i].set_meta("Type", poti)
 			pot[i].get_node("potionBottle").pressed.connect(_on_drink.bind(poti, i))
+			
+			var label = CanvasTexture.new()
+			# label canvas texture has to be set individually, otherwise references same mem adress because packed scene
+			
+			label.normal_texture=pot[i].get_node("potionLable").texture.normal_texture
 			match pot[i].get_meta("Type"):
 				potions.shield:
 					pot[i].get_node("potionLiquid").modulate = Color.AQUA
-					pot[i].get_node("potionLable").texture.diffuse_texture = shield
+					label.diffuse_texture = shield
 					pot[i].tooltip_text = "ttShieldPotion"
 				potions.hint:
 					pot[i].get_node("potionLiquid").modulate = Color.GOLD
-					pot[i].get_node("potionLable").texture.diffuse_texture = hint
+					label.diffuse_texture = hint
 					pot[i].tooltip_text = "ttHintPotion"
+					
+			pot[i].get_node("potionLable").texture=label
 			break
 
 func _on_drink(poti: int, pos: int) -> void: #processes the drinking of potions and the effects they have

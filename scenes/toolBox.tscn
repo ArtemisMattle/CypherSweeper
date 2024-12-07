@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://k1tqb2qaw6ao"]
+[gd_scene load_steps=11 format=3 uid="uid://k1tqb2qaw6ao"]
 
 [ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="1_6wpoy"]
 [ext_resource type="Script" path="res://scripts/toolBox.gd" id="1_k0rmo"]
@@ -104,6 +104,14 @@ _data = {
 "open": SubResource("Animation_h7ude")
 }
 
+[sub_resource type="InputEventKey" id="InputEventKey_vx0qa"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="Shortcut" id="Shortcut_trlqi"]
+events = [SubResource("InputEventKey_vx0qa")]
+
 [node name="toolBox" type="Control"]
 z_index = -1
 layout_mode = 3
@@ -164,6 +172,7 @@ layout_mode = 2
 layout_mode = 2
 mouse_filter = 1
 toggle_mode = true
+shortcut = SubResource("Shortcut_trlqi")
 texture_normal = ExtResource("4_4h03f")
 
 [node name="cog" type="Sprite2D" parent="."]

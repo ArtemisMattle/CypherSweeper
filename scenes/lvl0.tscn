@@ -307,7 +307,8 @@ expand_mode = 1
 
 [node name="pauseMenu" type="PanelContainer" parent="UI/player"]
 visible = false
-z_index = 2
+top_level = true
+z_index = 287
 offset_left = 140.0
 offset_top = 100.0
 offset_right = 1140.0
@@ -818,10 +819,10 @@ grow_vertical = 0
 script = ExtResource("32_fd0d4")
 
 [node name="CoffeeMach" parent="CoffeeMachine" instance=ExtResource("32_0g10q")]
-offset_left = -53.0
-offset_top = 172.0
-offset_right = -1243.0
-offset_bottom = -364.0
+offset_left = -55.0
+offset_top = 88.0
+offset_right = -1245.0
+offset_bottom = -448.0
 
 [node name="mobileCanvas" type="CanvasLayer" parent="."]
 layer = 0

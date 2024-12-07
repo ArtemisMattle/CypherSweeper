@@ -54,7 +54,7 @@ func _on_big_lexicon_pressed() -> void:
 		$bigLexicon/background/lexiconContent.changePage()
 	else:
 		$placer/openBook/lexiconContent.changePage()
-
+	
 func shapeshift() -> void:
 	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = globalVariables.colours[0]
 	$placer/openBook/lexiconOpenPaperGray.modulate = globalVariables.colours[0]
