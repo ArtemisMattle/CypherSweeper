@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://k1tqb2qaw6ao"]
+[gd_scene load_steps=13 format=3 uid="uid://k1tqb2qaw6ao"]
 
 [ext_resource type="Theme" uid="uid://ca51vamnq1fdy" path="res://assets/textures/UI-themes/toolBox.tres" id="1_6wpoy"]
 [ext_resource type="Script" path="res://scripts/toolBox.gd" id="1_k0rmo"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="3_d1wq5"]
 [ext_resource type="Texture2D" uid="uid://b7aha7v5qshar" path="res://assets/textures/UI-elements/tBox.png" id="4_4h03f"]
-[ext_resource type="Texture2D" uid="uid://bjyi8w32og7uq" path="res://assets/textures/UI-elements/cog.png" id="5_77lnf"]
+[ext_resource type="Texture2D" uid="uid://sd3p85fcbssk" path="res://assets/textures/UI-elements/gear.png" id="5_wp207"]
+[ext_resource type="Texture2D" uid="uid://d1t75iiilquut" path="res://assets/textures/gear_norm.png" id="6_fnuc8"]
 
 [sub_resource type="Animation" id="Animation_6336e"]
 resource_name = "close"
@@ -42,7 +43,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(460, 380), Vector2(460, 20)]
+"values": [Vector2(449, 376), Vector2(449, 19)]
 }
 tracks/3/type = "method"
 tracks/3/imported = false
@@ -95,7 +96,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(460, 20), Vector2(460, 380)]
+"values": [Vector2(449, 19), Vector2(449, 376)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5e32b"]
@@ -111,6 +112,11 @@ unicode = 113
 
 [sub_resource type="Shortcut" id="Shortcut_trlqi"]
 events = [SubResource("InputEventKey_vx0qa")]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mh3ye"]
+diffuse_texture = ExtResource("5_wp207")
+normal_texture = ExtResource("6_fnuc8")
+specular_shininess = 0.3
 
 [node name="toolBox" type="Control"]
 z_index = -1
@@ -177,9 +183,9 @@ texture_normal = ExtResource("4_4h03f")
 
 [node name="cog" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(460, 380)
+position = Vector2(449, 376)
 rotation = 4.71239
-texture = ExtResource("5_77lnf")
+texture = SubResource("CanvasTexture_mh3ye")
 
 [connection signal="mouse_entered" from="background" to="." method="_on_tool_box" binds= [true]]
 [connection signal="mouse_exited" from="background" to="." method="_on_tool_box" binds= [false]]
