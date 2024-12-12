@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=46 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -34,7 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="22_qg68g"]
 [ext_resource type="AudioStream" uid="uid://cfh7crptxwpnq" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5.mp3" id="23_8fldy"]
 [ext_resource type="PackedScene" uid="uid://er7aocccwple" path="res://scenes/coffee_mach.tscn" id="32_0g10q"]
-[ext_resource type="Script" path="res://scenes/mouseMovement.gd" id="32_2okng"]
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
 [ext_resource type="Script" path="res://scripts/CoffeeMaker.gd" id="32_fd0d4"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
@@ -726,85 +725,6 @@ offset_left = 1280.0
 offset_bottom = -720.0
 mouse_filter = 2
 
-[node name="mouseMovement" type="Node" parent="UI"]
-script = ExtResource("32_2okng")
-
-[node name="up" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 82.0
-offset_top = 11.0
-offset_right = 1217.0
-offset_bottom = 53.0
-mouse_filter = 1
-
-[node name="upleft" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -18.0
-offset_top = 143.0
-offset_right = 220.0
-offset_bottom = 256.0
-rotation = -0.747352
-mouse_filter = 1
-
-[node name="upright" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1130.0
-offset_top = -7.99997
-offset_right = 1368.0
-offset_bottom = 105.0
-rotation = 0.799843
-mouse_filter = 1
-
-[node name="downleft" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 75.0
-offset_top = 467.0
-offset_right = 313.0
-offset_bottom = 580.0
-rotation = 0.799843
-mouse_filter = 1
-
-[node name="downright" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1038.0
-offset_top = 623.0
-offset_right = 1276.0
-offset_bottom = 736.0
-rotation = -0.834556
-mouse_filter = 1
-
-[node name="left" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 89.0
-offset_right = 80.0
-offset_bottom = 647.0
-mouse_filter = 1
-
-[node name="right" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1193.0
-offset_top = 83.0
-offset_right = 1258.0
-offset_bottom = 641.0
-mouse_filter = 1
-
-[node name="down" type="Control" parent="UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 86.0
-offset_top = 645.0
-offset_right = 1221.0
-offset_bottom = 687.0
-mouse_filter = 1
-
 [node name="toolBox" type="CanvasLayer" parent="."]
 
 [node name="toolBox" parent="toolBox" instance=ExtResource("20_3h17r")]
@@ -864,22 +784,6 @@ height = 0.69
 [connection signal="toggled" from="UI/player/pause/centerer/stacker/pauseButton" to="UI/player" method="_on_pause_button_toggled"]
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/buttons/reset" to="UI/player" method="_on_reset_pressed"]
 [connection signal="pressed" from="UI/player/gameOver/centerer/gameOver/buttons/return" to="UI/player" method="_on_exit_pressed"]
-[connection signal="mouse_entered" from="UI/mouseMovement/up" to="UI/mouseMovement" method="move" binds= [1]]
-[connection signal="mouse_exited" from="UI/mouseMovement/up" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/upleft" to="UI/mouseMovement" method="move" binds= [0]]
-[connection signal="mouse_exited" from="UI/mouseMovement/upleft" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/upright" to="UI/mouseMovement" method="move" binds= [2]]
-[connection signal="mouse_exited" from="UI/mouseMovement/upright" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/downleft" to="UI/mouseMovement" method="move" binds= [6]]
-[connection signal="mouse_exited" from="UI/mouseMovement/downleft" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/downright" to="UI/mouseMovement" method="move" binds= [4]]
-[connection signal="mouse_exited" from="UI/mouseMovement/downright" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/left" to="UI/mouseMovement" method="move" binds= [7]]
-[connection signal="mouse_exited" from="UI/mouseMovement/left" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/right" to="UI/mouseMovement" method="move" binds= [3]]
-[connection signal="mouse_exited" from="UI/mouseMovement/right" to="UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="UI/mouseMovement/down" to="UI/mouseMovement" method="move" binds= [5]]
-[connection signal="mouse_exited" from="UI/mouseMovement/down" to="UI/mouseMovement" method="stop"]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="UI/player/SanGauge" method="updateSanity" flags=3]
 [connection signal="pressed" from="CoffeeMachine/CoffeeMach/CoffeeButton" to="CoffeeMachine" method="drinkCoff"]
 

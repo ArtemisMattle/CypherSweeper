@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bfwbyqyl38ilj"]
+[gd_scene load_steps=41 format=3 uid="uid://bfwbyqyl38ilj"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut1.gd" id="1_245eg"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon1.gd" id="2_c6t0d"]
@@ -31,7 +31,6 @@
 [ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="28_8xunt"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="29_eegda"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="30_0dal1"]
-[ext_resource type="Script" path="res://scenes/mouseMovement.gd" id="30_7eqqr"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_4m5lw"]
 
@@ -587,85 +586,6 @@ bus = &"sfx"
 max_polyphony = 5
 bus = &"sfx"
 
-[node name="mouseMovement" type="Node" parent="lvl/UI"]
-script = ExtResource("30_7eqqr")
-
-[node name="up" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 82.0
-offset_top = 11.0
-offset_right = 1217.0
-offset_bottom = 53.0
-mouse_filter = 1
-
-[node name="upleft" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -18.0
-offset_top = 143.0
-offset_right = 220.0
-offset_bottom = 256.0
-rotation = -0.747352
-mouse_filter = 1
-
-[node name="upright" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1130.0
-offset_top = -7.99997
-offset_right = 1368.0
-offset_bottom = 105.0
-rotation = 0.799843
-mouse_filter = 1
-
-[node name="downleft" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 75.0
-offset_top = 467.0
-offset_right = 313.0
-offset_bottom = 580.0
-rotation = 0.799843
-mouse_filter = 1
-
-[node name="downright" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1038.0
-offset_top = 623.0
-offset_right = 1276.0
-offset_bottom = 736.0
-rotation = -0.834556
-mouse_filter = 1
-
-[node name="left" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 14.0
-offset_top = 89.0
-offset_right = 80.0
-offset_bottom = 647.0
-mouse_filter = 1
-
-[node name="right" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1193.0
-offset_top = 83.0
-offset_right = 1258.0
-offset_bottom = 641.0
-mouse_filter = 1
-
-[node name="down" type="Control" parent="lvl/UI/mouseMovement"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 86.0
-offset_top = 645.0
-offset_right = 1221.0
-offset_bottom = 687.0
-mouse_filter = 1
-
 [node name="view" type="Camera2D" parent="lvl"]
 position = Vector2(640, 360)
 zoom = Vector2(2, 2)
@@ -702,20 +622,4 @@ one_shot = true
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/reset" to="lvl/UI/player" method="_on_reset_pressed"]
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/up" to="lvl/UI/mouseMovement" method="move" binds= [1]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/up" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/upleft" to="lvl/UI/mouseMovement" method="move" binds= [0]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/upleft" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/upright" to="lvl/UI/mouseMovement" method="move" binds= [2]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/upright" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/downleft" to="lvl/UI/mouseMovement" method="move" binds= [6]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/downleft" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/downright" to="lvl/UI/mouseMovement" method="move" binds= [4]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/downright" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/left" to="lvl/UI/mouseMovement" method="move" binds= [7]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/left" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/right" to="lvl/UI/mouseMovement" method="move" binds= [3]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/right" to="lvl/UI/mouseMovement" method="stop"]
-[connection signal="mouse_entered" from="lvl/UI/mouseMovement/down" to="lvl/UI/mouseMovement" method="move" binds= [5]]
-[connection signal="mouse_exited" from="lvl/UI/mouseMovement/down" to="lvl/UI/mouseMovement" method="stop"]
 [connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]

@@ -10,6 +10,19 @@ var speed: float = 21
 func _ready() -> void:
 	globalVariables.cam = self
 
+func _process(delta: float) -> void: # mouse movement
+	var mp = get_local_mouse_position()
+	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -280 / tZoom:
+		return
+	if mp.x > 420 / tZoom:
+		print(mp.x)
+	elif mp.x < -420 / tZoom:
+		print(mp.x)
+	if mp.y > 200 / tZoom:
+		print(mp.y)
+	elif mp.y < -200 / tZoom:
+		print(mp.y)
+
 func _physics_process(delta):
 	if not globalVariables.paused:
 		zoom = lerp(zoom , tZoom * Vector2.ONE, zoomRate * delta)
