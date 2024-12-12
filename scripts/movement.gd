@@ -5,23 +5,27 @@ const zoomInc: float = 0.05
 const zoomRate: float = 7.0
 var tZoom: float = 2.0
 var direction: Vector2 = Vector2.ZERO
-var speed: float = 21
+var speed: float = 210
 
 func _ready() -> void:
 	globalVariables.cam = self
 
 func _process(delta: float) -> void: # mouse movement
 	var mp = get_local_mouse_position()
+	if direction != Vector2.ZERO:
+		direction = direction.normalized()
+		position += direction * speed * delta * 10
+		direction = Vector2.ZERO
 	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -280 / tZoom:
 		return
 	if mp.x > 420 / tZoom:
-		print(mp.x)
+		position.x += speed * delta
 	elif mp.x < -420 / tZoom:
-		print(mp.x)
+		position.x -= speed * delta
 	if mp.y > 200 / tZoom:
-		print(mp.y)
+		position.y += speed * delta
 	elif mp.y < -200 / tZoom:
-		print(mp.y)
+		position.y -= speed * delta
 
 func _physics_process(delta):
 	if not globalVariables.paused:
@@ -29,7 +33,6 @@ func _physics_process(delta):
 		set_physics_process(not is_equal_approx(zoom.x, tZoom))
 
 func _unhandled_input(event: InputEvent):
-	direction = Vector2.ZERO
 	if not globalVariables.paused:
 		#if Input.is_action_pressed("pan"):
 			#if event is InputEventMouseMotion:
@@ -46,10 +49,6 @@ func _unhandled_input(event: InputEvent):
 			direction = direction + Vector2.RIGHT
 		if Input.is_action_pressed("move left"):
 			direction = direction + Vector2.LEFT
-		
-		if direction != Vector2.ZERO:
-			direction = direction.normalized()
-			position += direction * speed 
 
 func zoom_in():
 	tZoom = min(tZoom + zoomInc, maxZoom)
