@@ -104,7 +104,7 @@ func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariab
 
 func deactivate(r: bool) -> void:
 	if r:
-		opener.speed_scale = 1
+		opener.speed_scale = 4
 		opener.clear_queue()
 	else:
 		opener.speed_scale = 0

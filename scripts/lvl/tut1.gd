@@ -32,6 +32,11 @@ func _ready() -> void:
 	add_child(tst)
 	tst.initi(tr("msgTut10"))
 
+func _input(event: InputEvent) -> void:
+	if event.is_action("move down") or event.is_action("move left") or event.is_action("move right") or event.is_action("move up"):
+		time.start()
+		msgTxt = tr("msgTut14")
+
 func lvlup(lvl: int) -> void:
 	time.start()
 	msgTxt = tr("msgTut1" + str(lvl))

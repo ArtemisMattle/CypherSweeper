@@ -18,7 +18,6 @@ func move(dir: int) -> void:
 			Input.action_press("move down")
 			Input.action_press("move left")
 		7: Input.action_press("move left")
-	print(dir)
 
 func stop() -> void:
 	Input.action_release("move up")

@@ -28,6 +28,7 @@ mouseController="res://scripts/mouseController.gd"
 
 [debug]
 
+settings/stdout/print_fps=true
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
 

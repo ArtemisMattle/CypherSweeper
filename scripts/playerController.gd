@@ -50,6 +50,7 @@ func _ready() -> void:
 	$pause/centerer/stacker/pauseButton.disabled=false
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
+	print(globalVariables.language)
 	for id in langSel.get_selectable_item(true)+1:
 		if "btn"+globalVariables.language==langSel.get_item_text(id):
 			langSel.select(id)
@@ -67,6 +68,8 @@ func _ready() -> void:
 
 
 func lvl1(ing: String) -> bool: # 
+	if ing == "":
+		return false
 	if globalVariables.level[ing] < 1:
 		globalVariables.xp[ing] = xpThold[ing + "1"]
 		lvlUp(ing)
@@ -122,8 +125,6 @@ func takeDamage(level: int, counts: bool, modifyable: bool) -> void: #modifies t
 func musicCurser() -> void: #changes the background music 
 	@warning_ignore("integer_division")
 	activeTrack = globalVariables.sanity / 10
-	if activeTrack >= 10:
-		activeTrack = 9
 	music[not activeMusic].stream = load(tracks[activeTrack])
 	music[not activeMusic].play(music[activeMusic].get_playback_position())
 	if activeMusic: # does a crossfade
