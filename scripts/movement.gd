@@ -11,6 +11,8 @@ func _ready() -> void:
 	globalVariables.cam = self
 
 func _process(delta: float) -> void: # mouse movement
+	if globalVariables.paused:
+		return
 	var mp = get_local_mouse_position()
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
@@ -32,7 +34,7 @@ func _physics_process(delta):
 		zoom = lerp(zoom , tZoom * Vector2.ONE, zoomRate * delta)
 		set_physics_process(not is_equal_approx(zoom.x, tZoom))
 
-func _unhandled_input(event: InputEvent):
+func _unhandled_input(event: InputEvent): #inputs through the input system
 	if not globalVariables.paused:
 		#if Input.is_action_pressed("pan"):
 			#if event is InputEventMouseMotion:
