@@ -3,7 +3,7 @@ extends Control
 var openBig: bool = false
 var open: bool = false
 var time: bool = true
-
+var exit: Shortcut = Shortcut.new()
 
 func _ready() -> void:
 	$placer/toolSprite.visible = true
@@ -13,7 +13,9 @@ func _ready() -> void:
 	$placer/openBook.rotate(PI/2)
 	shapeshift()
 	signalBus.modulate.connect(shapeshift)
-	
+	var p: InputEvent = InputEventAction.new()
+	p.set_action("pause")
+	exit.set_events([p])
 	
 	for bigLexicon: TextureButton in get_tree().get_nodes_in_group("bigLex"):
 		bigLexicon.pressed.connect(_on_big_lexicon_pressed)
@@ -45,6 +47,7 @@ func _on_hysterese_timeout() -> void: # prevents flapping
 	$hysterese.stop()
 
 func _on_big_lexicon_pressed() -> void:
+	print(exit.events)
 	$placer/openBook.visible = openBig
 	$bigLexicon.visible = not openBig
 	globalVariables.paused = not openBig
@@ -52,8 +55,11 @@ func _on_big_lexicon_pressed() -> void:
 	openBig = not openBig
 	if openBig:
 		$bigLexicon/background/lexiconContent.changePage()
+		$bigLexicon/background/lexiconContent.get_node("bigLex").set_shortcut(exit)
+
 	else:
 		$placer/openBook/lexiconContent.changePage()
+		$bigLexicon/background/lexiconContent.get_node("bigLex").set_shortcut(null)
 	
 func shapeshift() -> void:
 	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = globalVariables.colours[0]
