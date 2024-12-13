@@ -155,6 +155,8 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_released():
 		signalBus.flagging.emit(selection)
+	if event.is_action("pause"):
+		signalBus.flagging.emit("")
 
 class optSlice:
 	var name: String
