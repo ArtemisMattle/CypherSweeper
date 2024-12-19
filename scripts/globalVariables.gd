@@ -88,10 +88,11 @@ var mods: Array[modifyer] = [ # array of all modifyers
 
 var boxing: bool = false # if a tool gets put back into the box
 var holdable: bool = true
+var tbOpen: bool = false
 
 var lexPage: int = 0 # tells the lexicon on which page it is
 
-var cam: Camera2D
+
 
 var scoreMult: float = 1
 var rngseed: int = 5

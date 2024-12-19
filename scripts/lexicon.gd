@@ -47,7 +47,6 @@ func _on_hysterese_timeout() -> void: # prevents flapping
 	$hysterese.stop()
 
 func _on_big_lexicon_pressed() -> void:
-	print(exit.events)
 	$placer/openBook.visible = openBig
 	$bigLexicon.visible = not openBig
 	globalVariables.paused = not openBig

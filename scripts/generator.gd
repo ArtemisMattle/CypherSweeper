@@ -61,7 +61,7 @@ func _ready()-> void:
 						pos[i].neighbors[j] = "Nothing0"
 			for i: int in n:
 				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
-				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
+				pos[i].cell.get_node("magTurner").body_entered.disconnect(magReveal.bind(i))
 			pos[c].cell.get_node("colour/button").queue_free()
 			pos[c].cell.get_node("colour/backshadow").queue_free()
 			pos[c].hint.text = "C"
@@ -84,7 +84,7 @@ func _ready()-> void:
 						pos[i].neighbors[j] = "Nothing0"
 			for i: int in n:
 				pos[i].cell.get_node("colour/button").disconnect("pressed",reveal)
-				pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
+				pos[i].cell.get_node("magTurner").body_entered.disconnect(magReveal.bind(i))
 			pos[c].cell.get_node("colour/button").queue_free()
 			pos[c].cell.get_node("colour/backshadow").queue_free()
 			pos[c].cell.get_node("indicator/indicatorHerb").visible = true

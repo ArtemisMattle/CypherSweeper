@@ -1,6 +1,5 @@
 extends Control
 
-var open: bool = false
 @export var upy: float = 380
 @export var downy: float = 20
 var toolsize: int = 128
@@ -42,47 +41,47 @@ func _ready() -> void:
 	
 	signalBus.toolTrans.connect(takeTool)
 
-func _physics_process(delta: float) -> void: # tool movement
-	if held != null:
-		var posOld: Vector2 = held.place.global_position
-		held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
-		if held.place.get_meta(&"rot"):
-			if max(abs(posOld.x - held.place.global_position.x), abs(posOld.y - held.place.global_position.y)) > rotThresh:
-				held.place.rotate(held.place.get_angle_to(get_global_mouse_position()) * delta * rotSpeed * (posOld - held.place.global_position).length())
+#func _physics_process(delta: float) -> void: # tool movement
+	#if held != null:
+		#var posOld: Vector2 = held.place.global_position
+		#held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
+		#if held.place.get_meta(&"rot"):
+			#if max(abs(posOld.x - held.place.global_position.x), abs(posOld.y - held.place.global_position.y)) > rotThresh:
+				#held.place.rotate(held.place.get_angle_to(get_global_mouse_position()) * delta * rotSpeed * (posOld - held.place.global_position).length())
 
 func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the parent juggling
 	if t.tScene.get_parent() == self:
 		pass
 	else:
-		held = t
-		set_physics_process(true)
-		globalVariables.holdable = false
+		#held = t
+		#set_physics_process(true)
+		#globalVariables.holdable = false
 		t.tScene.reparent(self)
-		t.place.scale = Vector2(2, 2)
+		#t.place.scale = Vector2(2, 2)
 		t.pickUp.input_event.connect(giveTool.bind(t))
 
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling
 	if Input.is_action_pressed("pickUpTool"):
 		if globalVariables.holdable:
-			held = t
-			set_physics_process(true)
-			globalVariables.holdable = false
+			#held = t
+			#set_physics_process(true)
+			#globalVariables.holdable = false
 			t.tScene.reparent(self)
 			tSpace.remove_at(tools.find(t, 0))
 			tools.erase(t)
-			t.place.scale = Vector2(2, 2)
-	if t == held:
-		if Input.is_action_pressed("pickUpTool"):
-			if t.to_string() == "magnifyer":
-				t.place.get_node("uncover").set_meta("enabled", true)
+			#t.place.scale = Vector2(2, 2)
+	#if t == held:
+		#if Input.is_action_pressed("pickUpTool"):
+			#if t.to_string() == "magnifyer":
+				#t.place.get_node("uncover").set_meta("enabled", true)
 		else:
-			set_physics_process(false)
-			held = null
-			globalVariables.holdable = true
-			t.place.scale = Vector2(1, 1)
-			if t.to_string() == "magnifyer":
-				t.place.get_node("uncover").set_meta("enabled", false)
+			#set_physics_process(false)
+			#held = null
+			#globalVariables.holdable = true
+			#t.place.scale = Vector2(1, 1)
+			#if t.to_string() == "magnifyer":
+				#t.place.get_node("uncover").set_meta("enabled", false)
 			if globalVariables.boxing:
 				t.tScene.reparent(tGrid)
 				var p: int
@@ -109,9 +108,7 @@ func deactivate(r: bool) -> void:
 	else:
 		opener.speed_scale = 0
 	globalVariables.holdable = r
-	held = null
 	deactivated = not r
-	set_physics_process(false)
 
 func _on_open_toggled(toggled_on: bool) -> void:
 	if opener.is_playing():
@@ -120,10 +117,10 @@ func _on_open_toggled(toggled_on: bool) -> void:
 		opener.clear_queue()
 		if toggled_on:
 			opener.queue("open")
-			open = toggled_on
+			globalVariables.tbOpen = toggled_on
 		else:
 			opener.queue("close")
-			open = toggled_on
+			globalVariables.tbOpen = toggled_on
 
 func lowSanity() -> void:
 	for x: int in tools.size():

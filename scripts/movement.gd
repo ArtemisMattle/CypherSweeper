@@ -7,8 +7,6 @@ var tZoom: float = 2.0
 var direction: Vector2 = Vector2.ZERO
 var speed: float = 210
 
-func _ready() -> void:
-	globalVariables.cam = self
 
 func _process(delta: float) -> void: # mouse movement
 	if globalVariables.paused:
@@ -18,6 +16,8 @@ func _process(delta: float) -> void: # mouse movement
 		direction = direction.normalized()
 		position += direction * speed * delta * 10
 		direction = Vector2.ZERO
+	if globalVariables.tbOpen: # disables mouse movement, if the toolbox is opened
+		return
 	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -280 / tZoom:
 		return
 	if mp.x > 420 / tZoom:

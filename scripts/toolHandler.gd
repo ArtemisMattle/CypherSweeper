@@ -18,7 +18,6 @@ func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the paren
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: #handles the drag&drop for the tools, as well as the parent juggling
 	if Input.is_action_pressed("pickUpTool"):
 		if globalVariables.holdable:
-			globalVariables.holdable = false
 			signalBus.toolTrans.emit(t)
 			t.pickUp.input_event.disconnect(giveTool)
 
