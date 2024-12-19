@@ -6,7 +6,7 @@ var time: bool = true
 @export var cArray: Array[Color]
 
 func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void: # handles opening and closing of the lexicon
-	if get_parent().name == "toolBox":
+	#if get_parent().name == "toolBox":
 		if Input.is_action_pressed("activateTool"):
 			if time:
 				if uncoverer.get_meta("mode") >= modeMax:

@@ -4,7 +4,7 @@ func _ready() -> void:
 	signalBus.returnUnrevealed.connect(findUnrevealed)
 
 func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
-	if get_parent().name == "toolBox":
+	#if get_parent().name == "toolBox":
 		if Input.is_action_pressed("activateTool"):
 			if globalVariables.buff["freeHint"] > 0:
 				globalVariables.buff["freeHint"] -= 1

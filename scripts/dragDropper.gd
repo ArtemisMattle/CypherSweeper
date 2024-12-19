@@ -16,6 +16,7 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void: # tool movement
+	held = true
 	var posOld: Vector2 = place.global_position
 	place.global_position = lerp(place.global_position, place.get_global_mouse_position() , speed * delta)
 	if tool.get_meta(&"rot"):
@@ -25,15 +26,14 @@ func _physics_process(delta: float) -> void: # tool movement
 
 
 func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action("pickUpTool"):
+	if event.is_action_pressed("pickUpTool"):
 		print(globalVariables.holdable)
 		if globalVariables.holdable:
-			held = true
 			set_physics_process(true)
 			globalVariables.holdable = false
 			place.scale = Vector2(2, 2)
 		elif held:
-			held = false
 			set_physics_process(false)
+			held = false
 			globalVariables.holdable = true
 			place.scale = Vector2(1, 1)

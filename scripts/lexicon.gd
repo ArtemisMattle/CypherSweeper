@@ -21,22 +21,22 @@ func _ready() -> void:
 		bigLexicon.pressed.connect(_on_big_lexicon_pressed)
 
 func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void: # handles opening and closing of the lexicon
-	if get_parent().name == "toolBox":
+	#if get_parent().name == "toolBox":
 		if Input.is_action_pressed("activateTool"):
 			if time:
 				if open:
 					$placer/toolSprite.visible = true
-					$placer/pickUp/boxClosed.visible = true
+					$placer/pickUp/boxClosed.disabled = false
 					$placer/openBook.visible = false
-					$placer/pickUp/boxOpen.visible = false
+					$placer/pickUp/boxOpen.disabled = true
 					open = false
 					$placer.rotate(PI/2)
 				else:
 					$placer.rotate(-PI/2)
 					$placer/toolSprite.visible = false
-					$placer/pickUp/boxClosed.visible = false
+					$placer/pickUp/boxClosed.disabled = true
 					$placer/openBook.visible = true
-					$placer/pickUp/boxOpen.visible = true
+					$placer/pickUp/boxOpen.disabled = false
 					open = true
 			time = false
 			$hysterese.start()

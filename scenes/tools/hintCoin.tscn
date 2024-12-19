@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbm5n1ssy086h"]
+[gd_scene load_steps=5 format=3 uid="uid://bbm5n1ssy086h"]
 
 [ext_resource type="Script" path="res://scripts/hintCoin.gd" id="1_fmy8v"]
 [ext_resource type="Texture2D" uid="uid://ciqbl4ayaah6i" path="res://assets/textures/tools/coin-pi.png" id="1_gods6"]
+[ext_resource type="PackedScene" uid="uid://bicrp6l3rgnqg" path="res://scenes/components/dragDropper.tscn" id="3_0tcnu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_prm2p"]
 radius = 39.0512
@@ -15,6 +16,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_fmy8v")
+metadata/tool = true
+metadata/rot = false
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(64, 64)
@@ -31,4 +34,7 @@ position = Vector2(0, -1)
 rotation = -0.244346
 shape = SubResource("CircleShape2D_prm2p")
 
+[node name="dragDropper" parent="." instance=ExtResource("3_0tcnu")]
+
 [connection signal="input_event" from="placer/pickUp" to="." method="_on_pick_up_input_event"]
+[connection signal="input_event" from="placer/pickUp" to="dragDropper" method="_on_pick_up_input_event"]
