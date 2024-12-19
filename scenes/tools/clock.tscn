@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqyvf3fho626h"]
+[gd_scene load_steps=8 format=3 uid="uid://cqyvf3fho626h"]
 
 [ext_resource type="Script" path="res://scripts/timer.gd" id="1_hm4nu"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="2_yih2h"]
 [ext_resource type="Texture2D" uid="uid://bluxepwvwpkg1" path="res://assets/textures/tools/clock.png" id="3_fvqfb"]
 [ext_resource type="Texture2D" uid="uid://palaajqifkp7" path="res://assets/textures/tools/secundu.png" id="4_m2cj7"]
 [ext_resource type="Texture2D" uid="uid://cyg24ce2yi83q" path="res://assets/textures/tools/prima.png" id="5_teh1n"]
+[ext_resource type="PackedScene" uid="uid://bicrp6l3rgnqg" path="res://scenes/components/dragDropper.tscn" id="6_dmkme"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47dr8"]
 radius = 33.1361
@@ -17,6 +18,8 @@ mouse_filter = 2
 script = ExtResource("1_hm4nu")
 metadata/digital = false
 metadata/analog = true
+metadata/tool = true
+metadata/rot = false
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(32, 32)
@@ -40,3 +43,7 @@ texture = ExtResource("5_teh1n")
 
 [node name="sphere" type="CollisionShape2D" parent="placer/pickUp"]
 shape = SubResource("CircleShape2D_47dr8")
+
+[node name="dragDropper" parent="." instance=ExtResource("6_dmkme")]
+
+[connection signal="input_event" from="placer/pickUp" to="dragDropper" method="_on_pick_up_input_event"]

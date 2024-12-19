@@ -54,7 +54,7 @@ var specials: Dictionary = {
 var empty: int 
 var sum: int
 
-var beanCount=100; # Percentage of map with coffee beans
+var beanCount: int =100; # Percentage of map with coffee beans
 
 var colours: Array[Color] = [
 	Color(0.878, 0.8, 0.533),
@@ -143,7 +143,7 @@ func mouseHandler(event: InputEvent) -> void:
 
 func sToHex(x: String) -> String:
 	
-	var y: String
+	var y: String = ""
 	while not x.is_empty():
 		y += x.left(1).to_utf8_buffer().hex_encode()
 		x = x.erase(0)
