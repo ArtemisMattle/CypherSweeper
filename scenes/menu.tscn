@@ -541,8 +541,19 @@ text = "Philipp Maschayechi"
 layout_mode = 2
 theme_override_constants/line_spacing = -55
 theme_override_font_sizes/font_size = 50
-text = "Raphael 
-   Schwaigerlehner"
+text = "Raphael Schwaigerlehner"
+
+[node name="alex" type="Label" parent="background/edge/menu/credits/credits"]
+layout_mode = 2
+theme_override_constants/line_spacing = -55
+theme_override_font_sizes/font_size = 50
+text = "Alexander Jäger"
+
+[node name="nils" type="Label" parent="background/edge/menu/credits/credits"]
+layout_mode = 2
+theme_override_constants/line_spacing = -55
+theme_override_font_sizes/font_size = 50
+text = "Nils Mosser"
 
 [node name="levelSelect" type="GridContainer" parent="background/edge/menu"]
 visible = false
