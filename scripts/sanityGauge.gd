@@ -2,6 +2,7 @@ extends Sprite2D
 @onready var san: TextureProgressBar = $Sanity
 @onready var eyecover: Sprite2D = $SanEyeCover
 @onready var eye: Sprite2D = $TheEye
+var shutter: int = 0
 var eyePos: Vector2
 
 # Called when the node enters the scene tree for the first time.
@@ -12,13 +13,20 @@ func _ready():
 
 func _process(_delta):
 	glance()
+	if abs(shutter - eyecover.position.y) > 4:
+		if shutter > eyecover.position.y:
+			eyecover.position.y = clamp(eyecover.position.y + 3 * _delta, 0, shutter)
+		else:
+			eyecover.position.y = clamp(eyecover.position.y - 3 * _delta, shutter, 100)
 
 func updateSanity():
 	san.value = globalVariables.sanity
-	if(globalVariables.sanity<60):
-		eyecover.self_modulate.a=(globalVariables.sanity-10)*0.02
+	if globalVariables.sanity > 90:
+		shutter = 0
+	elif globalVariables.sanity > 50:
+		shutter =  (90 - globalVariables.sanity) * 2.5
 	else:
-		eyecover.self_modulate.a=1
+		shutter = 100
 
 func glance():
 	var mpos=(get_local_mouse_position()-eyePos) / (get_window().content_scale_factor * 1000)
