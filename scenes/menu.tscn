@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=25 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://c6c14jdyc3x41" path="res://assets/audio/sfx/Knopf Version B.mp3" id="15_1wson"]
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
+[ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="17_15lbl"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2uwsx"]
 playback_mode = 1
@@ -496,7 +497,6 @@ theme_override_font_sizes/font_size = 24
 text = "Score Modifyer: "
 
 [node name="credits" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="creditsSpace" type="Container" parent="background/edge/menu/credits"]
@@ -505,55 +505,202 @@ layout_mode = 2
 
 [node name="credits" type="VBoxContainer" parent="background/edge/menu/credits"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="artemis" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="artemis" type="HBoxContainer" parent="background/edge/menu/credits/credits"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_constants/separation = -7
+
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/artemis"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -12
+theme_override_font_sizes/font_size = 24
+text = "Creative &
+Dev Lead"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/artemis"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+
+[node name="artemis" type="Label" parent="background/edge/menu/credits/credits/artemis"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
 text = "Artemis D. Mattle"
 
-[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis"]
-position = Vector2(665, 51)
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/artemis"]
+position = Vector2(424, 21)
 rotation = -0.144862
 scale = Vector2(3, 3)
 texture = ExtResource("10_fwxph")
 
-[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/artemis/Sprite2D"]
 clip_children = 1
 texture = ExtResource("10_76px3")
 
-[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/Sprite2D/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="background/edge/menu/credits/credits/artemis/artemis/Sprite2D/Sprite2D"]
 position = Vector2(0.079511, -0.323711)
 rotation = 0.144862
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("11_6rgdl")
 
-[node name="bluefoxx" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="nils" type="HBoxContainer" parent="background/edge/menu/credits/credits"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Bluefoxx"
+theme_override_constants/separation = -7
 
-[node name="philipp" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/nils"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -12
+theme_override_font_sizes/font_size = 24
+text = "Organisation &
+Translations"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/nils"]
+custom_minimum_size = Vector2(55, 0)
+layout_mode = 2
+
+[node name="nils" type="Label" parent="background/edge/menu/credits/credits/nils"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
+text = "Nils Mosser"
+
+[node name="philipp" type="HBoxContainer" parent="background/edge/menu/credits/credits"]
+layout_mode = 2
+theme_override_constants/separation = -7
+
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/philipp"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -12
+theme_override_font_sizes/font_size = 24
+text = "Add Dev &
+Shaders"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/philipp"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+
+[node name="philipp" type="Label" parent="background/edge/menu/credits/credits/philipp"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
 text = "Philipp Maschayechi"
 
-[node name="raphael" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="visual" type="VBoxContainer" parent="background/edge/menu/credits/credits"]
 layout_mode = 2
-theme_override_constants/line_spacing = -55
-theme_override_font_sizes/font_size = 50
+theme_override_constants/separation = -7
+
+[node name="visualLead" type="HBoxContainer" parent="background/edge/menu/credits/credits/visual"]
+layout_mode = 2
+theme_override_constants/separation = -7
+
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/visual/visualLead"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -18
+theme_override_font_sizes/font_size = 24
+text = "Visual Lead"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/visual/visualLead"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+
+[node name="raphael" type="Label" parent="background/edge/menu/credits/credits/visual/visualLead"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
 text = "Raphael Schwaigerlehner"
 
-[node name="alex" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="visual" type="HBoxContainer" parent="background/edge/menu/credits/credits/visual"]
 layout_mode = 2
-theme_override_constants/line_spacing = -55
-theme_override_font_sizes/font_size = 50
+theme_override_constants/separation = -7
+
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/visual/visual"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -18
+theme_override_font_sizes/font_size = 24
+text = "Visual Art"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/visual/visual"]
+custom_minimum_size = Vector2(111, 0)
+layout_mode = 2
+
+[node name="visual" type="VBoxContainer" parent="background/edge/menu/credits/credits/visual/visual"]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="alex" type="Label" parent="background/edge/menu/credits/credits/visual/visual/visual"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
 text = "Alexander Jäger"
 
-[node name="nils" type="Label" parent="background/edge/menu/credits/credits"]
+[node name="jonny" type="Label" parent="background/edge/menu/credits/credits/visual/visual/visual"]
 layout_mode = 2
-theme_override_constants/line_spacing = -55
-theme_override_font_sizes/font_size = 50
-text = "Nils Mosser"
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
+text = "Jonas Zeillinger
+"
+
+[node name="bluefoxx" type="HBoxContainer" parent="background/edge/menu/credits/credits"]
+layout_mode = 2
+theme_override_constants/separation = -7
+
+[node name="label" type="Label" parent="background/edge/menu/credits/credits/bluefoxx"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/line_spacing = -12
+theme_override_font_sizes/font_size = 24
+text = "Music &
+Sound Design"
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/bluefoxx"]
+custom_minimum_size = Vector2(69, 0)
+layout_mode = 2
+
+[node name="bluefoxx" type="Label" parent="background/edge/menu/credits/credits/bluefoxx"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_font_sizes/font_size = 32
+text = "Bluefoxx"
+
+[node name="space2" type="Control" parent="background/edge/menu/credits/credits/bluefoxx"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+
+[node name="link" type="VBoxContainer" parent="background/edge/menu/credits/credits/bluefoxx"]
+layout_mode = 2
+
+[node name="space" type="Control" parent="background/edge/menu/credits/credits/bluefoxx/link"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="spotify" type="LinkButton" parent="background/edge/menu/credits/credits/bluefoxx/link"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 9.62615e-07, 0.77666, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("17_15lbl")
+theme_override_font_sizes/font_size = 24
+text = "Spotify"
+underline = 1
+uri = "https://open.spotify.com/artist/0pPWLy0VWtuDM7eQxDJqGn?si=5e53471d5a0e47fd"
 
 [node name="levelSelect" type="GridContainer" parent="background/edge/menu"]
 visible = false
@@ -670,6 +817,7 @@ layout_mode = 2
 text = "Level 9"
 
 [node name="story" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 
