@@ -31,7 +31,16 @@ btnContinue,Continue,,,,,
 btnTutorial,Tutorials,,,,,
 btnSaves,Saves,,,,,
 btnNext,Next,,,,,
-,,,,,,
+lbArtemis,"Creative &
+Dev Lead",,,,,
+lbNiles,"Organisation &
+Translations",,,,,
+lbPhilipp,"Add Dev &
+Shaders",,,,,
+lbVisualLead,Visual Lead,,,,,
+lbVisual,Visual Art,,,,,
+lbDiana,"Music &
+Sound Design",,,,,
 ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ĉiuj viaj iloj"
 btnExit,Exit,Beenden,Quiter,,,Elirejo
 lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
@@ -180,6 +189,7 @@ msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b]
 msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b]. But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix. The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells.",,,,,
 msgTut12,"Now after having gathered more information you are able to uncover the [b]second level[/b] of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",,,,,
 msgTut13,"You almost did it, you can now safely uncover all information in this recipe, except for the [b]Flamel[/b] of course, but you hopefully already know where it is and know that it’s the last cell to open.",,,,,
+msgTut14,,,,,,
 lbTut2,"Congratulations! You mastered Types.
 Up next Tools!",,,,,
 msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on. We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.",,,,,
