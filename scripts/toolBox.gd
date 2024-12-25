@@ -58,10 +58,7 @@ func takeTool(t: globalVariables.tool, held) -> void: # recieves a tool from the
 				t.tScene.reparent(self)
 	else:
 		if globalVariables.boxing:
-			if t.tScene.get_parent() == tGrid:
-				pass
-			else:
-				t.tScene.reparent(tGrid)
+			t.tScene.reparent(tGrid)
 			var p: int
 			for i: int in 9:
 				if not tSpace.has(i):

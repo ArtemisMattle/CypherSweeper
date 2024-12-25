@@ -22,7 +22,7 @@ func _init() -> void:
 	globalVariables.ingredientStack["Salt1"] = 13
 	globalVariables.ingredientStack["Salt2"] = 7
 	globalVariables.ingredientStack["Salt3"] = 3
-	globalVariables.specials["coffee"] = 0
+	globalVariables.specials["coffee"] = 9
 	globalVariables.n = 1 - (3 * globalVariables.size) + (3 * (globalVariables.size * globalVariables.size))
 	globalVariables.sanity = 100
 	globalVariables.leveled1 = false
@@ -40,21 +40,19 @@ func _ready() -> void:
 	signalBus.upsane.connect(dmg)
 	var tst = msg.instantiate()
 	add_child(tst)
-	tst.initi(tr("msgTut20"))
+	tst.initi(tr("msgTut30"))
+	time.start()
 
 func lvlup(ingr: String) -> void:
 	if globalVariables.level[ingr] == 1:
 		lvl1 += 1
-		if lvl1 == 1:
-			msgTxt = tr("msgTut21") % tr(ingr)
-			time.start()
-		elif lvl1 == 3:
-			msgTxt = tr("msgTut22")
+		if lvl1 == 3:
+			msgTxt = tr("msgTut32")
 			time.start()
 	if globalVariables.level[ingr] == 3:
 		lvl3 += 1
 		if lvl3 == 3:
-			msgTxt = tr("msgTut23")
+			msgTxt = tr("msgTut33")
 			time.start()
 
 func dmg() -> void:
@@ -65,6 +63,14 @@ func dmg() -> void:
 			msgTxt = tr("msgTutDmg")
 
 func _on_tut_msg_timer_timeout() -> void:
+	if msgTxt == "":
+		for i: Control in $lvl/UI/potionShelf.pot:
+			i.queue_free()
+		$lvl/UI/potionShelf.pot.clear
+		$lvl/UI/potionShelf.gainPotion(0)
+		$lvl/UI/potionShelf.gainPotion(1)
+		$lvl/UI/potionShelf.gainPotion(0)
+		return
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)
@@ -72,4 +78,4 @@ func _on_tut_msg_timer_timeout() -> void:
 
 func _on_next_pressed() -> void:
 	globalVariables.mod = []
-	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut3.tscn")
+	get_tree().change_scene_to_file("res://scripts/mainMenu.gd")
