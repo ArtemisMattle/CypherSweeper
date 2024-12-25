@@ -555,7 +555,9 @@ func getUnrevealedIngredient() -> void: # emits a signal with a position and an 
 		p = ingList.keys().pick_random()
 		if pos[p].flagged == "":
 			break
-	
+	if globalVariables.hintFlagging:
+		pos[p].flagged = pos[p].ingredient
+		pos[p].cell.get_node("flag").texture = load("res://assets/textures/ingredients/flags/" + pos[p].ingredient + ".png")
 	signalBus.returnUnrevealed.emit(pos[p].ingredient, pos[p].cell.global_position)
 
 func getNeighNeighbors(i: int) -> Array[int]: # returns all unique neighbors of the neighbors of a cell

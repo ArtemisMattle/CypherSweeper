@@ -22,6 +22,7 @@ var uncovered: int = 0
 var size: int
 var n: int
 var xpFlagBoon: float = 0.15
+var hintFlagging: bool = true
 var xp: Dictionary = {
 	"Herb" = 0.0, 
 	"Shroom" = 0.0, 
