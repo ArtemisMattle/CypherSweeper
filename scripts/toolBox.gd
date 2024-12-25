@@ -10,7 +10,7 @@ var toolsize: int = 128
 var tools: Array[globalVariables.tool] # array for all tools in the toolBox
 var tSpace: Array[int] # tracks which positions in the toolbox are open
 
-var held: globalVariables.tool = null
+#var held: globalVariables.tool = null
 var speed: float = 50
 var rotSpeed: float = .3
 var rotThresh: float = 5
@@ -37,7 +37,7 @@ func _ready() -> void:
 		tGrid.add_child(tools[x].tScene)
 		tSpace.append(x)
 		tools[x].place.position = Vector2(toolsize / 2 + (x % 3) * toolsize , toolsize / 2 + (x / 3) * toolsize)
-		tools[x].pickUp.input_event.connect(giveTool.bind(tools[x]))
+		#tools[x].pickUp.input_event.connect(giveTool.bind(tools[x]))
 	
 	signalBus.toolTrans.connect(takeTool)
 
@@ -49,25 +49,39 @@ func _ready() -> void:
 			#if max(abs(posOld.x - held.place.global_position.x), abs(posOld.y - held.place.global_position.y)) > rotThresh:
 				#held.place.rotate(held.place.get_angle_to(get_global_mouse_position()) * delta * rotSpeed * (posOld - held.place.global_position).length())
 
-func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the parent juggling
-	if t.tScene.get_parent() == self:
-		pass
+func takeTool(t: globalVariables.tool, held) -> void: # recieves a tool from the parent juggling
+	if held:
+		if t.tScene.get_meta("boxTool"):
+			if t.tScene.get_parent() == self:
+				pass
+			else:
+				t.tScene.reparent(self)
 	else:
-		#held = t
-		#set_physics_process(true)
-		#globalVariables.holdable = false
-		t.tScene.reparent(self)
-		#t.place.scale = Vector2(2, 2)
-		t.pickUp.input_event.connect(giveTool.bind(t))
+		if globalVariables.boxing:
+			if t.tScene.get_parent() == tGrid:
+				pass
+			else:
+				t.tScene.reparent(tGrid)
+			var p: int
+			for i: int in 9:
+				if not tSpace.has(i):
+					tSpace.append(i)
+					p = i
+					break
+			tools.append(t)
+			t.pickUp.input_event.connect(giveTool.bind(t))
+			var offset: Vector2
+			if globalVariables.sanity < 75:
+				offset = Vector2.from_angle(randf_range(0, 2 * PI))
+				offset *= randf_range(0, 1000 / globalVariables.sanity)
+			t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
+	print(t.tScene.get_parent())
 
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling
 	if Input.is_action_pressed("pickUpTool"):
 		if globalVariables.holdable:
-			#held = t
-			#set_physics_process(true)
-			#globalVariables.holdable = false
-			t.tScene.reparent(self)
+			#t.tScene.reparent(self)
 			tSpace.remove_at(tools.find(t, 0))
 			tools.erase(t)
 			#t.place.scale = Vector2(2, 2)

@@ -20,6 +20,7 @@ metadata/digital = false
 metadata/analog = true
 metadata/tool = true
 metadata/rot = false
+metadata/boxTool = false
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(32, 32)

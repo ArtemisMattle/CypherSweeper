@@ -25,6 +25,7 @@ mouse_filter = 2
 script = ExtResource("1_avxf4")
 metadata/tool = true
 metadata/rot = true
+metadata/boxTool = true
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(32, 32)

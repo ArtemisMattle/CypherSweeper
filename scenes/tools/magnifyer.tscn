@@ -22,6 +22,8 @@ script = ExtResource("1_i7g38")
 cArray = Array[Color]([Color(0, 0, 0, 1), Color(0.717251, 0, 0, 1), Color(0.447059, 0, 0.501961, 1), Color(0, 1, 0, 1)])
 metadata/tool = true
 metadata/rot = false
+metadata/enabled = true
+metadata/boxTool = false
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(64, 64)
@@ -51,7 +53,6 @@ shape = SubResource("RectangleShape2D_t1bet")
 [node name="uncover" type="CharacterBody2D" parent="placer"]
 collision_layer = 2
 collision_mask = 2
-metadata/enabled = false
 metadata/mode = 0
 
 [node name="uncoverCircle" type="CollisionShape2D" parent="placer/uncover"]

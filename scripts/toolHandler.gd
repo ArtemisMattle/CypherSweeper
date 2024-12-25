@@ -6,14 +6,29 @@ func _ready() -> void:
 	globalVariables.holdable = true
 	signalBus.toolTrans.connect(takeTool)
 
-func takeTool(t: globalVariables.tool) -> void: # recieves a tool from the parent juggling
-	if t in tools:
-		tools.erase(t)
+func takeTool(t: globalVariables.tool, held: bool) -> void: # recieves a tool from the parent juggling
+	if held:
+		if t.tScene.get_meta("boxTool"):
+			pass
+		else:
+			if t.tScene.get_parent() == self:
+				pass
+			else:
+				t.tScene.reparent(self)
+				tools.append(t)
 	else:
-		tools.append(t)
-		t.tScene.reparent(self)
-		t.place.global_position
-		t.pickUp.input_event.connect(giveTool.bind(t))
+		if globalVariables.boxing:
+			tools.erase(t)
+		if t.tScene.get_meta("boxTool"):
+			t.tScene.reparent(self)
+			tools.append(t)
+	#if t in tools:
+		#tools.erase(t)
+	#else:
+		#tools.append(t)
+		#t.tScene.reparent(self)
+		#t.place.global_position
+		##t.pickUp.input_event.connect(giveTool.bind(t))
 
 func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: #handles the drag&drop for the tools, as well as the parent juggling
 	if Input.is_action_pressed("pickUpTool"):

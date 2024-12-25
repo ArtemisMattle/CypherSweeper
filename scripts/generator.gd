@@ -386,7 +386,7 @@ func _on_flag_timer_timeout() -> void:
 	active = true
 
 func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
-	if body.get_meta("enabled"):
+	if body.get_parent().get_parent().get_meta("enabled"):
 		match body.get_meta("mode"):
 			1:
 				reveal(i, 2)

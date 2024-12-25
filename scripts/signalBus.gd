@@ -7,7 +7,8 @@ signal upsane
 signal deactivate(reactivate: bool) #used to deactivate certain elements
 signal populated
 signal modulate
-signal toolTrans(tool: globalVariables.tool)
+signal toolTrans(tool: globalVariables.tool, held: bool)
+signal drop(re: bool) #used to drop certain tools specifically
 signal getRandomUnrevealed
 signal returnUnrevealed(ingredient: String, position: Vector2)
 signal flagging(flag: String)
