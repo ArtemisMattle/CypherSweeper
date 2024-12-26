@@ -157,7 +157,7 @@ offset_left = 74.0
 offset_top = 196.0
 offset_right = 117.0
 offset_bottom = 221.0
-text = "lbHerb"
+text = "Herb"
 
 [node name="salt1" type="Sprite2D" parent="ingredients"]
 position = Vector2(352, 190)
@@ -181,7 +181,7 @@ offset_left = 376.0
 offset_top = 184.0
 offset_right = 419.0
 offset_bottom = 209.0
-text = "lbSalt"
+text = "Salt"
 
 [node name="shroom1" type="Sprite2D" parent="ingredients"]
 position = Vector2(180, 214)
@@ -205,7 +205,7 @@ offset_left = 206.0
 offset_top = 190.0
 offset_right = 268.0
 offset_bottom = 215.0
-text = "lbShroom"
+text = "Shroom"
 
 [node name="neighborhood" type="Sprite2D" parent="."]
 visible = false
