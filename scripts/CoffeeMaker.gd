@@ -28,7 +28,7 @@ func bean():
 
 func rdycoff():
 	if coffeerdy>0:
-		coffee.set_position(Vector2(100,coffee.position.y));
+		coffee.set_position(Vector2(55,coffee.position.y));
 		
 func drinkCoff():
 	coffeerdy-=1;
