@@ -9,9 +9,9 @@ btnStatistics,Statistics,Statistik,Statistique,,,Statistiko
 btnCredits,Credits,Mitwirkende,Équipe,,Credi’s,Kreditoj
 btnBack,Back,Zurück,Retour,,,Reveno
 ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Baldaŭ Venos!
-ttMaster,[b]Mute Audio[/b],,,,,
-ttSFX,[b]Mute Sound Effects[/b],,,,,
-ttMusic,[b]Mute Music[/b],,,,,
+ttMaster,[b]Mute Audio[/b],[b]Ton aus[/b],,,,
+ttSFX,[b]Mute Sound Effects[/b],[b]SFX aus[/b],,,,
+ttMusic,[b]Mute Music[/b],[b]Musik aus[/b],,,,
 lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
 btnEN,English,Englisch,Anglais,,,Angla
 btnDE,German,Deutsch,Allemand,,,Germana
@@ -25,22 +25,25 @@ btnNormal,Normal,Normal,Normal,,,Normala
 lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Reĝimo
 selSize,Size,Größe,Taille,,,Grandeco
 ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, les valeurs plus élevées sont plus difficiles et prennent plus de temps !",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
-lbPre,Presets,,,,,
-btnNewGame,New Game,,,,,
-btnContinue,Continue,,,,,
-btnTutorial,Tutorials,,,,,
-btnSaves,Saves,,,,,
-btnNext,Next,,,,,
+lbPre,Presets,Voreinstellungen,,,,
+btnNewGame,New Game,Neues Spiel,,,,
+btnContinue,Continue,Weiter,,,,
+btnTutorial,Tutorials,Tutorium,,,,
+btnSaves,Saves,Speicherstände,,,,
+btnNext,Next,Weiter,,,,
 lbArtemis,"Creative &
-Dev Lead",,,,,
+Dev Lead",Regie,,,,
 lbNiles,"Organisation &
-Translations",,,,,
+Translations","Organisation &
+Übersetzungen",,,,
 lbPhilipp,"Add Dev &
-Shaders",,,,,
-lbVisualLead,Visual Lead,,,,,
-lbVisual,Visual Art,,,,,
+Shaders","Entwicklung &
+Shader",,,,
+lbVisualLead,Visual Lead,Grafik Chef,,,,
+lbVisual,Visual Art,Grafiker,,,,
 lbDiana,"Music &
-Sound Design",,,,,
+Sound Design","Musik &
+Sound Effekte",,,,
 ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ĉiuj viaj iloj"
 btnExit,Exit,Beenden,Quiter,,,Elirejo
 lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
@@ -55,50 +58,43 @@ lbMod,Your modifyer is,Dein Multiplikator ist,Ton multiplicateur est,,,Via modif
 lbScore,You scored,Dein Score ist,Ton Score est,,,Vi gajnis
 lbMin,Minutes and,Minuten und,minutes et,,,Minutojn kaj
 lbSec,Seconds,Sekunden,secondes,,,Sekundojn
-lexl0,In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. ,"In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
+lexl0,In Cypher Sweeper you try to uncover the whole field to decipher the recipe for a magic potion.,"In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. 
 Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet (siehe Anzeige unten rechts) verlierst du. ",,,,
-lexr0,"Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet verlierst du. ",,,,,
-lexl1,"Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. ","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
+lexr0,"So as not to lose sanity, the Flamel must be the last field you click on. You lose if you uncover it before all other fields have been cleared or your sanity (see arrow) runs out. ","Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet verlierst du. ",,,,
+lexl1,"Even the nicest work can be a strain on your mental health sometimes. Whenever you make mistakes, that is to say uncover ingredients that still have danger levels too advanced for you, you lose sanity.","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben, verschlechtert sich dein mentaler Zustand. Versuche nicht überzuschnappen! 
 
-Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.",,,,
-lexr1,"Versuche nicht überzuschnappen! 
+Dein aktueller mentaler Zustand wird in dieser Anzeige dargestellt.",,,,
+lexr1,"Try not to go mad! 
+The current state of your sanity is shown in this gauge.
+
+You can drink coffee in order not to completely lose sanity while playing. ","Versuche nicht überzuschnappen! 
 Dein aktueller mentaler Zustand wird in dieser anzeige dargestellt.
 
-Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. ",,,,,
-lexl2,"Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.","
-",,,,
+Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. ",,,,
+lexl2,At the end of a round you get a score. Depending on how fast you were and how many mistakes you made it can be lower or higher. The number of tips used and multiplicators also play a role.,"Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.",,,,
 lexr2, ,,,,,
-lexl3,"In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+lexl3,"Some cells contain ingredients. These ingredients are dangerous, if you aren’t ready for them yet.
 ","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
 
-Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
+",,,,
+lexr3,"There are 3 groups of ingredients: Herbs, Shrooms and Salts. 
 
-Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.",,,,
-lexr3,"Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
-
-Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr.",,,,,
-lexl4,"Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
-
-","Diese Zutaten gezielt aufdecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
-
-Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
-gibt sie dir einen Indikator und
-wenn sie selbst keine Zutat hat,
-Auch einen Hinweis.",,,,
+Additionally there are 3 levels of danger for each group of ingredients.","Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. Zusätzlich gibt es 3 Gefahrenstufen für jede Zutat.",,,,
+lexl4,"Uncovering these ingredients in a focused way, requires certain information which can be obtained from the neighbourhood.","Diese Zutaten gezielt aufzudecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+",,,,
 lexr4,"Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
 gibt sie dir einen Indikator und
 wenn sie selbst keine Zutat hat,
-Auch einen Hinweis.",,,,,
+Auch einen Hinweis.","Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
+gibt sie dir einen Indikator und
+wenn sie selbst keine Zutat hat,
+Auch einen Hinweis.",,,,
 lexl5,"Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
 
 Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
-Vertreten sind.","Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
-
-Indikatoren zeigen dir, welche Zutatengruppen in ihrer Nachbarschaft
-Vertreten sind.",,,,
-lexr5, ,,,,,
-lexl6,"Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.","
-",,,,
+Vertreten sind.",gibt sie dir einen Indikator und,,,,
+lexr5, ,"wenn sie selbst keine Zutat hat,",,,,
+lexl6,"Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.",Auch einen Hinweis.,,,,
 lexr6,"Welches Gefahrenlevel an Zutaten gerade sicher aufgedeckt werden kann, siehst du auf diesem Panel:",,,,,
 lexl7,"Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. 
 Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ","Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ",,,,
