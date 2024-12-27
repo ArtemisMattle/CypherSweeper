@@ -178,28 +178,29 @@ ttModFU,"[b]Fungi:[/b] When active, there will be Fungi amongus!",[b]Pilze:[/b] 
 lbTut0,"Congratulations! You mastered the basics.
 Up next Levels!","Gratulation! Du hast die Grundlagen gemeistert.
 Auf zu neuen Levels!",,,,
-msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.",,,,,
-msgTut01,"Now that you learned a bit about the recipe you are decyfering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.",,,,,
-msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.",,,,,
-msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.",,,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
+msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.","Wilkommen im Cypher Sweeper Tutorium, in diesem Level lernst du die Spielgrundlagen und wie man gewinnt. Schließe diese Nachricht und decke ein Feld auf, um zu beginnen.",,,,
+msgTut01,"Now that you learned a bit about the recipe you are deciphering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.","Jetzt, wo du ein bisschen über das Rezept weißt, das wir entziffern, bist du bereit für gefährlicheres Wissen, sprich [b]Zutaten[/b], aber berühre nicht das Flamel! (Wert 5)",,,,
+msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.",Du hast fast komplettes Wissen über das Rezept und musst nur mehr das [b]Flamel[/b] aufdecken (es funktioniert wie die schwarze Billardkugel).,,,,
+msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.","Aua! Wissen, auf das du nicht vorbereitet bist tut weh und lässt dich [b]mentale Gesundheit[/b] verlieren. Fürs erste versuche sowas zu umgehen, aber auf lange sicht brauchst du Kaffee.",,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
 lbTutFail,"Welp, that wasn’t it, Try Again, …
-Or don’t, You don’t owe it to anyone",,,,,
+Or don’t, you don’t owe it to anyone.","Das war wohl nix, versuch’s noch mal … oder nicht, du schuldest es niemandem.",,,,
 lbTut1,"Congratulations! You mastered Levels.
-Up next Types!",,,,,
-msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b].",,,,,
+Up next Types!","Gratuliere! Du hast Level verstanden.
+Nächstes Thema: Typen!",,,,
+msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b].","In diesem Level lernst du höhere [b]Zutatenlevels[/b] kennen. Es gibt hier Pilze und Kräuter, aber erstmal musst du dich nur mit einer [b]Zutat[/b] beschäftigen.",,,,
 msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b]. But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix. The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells.",,,,,
 msgTut12,"Now after having gathered more information you are able to uncover the [b]second level[/b] of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",,,,,
 msgTut13,"You almost did it, you can now safely uncover all information in this recipe, except for the [b]Flamel[/b] of course, but you hopefully already know where it is and know that it’s the last cell to open.",,,,,
 msgTut14,,,,,,
 lbTut2,"Congratulations! You mastered Types.
-Up next Tools!",,,,,
+Up next Tools!",Gratulation! Du hast die Typen verstanden. Nächstes Thema: Werkzeuge!,,,,
 msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on. We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.",,,,,
 msgTut21,"You can now also flag cells if you think you know what they contain, but can not uncover them safely. Doing so is strictly optimal, as it also helps you to level up a bit faster.",,,,,
 msgTut22,"You are now able to safely uncover the first level of %s. There are small symbols in cells that give you a [b]Hint[/b] they show you, which [b]Types[/b] of [b]Ingredients[/b] are present in neighboring cells. Use this information to reveal new knowledge while avoiding danger.",,,,,
 msgTut23,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. The symbols which undoubtedly helped you reach this point will from now on be referred to as [b]Indicators[/b]. The [b]Flamel[/b] isn’t indicated though, so be sure to stay vigilant.",,,,,
 msgTut24,"You almost did it, you can now safely uncover all information in… wait a second, this feels too familiar… ok, you know the drill, hopefully there is some kind of shortcut, because, unless you stumble upon the [b]Flamel[/b], there is no way to fail anymore.",,,,,
 lbTut3,"Congratulations! You mastered everything the
-Tutorial covers, Good Luck in the Arcade!",,,,,
+Tutorial covers, Good Luck in the Arcade!","Gratulation! Du hast das Tutorium gemeistert, viel Glück in der Arkade!",,,,
 msgTut30,"In this level you will learn about [b]Potions[/b], [b]Coffee[/b] and [b]Tools[/b]. To start that off, in the top right corner, you now find the [b]Potion Shelf[/b], open it by clicking on the flag or pressing [b]E[/b].",,,,,
 msgTut31,"This [b]Potion[/b] gave you a shield. The next time you uncover a cell that has no neighbors with uncovered neighbors, you will be shielded and gain some free knowledge.",,,,,
 msgTut32,"This [b]Potion[/b] gave you two free Hints. The next two times you use the [b]Hint Coin[/b] (tool) you won’t have a score reduction, when starting a level you also have one free Hint.",,,,,
