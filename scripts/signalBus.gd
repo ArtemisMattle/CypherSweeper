@@ -18,5 +18,6 @@ signal returnAim(target: Node)
 
 signal expresso(pressed: Signal)
 signal late()
+signal potionD(type: int)
 
 signal lvlUp(lvl: int) # used for the tutorial to give the player messages

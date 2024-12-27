@@ -66,6 +66,7 @@ func gainPotion(poti: int) -> void: #process the gaining of potions
 			break
 
 func _on_drink(poti: int, pos: int) -> void: #processes the drinking of potions and the effects they have
+	signalBus.potionD.emit(poti)
 	match poti:
 		potions.shield:
 			globalVariables.buff["shield"] += 1

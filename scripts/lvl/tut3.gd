@@ -6,6 +6,8 @@ var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
 var msgTxt: String = ""
 var lvl1: int = 0
 var lvl3: int = 0
+var decaff: bool = false
+var sober: bool = true
 
 func _init() -> void:
 	globalVariables.size = 9
@@ -39,6 +41,9 @@ func _init() -> void:
 func _ready() -> void:
 	signalBus.lvlUp.connect(lvlup)
 	signalBus.upsane.connect(dmg)
+	signalBus.expresso.connect(coffee)
+	signalBus.potionD.connect(alk)
+	
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut30"))
@@ -46,16 +51,33 @@ func _ready() -> void:
 	$lvl/UI/potionShelf.gainPotion(1)
 	$lvl/UI/potionShelf.gainPotion(0)
 
+func coffee(_sig: Signal) -> void:
+	if decaff:
+		return
+	msgTxt = tr("msgTut33")
+	time.start()
+	decaff = true
+
+func alk(gin: int) -> void:
+	match gin:
+		0: if sober:
+			msgTxt = tr("msgTut31")
+			time.start()
+			sober = false
+		1:
+			msgTxt = tr("msgTut32")
+			time.start()
+
 func lvlup(ingr: String) -> void:
 	if globalVariables.level[ingr] == 1:
 		lvl1 += 1
 		if lvl1 == 3:
-			msgTxt = tr("msgTut32")
+			msgTxt = tr("msgTut34")
 			time.start()
 	if globalVariables.level[ingr] == 3:
 		lvl3 += 1
 		if lvl3 == 3:
-			msgTxt = tr("msgTut33")
+			msgTxt = tr("msgTut35")
 			time.start()
 
 func dmg() -> void:

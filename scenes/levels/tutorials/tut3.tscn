@@ -794,5 +794,6 @@ one_shot = true
 [connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/buttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="lvl/CoffeeMachine/CoffeeMach/CoffeeButton" to="lvl/UI/player/SanGauge" method="updateSanity" flags=3]
 [connection signal="pressed" from="lvl/CoffeeMachine/CoffeeMach/CoffeeButton" to="lvl/CoffeeMachine" method="drinkCoff"]
+[connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]
 
 [editable path="lvl/CoffeeMachine/CoffeeMach"]
