@@ -18,7 +18,7 @@ func _ready() -> void:
 	for i: int in maxstorage:
 		pot.append(null)
 	
-	for i: int in 3:
+	for i: int in globalVariables.buff["freePotion"]:
 		_on_button_pressed()
 	
 

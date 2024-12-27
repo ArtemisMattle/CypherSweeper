@@ -28,6 +28,7 @@ func _init() -> void:
 	globalVariables.leveled1 = false
 	signalBus.upsane.emit()
 	globalVariables.buff["shield"] = 1
+	globalVariables.buff["freePotion"] = 0
 	globalVariables.xp.clear()
 	globalVariables.xp["Herb"] = 0.0
 	globalVariables.xp["Shroom"] = 0.0
@@ -41,7 +42,9 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut30"))
-	time.start()
+	$lvl/UI/potionShelf.gainPotion(0)
+	$lvl/UI/potionShelf.gainPotion(1)
+	$lvl/UI/potionShelf.gainPotion(0)
 
 func lvlup(ingr: String) -> void:
 	if globalVariables.level[ingr] == 1:
@@ -63,14 +66,6 @@ func dmg() -> void:
 			msgTxt = tr("msgTutDmg")
 
 func _on_tut_msg_timer_timeout() -> void:
-	if msgTxt == "":
-		for i: Control in $lvl/UI/potionShelf.pot:
-			i.queue_free()
-		$lvl/UI/potionShelf.pot.clear
-		$lvl/UI/potionShelf.gainPotion(0)
-		$lvl/UI/potionShelf.gainPotion(1)
-		$lvl/UI/potionShelf.gainPotion(0)
-		return
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)

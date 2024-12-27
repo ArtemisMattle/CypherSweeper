@@ -69,6 +69,7 @@ var mod: Array[String] = [] # array of active modifyers
 var buff: Dictionary = {
 	"shield" = 0,
 	"freeHint" = 0,
+	"freePotion" = 3,
 }
 
 var mods: Array[modifyer] = [ # array of all modifyers

@@ -1,7 +1,7 @@
 [gd_scene load_steps=47 format=3 uid="uid://ghjuxgjsgybw"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut3.gd" id="1_2d8i7"]
-[ext_resource type="Script" path="res://scripts/playerController.gd" id="2_upse0"]
+[ext_resource type="Script" path="res://scripts/lvl/tutPCon3.gd" id="2_qhntx"]
 [ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="3_77kno"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="4_kushn"]
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_2cdky"]
@@ -175,7 +175,7 @@ script = ExtResource("1_2d8i7")
 layer = 3
 
 [node name="player" type="Node" parent="lvl/UI"]
-script = ExtResource("2_upse0")
+script = ExtResource("2_qhntx")
 
 [node name="SanGauge" parent="lvl/UI/player" instance=ExtResource("3_77kno")]
 position = Vector2(1070, 670)
