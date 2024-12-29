@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var coffeegauge:ProgressBar;
-var coffee:Button;
+var coffee:TextureButton;
 var caffMax=3;
 var caff=0;
 var coffeerdy=0;

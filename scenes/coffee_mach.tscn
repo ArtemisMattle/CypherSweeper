@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://er7aocccwple"]
+[gd_scene load_steps=3 format=3 uid="uid://er7aocccwple"]
 
 [ext_resource type="Theme" uid="uid://badx7j02a6t2u" path="res://assets/textures/UI-themes/GlassTubeBars.tres" id="1_gr2b2"]
+[ext_resource type="Texture2D" uid="uid://c2tuqu8ek8brn" path="res://assets/textures/coffeeCropped.png" id="2_q5jhe"]
 
 [node name="CoffeeMach" type="Control"]
 layout_mode = 3
@@ -24,9 +25,9 @@ step = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="CoffeeButton" type="Button" parent="."]
+[node name="CoffeeButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = -58.0
 offset_top = 108.0
 offset_bottom = 156.0
-text = "Coffee"
+texture_normal = ExtResource("2_q5jhe")
