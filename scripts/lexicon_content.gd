@@ -28,8 +28,8 @@ func _process(delta: float) -> void:
 func changePage() -> void: # changes the page
 	pLablel.text = str(2 * globalVariables.lexPage + 1)
 	pLabler.text = str(2 * globalVariables.lexPage + 2)
-	lexl.text = tr("lexl" + str(globalVariables.lexPage))
-	lexr.text = tr("lexr" + str(globalVariables.lexPage))
+	lexl.text = "lexl" + str(globalVariables.lexPage)
+	lexr.text = "lexr" + str(globalVariables.lexPage)
 	back.visible = true
 	next.visible = true
 	arrow.visible = false
