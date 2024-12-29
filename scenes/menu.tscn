@@ -1,13 +1,21 @@
-[gd_scene load_steps=25 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=52 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
+[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="4_7uc2l"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
+[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="5_kepwl"]
+[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="5_loq0d"]
+[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="6_c0h2t"]
 [ext_resource type="Script" path="res://scripts/tooltipper.gd" id="8_3qai5"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="8_8sdor"]
 [ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
+[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="8_fq6b6"]
+[ext_resource type="Texture2D" uid="uid://dodga4f040bgw" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3_sprite.png" id="8_s2iao"]
+[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="9_1xwdv"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="9_f0q6u"]
+[ext_resource type="Texture2D" uid="uid://baid3pono122d" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3_norm.png" id="9_fyft3"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="9_soarv"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="9_tqg4k"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="10_2brgi"]
@@ -22,6 +30,52 @@
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="17_15lbl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_m02rw"]
+diffuse_texture = ExtResource("4_7uc2l")
+normal_texture = ExtResource("5_loq0d")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g7va3"]
+diffuse_texture = ExtResource("5_kepwl")
+normal_texture = ExtResource("6_c0h2t")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dy36x"]
+diffuse_texture = ExtResource("8_fq6b6")
+normal_texture = ExtResource("9_1xwdv")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r4iro"]
+diffuse_texture = ExtResource("8_s2iao")
+normal_texture = ExtResource("9_fyft3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nrpq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw2hj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ag2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bh8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_687km"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_86meb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7smgm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gey3e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k83n8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4tdns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dikk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ssxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6qxa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0ep0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yqx5"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2uwsx"]
 playback_mode = 1
@@ -76,6 +130,21 @@ theme = ExtResource("2_50dck")
 text = "btnPlay"
 alignment = 0
 
+[node name="pipeu" type="Sprite2D" parent="background/edge/menu/mainbuttons/play"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="background/edge/menu/mainbuttons/play"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="background/edge/menu/mainbuttons/play"]
+texture = SubResource("CanvasTexture_g7va3")
+offset = Vector2(276, 48)
+flip_v = true
+
 [node name="buttonSpace" type="Container" parent="background/edge/menu/mainbuttons"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -87,12 +156,41 @@ theme = ExtResource("2_50dck")
 text = "btnSettings"
 alignment = 0
 
+[node name="pipeu2" type="Sprite2D" parent="background/edge/menu/mainbuttons/settings"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped2" type="Sprite2D" parent="background/edge/menu/mainbuttons/settings"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail2" type="Sprite2D" parent="background/edge/menu/mainbuttons/settings"]
+texture = SubResource("CanvasTexture_dy36x")
+offset = Vector2(276, 48)
+
 [node name="achivements" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
 tooltip_text = "ttcs!"
 disabled = true
 text = "btnFeats"
 alignment = 0
+
+[node name="pipeu5" type="Sprite2D" parent="background/edge/menu/mainbuttons/achivements"]
+scale = Vector2(1.333, 16)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.55, 1.438)
+
+[node name="piped5" type="Sprite2D" parent="background/edge/menu/mainbuttons/achivements"]
+scale = Vector2(1.33333, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.5, 3.75)
+
+[node name="detail5" type="Sprite2D" parent="background/edge/menu/mainbuttons/achivements"]
+texture = SubResource("CanvasTexture_r4iro")
+offset = Vector2(276, 48)
+flip_v = true
 
 [node name="statistics" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
@@ -101,6 +199,21 @@ disabled = true
 text = "btnStatistics"
 alignment = 0
 
+[node name="pipeu4" type="Sprite2D" parent="background/edge/menu/mainbuttons/statistics"]
+scale = Vector2(1.333, 16)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.55, 1.438)
+
+[node name="piped4" type="Sprite2D" parent="background/edge/menu/mainbuttons/statistics"]
+scale = Vector2(1.33333, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.5, 3.75)
+
+[node name="detail4" type="Sprite2D" parent="background/edge/menu/mainbuttons/statistics"]
+texture = SubResource("CanvasTexture_r4iro")
+offset = Vector2(276, 48)
+flip_v = true
+
 [node name="credits" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -108,6 +221,21 @@ mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "btnCredits"
 alignment = 0
+
+[node name="pipeu5" type="Sprite2D" parent="background/edge/menu/mainbuttons/credits"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped5" type="Sprite2D" parent="background/edge/menu/mainbuttons/credits"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail5" type="Sprite2D" parent="background/edge/menu/mainbuttons/credits"]
+texture = SubResource("CanvasTexture_g7va3")
+offset = Vector2(276, 48)
+flip_v = true
 
 [node name="play" type="VBoxContainer" parent="background/edge/menu"]
 visible = false
@@ -122,12 +250,41 @@ theme = ExtResource("2_50dck")
 text = "btnPStory"
 alignment = 0
 
+[node name="pipeu2" type="Sprite2D" parent="background/edge/menu/play/playStory"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped2" type="Sprite2D" parent="background/edge/menu/play/playStory"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="background/edge/menu/play/playStory"]
+texture = SubResource("CanvasTexture_dy36x")
+offset = Vector2(276, 48)
+
 [node name="playArcade" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_50dck")
 text = "btnPArcade"
 alignment = 0
+
+[node name="pipeu3" type="Sprite2D" parent="background/edge/menu/play/playArcade"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped3" type="Sprite2D" parent="background/edge/menu/play/playArcade"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail3" type="Sprite2D" parent="background/edge/menu/play/playArcade"]
+texture = SubResource("CanvasTexture_g7va3")
+offset = Vector2(276, 48)
+flip_v = true
 
 [node name="playRogue" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
@@ -138,11 +295,41 @@ disabled = true
 text = "btnPRogue"
 alignment = 0
 
+[node name="pipeu6" type="Sprite2D" parent="background/edge/menu/play/playRogue"]
+scale = Vector2(1.333, 16)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.55, 1.438)
+
+[node name="piped6" type="Sprite2D" parent="background/edge/menu/play/playRogue"]
+scale = Vector2(1.33333, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(205.5, 3.75)
+
+[node name="detail6" type="Sprite2D" parent="background/edge/menu/play/playRogue"]
+texture = SubResource("CanvasTexture_r4iro")
+offset = Vector2(276, 48)
+flip_v = true
+
 [node name="back" type="Button" parent="background/edge/menu/play" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_vertical = 10
 text = "btnBack"
 alignment = 0
+
+[node name="pipeu4" type="Sprite2D" parent="background/edge/menu/play/back"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 1.289)
+
+[node name="piped4" type="Sprite2D" parent="background/edge/menu/play/back"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(274.5, 3.75)
+
+[node name="detail4" type="Sprite2D" parent="background/edge/menu/play/back"]
+texture = SubResource("CanvasTexture_g7va3")
+offset = Vector2(276, 48)
+flip_v = true
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
 layout_mode = 2
@@ -329,6 +516,11 @@ stretch_mode = 3
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1nrpq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sw2hj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5ag2i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1bh8f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_687km")
 edit_alpha = false
 
 [node name="shadow" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
@@ -363,6 +555,11 @@ flip_h = true
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_86meb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7smgm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gey3e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k83n8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4tdns")
 edit_alpha = false
 
 [node name="grid" type="VBoxContainer" parent="background/edge/menu/settings/settings/colour"]
@@ -407,6 +604,11 @@ flip_h = true
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dikk5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5ssxx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_x6qxa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t0ep0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6yqx5")
 edit_alpha = false
 
 [node name="arcade" type="HBoxContainer" parent="background/edge/menu"]
@@ -456,6 +658,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 text = "btnPlay"
+
+[node name="pipeu2" type="Sprite2D" parent="background/edge/menu/arcade/arcade/sizeandplay/play"]
+scale = Vector2(1, 23)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(325.5, 1.152)
+
+[node name="piped2" type="Sprite2D" parent="background/edge/menu/arcade/arcade/sizeandplay/play"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(325.5, 3.75)
+
+[node name="detail2" type="Sprite2D" parent="background/edge/menu/arcade/arcade/sizeandplay/play"]
+texture = SubResource("CanvasTexture_g7va3")
+offset = Vector2(327, 55)
+flip_v = true
 
 [node name="playSpace3" type="Container" parent="background/edge/menu/arcade/arcade/sizeandplay"]
 custom_minimum_size = Vector2(25, 0)
@@ -823,9 +1040,38 @@ tooltip_text = "ttcs!"
 disabled = true
 text = "btnContinue"
 
+[node name="pipeu6" type="Sprite2D" parent="background/edge/menu/story/continue"]
+scale = Vector2(1.333, 16)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(145.5, 1.438)
+
+[node name="piped6" type="Sprite2D" parent="background/edge/menu/story/continue"]
+scale = Vector2(1.33333, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(145.5, 3.75)
+
+[node name="detail6" type="Sprite2D" parent="background/edge/menu/story/continue"]
+texture = SubResource("CanvasTexture_r4iro")
+offset = Vector2(196, 48)
+flip_v = true
+
 [node name="tutorials" type="Button" parent="background/edge/menu/story" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnTutorial"
+
+[node name="pipeu3" type="Sprite2D" parent="background/edge/menu/story/tutorials"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(194.5, 1.289)
+
+[node name="piped3" type="Sprite2D" parent="background/edge/menu/story/tutorials"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(194.5, 3.75)
+
+[node name="detail3" type="Sprite2D" parent="background/edge/menu/story/tutorials"]
+texture = SubResource("CanvasTexture_dy36x")
+offset = Vector2(196, 48)
 
 [node name="saves" type="Button" parent="background/edge/menu/story" groups=["buttonClick"]]
 layout_mode = 2
@@ -833,8 +1079,23 @@ tooltip_text = "ttcs!"
 disabled = true
 text = "btnSaves"
 
+[node name="pipeu7" type="Sprite2D" parent="background/edge/menu/story/saves"]
+scale = Vector2(1.333, 16)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(145.5, 1.438)
+
+[node name="piped7" type="Sprite2D" parent="background/edge/menu/story/saves"]
+scale = Vector2(1.33333, 20)
+texture = SubResource("CanvasTexture_m02rw")
+offset = Vector2(145.5, 3.75)
+
+[node name="detail7" type="Sprite2D" parent="background/edge/menu/story/saves"]
+texture = SubResource("CanvasTexture_r4iro")
+offset = Vector2(196, 48)
+flip_v = true
+
 [node name="directionalLight2d" type="DirectionalLight2D" parent="background"]
-rotation = 1.00531
+rotation = 2.11185
 energy = 3.14
 blend_mode = 2
 height = 0.69

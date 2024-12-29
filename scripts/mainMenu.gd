@@ -55,6 +55,7 @@ func _ready() -> void:
 	
 	
 	playPg.visible = false
+	mainPg.visible = true
 	_toTitle()
 	buttonClickSound()
 	colourPickerResize()

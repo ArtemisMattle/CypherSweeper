@@ -22,3 +22,4 @@ func findUnrevealed(i: String, p: Vector2) -> void:
 	$placer/toolSprite/ingredient.texture = load("res://assets/textures/ingredients/" + i + ".png")
 	$placer/toolSprite.texture = load("res://assets/textures/tools/coin-blank.png")
 	$placer.rotate(randf_range(0, (2 * PI) / globalVariables.sanity))
+	signalBus.freeze.emit()

@@ -20,6 +20,7 @@ var openRevealers: Array[int] = []
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var tTimer: Timer = $turnTimer
 @onready var fTimer: Timer = $flagTimer
+@onready var cdTimer: Timer = $coolTimer
 @onready var tTune: AudioStreamPlayer = $turnSFX
 var fTool: PackedScene = preload("res://scenes/flagging.tscn")
 var flagTool: Control = null
@@ -162,6 +163,7 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 	populate()
 	signalBus.deactivate.connect(deactivate)
 	signalBus.getRandomUnrevealed.connect(getUnrevealedIngredient)
+	signalBus.freeze.connect(freeze)
 
 func get_ends() -> void:# calculates where the line breaks in the hex grid
 	var x: int = 1
@@ -344,10 +346,12 @@ func buttonForwarding(event: InputEvent, i: int) -> void: # differentiates betwe
 			#		reveal(i, 0)
 			MOUSE_BUTTON_RIGHT:
 				if event.is_released():
-					active = false
 					flag(i)
 
 func flag(i: int) -> void: # flaggs cells
+	if not active:
+		return
+	active = false
 	var flag: Sprite2D = pos[i].cell.get_node("flag")
 	if pos[i].flagged == "":
 		if OF:
@@ -382,7 +386,6 @@ func flagFinish(flag: String, i: int) -> void:
 			globalVariables.xp[flag.left(-1)] += globalVariables.xpFlagBoon
 
 func _on_flag_timer_timeout() -> void:
-	fTimer.stop()
 	active = true
 
 func magReveal(body: Node2D, i:int) -> void: # connects the Magnifyer to the reveal function
@@ -579,6 +582,13 @@ func shapeshift() -> void: # changes the colours
 		pos[i].cell.get_node("colour").modulate = globalVariables.colours[1]
 	if $background.visible:
 		$background.modulate = globalVariables.colours[0]
+
+func freeze() -> void: #sets active false and starts a cooldown to reactivate
+	cdTimer.start()
+	active = false
+
+func mariahCarey() -> void:
+	active = true
 
 class gridCell: # Data type for the grid cells
 	var neighbors: Dictionary = {} # {int "position", String "Ingredient"} position and ingredient of neighbors

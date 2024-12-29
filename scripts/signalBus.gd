@@ -12,6 +12,7 @@ signal drop(re: bool) #used to drop certain tools specifically
 signal getRandomUnrevealed
 signal returnUnrevealed(ingredient: String, position: Vector2)
 signal flagging(flag: String)
+signal freeze
 
 signal getAim(target: int)
 signal returnAim(target: Node)
