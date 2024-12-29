@@ -833,6 +833,12 @@ tooltip_text = "ttcs!"
 disabled = true
 text = "btnSaves"
 
+[node name="directionalLight2d" type="DirectionalLight2D" parent="background"]
+rotation = 1.00531
+energy = 3.14
+blend_mode = 2
+height = 0.69
+
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sg5g6")
 volume_db = -12.0

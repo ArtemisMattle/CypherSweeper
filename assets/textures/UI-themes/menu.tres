@@ -1,11 +1,9 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://8qfvurhug2dj"]
+[gd_resource type="Theme" load_steps=26 format=3 uid="uid://8qfvurhug2dj"]
 
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="1_pt3f5"]
 [ext_resource type="Texture2D" uid="uid://dsa2dvhqyau6l" path="res://assets/textures/UI-elements/checkbox_steel_true.png" id="2_bdflg"]
 [ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="2_fnxqq"]
-[ext_resource type="StyleBox" uid="uid://d4mmafb3n0th5" path="res://assets/textures/UI-elements/styleBoxes/buttonTorn.tres" id="2_o4vbl"]
 [ext_resource type="Texture2D" uid="uid://c3yo1vqxt80hr" path="res://assets/textures/UI-elements/checkbox_brass_true.png" id="3_b84xq"]
-[ext_resource type="StyleBox" uid="uid://vuhh1gdb18ht" path="res://assets/textures/UI-elements/styleBoxes/buttonBrass.tres" id="3_x8afc"]
 [ext_resource type="Texture2D" uid="uid://l6ov0j0uxkp5" path="res://assets/textures/UI-elements/checkbox_brass_false.png" id="4_2wwbk"]
 [ext_resource type="StyleBox" uid="uid://dssc5fdme2h60" path="res://assets/textures/UI-elements/styleBoxes/button.tres" id="4_3frn6"]
 [ext_resource type="Texture2D" uid="uid://bafsd6nh2la3u" path="res://assets/textures/UI-elements/checkbox_steel_false.png" id="5_ne586"]
@@ -57,9 +55,9 @@ region_rect = Rect2(0, 0, 18, 46)
 [resource]
 Button/font_sizes/font_size = 35
 Button/fonts/font = ExtResource("1_pt3f5")
-Button/styles/disabled = ExtResource("2_o4vbl")
-Button/styles/focus = ExtResource("3_x8afc")
-Button/styles/hover = ExtResource("3_x8afc")
+Button/styles/disabled = ExtResource("4_3frn6")
+Button/styles/focus = ExtResource("4_3frn6")
+Button/styles/hover = ExtResource("4_3frn6")
 Button/styles/normal = ExtResource("4_3frn6")
 Button/styles/pressed = ExtResource("4_3frn6")
 CheckBox/icons/checked = ExtResource("2_bdflg")
