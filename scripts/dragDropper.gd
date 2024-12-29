@@ -49,7 +49,6 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			signalBus.toolTrans.emit(tool, false)
 
 func drop(_reactivate: bool) -> void:
-	print("1")
 	set_physics_process(false)
 	held = false
 	globalVariables.holdable = true
