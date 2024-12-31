@@ -149,7 +149,7 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
-	signalBus.lvlUp.emit(globalVariables.level[ingredient])
+	signalBus.lvlUp.emit(ingredient)
 	levelUp.play(0.9)
 
 func Flamel() -> void: # shows the Flamel when it's time to reveal it

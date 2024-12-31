@@ -37,9 +37,9 @@ func _input(event: InputEvent) -> void:
 		time.start()
 		msgTxt = tr("msgTut14")
 
-func lvlup(lvl: int) -> void:
+func lvlup(lvl: String) -> void:
 	time.start()
-	msgTxt = tr("msgTut1" + str(lvl))
+	msgTxt = tr("msgTut1" + str(globalVariables.level[lvl]))
 
 func dmg() -> void:
 	if globalVariables.sanity < 100:

@@ -6,9 +6,9 @@ var time: bool = true
 @export var cArray: Array[Color]
 
 func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void: # handles opening and closing of the lexicon
-	signalBus.freeze.emit()
 	if Input.is_action_pressed("activateTool"):
 		if time:
+			signalBus.freeze.emit()
 			if uncoverer.get_meta("mode") >= modeMax:
 				uncoverer.set_meta("mode", 0)
 			else:

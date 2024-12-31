@@ -150,10 +150,9 @@ func endGame(win: bool) -> void: #gets called when the game is done, handles eve
 			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbWon")
 	else:
 		match msg:
-			_: $gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
-	$gameOver/centerer/gameOver/time.text = tr("lbTime") + " " + str(floor(time/60)) + " " + tr("lbMin") + " " + str(fmod(floor(time),60)) + " " + tr("lbSec")
-	$gameOver/centerer/gameOver/score.text = tr("lbScore") + " " + str(score(time))
-	$gameOver/centerer/gameOver/mod.text = tr("lbMod") + " " + str(snappedf(globalVariables.scoreMult, 0.0001))
+			_: 
+				$gameOver/centerer/gameOver/centerer/end.text = tr("lbGameOver")
+				$gameOver/centerer/gameOver/congrats.text = tr("lbTutFail")
 	globalVariables.cursor = load("res://assets/textures/cursors/pincher.png")
 	globalVariables.click = load("res://assets/textures/cursors/pincherCl.png")
 	$pause.visible = false
@@ -185,6 +184,7 @@ func score(time: float) -> float: #calculates the score
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
+	signalBus.lvlUp.emit(ingredient)
 	match ingredient:
 		"Herb": 
 			$playerInfo/edge/lvlGauge/lvlGauge1/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")

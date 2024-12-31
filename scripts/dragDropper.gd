@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void: # tool movement
 
 
 func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	signalBus.freeze.emit()
 	if event.is_action_pressed("pickUpTool"):
+		signalBus.freeze.emit()
 		if globalVariables.holdable:
 			set_physics_process(true)
 			held = true
