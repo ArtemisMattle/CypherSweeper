@@ -16,7 +16,6 @@ func _ready() -> void:
 	place = tool.tScene.get_node("placer")
 	set_physics_process(false)
 	
-	signalBus.deactivate.connect(drop)
 	signalBus.drop.connect(drop)
 
 func _physics_process(delta: float) -> void: # tool movement
@@ -39,6 +38,7 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if tool.tScene.has_meta("enabled"): # used to enable certain behaviors when held, currently only used by the Magnifyer
 				tool.tScene.set_meta("enabled", true)
 			signalBus.toolTrans.emit(tool, true)
+			signalBus.deactivate.connect(drop)
 		elif held:
 			set_physics_process(false)
 			held = false
@@ -47,6 +47,7 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if tool.tScene.has_meta("enabled"):
 				tool.tScene.set_meta("enabled", false)
 			signalBus.toolTrans.emit(tool, false)
+			signalBus.deactivate.disconnect(drop)
 
 func drop(_reactivate: bool) -> void:
 	set_physics_process(false)
