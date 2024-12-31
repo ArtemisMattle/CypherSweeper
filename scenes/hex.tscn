@@ -95,6 +95,7 @@ texture = ExtResource("4_6ls2f")
 flip_h = true
 
 [node name="backshadow" type="Sprite2D" parent="colour"]
+modulate = Color(1, 1, 1, 0.392157)
 texture = SubResource("ImageTexture_pgxnh")
 flip_h = true
 
