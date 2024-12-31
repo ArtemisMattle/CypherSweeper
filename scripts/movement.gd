@@ -5,7 +5,7 @@ const zoomInc: float = 0.05
 const zoomRate: float = 7.0
 var tZoom: float = 2.0
 var direction: Vector2 = Vector2.ZERO
-var speed: float = 210
+var speed: float = 420
 
 
 func _process(delta: float) -> void: # mouse movement
@@ -18,16 +18,18 @@ func _process(delta: float) -> void: # mouse movement
 		direction = Vector2.ZERO
 	if globalVariables.tbOpen: # disables mouse movement, if the toolbox is opened
 		return
-	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -280 / tZoom:
+	if globalVariables.psOpen: # disables mouse movement, if the toolbox is opened
+		return
+	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -310 / tZoom:
 		return
 	if mp.x > 420 / tZoom:
-		position.x += speed * delta
+		position.x += speed * delta / tZoom
 	elif mp.x < -420 / tZoom:
-		position.x -= speed * delta
+		position.x -= speed * delta / tZoom
 	if mp.y > 200 / tZoom:
-		position.y += speed * delta
+		position.y += speed * delta / tZoom
 	elif mp.y < -200 / tZoom:
-		position.y -= speed * delta
+		position.y -= speed * delta / tZoom
 
 func _physics_process(delta):
 	if not globalVariables.paused:

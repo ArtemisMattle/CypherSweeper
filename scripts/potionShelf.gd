@@ -31,6 +31,7 @@ func deactivate(r: bool) -> void: #processes the deactivation when paused or end
 		opener.speed_scale = 0
 
 func _on_open_toggled(toggled_on: bool) -> void: #processes the opening and closing
+	globalVariables.psOpen = toggled_on
 	if opener.is_playing():
 		opener.play_backwards()
 	else:
