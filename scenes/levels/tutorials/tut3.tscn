@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://ghjuxgjsgybw"]
+[gd_scene load_steps=74 format=3 uid="uid://ghjuxgjsgybw"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut3.gd" id="1_2d8i7"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon3.gd" id="2_qhntx"]
@@ -7,11 +7,17 @@
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_2cdky"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="6_i71qb"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="7_5kjrd"]
+[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="8_11sqq"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="8_bomgu"]
+[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="9_blhp8"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="9_r0dun"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="10_6g210"]
+[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="10_ogswl"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="11_2nguq"]
+[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="11_mdjnp"]
+[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="11_os17p"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="12_66xl4"]
+[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="12_qiqql"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="13_g7ts6"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="14_guqgg"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="15_cg3of"]
@@ -38,7 +44,61 @@
 [ext_resource type="Script" path="res://scripts/movement.gd" id="36_j33u7"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="37_6lkjg"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_1d6kk"]
+diffuse_texture = ExtResource("8_11sqq")
+normal_texture = ExtResource("9_blhp8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_eoe5d"]
+diffuse_texture = ExtResource("10_ogswl")
+normal_texture = ExtResource("11_os17p")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o5t3d"]
+diffuse_texture = ExtResource("8_11sqq")
+normal_texture = ExtResource("9_blhp8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_d8lwy"]
+diffuse_texture = ExtResource("11_mdjnp")
+normal_texture = ExtResource("12_qiqql")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_mr3w8"]
+diffuse_texture = ExtResource("8_11sqq")
+normal_texture = ExtResource("9_blhp8")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ian3f"]
+diffuse_texture = ExtResource("10_ogswl")
+normal_texture = ExtResource("11_os17p")
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_rwv0r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_35v2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2ruc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_usknn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhoss"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t8x32"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wp1nh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05ow0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hei4n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ki51r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pqf4u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oore6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6g7y5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ox81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e32fh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w8r2r"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_63s4n"]
 action = &"pause"
@@ -331,9 +391,39 @@ layout_mode = 2
 layout_mode = 2
 text = "btnSettings"
 
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_1d6kk")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_1d6kk")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+texture = SubResource("CanvasTexture_eoe5d")
+offset = Vector2(390, 48)
+flip_v = true
+
 [node name="return" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnBack"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_1d6kk")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_1d6kk")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+texture = SubResource("CanvasTexture_eoe5d")
+offset = Vector2(390, 48)
+flip_v = true
 
 [node name="Container" type="Container" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 70)
@@ -342,6 +432,21 @@ layout_mode = 2
 [node name="exit" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnExit"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_o5t3d")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_o5t3d")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+texture = SubResource("CanvasTexture_d8lwy")
+offset = Vector2(390, 48)
+flip_v = true
 
 [node name="warning" type="Label" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
@@ -366,6 +471,21 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "btnBack"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_mr3w8")
+offset = Vector2(150.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_mr3w8")
+offset = Vector2(150.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+texture = SubResource("CanvasTexture_ian3f")
+offset = Vector2(152, 48)
+flip_v = true
 
 [node name="settings" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -513,6 +633,11 @@ stretch_mode = 3
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_35v2l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p2ruc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_usknn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jhoss")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t8x32")
 edit_alpha = false
 
 [node name="shadow" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
@@ -547,6 +672,11 @@ flip_h = true
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wp1nh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_05ow0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hei4n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ki51r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pqf4u")
 edit_alpha = false
 
 [node name="grid" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
@@ -591,6 +721,11 @@ flip_h = true
 custom_minimum_size = Vector2(72, 46)
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oore6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6g7y5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2ox81")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_e32fh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w8r2r")
 edit_alpha = false
 
 [node name="pause" type="PanelContainer" parent="lvl/UI/player"]

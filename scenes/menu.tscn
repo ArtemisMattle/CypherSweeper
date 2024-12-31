@@ -353,7 +353,6 @@ text = "Cypher
    Sweeper"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
-visible = false
 layout_mode = 2
 
 [node name="settingsSpace" type="Container" parent="background/edge/menu/settings"]
@@ -400,6 +399,16 @@ popup/item_3/text = "btnFR"
 popup/item_3/id = 4
 popup/item_4/text = "btnEO"
 popup/item_4/id = 5
+
+[node name="language100" type="Label" parent="background/edge/menu/settings/settings"]
+layout_mode = 2
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 24
+text = "lbLang100x"
+autowrap_mode = 1
 
 [node name="speed" type="HBoxContainer" parent="background/edge/menu/settings/settings"]
 layout_mode = 2

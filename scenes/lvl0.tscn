@@ -377,16 +377,16 @@ text = "btnSettings"
 [node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
 scale = Vector2(1, 19)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 1.289)
+offset = Vector2(388.5, 1.289)
 
 [node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
 scale = Vector2(1, 20)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 3.75)
+offset = Vector2(388.5, 3.75)
 
 [node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
 texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(240, 48)
+offset = Vector2(390, 48)
 flip_v = true
 
 [node name="return" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
@@ -396,16 +396,16 @@ text = "btnBack"
 [node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
 scale = Vector2(1, 19)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 1.289)
+offset = Vector2(388.5, 1.289)
 
 [node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
 scale = Vector2(1, 20)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 3.75)
+offset = Vector2(388.5, 3.75)
 
 [node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
 texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(240, 48)
+offset = Vector2(390, 48)
 flip_v = true
 
 [node name="Container" type="Container" parent="UI/player/pauseMenu/centerer/pause"]
@@ -419,16 +419,16 @@ text = "btnExit"
 [node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
 scale = Vector2(1, 19)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 1.289)
+offset = Vector2(388.5, 1.289)
 
 [node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
 scale = Vector2(1, 20)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(238.5, 3.75)
+offset = Vector2(388.5, 3.75)
 
 [node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
 texture = SubResource("CanvasTexture_v1bf6")
-offset = Vector2(240, 48)
+offset = Vector2(390, 48)
 flip_v = true
 
 [node name="warning" type="Label" parent="UI/player/pauseMenu/centerer/pause"]
@@ -458,16 +458,16 @@ text = "btnBack"
 [node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
 scale = Vector2(1, 19)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(173.5, 1.289)
+offset = Vector2(150.5, 1.289)
 
 [node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
 scale = Vector2(1, 20)
 texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(173.5, 3.75)
+offset = Vector2(150.5, 3.75)
 
 [node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
 texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(175, 48)
+offset = Vector2(152, 48)
 flip_v = true
 
 [node name="settings" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
