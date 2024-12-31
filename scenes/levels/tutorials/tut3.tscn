@@ -878,9 +878,9 @@ script = ExtResource("33_je562")
 
 [node name="CoffeeMach" parent="lvl/CoffeeMachine" instance=ExtResource("34_q2cvt")]
 offset_left = -55.0
-offset_top = 88.0
+offset_top = 60.0
 offset_right = -1245.0
-offset_bottom = -448.0
+offset_bottom = -476.0
 
 [node name="mobileCanvas" type="CanvasLayer" parent="lvl"]
 layer = 0
