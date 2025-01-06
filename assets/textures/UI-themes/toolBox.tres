@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://ca51vamnq1fdy"]
+
+[ext_resource type="Texture2D" uid="uid://otaei40cnmxb" path="res://assets/textures/UI-elements/panel_teeth.png" id="1_tdu10"]
+[ext_resource type="Texture2D" uid="uid://c7kgd3londbso" path="res://assets/textures/UI-elements/panel_teeth_norm.png" id="2_iwp8r"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_udo5t"]
+diffuse_texture = ExtResource("1_tdu10")
+normal_texture = ExtResource("2_iwp8r")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5vuv"]
+texture = SubResource("CanvasTexture_udo5t")
+texture_margin_left = 21.0
+texture_margin_top = 35.0
+texture_margin_right = 24.0
+texture_margin_bottom = 22.0
+axis_stretch_vertical = 1
+
+[resource]
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = -10
+MarginContainer/constants/margin_top = 25
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_l5vuv")

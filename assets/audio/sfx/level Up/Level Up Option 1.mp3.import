@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnaqnmlphthmj"
+path="res://.godot/imported/Level Up Option 1.mp3-164efa3d8ca90135836a20bab1b15c1e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/level Up/Level Up Option 1.mp3"
+dest_files=["res://.godot/imported/Level Up Option 1.mp3-164efa3d8ca90135836a20bab1b15c1e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ptfmlkdicdup"]
+
+[ext_resource type="Texture2D" uid="uid://ciqbl4ayaah6i" path="res://assets/textures/tools/coin-pi.png" id="1_6qid2"]
+[ext_resource type="Script" path="res://test.gd" id="1_q1lkt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q1lkt")
+
+[node name="node2d" type="Node2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="sprite2d" type="Sprite2D" parent="node2d"]
+texture = ExtResource("1_6qid2")

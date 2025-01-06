@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://qxhusqbo07v"]
+
+[ext_resource type="Script" path="res://scripts/potionShelf.gd" id="1_gdo7p"]
+[ext_resource type="Theme" uid="uid://dbccppv6nmh7f" path="res://assets/textures/UI-themes/potionShelf.tres" id="2_axlfl"]
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_ww7dk"]
+[ext_resource type="AudioStream" uid="uid://c76q3xqdc3ckm" path="res://assets/audio/sfx/Schlürfen.mp3" id="5_3b2h4"]
+[ext_resource type="Texture2D" uid="uid://buu0spue538i4" path="res://assets/textures/UI-elements/potion.png" id="5_is0vx"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_e8hss"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_v8d76"]
+events = [SubResource("InputEventKey_e8hss")]
+
+[sub_resource type="Animation" id="Animation_ymdkw"]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("place:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-300, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u1yki"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("place:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwmsl"]
+_data = {
+"close": SubResource("Animation_ymdkw"),
+"open": SubResource("Animation_u1yki")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xky4e"]
+random_pitch = 1.3
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("5_3b2h4")
+stream_0/weight = 1.0
+
+[node name="potionShelf" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_gdo7p")
+
+[node name="place" type="Control" parent="."]
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="background" type="PanelContainer" parent="place"]
+layout_mode = 0
+offset_right = 301.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme = ExtResource("2_axlfl")
+
+[node name="edge" type="MarginContainer" parent="place/background"]
+layout_mode = 2
+
+[node name="potions" type="HBoxContainer" parent="place/background/edge"]
+layout_mode = 2
+
+[node name="pShelf" type="PanelContainer" parent="place"]
+z_index = 2
+layout_mode = 0
+offset_left = -52.0
+offset_right = -4.0
+offset_bottom = 72.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("4_ww7dk")
+
+[node name="centerer" type="CenterContainer" parent="place/pShelf"]
+layout_mode = 2
+
+[node name="stacker" type="VBoxContainer" parent="place/pShelf/centerer"]
+layout_mode = 2
+
+[node name="potionShelfButton" type="TextureButton" parent="place/pShelf/centerer/stacker" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+toggle_mode = true
+shortcut = SubResource("Shortcut_v8d76")
+texture_normal = ExtResource("5_is0vx")
+
+[node name="opener" type="AnimationPlayer" parent="place"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_fwmsl")
+}
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xky4e")
+volume_db = 3.0
+bus = &"sfx"
+
+[node name="button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 119.0
+offset_right = 335.0
+offset_bottom = 127.0
+text = "new potion"
+
+[connection signal="toggled" from="place/pShelf/centerer/stacker/potionShelfButton" to="." method="_on_open_toggled"]
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

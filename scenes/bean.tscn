@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyu2m1lpuce1"]
+
+[ext_resource type="Texture2D" uid="uid://gccmbh8xdcfa" path="res://assets/textures/ingredients/Coffeebean02.png" id="1_hs81c"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_evp6a"]
+diffuse_texture = ExtResource("1_hs81c")
+
+[node name="bean" type="Node2D"]
+
+[node name="button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = SubResource("CanvasTexture_evp6a")

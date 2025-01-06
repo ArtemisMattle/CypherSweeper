@@ -1,0 +1,760 @@
+[gd_scene load_steps=68 format=3 uid="uid://bfwbyqyl38ilj"]
+
+[ext_resource type="Script" path="res://scripts/lvl/tut1.gd" id="1_245eg"]
+[ext_resource type="Script" path="res://scripts/lvl/tutPCon1.gd" id="2_c6t0d"]
+[ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="3_so71m"]
+[ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_okr6o"]
+[ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_1sk4q"]
+[ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="6_qem2u"]
+[ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="7_4bddd"]
+[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="7_dlwy0"]
+[ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="8_d0x4r"]
+[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="8_qccct"]
+[ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="9_7k5vf"]
+[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="9_qqqhh"]
+[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="10_7d71y"]
+[ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="10_pmnwh"]
+[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="10_ve4yd"]
+[ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="11_4tn6e"]
+[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="11_tdxus"]
+[ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="12_xdqrt"]
+[ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="13_5ux6e"]
+[ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="14_x8tad"]
+[ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="15_x0vnq"]
+[ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="16_uv67b"]
+[ext_resource type="Texture2D" uid="uid://bk6w3k153meyf" path="res://assets/textures/UI-elements/pauseDis.png" id="17_ickw2"]
+[ext_resource type="AudioStream" uid="uid://duru6y346mfwg" path="res://assets/audio/music/level/Main Game Sanity 100 - 90.mp3" id="18_fgste"]
+[ext_resource type="Texture2D" uid="uid://c6r75y5esvqlm" path="res://assets/textures/UI-elements/Reset.png" id="18_yfb43"]
+[ext_resource type="AudioStream" uid="uid://dgrggbupho5yd" path="res://assets/audio/music/level/Main Game Sanity 89 - 80.mp3" id="19_mw0wo"]
+[ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="20_lc3my"]
+[ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="21_j3sjw"]
+[ext_resource type="AudioStream" uid="uid://buvluwn3kaoia" path="res://assets/audio/sfx/level Up/Level Up Option 2.mp3" id="22_fghb2"]
+[ext_resource type="AudioStream" uid="uid://h1b4ovmjuvb6" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 1.mp3" id="23_b646g"]
+[ext_resource type="AudioStream" uid="uid://b12h8p34ken7l" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 2.mp3" id="24_qf5v2"]
+[ext_resource type="AudioStream" uid="uid://bupctqwrhvwdl" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 3.mp3" id="25_tqace"]
+[ext_resource type="AudioStream" uid="uid://c5orp3pngxua4" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 4.mp3" id="26_nvgg0"]
+[ext_resource type="AudioStream" uid="uid://cfh7crptxwpnq" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5.mp3" id="27_3gk7f"]
+[ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="28_8xunt"]
+[ext_resource type="Script" path="res://scripts/movement.gd" id="29_eegda"]
+[ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="30_0dal1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6n328"]
+diffuse_texture = ExtResource("7_dlwy0")
+normal_texture = ExtResource("8_qccct")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ikmdi"]
+diffuse_texture = ExtResource("9_qqqhh")
+normal_texture = ExtResource("10_7d71y")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_tgnke"]
+diffuse_texture = ExtResource("7_dlwy0")
+normal_texture = ExtResource("8_qccct")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_kkfeh"]
+diffuse_texture = ExtResource("10_ve4yd")
+normal_texture = ExtResource("11_tdxus")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_orfbj"]
+diffuse_texture = ExtResource("7_dlwy0")
+normal_texture = ExtResource("8_qccct")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ri2jj"]
+diffuse_texture = ExtResource("9_qqqhh")
+normal_texture = ExtResource("10_7d71y")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4m5lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nbn7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm8x4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qkim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g2fsd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogorm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfk4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7eh2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5p6h5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0knuk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wlut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0l8ox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rl6v2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb6eo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dciqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u4whw"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_63s4n"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_u6srm"]
+events = [SubResource("InputEventAction_63s4n")]
+
+[sub_resource type="Animation" id="Animation_xpd4b"]
+resource_name = "fade1"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("music1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.0, -9.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -9.0, -6.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music1:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j0pjy"]
+resource_name = "fade2"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("music2:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.0, -9.0, -80.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("music1:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-80.0, -9.0, -6.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibwr1"]
+_data = {
+"fade1": SubResource("Animation_xpd4b"),
+"fade2": SubResource("Animation_j0pjy")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tc2oa"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 1.5
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xl8ks"]
+playback_mode = 1
+random_pitch = 1.03
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("20_lc3my")
+stream_0/weight = 20.149
+stream_1/stream = ExtResource("21_j3sjw")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dki2l"]
+playback_mode = 2
+random_pitch = 1.05
+random_volume_offset_db = 1.0
+streams_count = 6
+stream_0/stream = ExtResource("23_b646g")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("24_qf5v2")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("25_tqace")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("26_nvgg0")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("27_3gk7f")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("28_8xunt")
+stream_5/weight = 1.0
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_245eg")
+
+[node name="lvl" type="Node2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="lvl"]
+layer = 3
+
+[node name="player" type="Node" parent="lvl/UI"]
+script = ExtResource("2_c6t0d")
+
+[node name="SanGauge" parent="lvl/UI/player" instance=ExtResource("3_so71m")]
+position = Vector2(1070, 670)
+
+[node name="pauseMenu" type="PanelContainer" parent="lvl/UI/player"]
+visible = false
+z_index = 2
+offset_left = 140.0
+offset_top = 100.0
+offset_right = 1140.0
+offset_bottom = 660.0
+mouse_filter = 2
+theme = ExtResource("4_okr6o")
+theme_override_styles/panel = ExtResource("5_1sk4q")
+
+[node name="centerer" type="CenterContainer" parent="lvl/UI/player/pauseMenu"]
+layout_mode = 2
+
+[node name="pause" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer"]
+layout_mode = 2
+
+[node name="settings" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
+layout_mode = 2
+text = "btnSettings"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_6n328")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_6n328")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
+texture = SubResource("CanvasTexture_ikmdi")
+offset = Vector2(390, 48)
+flip_v = true
+
+[node name="return" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
+layout_mode = 2
+text = "btnBack"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_6n328")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_6n328")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
+texture = SubResource("CanvasTexture_ikmdi")
+offset = Vector2(390, 48)
+flip_v = true
+
+[node name="Container" type="Container" parent="lvl/UI/player/pauseMenu/centerer/pause"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="exit" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
+layout_mode = 2
+text = "btnExit"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_tgnke")
+offset = Vector2(388.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_tgnke")
+offset = Vector2(388.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
+texture = SubResource("CanvasTexture_kkfeh")
+offset = Vector2(390, 48)
+flip_v = true
+
+[node name="warning" type="Label" parent="lvl/UI/player/pauseMenu/centerer/pause"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "lbWarning"
+
+[node name="settings" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer"]
+visible = false
+layout_mode = 2
+
+[node name="vBoxContainer" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
+layout_mode = 2
+
+[node name="volume" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer" instance=ExtResource("6_qem2u")]
+layout_mode = 2
+
+[node name="return" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer"]
+layout_mode = 2
+
+[node name="returnButton" type="Button" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "btnBack"
+
+[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+scale = Vector2(1, 19)
+texture = SubResource("CanvasTexture_orfbj")
+offset = Vector2(150.5, 1.289)
+
+[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+scale = Vector2(1, 20)
+texture = SubResource("CanvasTexture_orfbj")
+offset = Vector2(150.5, 3.75)
+
+[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
+texture = SubResource("CanvasTexture_ri2jj")
+offset = Vector2(152, 48)
+flip_v = true
+
+[node name="settings" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="language" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+theme = ExtResource("4_okr6o")
+
+[node name="languageSpace" type="Container" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/language"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="languageLabel" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/language"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 36
+text = "lbLang"
+
+[node name="languageSelector" type="OptionButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/language" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/focus = ExtResource("7_4bddd")
+theme_override_styles/normal = ExtResource("8_d0x4r")
+theme_override_styles/hover = ExtResource("7_4bddd")
+theme_override_styles/pressed = ExtResource("7_4bddd")
+item_count = 5
+selected = 0
+popup/item_0/text = "btnEN"
+popup/item_0/id = 0
+popup/item_1/text = "btnENGB"
+popup/item_1/id = 1
+popup/item_2/text = "btnDE"
+popup/item_2/id = 2
+popup/item_3/text = "btnFR"
+popup/item_3/id = 4
+popup/item_4/text = "btnEO"
+popup/item_4/id = 5
+
+[node name="speed" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="speedSpace" type="Container" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="speedModes" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed"]
+layout_mode = 2
+
+[node name="zippy" type="HSplitContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="zippyMode" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = SubResource("ButtonGroup_4m5lw")
+
+[node name="zippy" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnZippy"
+
+[node name="fast" type="HSplitContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="fastMode" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_group = SubResource("ButtonGroup_4m5lw")
+
+[node name="fast" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnFast"
+
+[node name="normal" type="HSplitContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes"]
+layout_mode = 2
+dragger_visibility = 1
+
+[node name="normalMode" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_pressed = true
+button_group = SubResource("ButtonGroup_4m5lw")
+
+[node name="normal" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnNormal"
+
+[node name="speedMode" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/speed"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 42
+text = "lbSMode"
+
+[node name="colour" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+theme = ExtResource("9_7k5vf")
+theme_override_constants/separation = 15
+
+[node name="presets" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="preset" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 24
+text = "lbPre"
+horizontal_alignment = 1
+
+[node name="presets" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets"]
+layout_mode = 2
+
+[node name="dark" type="TextureButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("10_pmnwh")
+
+[node name="light" type="TextureButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets" groups=["buttonClick"]]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("11_4tn6e")
+
+[node name="background" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="bgImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/background"]
+layout_mode = 2
+texture = ExtResource("12_xdqrt")
+stretch_mode = 3
+
+[node name="background" type="ColorPickerButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/background" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nbn7i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wm8x4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4qkim")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g2fsd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ogorm")
+edit_alpha = false
+
+[node name="shadow" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="bgImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_xdqrt")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_5ux6e")
+stretch_mode = 3
+flip_h = true
+
+[node name="shadow" type="ColorPickerButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jfk4m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_d7eh2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5p6h5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0knuk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8wlut")
+edit_alpha = false
+
+[node name="grid" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour"]
+layout_mode = 2
+
+[node name="sample" type="Control" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="gridImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_x8tad")
+stretch_mode = 3
+
+[node name="bgImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_xdqrt")
+stretch_mode = 3
+
+[node name="shaImg" type="TextureRect" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/sample"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_5ux6e")
+stretch_mode = 3
+flip_h = true
+
+[node name="grid" type="ColorPickerButton" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid" groups=["buttonClick", "colourPick"]]
+custom_minimum_size = Vector2(72, 46)
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0l8ox")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rl6v2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jb6eo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dciqs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u4whw")
+edit_alpha = false
+
+[node name="pause" type="PanelContainer" parent="lvl/UI/player"]
+z_index = 2
+offset_right = 48.0
+offset_bottom = 72.0
+theme_override_styles/panel = ExtResource("15_x0vnq")
+
+[node name="centerer" type="CenterContainer" parent="lvl/UI/player/pause"]
+layout_mode = 2
+
+[node name="stacker" type="VBoxContainer" parent="lvl/UI/player/pause/centerer"]
+layout_mode = 2
+
+[node name="pauseButton" type="TextureButton" parent="lvl/UI/player/pause/centerer/stacker" groups=["buttonClick"]]
+layout_mode = 2
+toggle_mode = true
+shortcut = SubResource("Shortcut_u6srm")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("16_uv67b")
+texture_pressed = ExtResource("17_ickw2")
+
+[node name="gameOver" type="PanelContainer" parent="lvl/UI/player"]
+visible = false
+z_index = 2
+offset_left = 240.0
+offset_top = 110.0
+offset_right = 1040.0
+offset_bottom = 610.0
+mouse_filter = 2
+theme = ExtResource("4_okr6o")
+theme_override_styles/panel = ExtResource("5_1sk4q")
+
+[node name="centerer" type="CenterContainer" parent="lvl/UI/player/gameOver"]
+layout_mode = 2
+
+[node name="gameOver" type="VBoxContainer" parent="lvl/UI/player/gameOver/centerer"]
+layout_mode = 2
+
+[node name="centerer" type="CenterContainer" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+layout_mode = 2
+
+[node name="end" type="Label" parent="lvl/UI/player/gameOver/centerer/gameOver/centerer"]
+layout_mode = 2
+text = "lbGameOver"
+
+[node name="endSpace" type="Container" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="congrats" type="Label" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/line_spacing = -8
+theme_override_font_sizes/font_size = 24
+text = "lbTut1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="endSpace2" type="Container" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="endbuttons" type="HBoxContainer" parent="lvl/UI/player/gameOver/centerer/gameOver"]
+layout_mode = 2
+
+[node name="reset" type="TextureButton" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("18_yfb43")
+
+[node name="next" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "btnNext"
+
+[node name="return" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "btnExit"
+
+[node name="music1" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = ExtResource("18_fgste")
+volume_db = -6.0
+autoplay = true
+bus = &"music"
+
+[node name="music2" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = ExtResource("19_mw0wo")
+volume_db = -80.0
+bus = &"music"
+
+[node name="endGameJingle" type="AudioStreamPlayer" parent="lvl/UI/player"]
+bus = &"music"
+
+[node name="fader" type="AnimationPlayer" parent="lvl/UI/player"]
+libraries = {
+"": SubResource("AnimationLibrary_ibwr1")
+}
+
+[node name="clickSound" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = SubResource("AudioStreamRandomizer_tc2oa")
+max_polyphony = 5
+bus = &"sfx"
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = SubResource("AudioStreamRandomizer_xl8ks")
+pitch_scale = 10.0
+bus = &"sfx"
+
+[node name="hoverSoundS" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = SubResource("AudioStreamRandomizer_xl8ks")
+volume_db = -9.0
+pitch_scale = 10.0
+bus = &"sfx"
+
+[node name="levelUp" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = ExtResource("22_fghb2")
+max_polyphony = 5
+bus = &"sfx"
+
+[node name="damage" type="AudioStreamPlayer" parent="lvl/UI/player"]
+stream = SubResource("AudioStreamRandomizer_dki2l")
+max_polyphony = 5
+bus = &"sfx"
+
+[node name="damage2" type="AudioStreamPlayer" parent="lvl/UI/player"]
+max_polyphony = 5
+bus = &"sfx"
+
+[node name="view" type="Camera2D" parent="lvl"]
+position = Vector2(640, 360)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+script = ExtResource("29_eegda")
+
+[node name="generator" parent="lvl" instance=ExtResource("30_0dal1")]
+position = Vector2(640, 360)
+
+[node name="light" type="DirectionalLight2D" parent="lvl"]
+rotation = 2.26893
+blend_mode = 2
+range_layer_max = 10
+height = 0.69
+
+[node name="tutMsgTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/pause/settings" to="lvl/UI/player" method="_on_settings_pressed"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/pause/return" to="lvl/UI/player" method="_on_pause_button_toggled" binds= [false]]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/pause/exit" to="lvl/UI/player" method="_on_exit_pressed"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" to="lvl/UI/player" method="_on_return_button_pressed"]
+[connection signal="item_selected" from="lvl/UI/player/pauseMenu/centerer/settings/settings/language/languageSelector" to="lvl/UI/player" method="_on_language_selected"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="lvl/UI/player" method="_on_zippy_mode_pressed"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="lvl/UI/player" method="_on_fast_mode_pressed"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="lvl/UI/player" method="_on_normal_mode_pressed"]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="lvl/UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1), true]]
+[connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="lvl/UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
+[connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/background/background" to="lvl/UI/player" method="singleMod" binds= [0]]
+[connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="lvl/UI/player" method="singleMod" binds= [1]]
+[connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="lvl/UI/player" method="singleMod" binds= [2]]
+[connection signal="toggled" from="lvl/UI/player/pause/centerer/stacker/pauseButton" to="lvl/UI/player" method="_on_pause_button_toggled"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/reset" to="lvl/UI/player" method="_on_reset_pressed"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
+[connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]

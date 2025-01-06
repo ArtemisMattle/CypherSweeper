@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmiah1tecbe2u"
+path="res://.godot/imported/Steamloop Hektisch.mp3-bfc23d7219872b7c81acdc1f2c718de3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/new/Steamloop Hektisch.mp3"
+dest_files=["res://.godot/imported/Steamloop Hektisch.mp3-bfc23d7219872b7c81acdc1f2c718de3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

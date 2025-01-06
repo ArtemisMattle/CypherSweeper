@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cocd6t67hi5bf"]
+
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="1_dmdu8"]
+[ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="2_j6rcy"]
+
+[resource]
+Fonts/fonts/large = ExtResource("1_dmdu8")
+Fonts/fonts/normal = ExtResource("2_j6rcy")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("2_j6rcy")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/line_separation = -12
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/bold_font = ExtResource("1_dmdu8")
+RichTextLabel/fonts/normal_font = ExtResource("2_j6rcy")

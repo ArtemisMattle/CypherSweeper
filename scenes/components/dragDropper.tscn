@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bicrp6l3rgnqg"]
+
+[ext_resource type="Script" path="res://scripts/dragDropper.gd" id="1_tdkan"]
+
+[node name="dragDropper" type="Node"]
+script = ExtResource("1_tdkan")
