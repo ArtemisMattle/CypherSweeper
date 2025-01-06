@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct2h88vkcfe4v"
+path="res://.godot/imported/Scews Version A.mp3-43d26aaca2fb54a3a4a9c59ea3c65f94.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Scews Version A.mp3"
+dest_files=["res://.godot/imported/Scews Version A.mp3-43d26aaca2fb54a3a4a9c59ea3c65f94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyq0gx4h0as47"]
+
+[ext_resource type="Script" path="res://scripts/flagging.gd" id="1_bsku8"]
+[ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="2_ls3s6"]
+[ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="3_5yyb1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_erh6g"]
+playback_mode = 1
+random_pitch = 1.03
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("2_ls3s6")
+stream_0/weight = 20.149
+stream_1/stream = ExtResource("3_5yyb1")
+stream_1/weight = 1.0
+
+[node name="flagging" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 1
+script = ExtResource("1_bsku8")
+bgColour = Color(0.636279, 0.453951, 0.842126, 0.623529)
+hlColour = Color(1, 0.12549, 0.0862745, 0.427451)
+sepColour = Color(0.654902, 0.654902, 0.654902, 1)
+
+[node name="hoverSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_erh6g")
+pitch_scale = 10.0
+bus = &"sfx"

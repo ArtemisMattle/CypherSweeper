@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfw2cxehjfcx0"
+path="res://.godot/imported/Zischen Version 2.mp3-549c0d762a4e0eafbc2ac76f177b32ee.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Edits/Zischen Version 2.mp3"
+dest_files=["res://.godot/imported/Zischen Version 2.mp3-549c0d762a4e0eafbc2ac76f177b32ee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnjhu8xtfskyg"]
+
+[ext_resource type="Script" path="res://scripts/tooltipper.gd" id="1_4nmyh"]
+[ext_resource type="Texture2D" uid="uid://fn8xkc524hin" path="res://assets/textures/potions/potionEmpty.png" id="1_36b6y"]
+[ext_resource type="Texture2D" uid="uid://cwgrukeuqie74" path="res://assets/textures/potions/potionNorm.png" id="2_3d2jl"]
+[ext_resource type="Texture2D" uid="uid://b5r8mtm7satq3" path="res://assets/textures/potions/potionLiquid.png" id="3_8riu4"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p8biy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_4abp0"]
+diffuse_texture = ExtResource("1_36b6y")
+normal_texture = ExtResource("2_3d2jl")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mqje7"]
+blend_mode = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wl514"]
+diffuse_texture = ExtResource("3_8riu4")
+normal_texture = ExtResource("2_3d2jl")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g274m"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_c51va"]
+normal_texture = ExtResource("2_3d2jl")
+
+[node name="potion" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4nmyh")
+metadata/type = ""
+
+[node name="potionBottle" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_p8biy")
+layout_mode = 0
+mouse_filter = 1
+texture_normal = SubResource("CanvasTexture_4abp0")
+
+[node name="potionLiquid" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_mqje7")
+position = Vector2(32, 32)
+texture = SubResource("CanvasTexture_wl514")
+
+[node name="potionLable" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_g274m")
+position = Vector2(32, 32)
+texture = SubResource("CanvasTexture_c51va")

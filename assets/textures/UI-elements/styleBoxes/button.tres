@@ -1,10 +1,15 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dssc5fdme2h60"]
+[gd_resource type="StyleBoxTexture" load_steps=4 format=3 uid="uid://dssc5fdme2h60"]
 
-[ext_resource type="Texture2D" uid="uid://clc1sbit6b5id" path="res://assets/textures/UI-elements/MenBtn_iron_clasp.png" id="1_kiik8"]
+[ext_resource type="Texture2D" uid="uid://d2njvoh67pbs" path="res://assets/textures/UI-elements/MenuButton/menubtn_base_sprite.png" id="1_kc8tr"]
+[ext_resource type="Texture2D" uid="uid://bohysfk1valg4" path="res://assets/textures/UI-elements/MenuButton/menubtn_base_norm.png" id="2_o8l80"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6sbut"]
+diffuse_texture = ExtResource("1_kc8tr")
+normal_texture = ExtResource("2_o8l80")
 
 [resource]
-texture = ExtResource("1_kiik8")
-texture_margin_left = 13.0
-texture_margin_top = 12.0
-texture_margin_right = 35.0
-texture_margin_bottom = 12.0
+texture = SubResource("CanvasTexture_6sbut")
+texture_margin_left = 6.0
+texture_margin_top = 15.0
+texture_margin_right = 42.0
+texture_margin_bottom = 15.0

@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://87b3b6agtqvw"]
+
+[ext_resource type="Script" path="res://scripts/lexicon.gd" id="1_avxf4"]
+[ext_resource type="Texture2D" uid="uid://ciyugeuivgjop" path="res://assets/textures/tools/lexicon.png" id="1_rj0x8"]
+[ext_resource type="Texture2D" uid="uid://cac5763e8sk74" path="res://assets/textures/tools/Lexicon_open_big.png" id="3_mnorv"]
+[ext_resource type="Texture2D" uid="uid://5w8s7ecugu2l" path="res://assets/textures/tools/Lexicon_open_paper_gray.png" id="4_1u6h7"]
+[ext_resource type="PackedScene" uid="uid://dcbjsa16dkefd" path="res://scenes/tools/lexicon_content.tscn" id="4_33ldb"]
+[ext_resource type="Texture2D" uid="uid://drpj84xh46678" path="res://assets/textures/tools/Lexicon_open_fullscreen.png" id="5_r6h2j"]
+[ext_resource type="Texture2D" uid="uid://gru7kmkwftti" path="res://assets/textures/tools/Lexicon_open_fullscreen_paper_gray.png" id="7_xr6os"]
+[ext_resource type="PackedScene" uid="uid://bicrp6l3rgnqg" path="res://scenes/components/dragDropper.tscn" id="8_ixb2d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58n0f"]
+size = Vector2(48.8835, 58.3987)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4ydt"]
+size = Vector2(253, 157)
+
+[node name="lexicon" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+mouse_filter = 2
+script = ExtResource("1_avxf4")
+metadata/tool = true
+metadata/rot = true
+metadata/boxTool = true
+
+[node name="placer" type="Node2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="toolSprite" type="Sprite2D" parent="placer"]
+texture = ExtResource("1_rj0x8")
+
+[node name="author" type="Label" parent="placer/toolSprite"]
+offset_left = -19.0
+offset_top = 8.0
+offset_right = 21.0
+offset_bottom = 31.0
+rotation = -0.174533
+theme_override_colors/font_color = Color(0.803922, 0.670588, 0.552941, 1)
+text = "徐 巿"
+
+[node name="pickUp" type="Area2D" parent="placer"]
+
+[node name="boxClosed" type="CollisionShape2D" parent="placer/pickUp"]
+position = Vector2(-3, 0)
+rotation = -0.174533
+shape = SubResource("RectangleShape2D_58n0f")
+
+[node name="boxOpen" type="CollisionShape2D" parent="placer/pickUp"]
+shape = SubResource("RectangleShape2D_f4ydt")
+disabled = true
+
+[node name="openBook" type="Sprite2D" parent="placer"]
+visible = false
+texture = ExtResource("3_mnorv")
+
+[node name="lexiconOpenPaperGray" type="Sprite2D" parent="placer/openBook"]
+texture = ExtResource("4_1u6h7")
+
+[node name="lexiconContent" parent="placer/openBook" instance=ExtResource("4_33ldb")]
+
+[node name="bigLexicon" type="CanvasLayer" parent="."]
+layer = 3
+visible = false
+
+[node name="background" type="Sprite2D" parent="bigLexicon"]
+position = Vector2(616, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("5_r6h2j")
+
+[node name="lexiconOpenFullscreenPaperGray" type="Sprite2D" parent="bigLexicon/background"]
+texture = ExtResource("7_xr6os")
+
+[node name="lexiconContent" parent="bigLexicon/background" instance=ExtResource("4_33ldb")]
+offset_left = -512.0
+offset_top = -320.0
+offset_right = 1.0
+offset_bottom = 0.0
+scale = Vector2(1, 1)
+
+[node name="hysterese" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="dragDropper" parent="." instance=ExtResource("8_ixb2d")]
+
+[connection signal="input_event" from="placer/pickUp" to="." method="_on_pick_up_input_event"]
+[connection signal="input_event" from="placer/pickUp" to="dragDropper" method="_on_pick_up_input_event"]
+[connection signal="timeout" from="hysterese" to="." method="_on_hysterese_timeout"]

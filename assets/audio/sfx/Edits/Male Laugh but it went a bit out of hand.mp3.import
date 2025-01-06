@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b556hoo7b3t2b"
+path="res://.godot/imported/Male Laugh but it went a bit out of hand.mp3-3858f084dfe5a7d2a6bdfd7816f53605.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Edits/Male Laugh but it went a bit out of hand.mp3"
+dest_files=["res://.godot/imported/Male Laugh but it went a bit out of hand.mp3-3858f084dfe5a7d2a6bdfd7816f53605.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

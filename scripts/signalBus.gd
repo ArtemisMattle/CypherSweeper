@@ -1,12 +1,24 @@
 extends Node
 
-signal talkToNeighbor(ownpos: int, owningr: String, neighborpos: int)
-signal populated
-signal turnNeighbor(neighborpos: int)
 signal lvlNothing
 signal lvlFlamel
-signal uncoverIngr(ingredient: String)
+signal uncoverIngr(ingredient: String, last: bool)
 signal upsane
-signal turnSound
+signal deactivate(reactivate: bool) #used to deactivate certain elements
+signal populated
+signal modulate
+signal toolTrans(tool: globalVariables.tool, held: bool)
+signal drop(re: bool) #used to drop certain tools specifically
+signal getRandomUnrevealed
+signal returnUnrevealed(ingredient: String, position: Vector2)
+signal flagging(flag: String)
+signal freeze
 
-signal colourchange
+signal getAim(target: int)
+signal returnAim(target: Node)
+
+signal expresso(pressed: Signal)
+signal late()
+signal potionD(type: int)
+
+signal lvlUp(lvl: String) # used for the tutorial to give the player messages

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2uc5x0j0wg8q"
+path="res://.godot/imported/Steamloop Nicht so Hektisch.mp3-4fbe97c7ee9c7499d6603903ba5a9108.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/new/Steamloop Nicht so Hektisch.mp3"
+dest_files=["res://.godot/imported/Steamloop Nicht so Hektisch.mp3-4fbe97c7ee9c7499d6603903ba5a9108.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

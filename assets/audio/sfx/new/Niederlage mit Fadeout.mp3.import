@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mbq5awmm05rj"
+path="res://.godot/imported/Niederlage mit Fadeout.mp3-2b9b671bf6287e0218a559a5ffc7f851.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/new/Niederlage mit Fadeout.mp3"
+dest_files=["res://.godot/imported/Niederlage mit Fadeout.mp3-2b9b671bf6287e0218a559a5ffc7f851.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

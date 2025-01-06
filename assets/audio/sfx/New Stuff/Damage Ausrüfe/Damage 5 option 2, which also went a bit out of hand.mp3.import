@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3fym77dm05e5"
+path="res://.godot/imported/Damage 5 option 2, which also went a bit out of hand.mp3-88ac7494c927b639da52c436bccd18c0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3"
+dest_files=["res://.godot/imported/Damage 5 option 2, which also went a bit out of hand.mp3-88ac7494c927b639da52c436bccd18c0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

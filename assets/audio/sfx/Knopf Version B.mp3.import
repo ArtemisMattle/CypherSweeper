@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6c14jdyc3x41"
+path="res://.godot/imported/Knopf Version B.mp3-b14e8136845012ae7371ee18ca1dbf4b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Knopf Version B.mp3"
+dest_files=["res://.godot/imported/Knopf Version B.mp3-b14e8136845012ae7371ee18ca1dbf4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
