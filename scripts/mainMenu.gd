@@ -143,12 +143,15 @@ func _toCredits() -> void:
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
+	settings.saveSet()
 
 func _on_fast_mode_pressed() -> void:
 	settings.speedMode = sMode.fast
+	settings.saveSet()
 
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
+	settings.saveSet()
 
 func _lvl1() -> void:
 	_startLvl((1))
@@ -322,6 +325,7 @@ func _on_language_selected(index: int) -> void: # changes the language (locale)
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
 	settings.language = langSel.get_item_text(index).right(-3)
+	settings.saveSet()
 
 func stackIngredients() -> void: # takes care of the ingredient stack
 	
@@ -439,6 +443,7 @@ func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # chang
 		background.texture = load("res://assets/textures/splashscreens/CityNight.png")
 	else:
 		background.texture = load("res://assets/textures/splashscreens/City.png")
+	settings.saveSet()
 
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):

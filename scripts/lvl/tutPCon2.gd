@@ -234,12 +234,15 @@ func _on_return_button_pressed() -> void: # retuns to the pause menu
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
+	settings.saveSet()
 
 func _on_fast_mode_pressed() -> void:
 	settings.speedMode = sMode.fast
+	settings.saveSet()
 
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
+	settings.saveSet()
 
 func _on_exit_pressed() -> void: # returns you to the menu
 	globalVariables.mod = []
@@ -275,6 +278,7 @@ func _on_language_selected(index: int) -> void:
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
 	settings.language = langSel.get_item_text(index).right(-3)
+	settings.saveSet()
 
 @onready var backgroundsample: Array[TextureRect] = [
 	$pauseMenu/centerer/settings/settings/colour/background/bgImg,
@@ -326,4 +330,5 @@ func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # chang
 	
 	settings.darkmode = dark
 	signalBus.modulate.emit()
+	settings.saveSet()
 
