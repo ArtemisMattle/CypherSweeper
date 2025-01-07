@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cfa4nq7j171fp"]
+[gd_scene load_steps=58 format=3 uid="uid://cfa4nq7j171fp"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut2.gd" id="1_qwc5y"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon2.gd" id="2_irbi5"]
@@ -8,16 +8,11 @@
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_jev66"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="6_klos5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="7_kpucp"]
-[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="8_2c756"]
+[ext_resource type="PackedScene" uid="uid://cyup2bpmuxerx" path="res://scenes/btn_decor.tscn" id="7_sgfoc"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="8_clta3"]
-[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="9_05g83"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="9_mbb83"]
-[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="10_ddlc3"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="10_tkw8i"]
-[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="11_r3jnj"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="11_rhu8h"]
-[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="11_t3bfo"]
-[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="12_nu3i7"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="12_wvnyl"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="13_ndy0w"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="14_4c6ke"]
@@ -38,30 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="28_8fpsy"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="29_i2p0d"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="30_lkqgj"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_00mfe"]
-diffuse_texture = ExtResource("8_2c756")
-normal_texture = ExtResource("9_05g83")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_dycp6"]
-diffuse_texture = ExtResource("10_ddlc3")
-normal_texture = ExtResource("11_t3bfo")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_qcue0"]
-diffuse_texture = ExtResource("8_2c756")
-normal_texture = ExtResource("9_05g83")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_102yr"]
-diffuse_texture = ExtResource("11_r3jnj")
-normal_texture = ExtResource("12_nu3i7")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_bqyde"]
-diffuse_texture = ExtResource("8_2c756")
-normal_texture = ExtResource("9_05g83")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_gi4qb"]
-diffuse_texture = ExtResource("10_ddlc3")
-normal_texture = ExtResource("11_t3bfo")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_22s5c"]
 
@@ -362,39 +333,15 @@ layout_mode = 2
 layout_mode = 2
 text = "btnSettings"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_00mfe")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_00mfe")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-texture = SubResource("CanvasTexture_dycp6")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/settings" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
 
 [node name="return" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_00mfe")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_00mfe")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-texture = SubResource("CanvasTexture_dycp6")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/return" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
 
 [node name="Container" type="Container" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 70)
@@ -404,20 +351,9 @@ layout_mode = 2
 layout_mode = 2
 text = "btnExit"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_qcue0")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_qcue0")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-texture = SubResource("CanvasTexture_102yr")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/exit" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
+detail = 2
 
 [node name="warning" type="Label" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
@@ -443,20 +379,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_bqyde")
-offset = Vector2(150.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_bqyde")
-offset = Vector2(150.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-texture = SubResource("CanvasTexture_gi4qb")
-offset = Vector2(152, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
 
 [node name="settings" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -774,10 +698,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnNext"
 
+[node name="btnDecor" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
+
 [node name="return" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "btnExit"
+
+[node name="btnDecor" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" instance=ExtResource("7_sgfoc")]
+position = Vector2(276, 40)
 
 [node name="music1" type="AudioStreamPlayer" parent="lvl/UI/player"]
 stream = ExtResource("18_sb7ps")
