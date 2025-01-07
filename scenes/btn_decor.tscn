@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyup2bpmuxerx"]
+
+[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
+[ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
+[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="2_kynjc"]
+[ext_resource type="Texture2D" uid="uid://cwt0kr730jck3" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1.tres" id="4_yhtn0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_srmcq"]
+diffuse_texture = ExtResource("1_k0upa")
+normal_texture = ExtResource("2_kynjc")
+
+[node name="btnDecor" type="Node2D"]
+script = ExtResource("1_v4c82")
+
+[node name="pipeu" type="Sprite2D" parent="."]
+position = Vector2(3, -17)
+rotation = 3.14159
+scale = Vector2(1, 8)
+texture = SubResource("CanvasTexture_srmcq")
+centered = false
+
+[node name="piped" type="Sprite2D" parent="."]
+position = Vector2(-6, 17)
+scale = Vector2(1, 9)
+texture = SubResource("CanvasTexture_srmcq")
+centered = false
+
+[node name="detail" type="Sprite2D" parent="."]
+position = Vector2(-24, -32)
+texture = ExtResource("4_yhtn0")
+centered = false
+flip_v = true

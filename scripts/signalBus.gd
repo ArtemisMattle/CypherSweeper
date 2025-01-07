@@ -22,3 +22,4 @@ signal late()
 signal potionD(type: int)
 
 signal lvlUp(lvl: String) # used for the tutorial to give the player messages
+
