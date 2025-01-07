@@ -41,20 +41,22 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut20"))
+	msgTxt = tr("msgTut21")
+	time.start()
 
 func lvlup(ingr: String) -> void:
 	if globalVariables.level[ingr] == 1:
 		lvl1 += 1
 		if lvl1 == 1:
-			msgTxt = tr("msgTut21") % tr(ingr)
+			msgTxt = tr("msgTut22") % tr(ingr)
 			time.start()
 		elif lvl1 == 3:
-			msgTxt = tr("msgTut22")
+			msgTxt = tr("msgTut23")
 			time.start()
 	if globalVariables.level[ingr] == 3:
 		lvl3 += 1
 		if lvl3 == 3:
-			msgTxt = tr("msgTut23")
+			msgTxt = tr("msgTut24")
 			time.start()
 
 func dmg() -> void:

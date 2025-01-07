@@ -8,6 +8,8 @@ var width: int = 450
 
 func initi(txt: String, pos: Vector2i = Vector2i(640, 360)) -> bool:
 	
+	Engine.time_scale = 0
+	
 	var lines: int = len(txt) / lLen +1
 	var height: int = lines * lHeight
 	
@@ -19,5 +21,6 @@ func initi(txt: String, pos: Vector2i = Vector2i(640, 360)) -> bool:
 	return true
 
 func _on_continue_pressed() -> void:
+	Engine.time_scale = 1
 	signalBus.deactivate.emit(true)
 	self.queue_free()
