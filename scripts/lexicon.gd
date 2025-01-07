@@ -62,6 +62,6 @@ func _on_big_lexicon_pressed() -> void:
 		$bigLexicon/background/lexiconContent.get_node("bigLex").set_shortcut(null)
 	
 func shapeshift() -> void:
-	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = globalVariables.colours[0]
-	$placer/openBook/lexiconOpenPaperGray.modulate = globalVariables.colours[0]
+	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = settings.colours[0]
+	$placer/openBook/lexiconOpenPaperGray.modulate = settings.colours[0]
 	

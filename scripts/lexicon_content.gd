@@ -65,9 +65,9 @@ func _on_next_pressed() -> void: # next page
 	changePage()
 
 func shapeshift() -> void:
-	$textBox.modulate = globalVariables.colours[1]
-	$ingredients/lbHerb.modulate = globalVariables.colours[1]
-	$ingredients/lbSalt.modulate = globalVariables.colours[1]
-	$ingredients/lbShroom.modulate = globalVariables.colours[1]
-	$next.modulate = globalVariables.colours[1]
-	$back.modulate = globalVariables.colours[1]
+	$textBox.modulate = settings.colours[1]
+	$ingredients/lbHerb.modulate = settings.colours[1]
+	$ingredients/lbSalt.modulate = settings.colours[1]
+	$ingredients/lbShroom.modulate = settings.colours[1]
+	$next.modulate = settings.colours[1]
+	$back.modulate = settings.colours[1]

@@ -45,13 +45,13 @@ func _ready() -> void:
 		elif "btn"+lang.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 
-	globalVariables.language = lang
+	settings.language = lang
 	if lang.left(2) == "EN":
 		if lang.right(2) == "GB":
 			pass
 		else:
 			TranslationServer.set_locale("en")
-			globalVariables.language = "EN"
+			settings.language = "EN"
 	
 	
 	playPg.visible = false
@@ -59,7 +59,7 @@ func _ready() -> void:
 	_toTitle()
 	buttonClickSound()
 	colourPickerResize()
-	shapeshift(globalVariables.colours[0],globalVariables.colours[1],globalVariables.colours[2], globalVariables.darkmode)
+	shapeshift(settings.colours[0],settings.colours[1],settings.colours[2], settings.darkmode)
 
 func _process(delta: float) -> void:
 	lbMult.text = "Score Modifyer: " + str(globalVariables.scoreMult)
@@ -321,7 +321,7 @@ func _on_language_selected(index: int) -> void: # changes the language (locale)
 		"btnES": TranslationServer.set_locale("es")
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
-	globalVariables.language = langSel.get_item_text(index).right(-3)
+	settings.language = langSel.get_item_text(index).right(-3)
 
 func stackIngredients() -> void: # takes care of the ingredient stack
 	
@@ -422,19 +422,19 @@ func colourPickerResize() -> void:
 ]
 
 func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # changes the colours of the samples and sends the necessary signals for the rest
-	globalVariables.colours[0] = bg
+	settings.colours[0] = bg
 	colourPicks[0].color = bg
 	for i: TextureRect in backgroundsample:
 		i.modulate = bg
-	globalVariables.colours[1] = sha
+	settings.colours[1] = sha
 	colourPicks[1].color = sha
 	for i: TextureRect in shadowsample:
 		i.modulate = sha
-	globalVariables.colours[2] = grid
+	settings.colours[2] = grid
 	colourPicks[2].color = grid
 	gridsample.modulate = grid
 	
-	globalVariables.darkmode = dark
+	settings.darkmode = dark
 	if dark:
 		background.texture = load("res://assets/textures/splashscreens/CityNight.png")
 	else:

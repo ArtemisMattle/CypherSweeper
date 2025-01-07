@@ -580,10 +580,10 @@ func getNeighNeighbors(i: int) -> Array[int]: # returns all unique neighbors of 
 
 func shapeshift() -> void: # changes the colours
 	for i: int in len(pos):
-		pos[i].cell.get_node("hex").modulate = globalVariables.colours[2]
-		pos[i].cell.get_node("colour").modulate = globalVariables.colours[1]
+		pos[i].cell.get_node("hex").modulate = settings.colours[2]
+		pos[i].cell.get_node("colour").modulate = settings.colours[1]
 	if $background.visible:
-		$background.modulate = globalVariables.colours[0]
+		$background.modulate = settings.colours[0]
 
 func freeze() -> void: #sets active false and starts a cooldown to reactivate4
 	print("ice")

@@ -51,12 +51,12 @@ func _ready() -> void:
 	$pause.visible=true
 	$pauseMenu/centerer/settings/settings/language/languageSelector.get_popup().get_viewport().transparent_bg = true
 	for id in langSel.get_selectable_item(true)+1:
-		if "btn"+globalVariables.language==langSel.get_item_text(id):
+		if "btn"+settings.language==langSel.get_item_text(id):
 			langSel.select(id)
-		elif "btn"+globalVariables.language.left(2)==langSel.get_item_text(id):
+		elif "btn"+settings.language.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 	
-	shapeshift(globalVariables.colours[0], globalVariables.colours[1], globalVariables.colours[2], globalVariables.darkmode)
+	shapeshift(settings.colours[0], settings.colours[1], settings.colours[2], settings.darkmode)
 	colourPickerResize()
 	signalBus.populated.connect(buttonClickSound)
 	#bB.visible=false
@@ -238,7 +238,7 @@ func _on_language_selected(index: int) -> void:
 		"btnES": TranslationServer.set_locale("es")
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
-	globalVariables.language = langSel.get_item_text(index).right(-3)
+	settings.language = langSel.get_item_text(index).right(-3)
 
 @onready var backgroundsample: Array[TextureRect] = [
 	$pauseMenu/centerer/settings/settings/colour/background/bgImg,
@@ -262,9 +262,9 @@ func _on_language_selected(index: int) -> void:
 
 func singleMod(c: Color, pos: int) -> void: # forwards the colourpickers to modulate and adds the unchanged colours
 	match pos:
-		0: shapeshift(c, globalVariables.colours[1], globalVariables.colours[2], globalVariables.darkmode)
-		1: shapeshift(globalVariables.colours[0], c, globalVariables.colours[2], globalVariables.darkmode)
-		2: shapeshift(globalVariables.colours[0], globalVariables.colours[1], c, globalVariables.darkmode)
+		0: shapeshift(c, settings.colours[1], settings.colours[2], settings.darkmode)
+		1: shapeshift(settings.colours[0], c, settings.colours[2], settings.darkmode)
+		2: shapeshift(settings.colours[0], settings.colours[1], c, settings.darkmode)
 
 func colourPickerResize() -> void:
 	for cP: ColorPickerButton in get_tree().get_nodes_in_group("colourPick"):
@@ -276,19 +276,19 @@ func colourPickerResize() -> void:
 		cP.get_picker().get_child(0, true).get_child(0, true).get_child(1, true).get_child(2, true).visible = false
 
 func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # changes the colours of the samples and sends the necessary signals for the rest
-	globalVariables.colours[0] = bg
+	settings.colours[0] = bg
 	colourPicks[0].color = bg
 	for i: TextureRect in backgroundsample:
 		i.modulate = bg
-	globalVariables.colours[1] = sha
+	settings.colours[1] = sha
 	colourPicks[1].color = sha
 	for i: TextureRect in shadowsample:
 		i.modulate = sha
-	globalVariables.colours[2] = grid
+	settings.colours[2] = grid
 	colourPicks[2].color = grid
 	gridsample.modulate = grid
 	
-	globalVariables.darkmode = dark
+	settings.darkmode = dark
 	signalBus.modulate.emit()
 
 

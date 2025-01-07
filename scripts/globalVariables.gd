@@ -1,6 +1,6 @@
 extends Node
 
-var language: String = "EN"
+#var language: String = "EN" # depreciated
 
 var sanity: int = 100
 var lostsanity: int = 0
@@ -50,19 +50,17 @@ var ingredientStack: Dictionary = {
 	"Salt2" = 0,
 	"Salt3" = 0,}
 var specials: Dictionary = {
-	"coffee" = 9,
-}
+	"coffee" = 9,}
 var empty: int 
 var sum: int
 
-var beanCount: int =100; # Percentage of map with coffee beans
 
-var colours: Array[Color] = [
-	Color(0.878, 0.8, 0.533),
-	Color(0, 0, 0),
-	Color(0.694, 0.451, 0.718)
-	]
-var darkmode: bool = false
+#var colours: Array[Color] = [ # depreciated 
+	#Color(0.878, 0.8, 0.533),
+	#Color(0, 0, 0),
+	#Color(0.694, 0.451, 0.718)
+	#]
+#var darkmode: bool = false # depreciated
 
 var mod: Array[String] = [] # array of active modifyers
 
@@ -70,7 +68,7 @@ var buff: Dictionary = {
 	"shield" = 0,
 	"freeHint" = 0,
 	"freePotion" = 3,
-}
+	}
 
 var mods: Array[modifyer] = [ # array of all modifyers
 	modifyer.new("HEK", 3, ["EC"]),# playerControler ,  not demo
@@ -85,7 +83,7 @@ var mods: Array[modifyer] = [ # array of all modifyers
 	modifyer.new("HE", -2, [], true), # main Menu
 	modifyer.new("FU", -2, [], true), # main Menu
 	modifyer.new("ST", -2, [], true), # main Menu
-]
+	]
 
 
 var boxing: bool = false # if a tool gets put back into the box
