@@ -1,5 +1,8 @@
 extends Node
 
+var settingPath: String = "user://CSSetting.cfg"
+var settings: ConfigFile = ConfigFile.new()
+
 var language: String = "EN"
 
 var masterMute: bool = false
@@ -21,9 +24,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("fullscreen"):
 		fs = not fs
 		tFullscreen()
+	if event.is_action_pressed("save"):
+		loadSet()
 
 func tFullscreen() -> void:
 	if fs:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func saveSet() -> void:
+	settings.set_value("language", "language", language)
+	settings.save(settingPath)
+	print("done")
+
+func loadSet() -> void:
+	var err = settings.load(settingPath)
+	if err != OK:
+		return
+	if settings.has_section("language"):
+		language = settings.get_value("language", "language")
+		TranslationServer.set_locale(language)
