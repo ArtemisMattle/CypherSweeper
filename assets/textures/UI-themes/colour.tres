@@ -1,6 +1,21 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://2o7qow54lkux"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://2o7qow54lkux"]
 
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="1_2l4b4"]
+[ext_resource type="Texture2D" uid="uid://cuv1nlxql5nq3" path="res://assets/textures/UI-elements/colourpickerdropper.png" id="1_lnbp5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lxpii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhr5g"]
+bg_color = Color(0.633211, 0.532579, 0.300229, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j7mr"]
+bg_color = Color(0.631373, 0.533333, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgi6i"]
+bg_color = Color(0.631373, 0.533333, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64of7"]
+bg_color = Color(0.631373, 0.533333, 0.301961, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt421"]
 
@@ -9,6 +24,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjm8t"]
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_lxpii")
+Button/styles/focus = SubResource("StyleBoxFlat_lhr5g")
+Button/styles/hover = SubResource("StyleBoxFlat_3j7mr")
+Button/styles/normal = SubResource("StyleBoxFlat_hgi6i")
+Button/styles/pressed = SubResource("StyleBoxFlat_64of7")
+ColorPicker/icons/screen_picker = ExtResource("1_lnbp5")
 ColorPickerButton/colors/font_outline_color = Color(0, 0, 0, 1)
 ColorPickerButton/constants/outline_size = 4
 ColorPickerButton/font_sizes/font_size = 16

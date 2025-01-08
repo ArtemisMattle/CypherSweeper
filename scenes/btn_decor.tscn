@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyup2bpmuxerx"]
+[gd_scene load_steps=10 format=3 uid="uid://cyup2bpmuxerx"]
 
 [ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
 [ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
@@ -8,6 +8,28 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_srmcq"]
 diffuse_texture = ExtResource("1_k0upa")
 normal_texture = ExtResource("2_kynjc")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_775c0"]
+
+[sub_resource type="Curve" id="Curve_2j78y"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 75.2127), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_2nr2a"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 50), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_besk4"]
+min_value = 1.0
+max_value = 4.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 2), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 0.0, 0.0, 0, 0, Vector2(0.5, 3), 0.0, 0.0, 0, 0, Vector2(0.75, 3), 0.0, 0.0, 0, 0, Vector2(0.75, 4), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 1, 0]
+point_count = 8
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
 
 [node name="btnDecor" type="Node2D"]
 script = ExtResource("1_v4c82")
@@ -30,3 +52,23 @@ position = Vector2(-24, -32)
 texture = ExtResource("4_yhtn0")
 centered = false
 flip_v = true
+
+[node name="cpuParticles2d" type="CPUParticles2D" parent="."]
+position = Vector2(3, -17)
+rotation = -0.511415
+emitting = false
+amount = 300
+lifetime = 0.31
+randomness = 0.31
+lifetime_randomness = 0.31
+texture = SubResource("AnimatedTexture_775c0")
+spread = 31.4
+initial_velocity_min = 314.0
+initial_velocity_max = 628.0
+linear_accel_min = 31.4
+linear_accel_max = 62.8
+linear_accel_curve = SubResource("Curve_2j78y")
+damping_min = 31.4
+damping_max = 100.0
+damping_curve = SubResource("Curve_2nr2a")
+scale_amount_curve = SubResource("Curve_besk4")

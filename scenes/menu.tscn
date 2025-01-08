@@ -86,6 +86,7 @@ texture = ExtResource("3_gogsx")
 expand_mode = 2
 
 [node name="edge" type="MarginContainer" parent="background"]
+z_index = 1
 layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 720.0
