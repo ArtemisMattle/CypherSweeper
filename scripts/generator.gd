@@ -585,13 +585,11 @@ func shapeshift() -> void: # changes the colours
 	if $background.visible:
 		$background.modulate = settings.colours[0]
 
-func freeze() -> void: #sets active false and starts a cooldown to reactivate4
-	print("ice")
+func freeze() -> void: #sets active false and starts a cooldown to reactivate
 	cdTimer.start()
 	active = false
 
-func mariahCarey() -> void:
-	print("baby")
+func mariahCarey() -> void: # gets activated to defrost
 	active = true
 
 class gridCell: # Data type for the grid cells

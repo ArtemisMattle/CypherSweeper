@@ -22,18 +22,6 @@ func takeTool(t: globalVariables.tool, held: bool) -> void: # recieves a tool fr
 		if t.tScene.get_meta("boxTool"):
 			t.tScene.reparent(self)
 			tools.append(t)
-	#if t in tools:
-		#tools.erase(t)
-	#else:
-		#tools.append(t)
-		#t.tScene.reparent(self)
-		#t.place.global_position
-		##t.pickUp.input_event.connect(giveTool.bind(t))
 
-func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: #handles the drag&drop for the tools, as well as the parent juggling
-	if Input.is_action_pressed("pickUpTool"):
-		if globalVariables.holdable:
-			signalBus.toolTrans.emit(t)
-			t.pickUp.input_event.disconnect(giveTool)
 
 

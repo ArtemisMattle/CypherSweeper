@@ -47,6 +47,7 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if tool.tScene.has_meta("enabled"):
 				tool.tScene.set_meta("enabled", false)
 			signalBus.toolTrans.emit(tool, false)
+			place.global_position = place.get_global_mouse_position()
 			signalBus.deactivate.disconnect(drop)
 			signalBus.drop.disconnect(drop)
 
