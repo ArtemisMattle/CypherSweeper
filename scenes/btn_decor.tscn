@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyup2bpmuxerx"]
+[gd_scene load_steps=12 format=3 uid="uid://cyup2bpmuxerx"]
 
 [ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
 [ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
@@ -30,6 +30,14 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector
 point_count = 8
 metadata/_snap_enabled = true
 metadata/_snap_count = 4
+
+[sub_resource type="Gradient" id="Gradient_l0aao"]
+colors = PackedColorArray(0.894118, 0, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qxy6r"]
+gradient = SubResource("Gradient_l0aao")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="btnDecor" type="Node2D"]
 script = ExtResource("1_v4c82")
@@ -72,3 +80,9 @@ damping_min = 31.4
 damping_max = 100.0
 damping_curve = SubResource("Curve_2nr2a")
 scale_amount_curve = SubResource("Curve_besk4")
+
+[node name="pointLight2d" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(10, -11)
+texture = SubResource("GradientTexture2D_qxy6r")
+height = 8.0

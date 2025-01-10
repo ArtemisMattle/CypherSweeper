@@ -36,7 +36,9 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			place.scale = Vector2(2, 2)
 			if tool.tScene.has_meta("enabled"): # used to enable certain behaviors when held, currently only used by the Magnifyer
 				tool.tScene.set_meta("enabled", true)
+			place.global_position = place.get_global_mouse_position() # Artemis favorite line in this whole codebase
 			signalBus.toolTrans.emit(tool, true)
+			place.global_position = place.get_global_mouse_position()
 			signalBus.deactivate.connect(drop)
 			signalBus.drop.connect(drop)
 		elif held:
