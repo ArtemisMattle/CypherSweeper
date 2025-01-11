@@ -12,8 +12,8 @@ ttcs!,Coming Soon!,Bald Verfügbar!,Disponible tôt!,,,Baldaŭ Venos!
 ttMaster,[b]Mute Audio[/b],[b]Ton aus[/b],,,,
 ttSFX,[b]Mute Sound Effects[/b],[b]SFX aus[/b],,,,
 ttMusic,[b]Mute Music[/b],[b]Musik aus[/b],,,,
-lbLang,Languages:,Sprachen:,Langues:,,Tongues:,Lingvoj
-lbLang100x,Translation may not be finished or accurate.,Übersetzung ist nicht zwangsweise fertig oder korrekt.,La traduction peut ne pas être terminée ou exacte.,,,Traduko eble ne estas finita aŭ preciza. 
+lbLang,Languages:,Sprache:,Langues:,,Tongues:,Lingvoj
+lbLang100x,Translation may not be finished or accurate.,Übersetzung ist nicht zwangsweise fertig oder korrekt.,La traduction peut ne pas être terminée ou exacte.,,,Traduko eble ne estas finita aŭ preciza.
 btnEN,English,Englisch,Anglais,,,Angla
 btnDE,German,Deutsch,Allemand,,,Germana
 btnFR,French,Französisch,Français,,,Franca
@@ -23,13 +23,13 @@ btnEO,Esperanto,Esperanto,Ésperanto,,,Esperanto
 btnZippy,Zippy,Flott,Immédiat,,,Tre Rapide
 btnFast,Fast,Schnell,Vite,,,Rapida
 btnNormal,Normal,Normal,Normal,,,Normala
-lbSMode,Speed Mode,Tempo,Vitesse,,,Rapido Reĝimo
+lbSMode,Speed Mode,Geschwindigkeit,Vitesse,,,Rapido Reĝimo
 selSize,Size,Größe,Taille,,,Grandeco
-ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die Kantenlänge, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, les valeurs plus élevées sont plus difficiles et prennent plus de temps !",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
+ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die länge der Kanten, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, les valeurs plus élevées sont plus difficiles et prennent plus de temps !",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
 lbPre,Presets,Voreinstellungen,,,,
 btnNewGame,New Game,Neues Spiel,,,,
 btnContinue,Continue,Weiter,,,,
-btnTutorial,Tutorials,Tutorium,,,,
+btnTutorial,Tutorials,Tutorial,,,,
 btnSaves,Saves,Speicherstände,,,,
 btnNext,Next,Weiter,,,,
 lbArtemis,"Creative &
@@ -45,7 +45,7 @@ lbVisual,Visual Art,Grafiker,,,,
 lbDiana,"Music &
 Sound Design","Musik &
 Sound Effekte",,,,
-ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ĉiuj viaj iloj"
+ttTB,"Toolbox, a place for all your tools","Werkzeugkiste, ein Ort für alle deine Werkzeuge","Boîte à outils, un endroit pour tous vos outils",,,"Utila kesto, loko por ĉiuj viaj iloj"
 btnExit,Exit,Beenden,Quiter,,,Elirejo
 lbWarning,Exiting deletes your progress.,Beenden zerstört deinen Fortschritt.,Quiter détruit ton progrès.,,,Eliro forigas vian progreson
 Herb,Herb,Kraut,Herbe,,,Herbo
@@ -56,29 +56,29 @@ lbGameOver,Game Over!,Verloren!,Defaite!,,,La Ludo Finiĝis!
 lbWon,You Won!,Gewonnen!,Victoire!,,,Vi Venkis!
 lbTime,You took,Du brauchtest,Tu as pris,,,Vi uzis
 lbMod,Your modifyer is,Dein Multiplikator ist,Ton multiplicateur est,,,Via modifilo estas
-lbScore,You scored,Dein Score ist,Ton Score est,,,Vi gajnis
+lbScore,You scored,Deine erzielten Punkte sind,Ton Score est,,,Vi gajnis
 lbMin,Minutes and,Minuten und,minutes et,,,Minutojn kaj
 lbSec,Seconds,Sekunden,secondes,,,Sekundojn
-lexl0,In Cypher Sweeper you try to uncover the whole field to decipher the recipe for a magic potion.,In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern. ,,,,
-lexr0,"So as not to lose sanity, the Flamel must be the last field you click on. You lose if you uncover it before all other fields have been cleared or your sanity (see arrow) runs out. ","Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet verlierst du. ",,,,
-lexl1,"Even the nicest work can be a strain on your mental health sometimes. Whenever you make mistakes, that is to say uncover ingredients that still have danger levels too advanced for you, you lose sanity.","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben, verschlechtert sich dein mentaler Zustand. ",,,,
-lexr1,"Try not to go mad! 
+lexl0,In Cypher Sweeper you try to uncover the whole field to decipher the recipe for a magic potion.,In Cypher Sweeper versuchst du das gesamte Feld aufzudecken und damit das Rezept für einen Zaubertrank zu entziffern.,,,,
+lexr0,"So as not to lose sanity, the Flamel must be the last field you click on. You lose if you uncover it before all other fields have been cleared or your sanity (see arrow) runs out.","Um dabei nicht den Verstand zu verlieren, darfst du das Flamel erst zuallerletzt aufdecken. Wenn du es früher aufdeckst, oder wenn deine mentale Gesundheit schwindet verlierst du.",,,,
+lexl1,"Even the nicest work can be a strain on your mental health sometimes. Whenever you make mistakes, that is to say uncover ingredients that still have danger levels too advanced for you, you lose sanity.","Selbst bei der schönsten Arbeit kann man mit der Zeit den Verstand verlieren. Immer wenn du Fehler machst, sprich Zutaten aufdeckst, die für dich noch zu hohe Gefahrenlevels haben, verschlechtert sich dein mentaler Zustand.",,,,
+lexr1,"Try not to go mad!
 The current state of your sanity is shown in this gauge.
 
-You can drink coffee in order not to completely lose sanity while playing. ","Versuche nicht überzuschnappen! 
+You can drink coffee in order not to completely lose sanity while playing.","Versuche nicht überzuschnappen!
 Dein aktueller mentaler Zustand wird in dieser Anzeige dargestellt.
 
-Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken. ",,,,
+Damit du uns beim Spielen nicht komplett die Nerven verlierst, kannst du Kaffee trinken.",,,,
 lexl2,At the end of a round you get a score. Depending on how fast you were and how many mistakes you made it can be lower or higher. The number of tips used and multiplicators also play a role.,"Am Ende einer Runde bekommst du einen Score. Je nachdem, wie schnell du warst und wie viele Fehler dir passiert sind, kann der Punktestand höher oder niedriger sein. Auch die Anzahl der verwendeten Tipps und deine Multiplikatoren spielen eine Rolle.",,,,
 lexr2, ,,,,,
 lexl3,"Some cells contain ingredients. These ingredients are dangerous, if you aren’t ready for them yet.
-","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. 
+","In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist.
 
 ",,,,
-lexr3,"There are 3 groups of ingredients: Herbs, Shrooms and Salts. 
+lexr3,"There are 3 groups of ingredients: Herbs, Shrooms and Salts.
 
 Additionally there are 3 levels of danger for each group of ingredients.","Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. Zusätzlich gibt es 3 Gefahrenstufen für jede Zutat.",,,,
-lexl4,"Uncovering these ingredients in a focused way, requires certain information which can be obtained from the neighbourhood.","Diese Zutaten gezielt aufzudecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst. 
+lexl4,"Uncovering these ingredients in a focused way, requires certain information which can be obtained from the neighbourhood.","Diese Zutaten gezielt aufzudecken, benötigt ein gewisses Maß an Information, welche du von der Nachbarschaft bekommst.
 ",,,,
 lexr4,"If there is at least one ingredient in the neighborhood of a cell,
 an indicator is shown and
@@ -87,7 +87,7 @@ a tip too.","Wenn zumindest eine Zutat in der Nachbarschaft von einer Zelle ist,
 gibt sie dir einen Indikator und
 wenn sie selbst keine Zutat hat,
 auch einen Hinweis.",,,,
-lexl5,"Tips show the sum of  the levels of all ingredients in adjacent cells.
+lexl5,"Tips show the sum of the levels of all ingredients in adjacent cells.
 
 Indicators show which types of ingredients there are in the neighborhood.","Hinweise zeigen dir die Summe der Gefahrenlevels von Zutaten in ihrer Nachbarschaft.
 
@@ -96,13 +96,13 @@ Indikatoren zeigen dir, welche Zutatengruppen es in ihrer Nachbarschaft gibt.
 lexr5, ,,,,,
 lexl6,"To uncover these ingredients safely, you must first gain information about the recipe, by uncovering empty cells or those with lower levelled ingredients of the same type.","Um diese Zutaten gefahrenfrei aufzudecken, musst du vorher Informationen über das Rezept sammeln, indem du leere Teile des Rezepts oder schwächere Zutaten derselben Gruppe aufdeckst.",,,,
 lexr6,"This panel shows you, which levels of each ingredient are safe to uncover:","Welches Gefahrenlevel an Zutaten gerade sicher aufgedeckt werden kann, siehst du auf diesem Panel:",,,,
-lexl7,You can flag cells with your best guess as to what might be there. Doing this often will get handy in a multitude of ways…,"Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt… ",,,,
-lexr7,"The toolbox contains many useful things, that make your life easier while playing.","In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern. ",,,,
-lexl8,Often you will have outmaxed the levels on all ingredients. Then the magnifier is your best friend.,"Oft wird es dir passieren, dass du schon weißt, wo sich das Flamel befindet und du auf allen Zutaten Level drei erreicht hast. Um dir zu ersparen den ganzen Rest einzeln aufzudecken, gibt es die Lupe. ",,,,
-lexr8,"Recommended for tidying up. 
-The magnifier has multiple modes: black - inactive, red - active, violett – selective","Empfehlenswert für Aufräumarbeiten. 
+lexl7,You can flag cells with your best guess as to what might be there. Doing this often will get handy in a multitude of ways…,"Mit Rechtsklick kannst du auf der Karte markieren, was du glaubst, das sich unter einem Feld verbirgt. Wer das oft tut merkt sicher bald, dass es sich nicht nur gut auf den Spielstil auswirkt…",,,,
+lexr7,"The toolbox contains many useful things, that make your life easier while playing.","In der Werkzeugkiste findest du viele nützliche Helferlein, die dir während des Spiels das Leben erleichtern.",,,,
+lexl8,Often you will have outmaxed the levels on all ingredients. Then the magnifier is your best friend.,"Oft wird es dir passieren, dass du schon weißt, wo sich das Flamel befindet und du auf allen Zutaten Level drei erreicht hast. Um dir zu ersparen den ganzen Rest einzeln aufzudecken, gibt es die Lupe.",,,,
+lexr8,"Recommended for tidying up.
+The magnifier has multiple modes: black - inactive, red - active, violett – selective","Empfehlenswert für Aufräumarbeiten.
 Die Lupe hat unterschiedliche Modi: schwarz - inaktiv, rot - aktiv, violett – selektiv. Linksklick: nehmen/weglegen. Rechtsklick: Modus wechseln.",,,,
-lexl9,Throw this coin by placing it on the map and pressing it. It will magically jump to an ingredient.,"Wirf diese Münze, indem du sie auf das Spielfeld legst und auf sie drückst. Sie springt dann auf magische Weise zu einer Zutat. ",,,,
+lexl9,Throw this coin by placing it on the map and pressing it. It will magically jump to an ingredient.,"Wirf diese Münze, indem du sie auf das Spielfeld legst und auf sie drückst. Sie springt dann auf magische Weise zu einer Zutat.",,,,
 lexr9,"Excessive use diminishes your score.
 
 The coin avoids flagged cells, but can land one one in rare cases.","Übermäßige Verwendung reduziert deinen Score.
@@ -136,11 +136,11 @@ lexl21,,,,,,
 lexr21,,,,,,
 lexI0,Goal,Ziel,,,,
 lexI1,Sanity & Coffee,Mentaler Zustand & Kaffee,,,Sanity ‘n’ Tea,
-lexI2,Score,Score,,,,
+lexI2,Score,Erzielte Punkte,,,,
 lexI3,Ingredients,Zutaten,,,,
 lexI4,Neighborhood,Nachbarschaft,,,,
 lexI5,Hint & Indicator,Hinweis & Indikator,,,,
-lexI6,Level,Stufe,,,,
+lexI6,Level,Level,,,,
 lexI7,Flagging,Markieren,,,,
 lexI8,Tool,Werkzeug,,,,
 lexI9,Magnifyer,Lupe,,,,
@@ -162,44 +162,64 @@ ttModDI,[b]Dense Information:[/b] There will be more Ingredients!,[b]Information
 ttModLR,[b]Light Reading:[/b] There will be less Ingredients!,[b]Erstleser:[/b] Es gibt weniger Zutaten!,,,,
 ttModAA,[b]Advanced Alchemy:[/b] There will be more dangerous Ingredients!,[b]Fortgeschrittene Alchemie:[/b] Gefährlichere Zutaten!,,,,
 ttModBA,[b]Alchemy 101:[/b] There will be less dangerouse Ingredients!,[b]Alchemie Intro:[/b] Weniger gefährliche Zutaten!,,,,
-ttModDL,[b]Diagonals:[/b] The Neighborhoods will include Diagonals!,[b]Diagonalen:[/b] Die Nachbarschaft inkludiert Diagonalen!,,,,
-ttModBS,[b]Broken Sentences:[/b] The Hints will be off by 1!,[b]Kauderwelsch:[/b] Die Tipps werden um ein Feld falsch liegen!,,,,
+ttModDL,[b]Diagonals:[/b] The Neighborhoods will include Diagonals!,[b]Diagonalen:[/b] Diagonale zählen zu Nachbarn dazu!,,,,
+ttModBS,[b]Broken Sentences:[/b] The Hints will be off by 1!,[b]Kauderwelsch:[/b] Die Tipps werden um eins daneben liegen!,,,,
 ttModOF,"[b]Only Flamel:[/b] There will only be Flamels, for a more… traditional Sweeping experience!",[b]Nur Flamels:[/b] Nur Flamels für eine traditionellere Erfahrung!,,,,
-ttModHE,"[b]Herbs:[/b] When active, there will be Herbs among the Ingredients!",[b]Kräuter:[/b] Nomen est omen.,,,,
-ttModST,"[b]Salts:[/b] When active, there will be Salts among the Ingredients!",[b]Salze:[/b] Nomen est omen.,,,,
-ttModFU,"[b]Fungi:[/b] When active, there will be Fungi amongus!",[b]Pilze:[/b] Nomen est omen.,,,,
+ttModHE,"[b]Herbs:[/b] When active, there will be Herbs among the Ingredients!","[b]Kräuter:[/b] Wenn aktiviert, werden Kläuter unter den Zutaten sein!",,,,
+ttModST,"[b]Salts:[/b] When active, there will be Salts among the Ingredients!","[b]Salze:[/b] Wenn aktiviert, werden Salze unter den Zutaten sein!",,,,
+ttModFU,"[b]Fungi:[/b] When active, there will be Fungi amongus!","[b]Pilze:[/b] Wenn aktiviert, werden Pilze unter den Zutaten sein!",,,,
 lbTut0,"Congratulations! You mastered the basics.
 Up next Levels!","Gratulation! Du hast die Grundlagen gemeistert.
 Auf zu neuen Levels!",,,,
-msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.","Wilkommen im Cypher Sweeper Tutorium, in diesem Level lernst du die Spielgrundlagen und wie man gewinnt. Schließe diese Nachricht und decke ein Feld auf, um zu beginnen.",,,,
-msgTut01,"Now that you learned a bit about the recipe you are deciphering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.","Jetzt, wo du ein bisschen über das Rezept weißt, das wir entziffern, bist du bereit für gefährlicheres Wissen, sprich [b]Zutaten[/b], aber berühre nicht das Flamel! (Wert 5)",,,,
-msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.",Du hast fast komplettes Wissen über das Rezept und musst nur mehr das [b]Flamel[/b] aufdecken (es funktioniert wie die schwarze Billardkugel).,,,,
-msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.","Aua! Wissen, auf das du nicht vorbereitet bist tut weh und lässt dich [b]mentale Gesundheit[/b] verlieren. Fürs erste versuche sowas zu umgehen, aber auf lange Sicht brauchst du Kaffee.",,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
+msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.","Willkommen zum Cypher Sweeper Tutorial! 
+In diesem Level lernst du die Grundlagen und wie man das Spiel gewinnt. 
+Ein Level ist ein Rezept, das verschlüsselt ist. Wenn du gewonnen hast, hast du das Rezept entschlüsselt. 
+Schließe diese Nachricht und decke ein Feld auf, um mit der Entschlüsselung des Rezepts zu beginnen.",,,,
+msgTut01,"Now that you learned a bit about the recipe you are deciphering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.","Wie du sehen kannst, stehen in manchen Zellen Zahlen. Diese geben an, wie viele Nachbarzellen [b]Zutaten[/b] enthalten. Schaue es dir nochmal genau an um das Rezept besser zu verstehen.
+Doch Achtung! Unter den Zutaten versteckt sich etwas Tödliches. Das [b]Flamel[/b]. Es hat den Wert 5. Entziffere nun weiter, bis nur noch das Flamel Übrig bleibt.",,,,
+msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.","Nun hast du fast das komplette Wissen über das Rezept. Zum Schluss fehlt dir nur noch das Flamel. Klicke es als letztes an, um das Level zu beenden.
+Es Funktioniert ähnlich wie die schwarze 8 in Billard.",,,,
+msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.","Aua! Wissen, auf das du nicht vorbereitet bist tut weh. Und lässt dich [b]mentale Gesundheit[/b] verlieren. Unten rechts siehst du dafür eine Anzeige. Fürs erste versuche sowas zu umgehen, aber auf lange Sicht brauchst du Kaffee.",,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
 lbTutFail,"Welp, that wasn’t it, Try Again, …
-Or don’t, you don’t owe it to anyone.","Das war wohl nix, versuch’s noch mal … oder nicht, du schuldest es niemandem.",,,,
+Or don’t, you don’t owe it to anyone.","Das war wohl nix, versuch’s noch mal … 
+Oder nicht, du schuldest es niemandem.",,,,
 lbTut1,"Congratulations! You mastered Levels.
-Up next Types!","Gratuliere! Du hast Level verstanden.
+Up next Types!","Gratulation! 
+Du hast Zutaten verschiedener Level verstanden.
 Nächstes Thema: Typen!",,,,
-msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b]. If you find [b]Ingredients[/b] of higher levels, be sure to flag them by [b]Right Clicking[/b]","In diesem Level lernst du höhere [b]Zutatenlevels[/b] kennen. Es gibt hier statt Kräutern nur Pilze, also musst du dich erstmal nur mit einer [b]Zutat[/b] beschäftigen. Wenn du [b]Zutaten[/b] höherer levels findest, kannst du sie mit [b]Rechtsklick[/b] markieren.",,,,
-msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b]. But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix. The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells.","Nun sind fortgeschrittenere, gefährlichere [b]Zuataten[/b] dabei. Die Zahlen in aufgedeckten Zellen heißen [b]Tipps[/b] und zeigen die Summe der Zutatenlevels aller angrenzenden Zellen.",,,,
-msgTut12,"Now after having gathered more information you are able to uncover the [b]second level[/b] of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",Jetzt hast du mehr Infos gesammelt und kannst Zutaten des [b]2. Levels[/b] aufdecken. Vielleicht ist dir der angenehme Signalton auffällt.,,,,
+msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b]. If you find [b]Ingredients[/b] of higher levels, be sure to flag them by [b]Right Clicking[/b]","In diesem Level lernst du höhere [b]Zutatenlevels[/b] kennen. Es gibt hier statt Kräutern diesmal Pilze. Also musst du dich weiterhin nur mit einer Zutat beschäftigen. 
+Wenn du Zutaten [b]höheren[/b] Levels findest, kannst du sie mit [b]Rechtsklick[/b] markieren. Vorerst darfst du noch gar keine Zutaten aufdecken!",,,,
+msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b]. But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix. The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells.","Wie du bereits gesehen hast, sind fortgeschrittenere und gefährlichere Zutaten dabei. 
+Die Zahlen in aufgedeckten Zellen heißen [b]Tipps[/b]. Sie zeigen die [b]Summe[/b] der [b]Zutatenlevels[/b] aller Nachbarzellen. 
+Nun bist du bereit Zutaten mit Level 1 aufzudecken. Entziffere nun weiter, bis du genug Wissen gesammelt hast um Zutaten Level 2 aufdecken zu dürfen.",,,,
+msgTut12,"Now after having gathered more information you are able to uncover the [b]second level[/b] of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",Jetzt hast du mehr Wissen gesammelt und kannst Zutaten [b]Level 2[/b] aufdecken. Vielleicht ist dir der schöne Signalton aufgefallen.,,,,
 msgTut13,"You almost did it, you can now safely uncover all information in this recipe, except for the [b]Flamel[/b] of course, but you hopefully already know where it is and know that it’s the last cell to open.","Fast geschafft! Du kannst alles, bis auf das [b]Flamel[/b] sicher aufdecken. Pass auf, dass es das letzte ist, was du aufdeckst.",,,,
 msgTut14,,,,,,
 lbTut2,"Congratulations! You mastered Types.
-Up next Tools!",Gratulation! Du hast die Typen verstanden. Nächstes Thema: Werkzeuge!,,,,
-msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on. We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.","In diesem Level lernst du die unterschiedlichen [b]Zutatentypen[/b] , die du von nun an treffen wirst. Damit du siehst, was du sicher aufdecken kannst, haben wir eine neue Anzeige hinzugefügt.",,,,
-msgTut21,"You can now also flag cells if you think you know what they contain, but cannot uncover them safely. Doing so is strictly optimal, as it also helps you to level up a bit faster.","Per Rechtsklick kannst du nun Zellen markieren, die du noch nicht aufdecken darfst, von denen du aber weißt, was sich in ihnen verbrigt. Diese Spielweise hilft dir auch beim schnelleren Levelaufstieg.",,,,
-msgTut22,"You are now able to safely uncover the first level of %s. There are small symbols in cells that give you a [b]Hint[/b] they show you, which [b]Types[/b] of [b]Ingredients[/b] are present in neighboring cells. Use this information to reveal new knowledge while avoiding danger.","Du kannst jetzt die erste stufe von %s aufdecken. Es gibt kleine Symbole, die als [b]Tipps[/b] bezüglich der [b]Zutatentypen[/b] fungieren.",,,,
-msgTut23,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. The symbols which undoubtedly helped you reach this point will from now on be referred to as [b]Indicators[/b]. The [b]Flamel[/b] isn’t indicated though, so be sure to stay vigilant.","Du kannst jetzt das erste Level aller Zutaten sicher aufdecken. Die Symbole mit den Tipps heißen [b]Indikatoren[/b] . Das [b]Flamel[/b] aber wird nicht angezeigt, also sei auf der Hut!",,,,
-msgTut24,"You almost did it, you can now safely uncover all information in… wait a second, this feels too familiar… ok, you know the drill, hopefully there is some kind of shortcut, because, unless you stumble upon the [b]Flamel[/b], there is no way to fail anymore.","Fast geschafft! HMMM Vielleicht gibt es eine Abkürzung, weil solange du das [b]Flamel[/b] nicht berührst, kann nichts mehr schief gehen.",,,,
+Up next Tools!","Gratulation! 
+Du hast die verschiedenen Typen verstanden. 
+Nächstes Thema: Werkzeuge!",,,,
+msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on. We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.","In diesem Level lernst du die unterschiedlichen [b]Zutatentypen[/b].
+Zukünftig wirst du alle antreffen. Damit du siehst, was du sicher aufdecken darfst, haben wir eine neue Anzeige hinzugefügt. Du siehst sie unten in der Mitte neben der mentale Gesundheit Anzeige.",,,,
+msgTut21,"You can now also flag cells if you think you know what they contain, but cannot uncover them safely. Doing so is strictly optimal, as it also helps you to level up a bit faster.","Per [b]Rechtsklick[/b] kannst du nun Zellen markieren, die du noch nicht aufdecken darfst, von denen du aber weißt, was sich in ihnen verbrigt. Diese Spielweise hilft dir auch beim schnelleren Levelaufstieg.
+Du kannst das Spielfeld auch mit der mittleren Maustaste oder <W> <A> <S> <D> bewegen.",,,,
+msgTut22,"You are now able to safely uncover the first level of %s. There are small symbols in cells that give you a [b]Hint[/b] they show you, which [b]Types[/b] of [b]Ingredients[/b] are present in neighboring cells. Use this information to reveal new knowledge while avoiding danger.","Du darfst jetzt %s Level 1 aufdecken. Es gibt kleine Symbole in den Zellen, die als [b]Tipps[/b] bezüglich der [b]Zutatentypen[/b] in [b]Nachbarzellen[/b] fungieren. Nutze diese Information um deine mentale Gesundheit zu schonen.",,,,
+msgTut23,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. The symbols which undoubtedly helped you reach this point will from now on be referred to as [b]Indicators[/b]. The [b]Flamel[/b] isn’t indicated though, so be sure to stay vigilant.","Du darfst jetzt alle Zutaten Level 1  sicher aufdecken. 
+Die Symbole dir geholfen haben nennen wir [b]Indikatoren[/b]. Das [b]Flamel[/b] aber wird noch nicht angezeigt, also sei auf der Hut!
+Entziffere das Rezept fertig!",,,,
+msgTut24,"You almost did it, you can now safely uncover all information in… wait a second, this feels too familiar… ok, you know the drill, hopefully there is some kind of shortcut, because, unless you stumble upon the [b]Flamel[/b], there is no way to fail anymore.","Fast geschafft! Du kannst alles, bis auf das  
+… Moment mal! Das scheint irgendwie bekannt... hoffentlich gibt es eine Abkürzung. Denn solange du das [b]Flamel[/b] nicht berührst, kann nichts mehr schief gehen.",,,,
 lbTut3,"Congratulations! You mastered everything the
-Tutorial covers, Good Luck in the Arcade!","Gratulation! Du hast das Tutorium gemeistert, viel Glück in der Arkade!",,,,
-msgTut30,"In this level you will learn about [b]Potions[/b], [b]Coffee[/b] and [b]Tools[/b]. To start that off, in the top right corner, you now find the [b]Potion Shelf[/b], open it by clicking on the flag or pressing [b]E[/b].","In diesem Level lernst du [b]Tränke[/b], [b]Kaffee[/b] und [b]Werkzeuge[/b] kennen. Rechts oben findest du das [b]Tränkeregal[/b] (anklicken oder <E>)",,,,
-msgTut31,"This [b]Potion[/b] gave you a shield. The next time you uncover a cell that has no neighbors with uncovered neighbors, you will be shielded and gain some free knowledge.","Dieser [b]Trank[/b] gab dir Schutz. Das nächste mal, wenn du eine Zelle aufdeckst, die keine aufgedeckten Nachbarn hat, wirst du beschützt und erhältst ein bisschen Wissen.",,,,
-msgTut32,"This [b]Potion[/b] gave you two free Hints. The next two times you use the [b]Hint Coin[/b] (tool) you won’t have a score reduction, when starting a level you also have one free Hint.","Dieser [b]Trank[/b] gab dir zwei gratis Tipps. Wenn du die [b]Tippmünze[/b] das nächste mal benutzt, werden dir keine Punkte abgezogen. Du hast auch einen gratis Tipp zu Beginn jeden Levels.",,,,
-msgTut33,"You uncovered a [b]Coffee Bean[/b], collect it by clicking on it. When you collected 3 beans, you gain a coffee, which restores an amount of Sanity. You can see your progress towards the next one on the left of the screen.","Du hast eine [b]Kaffeebohne[/b] aufgedeckt. Klicke sie an! Du brauchst 3 für einen Kaffee, der deine mentale Gesundheit verbessert. Links oben siehst du, was dir darauf noch fehlt.",,,,
-msgTut34,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. If you can’t find one, you can use the [b]Hint Coin[/b], it will show you a covered [b]Ingredient[/b] and flag it appropriately, especially useful to find the [b]Flamel[/b] in tricky situations.",Alle [b]Zutatentypen[/b] können nun sicher aufgedeckt werden. Wenn du keine Zutat finden kannst benutzte die [b]Tippmünze[/b]. Sie markiert Zutaten auch gleich korrekt und kann sogar das [b]Flamel[/b] finden.,,,,
-msgTut35,"You almost did it, you can now safely uncover all information, but now, you have access to the Magnifyer. It’s a dangerous tool and as such has a safety measurement, by Right Clicking you can change its modes, black is inert and does nothing, red reveals all cells below the lense, purple only reveals flagged cells","Fast geschafft. Benutze die Lupe um schneller Fertig zu werden. Modi wechseln per Rechtsklick. (Schwarz -> Leerlauf, Rot -> deckt alles auf, Violett -> deckt nur markierte Felder auf)",,,,
+Tutorial covers, Good Luck in the Arcade!","Gratulation! 
+Du hast das Tutorium gemeistert, 
+viel Glück in der Arkade!",,,,
+msgTut30,"In this level you will learn about [b]Potions[/b], [b]Coffee[/b] and [b]Tools[/b]. To start that off, in the top right corner, you now find the [b]Potion Shelf[/b], open it by clicking on the flag or pressing [b]E[/b].","In diesem Level lernst du [b]Tränke[/b], [b]Kaffee[/b] und [b]Werkzeuge[/b] kennen. Rechts oben findest du das [b]Tränkeregal[/b] (anklicken oder <E> drücken) Werkzeuge findest du unten links in der Werkzeugkiste <Q>.",,,,
+msgTut31,"This [b]Potion[/b] gave you a shield. The next time you uncover a cell that has no neighbors with uncovered neighbors, you will be shielded and gain some free knowledge.","Dieser [b]Trank[/b] gibt dir [b]Schutz[/b]. Das nächste mal, wenn du eine Zelle aufdeckst, die keine aufgedeckten Nachbarn hat, wirst du beschützt. Damit kannst gefahrlos aufdecken und erhältst ein bisschen Wissen.",,,,
+msgTut32,"This [b]Potion[/b] gave you two free Hints. The next two times you use the [b]Hint Coin[/b] (tool) you won’t have a score reduction, when starting a level you also have one free Hint.","Dieser [b]Trank[/b] gibt dir zwei gratis Tipps. Wenn du die [b]Tippmünze[/b] das nächste mal benutzt, werden dir keine Punkte abgezogen. Du hast auch einen gratis Tipp zu Beginn jeden Levels. Die Tippmünze findest du in der Werkzeugkiste.",,,,
+msgTut33,"You uncovered a [b]Coffee Bean[/b], collect it by clicking on it. When you collected 3 beans, you gain a coffee, which restores an amount of Sanity. You can see your progress towards the next one on the left of the screen.","Du hast eine [b]Kaffeebohne[/b] aufgedeckt. Sammel sie ein! Mit 3 Kaffeebohnen kannst du dir einen Kaffee kochen. Wenn du ihn trinkst, verbessert er deine mentale Gesundheit. Links oben siehst du, was dir dafür noch fehlt.",,,,
+msgTut34,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. If you can’t find one, you can use the [b]Hint Coin[/b], it will show you a covered [b]Ingredient[/b] and flag it appropriately, especially useful to find the [b]Flamel[/b] in tricky situations.","Alle [b]Zutatentypen[/b] Level 1 können nun sicher aufgedeckt werden. Wenn du das Rezept nicht weiter entziffern kannst, benutzte die [b]Tippmünze[/b] (im Werkzeugkasten). Sie markiert Zutaten auch gleich korrekt und kann sogar das [b]Flamel[/b] finden.",,,,
+msgTut35,"You almost did it, you can now safely uncover all information, but now, you have access to the Magnifyer. It’s a dangerous tool and as such has a safety measurement, by Right Clicking you can change its modes, black is inert and does nothing, red reveals all cells below the lense, purple only reveals flagged cells","Fast geschafft. Benutze die Lupe um schneller Fertig zu werden. Es ist ein Gefährliches Tool und hat deswegen Sicherheitsmechanismen. Du kannst die Modi per Rechtsklick wechseln. 
+Schwarz ist der Leerlauf, dabei deckst du nichts auf. Rot deckt alles auf. Violett deckt nur markierte Felder auf, die du auch aufdecken darfst.",,,,
 msgTut36,,,,,,
 ,,,,,,
 ,,,,,,
