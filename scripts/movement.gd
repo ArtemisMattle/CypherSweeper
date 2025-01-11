@@ -6,6 +6,7 @@ const zoomRate: float = 7.0
 var tZoom: float = 2.0
 var direction: Vector2 = Vector2.ZERO
 var speed: float = 420
+var pan: bool = false
 
 
 func _process(delta: float) -> void: # mouse movement
@@ -18,7 +19,9 @@ func _process(delta: float) -> void: # mouse movement
 		direction = Vector2.ZERO
 	if globalVariables.tbOpen: # disables mouse movement, if the toolbox is opened
 		return
-	if globalVariables.psOpen: # disables mouse movement, if the toolbox is opened
+	if globalVariables.psOpen: # disables mouse movement, if the potionShelf is opened
+		return
+	if pan:
 		return
 	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -310 / tZoom:
 		return
@@ -38,9 +41,11 @@ func _physics_process(delta):
 
 func _unhandled_input(event: InputEvent): #inputs through the input system
 	if not globalVariables.paused:
-		#if Input.is_action_pressed("pan"):
-			#if event is InputEventMouseMotion:
-				#position -= event.relative / zoom
+		pan = false
+		if Input.is_action_pressed("pan"):
+			if event is InputEventMouseMotion:
+				position -= event.relative / zoom
+			pan = true
 		if Input.is_action_pressed("zoom in"):
 			zoom_in()
 		if Input.is_action_pressed("zoom out"):

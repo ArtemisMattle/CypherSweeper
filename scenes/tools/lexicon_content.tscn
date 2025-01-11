@@ -89,6 +89,7 @@ texture_filter = 2
 custom_minimum_size = Vector2(235, 260)
 layout_mode = 2
 mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0.427451, 1)
 text = "In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. "
 
 [node name="pageLable" type="Label" parent="textBox/leftBox"]
@@ -112,6 +113,7 @@ texture_filter = 2
 custom_minimum_size = Vector2(220, 260)
 layout_mode = 2
 mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0.427451, 1)
 text = "Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
 
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr."
