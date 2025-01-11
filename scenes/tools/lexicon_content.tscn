@@ -89,7 +89,7 @@ texture_filter = 2
 custom_minimum_size = Vector2(235, 260)
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0.427451, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "In manchen Zellen befinden sich Zutaten. Diese Zutaten sind gefährlich, wenn du noch nicht dafür bereit bist. "
 
 [node name="pageLable" type="Label" parent="textBox/leftBox"]
@@ -97,6 +97,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "1"
 
 [node name="control" type="Control" parent="textBox"]
@@ -113,7 +114,7 @@ texture_filter = 2
 custom_minimum_size = Vector2(220, 260)
 layout_mode = 2
 mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0.427451, 1)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Zutaten kommen aus 3 Gruppen: Kräuter, Pilze und Salze. 
 
 Zusätzlich gibt es für jede Zutatengruppe 3 Stufen an Gefahr."
@@ -123,6 +124,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "1"
 
 [node name="flamel5" type="Sprite2D" parent="."]
@@ -159,6 +161,7 @@ offset_left = 74.0
 offset_top = 196.0
 offset_right = 117.0
 offset_bottom = 221.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Herb"
 
 [node name="salt1" type="Sprite2D" parent="ingredients"]
@@ -183,6 +186,7 @@ offset_left = 376.0
 offset_top = 184.0
 offset_right = 419.0
 offset_bottom = 209.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Salt"
 
 [node name="shroom1" type="Sprite2D" parent="ingredients"]
@@ -207,6 +211,7 @@ offset_left = 206.0
 offset_top = 190.0
 offset_right = 268.0
 offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Shroom"
 
 [node name="neighborhood" type="Sprite2D" parent="."]

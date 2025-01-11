@@ -97,6 +97,7 @@ layout_mode = 2
 theme = ExtResource("2_50dck")
 
 [node name="mainbuttons" type="VBoxContainer" parent="background/edge/menu"]
+visible = false
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_50dck")
@@ -210,6 +211,7 @@ alignment = 0
 position = Vector2(276, 40)
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
+visible = false
 layout_mode = 2
 
 [node name="titleSpace" type="Container" parent="background/edge/menu/title"]
@@ -920,7 +922,6 @@ layout_mode = 2
 text = "Level 9"
 
 [node name="story" type="VBoxContainer" parent="background/edge/menu"]
-visible = false
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 10
