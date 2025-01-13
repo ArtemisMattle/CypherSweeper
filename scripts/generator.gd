@@ -142,14 +142,11 @@ func readyGame()-> void: # sets everything into motion for a normal round to sta
 	background.set_cells_terrain_connect(0, tileCoords, 0, 0)
 	
 	l = 2 * size - 1
-	'width = l * 48 + 100
-	hight = l * 34 + 400
-	$PanelContainer.size = Vector2i(width, hight)
-	$PanelContainer.set_position(Vector2(-width/2, -hight/2))
-	$PanelContainer.visible = false'
 	get_viewport()
 	get_ends()
 	def_hex()
+	
+	signalBus.doorstoppers.emit(pos[0].cell, pos[ends[ends.size()/2-1]+1].cell, pos[ends[ends.size()/2]].cell, pos[n-1].cell)
 	
 	if Diagonal:
 		var diag: Dictionary = {}
@@ -206,6 +203,7 @@ func def_hex() -> void:# generates the gridcells with the position and their nei
 		pos[i].cell.get_node("colour/button").gui_input.connect(buttonForwarding.bind(i))
 		pos[i].cell.get_node("colour/button").pressed.connect(reveal.bind(i, 0))
 		pos[i].cell.get_node("magTurner").body_entered.connect(magReveal.bind(i))
+		
 		var y:String = "Nothing0"
 		
 		# to make list of the neighbors, a generic calculation of all 6 possible neighbors is used

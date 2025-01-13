@@ -4,9 +4,11 @@ extends Node2D
 @onready var parent: Button = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$detail.texture = load("res://assets/textures/UI-elements/MenuButton/menubtn_opt" + str(detail) + ".tres")
+	detailing()
 	parent.resized.connect(lReady)
-	
+
+func detailing() -> void:
+	$detail.texture = load("res://assets/textures/UI-elements/MenuButton/menubtn_opt" + str(detail) + ".tres")
 
 func lReady() -> void:
 	position.y = int(parent.size.y / 2)

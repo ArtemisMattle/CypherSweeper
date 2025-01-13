@@ -1,21 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyup2bpmuxerx"]
+[gd_scene load_steps=9 format=3 uid="uid://cyup2bpmuxerx"]
 
 [ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
 [ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
 [ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="2_kynjc"]
-[ext_resource type="Texture2D" uid="uid://cwt0kr730jck3" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1.tres" id="4_yhtn0"]
+[ext_resource type="Texture2D" uid="uid://bgo35m8t0qqdv" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3.tres" id="4_qhccx"]
+[ext_resource type="Texture2D" uid="uid://bvn2krbgocqqf" path="res://assets/textures/UI-elements/MenuButton/steam/Aaa.png" id="5_uheky"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_srmcq"]
 diffuse_texture = ExtResource("1_k0upa")
 normal_texture = ExtResource("2_kynjc")
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_775c0"]
-
-[sub_resource type="Curve" id="Curve_2j78y"]
-min_value = -200.0
-max_value = 200.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 75.2127), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="Curve" id="Curve_2nr2a"]
 max_value = 100.0
@@ -49,25 +42,25 @@ centered = false
 
 [node name="detail" type="Sprite2D" parent="."]
 position = Vector2(-24, -32)
-texture = ExtResource("4_yhtn0")
+texture = ExtResource("4_qhccx")
 centered = false
 flip_v = true
 
 [node name="cpuParticles2d" type="CPUParticles2D" parent="."]
-position = Vector2(3, -17)
-rotation = -0.511415
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(-0.999999, -7)
+rotation = 1.47972
 emitting = false
-amount = 300
-lifetime = 0.31
+amount = 31
+preprocess = 1.0
 randomness = 0.31
 lifetime_randomness = 0.31
-texture = SubResource("AnimatedTexture_775c0")
+draw_order = 1
+texture = ExtResource("5_uheky")
 spread = 31.4
-initial_velocity_min = 314.0
-initial_velocity_max = 628.0
-linear_accel_min = 31.4
-linear_accel_max = 62.8
-linear_accel_curve = SubResource("Curve_2j78y")
+gravity = Vector2(0, 326)
+initial_velocity_min = 78.0
+initial_velocity_max = 314.0
 damping_min = 31.4
 damping_max = 100.0
 damping_curve = SubResource("Curve_2nr2a")
