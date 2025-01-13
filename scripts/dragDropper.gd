@@ -52,7 +52,6 @@ func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			place.global_position = place.get_global_mouse_position()
 			signalBus.deactivate.disconnect(drop)
 			signalBus.drop.disconnect(drop)
-		print(tool.tScene.get_parent())
 
 func drop(_reactivate: bool) -> void:
 	set_physics_process(false)

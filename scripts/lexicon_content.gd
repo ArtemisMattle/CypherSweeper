@@ -15,6 +15,7 @@ var arrowAim: Vector2
 @onready var ingredients: Control = $ingredients
 @onready var neighborhood: Sprite2D = $neighborhood
 @onready var hint: Sprite2D = $hint
+var enabled: bool = true
 
 func _ready() -> void:
 	signalBus.modulate.connect(shapeshift)
@@ -22,7 +23,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if arrow.visible:
-		arrow.look_at(arrowAim)
+		if enabled:
+			if not globalVariables.holdable:
+				arrow.look_at(arrowAim)
 	
 
 func changePage() -> void: # changes the page

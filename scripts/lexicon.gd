@@ -13,6 +13,7 @@ func _ready() -> void:
 	$placer/openBook.rotate(PI/2)
 	shapeshift()
 	signalBus.modulate.connect(shapeshift)
+	signalBus.toolTrans.connect(trans)
 	var p: InputEvent = InputEventAction.new()
 	p.set_action("pause")
 	exit.set_events([p])
@@ -42,7 +43,6 @@ func _on_pick_up_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 			time = false
 			$hysterese.start()
 
-
 func _on_hysterese_timeout() -> void: # prevents flapping
 	time = true
 	$hysterese.stop()
@@ -56,7 +56,6 @@ func _on_big_lexicon_pressed() -> void:
 	if openBig:
 		$bigLexicon/background/lexiconContent.changePage()
 		$bigLexicon/background/lexiconContent.get_node("bigLex").set_shortcut(exit)
-
 	else:
 		$placer/openBook/lexiconContent.changePage()
 		$bigLexicon/background/lexiconContent.get_node("bigLex").set_shortcut(null)
@@ -65,3 +64,6 @@ func shapeshift() -> void:
 	$bigLexicon/background/lexiconOpenFullscreenPaperGray.modulate = settings.colours[0]
 	$placer/openBook/lexiconOpenPaperGray.modulate = settings.colours[0]
 	
+func trans(t: globalVariables.tool, held: bool) -> void:
+	if t.tScene == self:
+		$placer/openBook/lexiconContent.enabled = held
