@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cfa4nq7j171fp"]
+[gd_scene load_steps=64 format=3 uid="uid://cfa4nq7j171fp"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut2.gd" id="1_qwc5y"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon2.gd" id="2_irbi5"]
@@ -33,6 +33,55 @@
 [ext_resource type="AudioStream" uid="uid://c3fym77dm05e5" path="res://assets/audio/sfx/New Stuff/Damage Ausrüfe/Damage 5 option 2, which also went a bit out of hand.mp3" id="28_8fpsy"]
 [ext_resource type="Script" path="res://scripts/movement.gd" id="29_i2p0d"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="30_lkqgj"]
+
+[sub_resource type="Gradient" id="Gradient_8qs6l"]
+colors = PackedColorArray(0, 0, 0, 1, 0.142858, 0.142858, 0.142858, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vetgg"]
+seed = 3
+frequency = 0.0034
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0af6n"]
+width = 1280
+height = 720
+color_ramp = SubResource("Gradient_8qs6l")
+noise = SubResource("FastNoiseLite_vetgg")
+
+[sub_resource type="Animation" id="Animation_7rycc"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.494118)]
+}
+
+[sub_resource type="Animation" id="Animation_ymmls"]
+resource_name = "crossFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.494118), Color(1, 1, 1, 0.207843), Color(1, 1, 1, 0.494118)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bwwo"]
+_data = {
+"crossFade": SubResource("Animation_ymmls"),
+"fade": SubResource("Animation_7rycc")
+}
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_22s5c"]
 
@@ -194,6 +243,18 @@ stream_5/weight = 1.0
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_qwc5y")
+
+[node name="dark" type="CanvasLayer" parent="."]
+
+[node name="darkness" type="Sprite2D" parent="dark"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(640, 360)
+texture = SubResource("NoiseTexture2D_0af6n")
+
+[node name="fader" type="AnimationPlayer" parent="dark/darkness"]
+libraries = {
+"": SubResource("AnimationLibrary_3bwwo")
+}
 
 [node name="lvl" type="Node2D" parent="."]
 

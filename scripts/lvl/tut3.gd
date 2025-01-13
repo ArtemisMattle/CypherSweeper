@@ -49,6 +49,7 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut30"))
+	$dark/darkness/fader.play_backwards("fade")
 	$lvl/UI/potionShelf.gainPotion(0)
 	$lvl/UI/potionShelf.gainPotion(1)
 	$lvl/UI/potionShelf.gainPotion(0)
@@ -58,6 +59,8 @@ func message(txt: String) -> void:
 		time.start()
 		msgTxt = tr(txt)
 		newMsg = true
+		if not $dark/darkness/fader.is_playing():
+			$dark/darkness/fader.play("fade")
 	else:
 		nextMsg.append(txt)
 
@@ -103,6 +106,9 @@ func _on_tut_msg_timer_timeout() -> void:
 	if not nextMsg.is_empty():
 		message(nextMsg[0])
 		nextMsg.remove_at(0)
+		$dark/darkness/fader.play("crossFade")
+	else:
+		$dark/darkness/fader.play_backwards("fade")
 
 
 func _on_next_pressed() -> void:

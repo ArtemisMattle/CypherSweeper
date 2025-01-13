@@ -33,6 +33,7 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut10"))
+	$dark/darkness/fader.play_backwards("fade")
 
 #func _input(event: InputEvent) -> void:
 	#if event.is_action("move down") or event.is_action("move left") or event.is_action("move right") or event.is_action("move up"):
@@ -43,6 +44,8 @@ func message(txt: String) -> void:
 		time.start()
 		msgTxt = tr(txt)
 		newMsg = true
+		if not $dark/darkness/fader.is_playing():
+			$dark/darkness/fader.play("fade")
 	else:
 		nextMsg.append(txt)
 
@@ -67,6 +70,9 @@ func _on_tut_msg_timer_timeout() -> void:
 	if not nextMsg.is_empty():
 		message(nextMsg[0])
 		nextMsg.remove_at(0)
+		$dark/darkness/fader.play("crossFade")
+	else:
+		$dark/darkness/fader.play_backwards("fade")
 
 
 func _on_next_pressed() -> void:
