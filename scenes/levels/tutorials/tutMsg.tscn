@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bss4smhfpfgit"]
+[gd_scene load_steps=12 format=3 uid="uid://bss4smhfpfgit"]
 
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="1_ayp00"]
 [ext_resource type="Script" path="res://scripts/lvl/tutMsg.gd" id="1_sngdh"]
@@ -14,6 +14,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rb75"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a8ri"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_yr0dq"]
+action = &"pause"
+
+[sub_resource type="Shortcut" id="Shortcut_5n72e"]
+events = [SubResource("InputEventAction_yr0dq")]
 
 [node name="tutMsg" type="Node2D"]
 z_index = 10
@@ -57,6 +63,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_n7syk")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_i3dfx")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_4rb75")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6a8ri")
+shortcut = SubResource("Shortcut_5n72e")
 text = "btnContinue"
 
 [connection signal="pressed" from="layer/background/stacker/continue" to="." method="_on_continue_pressed"]

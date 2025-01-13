@@ -63,7 +63,7 @@ func takeTool(t: globalVariables.tool, held) -> void: # recieves a tool from the
 				offset = Vector2.from_angle(randf_range(0, 2 * PI))
 				offset *= randf_range(0, 1000 / (globalVariables.sanity + 0.1))
 			t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
-	print(t.tScene.get_parent())
+
 
 
 #func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling
