@@ -25,7 +25,6 @@ boot_splash/minimum_display_time=200
 signalBus="*res://scripts/signalBus.gd"
 settings="*res://scripts/settings.gd"
 globalVariables="*res://scripts/globalVariables.gd"
-mouseController="res://scripts/mouseController.gd"
 
 [debug]
 
