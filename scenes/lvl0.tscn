@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=63 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
 [ext_resource type="Script" path="res://scripts/CoffeeMaker.gd" id="32_fd0d4"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
+[ext_resource type="Script" path="res://scripts/toolHand.gd" id="37_flkd6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0cun"]
 
@@ -815,6 +816,13 @@ follow_viewport_enabled = true
 [node name="toolHandler" type="Node2D" parent="mobileCanvas"]
 visibility_layer = 3
 script = ExtResource("32_ecriy")
+
+[node name="toolHand" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="toolHand" type="Node2D" parent="toolHand"]
+visibility_layer = 3
+script = ExtResource("37_flkd6")
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)

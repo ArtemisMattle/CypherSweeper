@@ -26,6 +26,7 @@ script = ExtResource("1_avxf4")
 metadata/tool = true
 metadata/rot = false
 metadata/boxTool = true
+metadata/enabled = false
 
 [node name="placer" type="Node2D" parent="."]
 position = Vector2(32, 32)
