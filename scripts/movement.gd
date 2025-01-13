@@ -84,7 +84,7 @@ func stop()-> void:
 		position.y = doorstops[0].y + 320 + 70
 	elif doorstops[3].y - position.y < - 320 + 35:
 		position.y = doorstops[3].y + 320 - 35
-	if doorstops[1].x - position.x > - 640 - 210:
-		position.x = doorstops[1].x + 640 + 210
-	elif doorstops[2].x - position.x < - 640 + 210:
-		position.x = doorstops[2].x + 640 - 210
+	if doorstops[1].x - position.x > - 640 - 130:
+		position.x = doorstops[1].x + 640 + 130
+	elif doorstops[2].x - position.x < - 640 + 130:
+		position.x = doorstops[2].x + 640 - 130
