@@ -4,6 +4,8 @@ extends Node2D
 var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
 @onready var time: Timer = $tutMsgTimer
 var msgTxt: String = ""
+var newMsg: bool = false
+var nextMsg: Array[String] = []
 
 func _init() -> void:
 	globalVariables.size = 5
@@ -32,25 +34,36 @@ func _ready() -> void:
 	add_child(tst)
 	tst.initi(tr("msgTut00"))
 
+func message(txt: String) -> void:
+	if not newMsg:
+		time.start()
+		msgTxt = tr(txt)
+		newMsg = true
+	else:
+		nextMsg.append(txt)
+
 func lvlup() -> void:
-	time.start()
-	msgTxt = tr("msgTut01")
+	message("msgTut01")
 
 func flamel() -> void:
-	time.start()
-	msgTxt = tr("msgTut02")
+	message("msgTut02")
 
 func dmg() -> void:
+	if globalVariables.sanity < 1:
+		return
 	if globalVariables.sanity < 100:
 		if not globalVariables.tutDamaged:
 			globalVariables.tutDamaged = true
-			time.start()
-			msgTxt = tr("msgTutDmg")
+			message("msgTutDmg")
 
 func _on_tut_msg_timer_timeout() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)
+	newMsg = false
+	if not nextMsg.is_empty():
+		message(nextMsg[0])
+		nextMsg.remove_at(0)
 
 
 func _on_next_pressed() -> void:

@@ -4,6 +4,8 @@ extends Node2D
 var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
 @onready var time: Timer = $tutMsgTimer
 var msgTxt: String = ""
+var newMsg: bool = false
+var nextMsg: Array[String] = []
 
 func _init() -> void:
 	globalVariables.size = 7
@@ -36,22 +38,35 @@ func _ready() -> void:
 	#if event.is_action("move down") or event.is_action("move left") or event.is_action("move right") or event.is_action("move up"):
 		#time.start()
 		#msgTxt = tr("msgTut14")
+func message(txt: String) -> void:
+	if not newMsg:
+		time.start()
+		msgTxt = tr(txt)
+		newMsg = true
+	else:
+		nextMsg.append(txt)
 
 func lvlup(ingr: String) -> void:
-	time.start()
-	msgTxt = tr("msgTut1" + str(globalVariables.level[ingr]))
+	message("msgTut1" + str(globalVariables.level[ingr]))
 
 func dmg() -> void:
+	if globalVariables.sanity < 1:
+		return
 	if globalVariables.sanity < 100:
 		if not globalVariables.tutDamaged:
 			globalVariables.tutDamaged = true
-			time.start()
-			msgTxt = tr("msgTutDmg")
+			message("msgTutDmg")
 
 func _on_tut_msg_timer_timeout() -> void:
+	if globalVariables.sanity < 1:
+		return
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)
+	newMsg = false
+	if not nextMsg.is_empty():
+		message(nextMsg[0])
+		nextMsg.remove_at(0)
 
 
 func _on_next_pressed() -> void:
