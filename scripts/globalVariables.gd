@@ -1,7 +1,5 @@
 extends Node
 
-var language: String = "EN"
-
 var sanity: int = 100
 var lostsanity: int = 0
 var playTime: float = 0
@@ -36,7 +34,7 @@ var lvl1: String = "Herb"
 var leveled1: bool = false
 var ingr: Array[String] = ["Herb", "Shroom", "Salt"]
 
-var tutDamaged: bool = false
+var tutDamaged: bool = false # depreceated
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
@@ -50,19 +48,12 @@ var ingredientStack: Dictionary = {
 	"Salt2" = 0,
 	"Salt3" = 0,}
 var specials: Dictionary = {
-	"coffee" = 9,
-}
+	"coffee" = 9,}
 var empty: int 
 var sum: int
 
-var beanCount: int =100; # Percentage of map with coffee beans
-
-var colours: Array[Color] = [
-	Color(0.878, 0.8, 0.533),
-	Color(0, 0, 0),
-	Color(0.694, 0.451, 0.718)
-	]
-var darkmode: bool = false
+var gData: gameData = gameData.new()
+var gDataPath: String = "user://CSgameData.tres"
 
 var mod: Array[String] = [] # array of active modifyers
 
@@ -70,7 +61,7 @@ var buff: Dictionary = {
 	"shield" = 0,
 	"freeHint" = 0,
 	"freePotion" = 3,
-}
+	}
 
 var mods: Array[modifyer] = [ # array of all modifyers
 	modifyer.new("HEK", 3, ["EC"]),# playerControler ,  not demo
@@ -85,7 +76,7 @@ var mods: Array[modifyer] = [ # array of all modifyers
 	modifyer.new("HE", -2, [], true), # main Menu
 	modifyer.new("FU", -2, [], true), # main Menu
 	modifyer.new("ST", -2, [], true), # main Menu
-]
+	]
 
 
 var boxing: bool = false # if a tool gets put back into the box
@@ -108,6 +99,11 @@ func _ready() -> void: # provides setup for the cursor curser
 	cursor = load("res://assets/textures/cursors/pincher.png")
 	click = load("res://assets/textures/cursors/pincherCl.png")
 	signalBus.upsane.connect(cursedCursor)
+	
+	# load gameData
+	var gameD: gameData = SafeResourceLoader.load(gDataPath)
+	if not gameD == null:
+		gData = gameD
 
 func minLvl() -> int: # provides the lowest level
 	var lvl: int = 5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ghjuxgjsgybw"]
+[gd_scene load_steps=69 format=3 uid="uid://ghjuxgjsgybw"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut3.gd" id="1_2d8i7"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon3.gd" id="2_qhntx"]
@@ -7,17 +7,12 @@
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_2cdky"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="6_i71qb"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="7_5kjrd"]
-[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="8_11sqq"]
+[ext_resource type="PackedScene" uid="uid://cyup2bpmuxerx" path="res://scenes/btn_decor.tscn" id="7_tg8ad"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="8_bomgu"]
-[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="9_blhp8"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="9_r0dun"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="10_6g210"]
-[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="10_ogswl"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="11_2nguq"]
-[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="11_mdjnp"]
-[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="11_os17p"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="12_66xl4"]
-[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="12_qiqql"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="13_g7ts6"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="14_guqgg"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="15_cg3of"]
@@ -44,29 +39,54 @@
 [ext_resource type="Script" path="res://scripts/movement.gd" id="36_j33u7"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="37_6lkjg"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_1d6kk"]
-diffuse_texture = ExtResource("8_11sqq")
-normal_texture = ExtResource("9_blhp8")
+[sub_resource type="Gradient" id="Gradient_dt7qa"]
+colors = PackedColorArray(0, 0, 0, 1, 0.142858, 0.142858, 0.142858, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_eoe5d"]
-diffuse_texture = ExtResource("10_ogswl")
-normal_texture = ExtResource("11_os17p")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a4ubr"]
+seed = 3
+frequency = 0.0034
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_o5t3d"]
-diffuse_texture = ExtResource("8_11sqq")
-normal_texture = ExtResource("9_blhp8")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r6d1d"]
+width = 1280
+height = 720
+color_ramp = SubResource("Gradient_dt7qa")
+noise = SubResource("FastNoiseLite_a4ubr")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_d8lwy"]
-diffuse_texture = ExtResource("11_mdjnp")
-normal_texture = ExtResource("12_qiqql")
+[sub_resource type="Animation" id="Animation_ymmls"]
+resource_name = "crossFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.494118), Color(1, 1, 1, 0.207843), Color(1, 1, 1, 0.494118)]
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_mr3w8"]
-diffuse_texture = ExtResource("8_11sqq")
-normal_texture = ExtResource("9_blhp8")
+[sub_resource type="Animation" id="Animation_7rycc"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.494118)]
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ian3f"]
-diffuse_texture = ExtResource("10_ogswl")
-normal_texture = ExtResource("11_os17p")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bwwo"]
+_data = {
+"crossFade": SubResource("Animation_ymmls"),
+"fade": SubResource("Animation_7rycc")
+}
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_rwv0r"]
 
@@ -228,6 +248,18 @@ stream_5/weight = 1.0
 
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_2d8i7")
+
+[node name="dark" type="CanvasLayer" parent="."]
+
+[node name="darkness" type="Sprite2D" parent="dark"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(640, 360)
+texture = SubResource("NoiseTexture2D_r6d1d")
+
+[node name="fader" type="AnimationPlayer" parent="dark/darkness"]
+libraries = {
+"": SubResource("AnimationLibrary_3bwwo")
+}
 
 [node name="lvl" type="Node2D" parent="."]
 
@@ -391,39 +423,15 @@ layout_mode = 2
 layout_mode = 2
 text = "btnSettings"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_1d6kk")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_1d6kk")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-texture = SubResource("CanvasTexture_eoe5d")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/settings" instance=ExtResource("7_tg8ad")]
+position = Vector2(276, 40)
 
 [node name="return" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_1d6kk")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_1d6kk")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-texture = SubResource("CanvasTexture_eoe5d")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/return" instance=ExtResource("7_tg8ad")]
+position = Vector2(276, 40)
 
 [node name="Container" type="Container" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 70)
@@ -433,20 +441,9 @@ layout_mode = 2
 layout_mode = 2
 text = "btnExit"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_o5t3d")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_o5t3d")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-texture = SubResource("CanvasTexture_d8lwy")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/exit" instance=ExtResource("7_tg8ad")]
+position = Vector2(276, 40)
+detail = 2
 
 [node name="warning" type="Label" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
@@ -472,20 +469,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_mr3w8")
-offset = Vector2(150.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_mr3w8")
-offset = Vector2(150.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-texture = SubResource("CanvasTexture_ian3f")
-offset = Vector2(152, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" instance=ExtResource("7_tg8ad")]
+position = Vector2(276, 40)
 
 [node name="settings" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -809,6 +794,9 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "btnExit"
 
+[node name="btnDecor" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" instance=ExtResource("7_tg8ad")]
+position = Vector2(276, 40)
+
 [node name="music1" type="AudioStreamPlayer" parent="lvl/UI/player"]
 stream = ExtResource("20_r2ku6")
 volume_db = -6.0
@@ -923,6 +911,7 @@ one_shot = true
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/shadow/shadow" to="lvl/UI/player" method="singleMod" binds= [1]]
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/grid/grid" to="lvl/UI/player" method="singleMod" binds= [2]]
 [connection signal="toggled" from="lvl/UI/player/pause/centerer/stacker/pauseButton" to="lvl/UI/player" method="_on_pause_button_toggled"]
+[connection signal="pressed" from="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" to="lvl/UI/player" method="_on_exit_pressed"]
 [connection signal="pressed" from="lvl/CoffeeMachine/CoffeeMach/CoffeeButton" to="lvl/UI/player/SanGauge" method="updateSanity" flags=3]
 [connection signal="pressed" from="lvl/CoffeeMachine/CoffeeMach/CoffeeButton" to="lvl/CoffeeMachine" method="drinkCoff"]
 [connection signal="timeout" from="tutMsgTimer" to="." method="_on_tut_msg_timer_timeout"]

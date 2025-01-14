@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=63 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
@@ -8,16 +8,11 @@
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_ttsoy"]
 [ext_resource type="Theme" uid="uid://blx5w8iuks3tp" path="res://assets/textures/UI-themes/level.tres" id="5_340rr"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="5_cmc5j"]
-[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="6_8etwk"]
-[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="7_tbott"]
-[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="8_dyd5r"]
+[ext_resource type="PackedScene" uid="uid://cyup2bpmuxerx" path="res://scenes/btn_decor.tscn" id="6_o2b8f"]
 [ext_resource type="Texture2D" uid="uid://dmetxwn21sadp" path="res://assets/textures/UI-elements/pause.png" id="8_xaoot"]
-[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="9_g4ki4"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="10_0yiqo"]
-[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="10_gvn62"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="10_qm0cu"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="11_3iya7"]
-[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="11_48ll2"]
 [ext_resource type="Texture2D" uid="uid://bk6w3k153meyf" path="res://assets/textures/UI-elements/pauseDis.png" id="12_3pav5"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="12_7mhwv"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="12_uvusu"]
@@ -43,18 +38,7 @@
 [ext_resource type="Script" path="res://scripts/toolHandler.gd" id="32_ecriy"]
 [ext_resource type="Script" path="res://scripts/CoffeeMaker.gd" id="32_fd0d4"]
 [ext_resource type="PackedScene" uid="uid://qxhusqbo07v" path="res://scenes/potionShelf.tscn" id="32_pfg14"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_5ffo4"]
-diffuse_texture = ExtResource("6_8etwk")
-normal_texture = ExtResource("7_tbott")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_uiroo"]
-diffuse_texture = ExtResource("8_dyd5r")
-normal_texture = ExtResource("9_g4ki4")
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_v1bf6"]
-diffuse_texture = ExtResource("10_gvn62")
-normal_texture = ExtResource("11_48ll2")
+[ext_resource type="Script" path="res://scripts/toolHand.gd" id="37_flkd6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b0cun"]
 
@@ -374,39 +358,15 @@ layout_mode = 2
 layout_mode = 2
 text = "btnSettings"
 
-[node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/settings"]
-texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="UI/player/pauseMenu/centerer/pause/settings" instance=ExtResource("6_o2b8f")]
+position = Vector2(276, 40)
 
 [node name="return" type="Button" parent="UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/return"]
-texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="UI/player/pauseMenu/centerer/pause/return" instance=ExtResource("6_o2b8f")]
+position = Vector2(276, 40)
 
 [node name="Container" type="Container" parent="UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 70)
@@ -416,20 +376,9 @@ layout_mode = 2
 layout_mode = 2
 text = "btnExit"
 
-[node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/pause/exit"]
-texture = SubResource("CanvasTexture_v1bf6")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="UI/player/pauseMenu/centerer/pause/exit" instance=ExtResource("6_o2b8f")]
+position = Vector2(276, 40)
+detail = 2
 
 [node name="warning" type="Label" parent="UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
@@ -455,20 +404,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(150.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(150.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(152, 48)
-flip_v = true
+[node name="btnDecor" parent="UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" instance=ExtResource("6_o2b8f")]
+position = Vector2(175, 41)
 
 [node name="settings" type="VBoxContainer" parent="UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -796,20 +733,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "btnExit"
 
-[node name="pipeu" type="Sprite2D" parent="UI/player/gameOver/centerer/gameOver/buttons/return"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(324.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="UI/player/gameOver/centerer/gameOver/buttons/return"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_5ffo4")
-offset = Vector2(324.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="UI/player/gameOver/centerer/gameOver/buttons/return"]
-texture = SubResource("CanvasTexture_uiroo")
-offset = Vector2(326, 48)
-flip_v = true
+[node name="btnDecor" parent="UI/player/gameOver/centerer/gameOver/buttons/return" instance=ExtResource("6_o2b8f")]
+position = Vector2(325, 44)
 
 [node name="music1" type="AudioStreamPlayer" parent="UI/player"]
 stream = ExtResource("13_ttcps")
@@ -891,6 +816,13 @@ follow_viewport_enabled = true
 [node name="toolHandler" type="Node2D" parent="mobileCanvas"]
 visibility_layer = 3
 script = ExtResource("32_ecriy")
+
+[node name="toolHand" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="toolHand" type="Node2D" parent="toolHand"]
+visibility_layer = 3
+script = ExtResource("37_flkd6")
 
 [node name="view" type="Camera2D" parent="."]
 position = Vector2(640, 360)

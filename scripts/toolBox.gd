@@ -37,17 +37,8 @@ func _ready() -> void:
 		tGrid.add_child(tools[x].tScene)
 		tSpace.append(x)
 		tools[x].place.position = Vector2(toolsize / 2 + (x % 3) * toolsize , toolsize / 2 + (x / 3) * toolsize)
-		#tools[x].pickUp.input_event.connect(giveTool.bind(tools[x]))
 	
 	signalBus.toolTrans.connect(takeTool)
-
-#func _physics_process(delta: float) -> void: # tool movement
-	#if held != null:
-		#var posOld: Vector2 = held.place.global_position
-		#held.place.global_position = lerp(held.place.global_position, get_global_mouse_position() , speed * delta)
-		#if held.place.get_meta(&"rot"):
-			#if max(abs(posOld.x - held.place.global_position.x), abs(posOld.y - held.place.global_position.y)) > rotThresh:
-				#held.place.rotate(held.place.get_angle_to(get_global_mouse_position()) * delta * rotSpeed * (posOld - held.place.global_position).length())
 
 func takeTool(t: globalVariables.tool, held) -> void: # recieves a tool from the parent juggling
 	if held:
@@ -66,51 +57,39 @@ func takeTool(t: globalVariables.tool, held) -> void: # recieves a tool from the
 					p = i
 					break
 			tools.append(t)
-			t.pickUp.input_event.connect(giveTool.bind(t))
+			#t.pickUp.input_event.connect(giveTool.bind(t))
 			var offset: Vector2
 			if globalVariables.sanity < 75:
 				offset = Vector2.from_angle(randf_range(0, 2 * PI))
 				offset *= randf_range(0, 1000 / (globalVariables.sanity + 0.1))
 			t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
-	print(t.tScene.get_parent())
 
 
-func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling
-	if Input.is_action_pressed("pickUpTool"):
-		if globalVariables.holdable:
-			#t.tScene.reparent(self)
-			tSpace.remove_at(tools.find(t, 0))
-			tools.erase(t)
-			#t.place.scale = Vector2(2, 2)
-	#if t == held:
-		#if Input.is_action_pressed("pickUpTool"):
-			#if t.to_string() == "magnifyer":
-				#t.place.get_node("uncover").set_meta("enabled", true)
-		else:
-			#set_physics_process(false)
-			#held = null
-			#globalVariables.holdable = true
-			#t.place.scale = Vector2(1, 1)
-			#if t.to_string() == "magnifyer":
-				#t.place.get_node("uncover").set_meta("enabled", false)
-			if globalVariables.boxing:
-				t.tScene.reparent(tGrid)
-				var p: int
-				for i: int in 9:
-					if not tSpace.has(i):
-						tSpace.append(i)
-						p = i
-						break
-				tools.append(t)
-				t.pickUp.input_event.connect(giveTool.bind(t))
-				var offset: Vector2
-				if globalVariables.sanity < 75:
-					offset = Vector2.from_angle(randf_range(0, 2 * PI))
-					offset *= randf_range(0, 1000 / globalVariables.sanity)
-				t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
-			else:
-				signalBus.toolTrans.emit(t)
-				t.pickUp.input_event.disconnect(giveTool)
+
+#func giveTool(viewport: Node, event: InputEvent, shape_idx: int, t: globalVariables.tool) -> void: # gives a tool to the parent juggling
+	#if Input.is_action_pressed("pickUpTool"):
+		#if globalVariables.holdable:
+			#tSpace.remove_at(tools.find(t, 0))
+			#tools.erase(t)
+		#else:
+			#if globalVariables.boxing:
+				#t.tScene.reparent(tGrid)
+				#var p: int
+				#for i: int in 9:
+					#if not tSpace.has(i):
+						#tSpace.append(i)
+						#p = i
+						#break
+				#tools.append(t)
+				#t.pickUp.input_event.connect(giveTool.bind(t))
+				#var offset: Vector2
+				#if globalVariables.sanity < 75:
+					#offset = Vector2.from_angle(randf_range(0, 2 * PI))
+					#offset *= randf_range(0, 1000 / globalVariables.sanity)
+				#t.place.position = Vector2(clamp(toolsize / 2 + (p % 3) * toolsize + offset.x, toolsize/2, tGrid.size.x - toolsize/2), clamp(toolsize / 2 + (p / 3) * toolsize + offset.y, toolsize/2, tGrid.size.y - toolsize/2))
+			#else:
+				#signalBus.toolTrans.emit(t)
+				#t.pickUp.input_event.disconnect(giveTool)
 
 func deactivate(r: bool) -> void:
 	if r:

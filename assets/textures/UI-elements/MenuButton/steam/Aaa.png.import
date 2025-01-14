@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq7jbajlyhmui"
-path="res://.godot/imported/menubtn_pipe_heightmap.png-825b069eb5b8292670318013629bd264.ctex"
+uid="uid://bvn2krbgocqqf"
+path="res://.godot/imported/Aaa.png-4e7adc8f4ea500c1f2ad66f17d018dc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_heightmap.png"
-dest_files=["res://.godot/imported/menubtn_pipe_heightmap.png-825b069eb5b8292670318013629bd264.ctex"]
+source_file="res://assets/textures/UI-elements/MenuButton/steam/Aaa.png"
+dest_files=["res://.godot/imported/Aaa.png-4e7adc8f4ea500c1f2ad66f17d018dc9.ctex"]
 
 [params]
 

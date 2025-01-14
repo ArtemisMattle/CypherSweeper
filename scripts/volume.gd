@@ -23,6 +23,7 @@ func _on_master_value_changed(value: float) -> void:
 		if not sfx.playing:
 			sfx.play(randf_range(0,10))
 			fade.play("fadeIn")
+	settings.saveSet()
 
 func _on_sfx_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(busses["sfx"], linear_to_db(value))
@@ -31,6 +32,7 @@ func _on_sfx_value_changed(value: float) -> void:
 		if not sfx.playing:
 			sfx.play(randf_range(0,10))
 			fade.play("fadeIn")
+	settings.saveSet()
 
 func _on_music_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(busses["music"], linear_to_db(value))
@@ -39,23 +41,28 @@ func _on_music_value_changed(value: float) -> void:
 		if not sfx.playing:
 			sfx.play(randf_range(0,10))
 			fade.play("fadeIn")
+	settings.saveSet()
 
 func _on_masterMute_toggled(toggled_on: bool) -> void:
-	settings.masterMute = not toggled_on
+	#settings.masterMute = not toggled_on
 	$volume/audioMaster/volume.editable = not toggled_on
 	AudioServer.set_bus_mute(busses["Master"], toggled_on)
+	settings.saveSet()
 
 func _on_sfxMute_toggled(toggled_on: bool) -> void:
-	settings.soundMute = not toggled_on
+	#settings.soundMute = not toggled_on
 	$volume/audioSFX/volume.editable = not toggled_on
 	AudioServer.set_bus_mute(busses["sfx"], toggled_on)
+	settings.saveSet()
 
 func _on_musicMute_toggled(toggled_on: bool) -> void:
-	settings.musicMute = not toggled_on
+	#settings.musicMute = not toggled_on
 	$volume/audioMusic/volume.editable = not toggled_on
 	AudioServer.set_bus_mute(busses["music"], toggled_on)
+	settings.saveSet()
 
 func _process(delta: float) -> void:
 	t += delta
 	if t >= .3:
 		fade.play("fadeOut")
+	settings.saveSet()

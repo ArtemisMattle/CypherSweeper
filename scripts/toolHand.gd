@@ -8,7 +8,10 @@ func _ready() -> void:
 
 func takeTool(t: globalVariables.tool, held: bool) -> void: # recieves a tool from the parent juggling
 	if held:
-		tools.erase(t)
+		if t.tScene.get_meta("boxTool"):
+			pass
+		else:
+			t.tScene.reparent(self)
+			tools.append(t)
 	else:
-		t.tScene.reparent(self)
-		tools.append(t)
+		tools.erase(t)

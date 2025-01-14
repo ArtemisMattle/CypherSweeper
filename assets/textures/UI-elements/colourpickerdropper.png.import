@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lrwiursvt5wm"
-path="res://.godot/imported/menubtn_opt2.png-bee9bd5a05b12033bec3cfbe7e37dd79.ctex"
+uid="uid://cuv1nlxql5nq3"
+path="res://.godot/imported/colourpickerdropper.png-13af9eaa4d82652c171a363a41350168.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/UI-elements/MenuButton/Menubutton/menubtn_opt2.png"
-dest_files=["res://.godot/imported/menubtn_opt2.png-bee9bd5a05b12033bec3cfbe7e37dd79.ctex"]
+source_file="res://assets/textures/UI-elements/colourpickerdropper.png"
+dest_files=["res://.godot/imported/colourpickerdropper.png-13af9eaa4d82652c171a363a41350168.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkhqum5pt4quw"
-path="res://.godot/imported/menubtn_opt2_heightmap.png-1d9d5920fdfe409602ab018888b43912.ctex"
+uid="uid://djmw8trkb0uuy"
+path="res://.godot/imported/arrow.png-508b90ce7c7be05b3dce33ab9fc45a4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/UI-elements/MenuButton/Menubutton/menubtn_opt2_heightmap.png"
-dest_files=["res://.godot/imported/menubtn_opt2_heightmap.png-1d9d5920fdfe409602ab018888b43912.ctex"]
+source_file="res://assets/textures/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-508b90ce7c7be05b3dce33ab9fc45a4f.ctex"]
 
 [params]
 
