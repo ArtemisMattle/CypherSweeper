@@ -92,9 +92,10 @@ func dmg() -> void:
 	if globalVariables.sanity < 1:
 		return
 	if globalVariables.sanity < 100:
-		if not globalVariables.tutDamaged:
-			globalVariables.tutDamaged = true
+		if not globalVariables.gData.tutDamaged:
+			globalVariables.gData.tutDamaged = true
 			message("msgTutDmg")
+			ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 
 func _on_tut_msg_timer_timeout() -> void:
 	if globalVariables.sanity < 1:

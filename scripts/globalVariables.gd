@@ -34,7 +34,7 @@ var lvl1: String = "Herb"
 var leveled1: bool = false
 var ingr: Array[String] = ["Herb", "Shroom", "Salt"]
 
-var tutDamaged: bool = false
+var tutDamaged: bool = false # depreceated
 
 var ingredientMult: float = 1
 var ingredientStack: Dictionary = {
