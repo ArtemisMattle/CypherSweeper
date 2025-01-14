@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=62 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
@@ -24,6 +24,10 @@
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="17_15lbl"]
+[ext_resource type="Theme" uid="uid://cocd6t67hi5bf" path="res://assets/textures/UI-themes/lexicon.tres" id="25_4v7uf"]
+[ext_resource type="Texture2D" uid="uid://drpj84xh46678" path="res://assets/textures/tools/Lexicon_open_fullscreen.png" id="26_6ve2y"]
+[ext_resource type="Script" path="res://scripts/changelogs.gd" id="27_ff7hk"]
+[ext_resource type="FontFile" uid="uid://doktpunqtcnql" path="res://assets/textures/fonts/OpenDyslexic3-Bold.ttf" id="28_xas7j"]
 
 [sub_resource type="Gradient" id="Gradient_gcmyi"]
 colors = PackedColorArray(0, 0, 0, 1, 0.142858, 0.142858, 0.142858, 1)
@@ -86,6 +90,16 @@ _data = {
 "fade": SubResource("Animation_7rycc")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jjxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djkia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q3y0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmrjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b1ffo"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nrpq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw2hj"]
@@ -136,6 +150,16 @@ stream_0/weight = 20.149
 stream_1/stream = ExtResource("17_7in6i")
 stream_1/weight = 1.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2hgs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0bt4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux2op"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pki7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg5xl"]
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_p3mkq")
 
@@ -158,7 +182,7 @@ theme = ExtResource("2_50dck")
 
 [node name="darkness" type="Sprite2D" parent="background/edge/dark"]
 visible = false
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.494118)
 position = Vector2(640, 360)
 texture = SubResource("NoiseTexture2D_4efsd")
 
@@ -327,7 +351,26 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 24
-text = "Build # 0.01"
+text = "Build # 0.02"
+
+[node name="changelogs" type="Button" parent="background/edge/menu/title/buildNr" groups=["buttonClick"]]
+texture_filter = 2
+offset_left = -149.0
+offset_top = 4.0
+offset_right = -24.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("17_15lbl")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4jjxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_djkia")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q3y0p")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tmrjn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b1ffo")
+toggle_mode = true
+text = "Changelogs"
 
 [node name="settings" type="HBoxContainer" parent="background/edge/menu"]
 visible = false
@@ -1064,12 +1107,116 @@ stream = SubResource("AudioStreamRandomizer_2tlx6")
 pitch_scale = 10.0
 bus = &"sfx"
 
+[node name="changelogs" type="TextureRect" parent="."]
+visible = false
+offset_left = 718.0
+offset_top = 50.0
+offset_right = 1230.0
+offset_bottom = 370.0
+theme = ExtResource("25_4v7uf")
+texture = ExtResource("26_6ve2y")
+script = ExtResource("27_ff7hk")
+
+[node name="edge" type="MarginContainer" parent="changelogs"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 320.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 15
+
+[node name="box" type="HBoxContainer" parent="changelogs/edge"]
+layout_mode = 2
+
+[node name="changebox" type="VBoxContainer" parent="changelogs/edge/box"]
+texture_filter = 2
+layout_mode = 2
+
+[node name="Add" type="Label" parent="changelogs/edge/box/changebox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_xas7j")
+text = "Added:"
+
+[node name="adds" type="RichTextLabel" parent="changelogs/edge/box/changebox"]
+custom_minimum_size = Vector2(210, 20)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+
+[node name="Updates" type="Label" parent="changelogs/edge/box/changebox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_xas7j")
+text = "Updated:"
+
+[node name="updates" type="RichTextLabel" parent="changelogs/edge/box/changebox"]
+custom_minimum_size = Vector2(210, 20)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+
+[node name="Fixes" type="Label" parent="changelogs/edge/box/changebox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_xas7j")
+text = "Fixed:"
+
+[node name="fixes" type="RichTextLabel" parent="changelogs/edge/box/changebox"]
+custom_minimum_size = Vector2(210, 20)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+
+[node name="buildBox" type="VBoxContainer" parent="changelogs/edge/box"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Add" type="Label" parent="changelogs/edge/box/buildBox"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("28_xas7j")
+theme_override_font_sizes/font_size = 20
+text = "Builds:"
+
+[node name="builds" type="GridContainer" parent="changelogs/edge/box/buildBox"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Build0_01" type="Button" parent="changelogs/edge/box/buildBox/builds" groups=["buttonClick"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("28_xas7j")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w2hgs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0bt4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ux2op")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pki7u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dg5xl")
+text = "0.01"
+
+[node name="Build0_02" type="Button" parent="changelogs/edge/box/buildBox/builds" groups=["buttonClick"]]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("28_xas7j")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_w2hgs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l0bt4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ux2op")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pki7u")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dg5xl")
+text = "0.02"
+
 [connection signal="pressed" from="background/edge/menu/mainbuttons/play" to="." method="_toPlay"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="background/edge/menu/mainbuttons/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="background/edge/menu/play/playStory" to="." method="_on_play_story_pressed"]
 [connection signal="pressed" from="background/edge/menu/play/playArcade" to="." method="_on_play_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/play/back" to="." method="_toMain"]
+[connection signal="toggled" from="background/edge/menu/title/buildNr/changelogs" to="." method="_on_changelogs_toggled"]
 [connection signal="item_selected" from="background/edge/menu/settings/settings/language/languageSelector" to="." method="_on_language_selected"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
@@ -1085,3 +1232,5 @@ bus = &"sfx"
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container8/lvl8" to="." method="_lvl8"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container9/lvl9" to="." method="_lvl9"]
 [connection signal="pressed" from="background/edge/menu/story/tutorials" to="." method="_on_tutorials_pressed"]
+[connection signal="pressed" from="changelogs/edge/box/buildBox/builds/Build0_01" to="changelogs" method="changeBuild" binds= ["0.01"]]
+[connection signal="pressed" from="changelogs/edge/box/buildBox/builds/Build0_02" to="changelogs" method="changeBuild" binds= ["0.02"]]

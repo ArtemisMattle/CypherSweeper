@@ -473,3 +473,7 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:click.play()
 		2:hover.play()
 
+
+
+func _on_changelogs_toggled(toggled_on: bool) -> void:
+	$changelogs.visible = toggled_on
