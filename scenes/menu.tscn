@@ -1,10 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://be8ceohv6ffst"]
+[gd_scene load_steps=48 format=3 uid="uid://be8ceohv6ffst"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_p3mkq"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="2_50dck"]
 [ext_resource type="Texture2D" uid="uid://crgu07aqqfoui" path="res://assets/textures/splashscreens/City.png" id="3_gogsx"]
 [ext_resource type="PackedScene" uid="uid://cyup2bpmuxerx" path="res://scenes/btn_decor.tscn" id="4_ktp81"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="4_pds5r"]
+[ext_resource type="Texture2D" uid="uid://djmw8trkb0uuy" path="res://assets/textures/arrow.png" id="5_abwlh"]
 [ext_resource type="Script" path="res://scripts/tooltipper.gd" id="8_3qai5"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="8_8sdor"]
 [ext_resource type="PackedScene" uid="uid://pddgp7c634x5" path="res://scenes/modifyer.tscn" id="8_cmtqk"]
@@ -23,6 +24,67 @@
 [ext_resource type="AudioStream" uid="uid://1g3f18lp2ci8" path="res://assets/audio/sfx/1 but higher.wav" id="16_qmjtj"]
 [ext_resource type="AudioStream" uid="uid://doebfyaj76i3e" path="res://assets/audio/sfx/1.wav" id="17_7in6i"]
 [ext_resource type="FontFile" uid="uid://dbskygljw7lxy" path="res://assets/textures/fonts/OpenDyslexic3-Regular.ttf" id="17_15lbl"]
+
+[sub_resource type="Gradient" id="Gradient_gcmyi"]
+colors = PackedColorArray(0, 0, 0, 1, 0.142858, 0.142858, 0.142858, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_imr0h"]
+seed = 3
+frequency = 0.0034
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4efsd"]
+width = 1280
+height = 720
+color_ramp = SubResource("Gradient_gcmyi")
+noise = SubResource("FastNoiseLite_imr0h")
+
+[sub_resource type="Animation" id="Animation_ymmls"]
+resource_name = "crossFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.494118), Color(1, 1, 1, 0.207843), Color(1, 1, 1, 0.494118)]
+}
+
+[sub_resource type="Animation" id="Animation_7rycc"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.494118)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bwwo"]
+_data = {
+"crossFade": SubResource("Animation_ymmls"),
+"fade": SubResource("Animation_7rycc")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1nrpq"]
 
@@ -92,6 +154,19 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme = ExtResource("2_50dck")
 
+[node name="dark" type="CanvasLayer" parent="background/edge"]
+
+[node name="darkness" type="Sprite2D" parent="background/edge/dark"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(640, 360)
+texture = SubResource("NoiseTexture2D_4efsd")
+
+[node name="fader" type="AnimationPlayer" parent="background/edge/dark/darkness"]
+libraries = {
+"": SubResource("AnimationLibrary_3bwwo")
+}
+
 [node name="menu" type="HBoxContainer" parent="background/edge"]
 layout_mode = 2
 theme = ExtResource("2_50dck")
@@ -160,6 +235,11 @@ alignment = 0
 [node name="btnDecor" parent="background/edge/menu/mainbuttons/credits" instance=ExtResource("4_ktp81")]
 position = Vector2(276, 40)
 
+[node name="tutArrow" type="Sprite2D" parent="background/edge/menu/mainbuttons" groups=["tutArrow"]]
+visible = false
+position = Vector2(386, 43)
+texture = ExtResource("5_abwlh")
+
 [node name="play" type="VBoxContainer" parent="background/edge/menu"]
 visible = false
 custom_minimum_size = Vector2(300, 0)
@@ -208,6 +288,11 @@ alignment = 0
 
 [node name="btnDecor" parent="background/edge/menu/play/back" instance=ExtResource("4_ktp81")]
 position = Vector2(276, 40)
+
+[node name="tutArrow" type="Sprite2D" parent="background/edge/menu/play" groups=["tutArrow"]]
+visible = false
+position = Vector2(390, 38)
+texture = ExtResource("5_abwlh")
 
 [node name="title" type="HBoxContainer" parent="background/edge/menu"]
 layout_mode = 2
@@ -952,6 +1037,12 @@ text = "btnSaves"
 position = Vector2(276, 40)
 detail = 3
 
+[node name="tutArrow" type="Sprite2D" parent="background/edge/menu/story" groups=["tutArrow"]]
+visible = false
+position = Vector2(-116, 115)
+rotation = 3.14159
+texture = ExtResource("5_abwlh")
+
 [node name="directionalLight2d" type="DirectionalLight2D" parent="background"]
 rotation = 2.11185
 blend_mode = 2
@@ -983,8 +1074,6 @@ bus = &"sfx"
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/zippy/zippyMode" to="." method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/fast/fastMode" to="." method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="background/edge/menu/settings/settings/speed/speedModes/normal/normalMode" to="." method="_on_normal_mode_pressed"]
-[connection signal="pressed" from="background/edge/menu/settings/settings/colour/presets/presets/dark" to="." method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.286275, 0.286275, 0.286275, 1), Color(0.333333, 0, 0.145098, 1), true]]
-[connection signal="pressed" from="background/edge/menu/settings/settings/colour/presets/presets/light" to="." method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
 [connection signal="pressed" from="background/edge/menu/arcade/arcade/sizeandplay/play" to="." method="_on_arcade_pressed"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container/lvl1" to="." method="_lvl1"]
 [connection signal="pressed" from="background/edge/menu/levelSelect/lvl1Container2/lvl2" to="." method="_lvl2"]

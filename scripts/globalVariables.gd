@@ -1,7 +1,5 @@
 extends Node
 
-#var language: String = "EN" # depreciated
-
 var sanity: int = 100
 var lostsanity: int = 0
 var playTime: float = 0
@@ -54,13 +52,8 @@ var specials: Dictionary = {
 var empty: int 
 var sum: int
 
-
-#var colours: Array[Color] = [ # depreciated 
-	#Color(0.878, 0.8, 0.533),
-	#Color(0, 0, 0),
-	#Color(0.694, 0.451, 0.718)
-	#]
-#var darkmode: bool = false # depreciated
+var gData: gameData = gameData.new()
+var gDataPath: String = "user://CSgameData.tres"
 
 var mod: Array[String] = [] # array of active modifyers
 
@@ -106,6 +99,11 @@ func _ready() -> void: # provides setup for the cursor curser
 	cursor = load("res://assets/textures/cursors/pincher.png")
 	click = load("res://assets/textures/cursors/pincherCl.png")
 	signalBus.upsane.connect(cursedCursor)
+	
+	# load gameData
+	var gameD: gameData = SafeResourceLoader.load(gDataPath)
+	if not gameD == null:
+		gData = gameD
 
 func minLvl() -> int: # provides the lowest level
 	var lvl: int = 5

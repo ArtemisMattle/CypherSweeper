@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
 [ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
 [ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="2_kynjc"]
-[ext_resource type="Texture2D" uid="uid://bgo35m8t0qqdv" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3.tres" id="4_qhccx"]
+[ext_resource type="Texture2D" uid="uid://cwt0kr730jck3" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1.tres" id="4_yhtn0"]
 [ext_resource type="Texture2D" uid="uid://bvn2krbgocqqf" path="res://assets/textures/UI-elements/MenuButton/steam/Aaa.png" id="5_uheky"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_srmcq"]
@@ -42,7 +42,7 @@ centered = false
 
 [node name="detail" type="Sprite2D" parent="."]
 position = Vector2(-24, -32)
-texture = ExtResource("4_qhccx")
+texture = ExtResource("4_yhtn0")
 centered = false
 flip_v = true
 

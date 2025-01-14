@@ -53,6 +53,13 @@ func _ready() -> void:
 			TranslationServer.set_locale("en")
 			settings.language = "EN"
 	
+	if not globalVariables.gData.tutStart:
+		for tutArrows: Node in get_tree().get_nodes_in_group("tutArrow"):
+			tutArrows.visible = true
+		$background/edge/dark/darkness/fader.play_backwards("fade")
+		var msg: Node = load("res://scenes/levels/tutorials/tutMsg.tscn").instantiate()
+		add_child(msg)
+		msg.initi(tr("mTut"))
 	
 	playPg.visible = false
 	mainPg.visible = true
@@ -109,6 +116,8 @@ func _toStory() -> void:
 	storyPg.visible=true
 	storyBtn.pressed.connect(_toTitle)
 	storyBtn.text= "btnBack"
+	if not globalVariables.gData.tutStart:
+		$background/edge/menu/play/tutArrow.visible = false
 
 func _toArcade() -> void:
 	exitPg()
@@ -290,6 +299,9 @@ func _startLvl(level) -> void:
 
 func _on_tutorials_pressed() -> void: # starts the tutorial
 	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut0.tscn")
+	if not globalVariables.gData.tutStart:
+		globalVariables.gData.tutStart = true
+		ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 
 
 func _on_arcade_pressed():
@@ -311,6 +323,10 @@ func _on_arcade_pressed():
 		
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
+	
+	if not globalVariables.gData.tutStart:
+		globalVariables.gData.tutStart = true
+		ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
