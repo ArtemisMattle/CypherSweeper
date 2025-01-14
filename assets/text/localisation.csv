@@ -174,12 +174,16 @@ Falls du ein Tutorial willst, folge den Pfeilen nachdem du die Nachricht weggekl
 lbTut0,"Congratulations! You mastered the basics.
 Up next Levels!","Gratulation! Du hast die Grundlagen gemeistert.
 Auf zu neuen Levels!",,,,
-msgTut00,"Welcome to the Cypher Sweeper Tutorial, in this level you will learn the absolute basics of the gameplay and how to win a game. To start uncover a cell by left clicking it, after closing this message.","Willkommen zum Cypher Sweeper Tutorial! 
+msgTut00,"Welcome to the Cypher Sweeper Tutorial!
+In this level you will learn the absolute basics of the gameplay and how to win a game.
+A level is a Recipe, wich is encrypted. To win it means to Decypher the Recipe.
+To start uncover a cell by left clicking it, after closing this message.","Willkommen zum Cypher Sweeper Tutorial! 
 In diesem Level lernst du die Grundlagen und wie man das Spiel gewinnt. 
 Ein Level ist ein Rezept, das verschlüsselt ist. Wenn du gewonnen hast, hast du das Rezept entschlüsselt. 
-Schließe diese Nachricht und decke ein Feld auf, um mit der Entschlüsselung des Rezepts zu beginnen.",,,,
-msgTut01,"Now that you learned a bit about the recipe you are deciphering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them, but be careful not to touch the [b]Flamel[/b] yet, it has a value of 5.","Wie du sehen kannst, stehen in manchen Zellen Zahlen. Diese geben an, wie viele Nachbarzellen [b]Zutaten[/b] enthalten. Schaue es dir nochmal genau an um das Rezept besser zu verstehen.
-Doch Achtung! Unter den Zutaten versteckt sich etwas Tödliches. Das [b]Flamel[/b]. Es hat den Wert 5. Entziffere nun weiter, bis nur noch das Flamel Übrig bleibt.",,,,
+Schließe diese Nachricht und decke ein Feld, per Linksklick auf, um mit der Entschlüsselung des Rezepts zu beginnen.",,,,
+msgTut01,"As you can see, some cells have numbers in them, they are the sum of the levels of [b]Ingredients[/b] in surrounding cells. Because you learned a bit about the recipe you are decyphering, you are ready for the more dangerous knowledge, or [b]Ingredients[/b] as we'll call them.
+But be careful not to touch the [b]Flamel[/b] yet, it has a value of 5. For now keep decyphering until the [b]Flamel[/b] is the sole remainder.","Wie du sehen kannst, stehen in manchen Zellen Zahlen. Diese geben an, wie viele Nachbarzellen [b]Zutaten[/b] enthalten. Da du ein rudimentäres Verständnis über das Rezept hast, kannst aktuell fast alle Zutaten aufdecken.
+Doch Achtung! Unter den Zutaten versteckt sich etwas Tödliches. Das [b]Flamel[/b]. Es hat den Wert 5. Entziffere nun weiter, bis nur noch das [b]Flamel[/b] Übrig bleibt.",,,,
 msgTut02,"You have almost complete knowledge over that recipe, all that is left to do is uncover the [b]Flamel[/b] it functions similar to an 8 Ball in billiards.","Nun hast du fast das komplette Wissen über das Rezept. Zum Schluss fehlt dir nur noch das Flamel. Klicke es als letztes an, um das Level zu beenden.
 Es Funktioniert ähnlich wie die schwarze 8 in Billard.",,,,
 msgTutDmg,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Coffee to take the edge off.","Aua! Wissen, auf das du nicht vorbereitet bist tut weh. Und lässt dich [b]mentale Gesundheit[/b] verlieren. Unten rechts siehst du dafür eine Anzeige. Fürs erste versuche sowas zu umgehen, aber auf lange Sicht brauchst du Kaffee.",,,"Ouch. Knowledge you haven’t prepared for hurts and you just lost a bit of [b]Sanity[/b]. For now try to avoid that and you will be fine, in the future you probably should look into a recipe for Tea to take the edge off.",
@@ -192,7 +196,9 @@ Du hast Zutaten verschiedener Level verstanden.
 Nächstes Thema: Typen!",,,,
 msgTut10,"In this level you will learn about higher levels of [b]Ingredients[/b], you’ll also encounter mushrooms instead of herbs, but for now you will only have to deal with one kind of [b]Ingredient[/b]. If you find [b]Ingredients[/b] of higher levels, be sure to flag them by [b]Right Clicking[/b]","In diesem Level lernst du höhere [b]Zutatenlevels[/b] kennen. Es gibt hier statt Kräutern diesmal Pilze. Also musst du dich weiterhin nur mit einer Zutat beschäftigen. 
 Wenn du Zutaten [b]höheren[/b] Levels findest, kannst du sie mit [b]Rechtsklick[/b] markieren. Vorerst darfst du noch gar keine Zutaten aufdecken!",,,,
-msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b]. But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix. The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells.","Wie du bereits gesehen hast, sind fortgeschrittenere und gefährlichere Zutaten dabei. 
+msgTut11,"Similar to the basics tutorial, you are now able to uncover your first [b]Ingredients[/b].
+But be wary, now there are more advanced, dangerous [b]Ingredients[/b] in the mix.
+The numbers in the uncovered cells, the [b]Hints[/b], show the combined level of the [b]Ingredients[/b] in neighboring cells. Keep decyphering until you can uncover the [b]second level[/b].","Wie du bereits gesehen hast, sind fortgeschrittenere und gefährlichere Zutaten dabei. 
 Die Zahlen in aufgedeckten Zellen heißen [b]Tipps[/b]. Sie zeigen die [b]Summe[/b] der [b]Zutatenlevels[/b] aller Nachbarzellen. 
 Nun bist du bereit Zutaten mit Level 1 aufzudecken. Entziffere nun weiter, bis du genug Wissen gesammelt hast um Zutaten Level 2 aufdecken zu dürfen.",,,,
 msgTut12,"Now after having gathered more information you are able to uncover the [b]second level[/b] of [b]Ingredients[/b], as you may have noticed, this advancement is also noted with a pleasant sound.",Jetzt hast du mehr Wissen gesammelt und kannst Zutaten [b]Level 2[/b] aufdecken. Vielleicht ist dir der schöne Signalton aufgefallen.,,,,
@@ -202,16 +208,21 @@ lbTut2,"Congratulations! You mastered Types.
 Up next Tools!","Gratulation! 
 Du hast die verschiedenen Typen verstanden. 
 Nächstes Thema: Werkzeuge!",,,,
-msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on. We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.","In diesem Level lernst du die unterschiedlichen [b]Zutatentypen[/b].
+msgTut20,"In this level you will learn about the different [b]Types[/b] of [b]Ingredients[/b] that you will encounter from now on.
+We will also introduce an extra gauge, next to the [b]Sanity Meter[/b], you now find the [b]Knowledge Meter[/b]. It shows you which [b]Ingredients[/b] are safe to uncover.","In diesem Level lernst du die unterschiedlichen [b]Zutatentypen[/b].
 Zukünftig wirst du alle antreffen. Damit du siehst, was du sicher aufdecken darfst, haben wir eine neue Anzeige hinzugefügt. Du siehst sie unten in der Mitte neben der mentale Gesundheit Anzeige.",,,,
-msgTut21,"You can now also flag cells if you think you know what they contain, but cannot uncover them safely. Doing so is strictly optimal, as it also helps you to level up a bit faster.","Per [b]Rechtsklick[/b] kannst du nun Zellen markieren, die du noch nicht aufdecken darfst, von denen du aber weißt, was sich in ihnen verbrigt. Diese Spielweise hilft dir auch beim schnelleren Levelaufstieg.
+msgTut21,"You can now also flag cells if you think you know what they contain, but cannot uncover them safely. Doing so is strictly optimal, as it also helps you to level up a bit faster.
+You can also move the Recipe around by draging with the middle mouse button or with the WASD keys.","Per [b]Rechtsklick[/b] kannst du nun Zellen markieren, die du noch nicht aufdecken darfst, von denen du aber weißt, was sich in ihnen verbrigt. Diese Spielweise hilft dir auch beim schnelleren Levelaufstieg.
 Du kannst das Spielfeld auch mit der mittleren Maustaste oder <W> <A> <S> <D> bewegen.",,,,
 msgTut22,"You are now able to safely uncover the first level of %s. There are small symbols in cells that give you a [b]Hint[/b] they show you, which [b]Types[/b] of [b]Ingredients[/b] are present in neighboring cells. Use this information to reveal new knowledge while avoiding danger.","Du darfst jetzt %s Level 1 aufdecken. Es gibt kleine Symbole in den Zellen, die als [b]Tipps[/b] bezüglich der [b]Zutatentypen[/b] in [b]Nachbarzellen[/b] fungieren. Nutze diese Information um deine mentale Gesundheit zu schonen.",,,,
-msgTut23,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b]. The symbols which undoubtedly helped you reach this point will from now on be referred to as [b]Indicators[/b]. The [b]Flamel[/b] isn’t indicated though, so be sure to stay vigilant.","Du darfst jetzt alle Zutaten Level 1  sicher aufdecken. 
+msgTut23,"You are now able to safely uncover the first level of all [b]Types[/b] of [b]Ingredients[/b].
+The symbols which undoubtedly helped you reach this point will from now on be referred to as [b]Indicators[/b].
+The [b]Flamel[/b] isn’t indicated though, so be sure to stay vigilant.","Du darfst jetzt alle Zutaten Level 1  sicher aufdecken. 
 Die Symbole dir geholfen haben nennen wir [b]Indikatoren[/b]. Das [b]Flamel[/b] aber wird noch nicht angezeigt, also sei auf der Hut!
 Entziffere das Rezept fertig!",,,,
-msgTut24,"You almost did it, you can now safely uncover all information in… wait a second, this feels too familiar… ok, you know the drill, hopefully there is some kind of shortcut, because, unless you stumble upon the [b]Flamel[/b], there is no way to fail anymore.","Fast geschafft! Du kannst alles, bis auf das  
-… Moment mal! Das scheint irgendwie bekannt... hoffentlich gibt es eine Abkürzung. Denn solange du das [b]Flamel[/b] nicht berührst, kann nichts mehr schief gehen.",,,,
+msgTut24,"You almost did it, you can now safely uncover all information in…
+Wait a second, this feels too familiar… ok, you know the drill, hopefully there is some kind of shortcut, because, unless you stumble upon the [b]Flamel[/b], there is no way to fail anymore.","Fast geschafft! Du kannst alles, bis auf das…
+Moment mal! Das scheint irgendwie bekannt... hoffentlich gibt es eine Abkürzung. Denn solange du das [b]Flamel[/b] nicht berührst, kann nichts mehr schief gehen.",,,,
 lbTut3,"Congratulations! You mastered everything the
 Tutorial covers, Good Luck in the Arcade!","Gratulation! 
 Du hast das Tutorium gemeistert, 
