@@ -24,6 +24,9 @@ btnZippy,Zippy,Flott,Immédiat,,,Tre Rapide
 btnFast,Fast,Schnell,Vite,,,Rapida
 btnNormal,Normal,Normal,Normal,,,Normala
 lbSMode,Speed Mode,Geschwindigkeit,Vitesse,,,Rapido Reĝimo
+btnEdge,Edge,Kante,,,,
+btnPan,Panning,Schwenken,,,,
+lbMove,Movement,Bewegung,,,,
 selSize,Size,Größe,Taille,,,Grandeco
 ttselSize,"The length of the edges, higher values are more difficult and take more time!","Die länge der Kanten, größere Felder sind schwerer und brauchen mehr Zeit!","La longueur des bords, les valeurs plus élevées sont plus difficiles et prennent plus de temps !",,,"La longo de la randoj, pli altaj valoroj estas pli malfacila kaj bezonas pli da tempo"
 lbPre,Presets,Voreinstellungen,,,,

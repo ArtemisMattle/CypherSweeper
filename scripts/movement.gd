@@ -26,6 +26,8 @@ func _process(delta: float) -> void: # mouse movement
 		return
 	if pan:
 		return
+	if not settings.mouseEdging:
+		return
 	if mp.x > 600 / tZoom or mp.x < -600 / tZoom or mp.y > 280 / tZoom or mp.y < -310 / tZoom:
 		pass
 	else:
@@ -49,10 +51,11 @@ func _unhandled_input(event: InputEvent): #inputs through the input system
 	if not globalVariables.paused:
 		pan = false
 		if Input.is_action_pressed("pan"):
-			if event is InputEventMouseMotion:
-				position -= event.relative / zoom
-				stop()
-			pan = true
+			if settings.mousePaning:
+				if event is InputEventMouseMotion:
+					position -= event.relative / zoom
+					stop()
+				pan = true
 		if Input.is_action_pressed("zoom in"):
 			zoom_in()
 		if Input.is_action_pressed("zoom out"):

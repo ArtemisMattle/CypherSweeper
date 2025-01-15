@@ -56,6 +56,11 @@ func _ready() -> void:
 		elif "btn"+settings.language.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 	
+	if not settings.mouseEdging:
+		$pauseMenu/centerer/settings/settings/movement/edging.button_pressed = false
+	if not settings.mousePaning:
+		$pauseMenu/centerer/settings/settings/movement/paning.button_pressed = false
+	
 	shapeshift(settings.colours[0], settings.colours[1], settings.colours[2], settings.darkmode)
 	colourPickerResize()
 	signalBus.populated.connect(buttonClickSound)
@@ -206,6 +211,14 @@ func _on_fast_mode_pressed() -> void:
 
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
+	settings.saveSet()
+
+func _on_edging_toggled(toggled_on: bool) -> void:
+	settings.mouseEdging = toggled_on
+	settings.saveSet()
+
+func _on_paning_toggled(toggled_on: bool) -> void:
+	settings.mousePaning = toggled_on
 	settings.saveSet()
 
 func _on_exit_pressed() -> void: # returns you to the menu

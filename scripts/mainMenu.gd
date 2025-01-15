@@ -61,6 +61,11 @@ func _ready() -> void:
 		add_child(msg)
 		msg.initi(tr("mTut"))
 	
+	if not settings.mouseEdging:
+		$background/edge/menu/settings/settings/movement/edging.button_pressed = false
+	if not settings.mousePaning:
+		$background/edge/menu/settings/settings/movement/paning.button_pressed = false
+	
 	playPg.visible = false
 	mainPg.visible = true
 	_toTitle()
@@ -477,3 +482,12 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 
 func _on_changelogs_toggled(toggled_on: bool) -> void:
 	$changelogs.visible = toggled_on
+
+
+func _on_edging_toggled(toggled_on: bool) -> void:
+	settings.mouseEdging = toggled_on
+	settings.saveSet()
+
+func _on_paning_toggled(toggled_on: bool) -> void:
+	settings.mousePaning = toggled_on
+	settings.saveSet()

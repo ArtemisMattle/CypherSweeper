@@ -21,6 +21,9 @@ var colours: Array[Color] = [
 enum sMode {normal, fast, zippy}
 var speedMode: int = sMode.normal
 
+var mouseEdging: bool = true
+var mousePaning: bool = true
+
 func _ready() -> void:
 	for i: String in busses:
 		busses[i] = AudioServer.get_bus_index(i)
@@ -54,6 +57,8 @@ func saveSet() -> void:
 	settings.set_value("display", "colours", colours)
 	
 	settings.set_value("gameplay", "speedMode", speedMode)
+	settings.set_value("gameplay", "mEdging", mouseEdging)
+	settings.set_value("gameplay", "mPaning", mousePaning)
 	
 	settings.save(setPath)
 
@@ -83,10 +88,12 @@ func loadSet() -> void:
 		AudioServer.set_bus_volume_db(busses["music"], settings.get_value("sound", "musicVolume"))
 	
 	if settings.has_section("display"):
-		fs = settings.get_value("display", "fullscreen")
-		darkmode = settings.get_value("display", "darkMode")
-		colours = settings.get_value("display", "colours")
+		fs = settings.get_value("display", "fullscreen", false)
+		darkmode = settings.get_value("display", "darkMode", false)
+		colours = settings.get_value("display", "colours", colours)
 		tFullscreen()
 	
 	if settings.has_section("gameplay"):
-		speedMode = settings.get_value("gameplay", "speedMode")
+		speedMode = settings.get_value("gameplay", "speedMode", sMode.normal)
+		mouseEdging = settings.get_value("gameplay", "mEdging", true)
+		mousePaning = settings.get_value("gameplay", "mPaning", true)
