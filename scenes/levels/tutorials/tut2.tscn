@@ -548,6 +548,39 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "lbSMode"
 
+[node name="movement" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+
+[node name="move" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "lbMove"
+
+[node name="space" type="Control" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="pan" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnPan"
+
+[node name="paning" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+button_pressed = true
+
+[node name="edge" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnEdge"
+
+[node name="edging" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+button_pressed = true
+
 [node name="colour" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2
 theme = ExtResource("9_mbb83")
@@ -845,6 +878,8 @@ one_shot = true
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="lvl/UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="lvl/UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="lvl/UI/player" method="_on_normal_mode_pressed"]
+[connection signal="toggled" from="lvl/UI/player/pauseMenu/centerer/settings/settings/movement/paning" to="lvl/UI/player" method="_on_paning_toggled"]
+[connection signal="toggled" from="lvl/UI/player/pauseMenu/centerer/settings/settings/movement/edging" to="lvl/UI/player" method="_on_edging_toggled"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="lvl/UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1), true]]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="lvl/UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/background/background" to="lvl/UI/player" method="singleMod" binds= [0]]
