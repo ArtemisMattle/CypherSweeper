@@ -350,7 +350,8 @@ texture_filter = 2
 layout_mode = 2
 theme = ExtResource("2_50dck")
 text = "Cypher 
-   Sweeper"
+   Sweeper
+Demo"
 
 [node name="buildNr" type="Node2D" parent="background/edge/menu/title"]
 position = Vector2(594, 545)
