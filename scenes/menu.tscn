@@ -199,7 +199,7 @@ theme = ExtResource("2_50dck")
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_50dck")
-theme_override_constants/separation = 7
+theme_override_constants/separation = 5
 
 [node name="play" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
@@ -271,7 +271,7 @@ theme_override_colors/font_hover_color = Color(0.117503, 0.354074, 0.999995, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("17_15lbl")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Feedback"
 underline = 1
 uri = "https://abckatze.wufoo.com/forms/zmttixw064oda0/"
