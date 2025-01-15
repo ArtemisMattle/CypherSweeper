@@ -4,6 +4,8 @@ extends Node2D
 var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
 @onready var time: Timer = $tutMsgTimer
 var msgTxt: String = ""
+var newMsg: bool = false
+var nextMsg: Array[String] = []
 var lvl1: int = 0
 var lvl3: int = 0
 var decaff: bool = false
@@ -47,50 +49,67 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut30"))
+	$dark/darkness/fader.play_backwards("fade")
 	$lvl/UI/potionShelf.gainPotion(0)
 	$lvl/UI/potionShelf.gainPotion(1)
 	$lvl/UI/potionShelf.gainPotion(0)
 
+func message(txt: String) -> void:
+	if not newMsg:
+		time.start()
+		msgTxt = tr(txt)
+		newMsg = true
+		if not $dark/darkness/fader.is_playing():
+			$dark/darkness/fader.play("fade")
+	else:
+		nextMsg.append(txt)
+
 func coffee(_sig: Signal) -> void:
 	if decaff:
 		return
-	msgTxt = tr("msgTut33")
-	time.start()
+	message("msgTut33")
 	decaff = true
 
 func alk(gin: int) -> void:
 	match gin:
 		0: if sober:
-			msgTxt = tr("msgTut31")
-			time.start()
+			message("msgTut31")
 			sober = false
 		1:
-			msgTxt = tr("msgTut32")
-			time.start()
+			message("msgTut32")
 
 func lvlup(ingr: String) -> void:
 	if globalVariables.level[ingr] == 1:
 		lvl1 += 1
 		if lvl1 == 3:
-			msgTxt = tr("msgTut34")
-			time.start()
+			message("msgTut34")
 	if globalVariables.level[ingr] == 3:
 		lvl3 += 1
 		if lvl3 == 3:
-			msgTxt = tr("msgTut35")
-			time.start()
+			message("msgTut35")
 
 func dmg() -> void:
+	if globalVariables.sanity < 1:
+		return
 	if globalVariables.sanity < 100:
-		if not globalVariables.tutDamaged:
-			globalVariables.tutDamaged = true
-			time.start()
-			msgTxt = tr("msgTutDmg")
+		if not globalVariables.gData.tutDamaged:
+			globalVariables.gData.tutDamaged = true
+			message("msgTutDmg")
+			ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 
 func _on_tut_msg_timer_timeout() -> void:
+	if globalVariables.sanity < 1:
+		return
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)
+	newMsg = false
+	if not nextMsg.is_empty():
+		message(nextMsg[0])
+		nextMsg.remove_at(0)
+		$dark/darkness/fader.play("crossFade")
+	else:
+		$dark/darkness/fader.play_backwards("fade")
 
 
 func _on_next_pressed() -> void:

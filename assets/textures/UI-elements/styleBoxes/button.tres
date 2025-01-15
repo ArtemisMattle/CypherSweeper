@@ -8,8 +8,11 @@ diffuse_texture = ExtResource("1_kc8tr")
 normal_texture = ExtResource("2_o8l80")
 
 [resource]
+content_margin_top = 1.0
+content_margin_bottom = 10.0
 texture = SubResource("CanvasTexture_6sbut")
 texture_margin_left = 6.0
 texture_margin_top = 15.0
 texture_margin_right = 42.0
 texture_margin_bottom = 15.0
+expand_margin_left = 5.0

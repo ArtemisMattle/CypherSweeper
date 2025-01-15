@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cyup2bpmuxerx"]
+
+[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="1_k0upa"]
+[ext_resource type="Script" path="res://scripts/btn_decor.gd" id="1_v4c82"]
+[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="2_kynjc"]
+[ext_resource type="Texture2D" uid="uid://cwt0kr730jck3" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1.tres" id="4_yhtn0"]
+[ext_resource type="Texture2D" uid="uid://bvn2krbgocqqf" path="res://assets/textures/UI-elements/MenuButton/steam/Aaa.png" id="5_uheky"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_srmcq"]
+diffuse_texture = ExtResource("1_k0upa")
+normal_texture = ExtResource("2_kynjc")
+
+[sub_resource type="Curve" id="Curve_2nr2a"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 50), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_besk4"]
+min_value = 1.0
+max_value = 4.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(0.25, 2), 0.0, 0.0, 0, 0, Vector2(0.5, 2), 0.0, 0.0, 0, 0, Vector2(0.5, 3), 0.0, 0.0, 0, 0, Vector2(0.75, 3), 0.0, 0.0, 0, 0, Vector2(0.75, 4), 0.0, 0.0, 0, 0, Vector2(1, 4), 0.0, 0.0, 1, 0]
+point_count = 8
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[node name="btnDecor" type="Node2D"]
+script = ExtResource("1_v4c82")
+
+[node name="pipeu" type="Sprite2D" parent="."]
+position = Vector2(3, -17)
+rotation = 3.14159
+scale = Vector2(1, 8)
+texture = SubResource("CanvasTexture_srmcq")
+centered = false
+
+[node name="piped" type="Sprite2D" parent="."]
+position = Vector2(-6, 17)
+scale = Vector2(1, 9)
+texture = SubResource("CanvasTexture_srmcq")
+centered = false
+
+[node name="detail" type="Sprite2D" parent="."]
+position = Vector2(-24, -32)
+texture = ExtResource("4_yhtn0")
+centered = false
+flip_v = true
+
+[node name="cpuParticles2d" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(-0.999999, -7)
+rotation = 1.47972
+emitting = false
+amount = 31
+preprocess = 1.0
+randomness = 0.31
+lifetime_randomness = 0.31
+draw_order = 1
+texture = ExtResource("5_uheky")
+spread = 31.4
+gravity = Vector2(0, 326)
+initial_velocity_min = 78.0
+initial_velocity_max = 314.0
+damping_min = 31.4
+damping_max = 100.0
+damping_curve = SubResource("Curve_2nr2a")
+scale_amount_curve = SubResource("Curve_besk4")

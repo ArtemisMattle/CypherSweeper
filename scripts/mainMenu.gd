@@ -45,21 +45,33 @@ func _ready() -> void:
 		elif "btn"+lang.left(2)==langSel.get_item_text(id):
 			langSel.select(id)
 
-	globalVariables.language = lang
+	settings.language = lang
 	if lang.left(2) == "EN":
 		if lang.right(2) == "GB":
 			pass
 		else:
 			TranslationServer.set_locale("en")
-			globalVariables.language = "EN"
+			settings.language = "EN"
 	
+	if not globalVariables.gData.tutStart:
+		for tutArrows: Node in get_tree().get_nodes_in_group("tutArrow"):
+			tutArrows.visible = true
+		$background/edge/dark/darkness/fader.play_backwards("fade")
+		var msg: Node = load("res://scenes/levels/tutorials/tutMsg.tscn").instantiate()
+		add_child(msg)
+		msg.initi(tr("mTut"))
+	
+	if not settings.mouseEdging:
+		$background/edge/menu/settings/settings/movement/edging.button_pressed = false
+	if not settings.mousePaning:
+		$background/edge/menu/settings/settings/movement/paning.button_pressed = false
 	
 	playPg.visible = false
 	mainPg.visible = true
 	_toTitle()
 	buttonClickSound()
 	colourPickerResize()
-	shapeshift(globalVariables.colours[0],globalVariables.colours[1],globalVariables.colours[2], globalVariables.darkmode)
+	shapeshift(settings.colours[0],settings.colours[1],settings.colours[2], settings.darkmode)
 
 func _process(delta: float) -> void:
 	lbMult.text = "Score Modifyer: " + str(globalVariables.scoreMult)
@@ -109,6 +121,8 @@ func _toStory() -> void:
 	storyPg.visible=true
 	storyBtn.pressed.connect(_toTitle)
 	storyBtn.text= "btnBack"
+	if not globalVariables.gData.tutStart:
+		$background/edge/menu/play/tutArrow.visible = false
 
 func _toArcade() -> void:
 	exitPg()
@@ -143,12 +157,15 @@ func _toCredits() -> void:
 enum sMode {normal, fast, zippy}
 func _on_zippy_mode_pressed() -> void:
 	settings.speedMode = sMode.zippy
+	settings.saveSet()
 
 func _on_fast_mode_pressed() -> void:
 	settings.speedMode = sMode.fast
+	settings.saveSet()
 
 func _on_normal_mode_pressed() -> void:
 	settings.speedMode = sMode.normal
+	settings.saveSet()
 
 func _lvl1() -> void:
 	_startLvl((1))
@@ -287,6 +304,9 @@ func _startLvl(level) -> void:
 
 func _on_tutorials_pressed() -> void: # starts the tutorial
 	get_tree().change_scene_to_file("res://scenes/levels/tutorials/tut0.tscn")
+	if not globalVariables.gData.tutStart:
+		globalVariables.gData.tutStart = true
+		ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 
 
 func _on_arcade_pressed():
@@ -309,6 +329,10 @@ func _on_arcade_pressed():
 	globalVariables.buff["shield"] = 1
 	globalVariables.buff["freeHint"] = 1
 	
+	if not globalVariables.gData.tutStart:
+		globalVariables.gData.tutStart = true
+		ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
+	
 	get_tree().change_scene_to_file("res://scenes/lvl0.tscn")
 
 
@@ -321,7 +345,8 @@ func _on_language_selected(index: int) -> void: # changes the language (locale)
 		"btnES": TranslationServer.set_locale("es")
 		"btnEO": TranslationServer.set_locale("eo")
 		_: print(langSel.get_item_text(index) + "fehlt noch")
-	globalVariables.language = langSel.get_item_text(index).right(-3)
+	settings.language = langSel.get_item_text(index).right(-3)
+	settings.saveSet()
 
 func stackIngredients() -> void: # takes care of the ingredient stack
 	
@@ -422,23 +447,24 @@ func colourPickerResize() -> void:
 ]
 
 func shapeshift(bg: Color, sha: Color, grid: Color, dark: bool) -> void: # changes the colours of the samples and sends the necessary signals for the rest
-	globalVariables.colours[0] = bg
+	settings.colours[0] = bg
 	colourPicks[0].color = bg
 	for i: TextureRect in backgroundsample:
 		i.modulate = bg
-	globalVariables.colours[1] = sha
+	settings.colours[1] = sha
 	colourPicks[1].color = sha
 	for i: TextureRect in shadowsample:
 		i.modulate = sha
-	globalVariables.colours[2] = grid
+	settings.colours[2] = grid
 	colourPicks[2].color = grid
 	gridsample.modulate = grid
 	
-	globalVariables.darkmode = dark
+	settings.darkmode = dark
 	if dark:
 		background.texture = load("res://assets/textures/splashscreens/CityNight.png")
 	else:
 		background.texture = load("res://assets/textures/splashscreens/City.png")
+	settings.saveSet()
 
 func buttonClickSound() -> void: # searches all buttons and connects them to the sound effect player
 	for buttons: Node in get_tree().get_nodes_in_group("buttonClick"):
@@ -452,3 +478,16 @@ func sfxPlay(sound: int) -> void: # plays sounds for different events
 		1:click.play()
 		2:hover.play()
 
+
+
+func _on_changelogs_toggled(toggled_on: bool) -> void:
+	$changelogs.visible = toggled_on
+
+
+func _on_edging_toggled(toggled_on: bool) -> void:
+	settings.mouseEdging = toggled_on
+	settings.saveSet()
+
+func _on_paning_toggled(toggled_on: bool) -> void:
+	settings.mousePaning = toggled_on
+	settings.saveSet()

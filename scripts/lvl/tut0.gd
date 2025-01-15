@@ -4,6 +4,8 @@ extends Node2D
 var msg: PackedScene = preload("res://scenes/levels/tutorials/tutMsg.tscn")
 @onready var time: Timer = $tutMsgTimer
 var msgTxt: String = ""
+var newMsg: bool = false
+var nextMsg: Array[String] = []
 
 func _init() -> void:
 	globalVariables.size = 5
@@ -31,26 +33,44 @@ func _ready() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(tr("msgTut00"))
+	$dark/darkness/fader.play_backwards("fade")
+
+func message(txt: String) -> void:
+	if not newMsg:
+		time.start()
+		msgTxt = tr(txt)
+		newMsg = true
+		if not $dark/darkness/fader.is_playing():
+			$dark/darkness/fader.play("fade")
+	else:
+		nextMsg.append(txt)
 
 func lvlup() -> void:
-	time.start()
-	msgTxt = tr("msgTut01")
+	message("msgTut01")
 
 func flamel() -> void:
-	time.start()
-	msgTxt = tr("msgTut02")
+	message("msgTut02")
 
 func dmg() -> void:
+	if globalVariables.sanity < 1:
+		return
 	if globalVariables.sanity < 100:
-		if not globalVariables.tutDamaged:
-			globalVariables.tutDamaged = true
-			time.start()
-			msgTxt = tr("msgTutDmg")
+		if not globalVariables.gData.tutDamaged:
+			globalVariables.gData.tutDamaged = true
+			message("msgTutDmg")
+			ResourceSaver.save(globalVariables.gData, globalVariables.gDataPath)
 
 func _on_tut_msg_timer_timeout() -> void:
 	var tst = msg.instantiate()
 	add_child(tst)
 	tst.initi(msgTxt)
+	newMsg = false
+	if not nextMsg.is_empty():
+		message(nextMsg[0])
+		nextMsg.remove_at(0)
+		$dark/darkness/fader.play("crossFade")
+	else:
+		$dark/darkness/fader.play_backwards("fade")
 
 
 func _on_next_pressed() -> void:

@@ -1,22 +1,17 @@
-[gd_scene load_steps=68 format=3 uid="uid://bfwbyqyl38ilj"]
+[gd_scene load_steps=63 format=3 uid="uid://bfwbyqyl38ilj"]
 
 [ext_resource type="Script" path="res://scripts/lvl/tut1.gd" id="1_245eg"]
 [ext_resource type="Script" path="res://scripts/lvl/tutPCon1.gd" id="2_c6t0d"]
 [ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="3_so71m"]
 [ext_resource type="Theme" uid="uid://8qfvurhug2dj" path="res://assets/textures/UI-themes/menu.tres" id="4_okr6o"]
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="5_1sk4q"]
+[ext_resource type="PackedScene" uid="uid://cyup2bpmuxerx" path="res://scenes/btn_decor.tscn" id="6_7gvqs"]
 [ext_resource type="PackedScene" uid="uid://c4s5a2xw2aimj" path="res://scenes/volume.tscn" id="6_qem2u"]
 [ext_resource type="StyleBox" uid="uid://d4hejc61s8x7e" path="res://assets/textures/UI-elements/styleBoxes/smolButtonBrass.tres" id="7_4bddd"]
-[ext_resource type="Texture2D" uid="uid://d2ex3mxaaji7" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe.png" id="7_dlwy0"]
 [ext_resource type="StyleBox" uid="uid://bs8bdldqu8nwo" path="res://assets/textures/UI-elements/styleBoxes/smolButton.tres" id="8_d0x4r"]
-[ext_resource type="Texture2D" uid="uid://ucwfighchx4u" path="res://assets/textures/UI-elements/MenuButton/menubtn_pipe_normalmap.png" id="8_qccct"]
 [ext_resource type="Theme" uid="uid://2o7qow54lkux" path="res://assets/textures/UI-themes/colour.tres" id="9_7k5vf"]
-[ext_resource type="Texture2D" uid="uid://c3ngbwmspitty" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_sprite.png" id="9_qqqhh"]
-[ext_resource type="Texture2D" uid="uid://d3tllfjyfsrw8" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt1_norm.png" id="10_7d71y"]
 [ext_resource type="Texture2D" uid="uid://dnbebdqodexku" path="res://assets/textures/UI-elements/moon.png" id="10_pmnwh"]
-[ext_resource type="Texture2D" uid="uid://cgkvjodxcxhoa" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_sprite.png" id="10_ve4yd"]
 [ext_resource type="Texture2D" uid="uid://ui7sp51yhrfv" path="res://assets/textures/UI-elements/sun.png" id="11_4tn6e"]
-[ext_resource type="Texture2D" uid="uid://cslp2shbj1k22" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt2_norm.png" id="11_tdxus"]
 [ext_resource type="Texture2D" uid="uid://dw0qjpgna0abt" path="res://assets/textures/button/buttonhexColour.png" id="12_xdqrt"]
 [ext_resource type="Texture2D" uid="uid://de65gphcohtfw" path="res://assets/textures/button/buttonhex.png" id="13_5ux6e"]
 [ext_resource type="Texture2D" uid="uid://o06fap6t0t8s" path="res://assets/textures/hex.png" id="14_x8tad"]
@@ -38,29 +33,54 @@
 [ext_resource type="Script" path="res://scripts/movement.gd" id="29_eegda"]
 [ext_resource type="PackedScene" uid="uid://xkc12b53rvg" path="res://scenes/generator.tscn" id="30_0dal1"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_6n328"]
-diffuse_texture = ExtResource("7_dlwy0")
-normal_texture = ExtResource("8_qccct")
+[sub_resource type="Gradient" id="Gradient_yknph"]
+colors = PackedColorArray(0, 0, 0, 1, 0.142858, 0.142858, 0.142858, 1)
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ikmdi"]
-diffuse_texture = ExtResource("9_qqqhh")
-normal_texture = ExtResource("10_7d71y")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gfsgw"]
+seed = 3
+frequency = 0.0034
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_tgnke"]
-diffuse_texture = ExtResource("7_dlwy0")
-normal_texture = ExtResource("8_qccct")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i4x4v"]
+width = 1280
+height = 720
+color_ramp = SubResource("Gradient_yknph")
+noise = SubResource("FastNoiseLite_gfsgw")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_kkfeh"]
-diffuse_texture = ExtResource("10_ve4yd")
-normal_texture = ExtResource("11_tdxus")
+[sub_resource type="Animation" id="Animation_ymmls"]
+resource_name = "crossFade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.494118), Color(1, 1, 1, 0.207843), Color(1, 1, 1, 0.494118)]
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_orfbj"]
-diffuse_texture = ExtResource("7_dlwy0")
-normal_texture = ExtResource("8_qccct")
+[sub_resource type="Animation" id="Animation_7rycc"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.494118)]
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ri2jj"]
-diffuse_texture = ExtResource("9_qqqhh")
-normal_texture = ExtResource("10_7d71y")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3bwwo"]
+_data = {
+"crossFade": SubResource("Animation_ymmls"),
+"fade": SubResource("Animation_7rycc")
+}
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_4m5lw"]
 
@@ -223,6 +243,18 @@ stream_5/weight = 1.0
 [node name="tutorial" type="Node2D"]
 script = ExtResource("1_245eg")
 
+[node name="dark" type="CanvasLayer" parent="."]
+
+[node name="darkness" type="Sprite2D" parent="dark"]
+modulate = Color(1, 1, 1, 0.494118)
+position = Vector2(640, 360)
+texture = SubResource("NoiseTexture2D_i4x4v")
+
+[node name="fader" type="AnimationPlayer" parent="dark/darkness"]
+libraries = {
+"": SubResource("AnimationLibrary_3bwwo")
+}
+
 [node name="lvl" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="lvl"]
@@ -255,39 +287,15 @@ layout_mode = 2
 layout_mode = 2
 text = "btnSettings"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_6n328")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_6n328")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/settings"]
-texture = SubResource("CanvasTexture_ikmdi")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/settings" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
 
 [node name="return" type="Button" parent="lvl/UI/player/pauseMenu/centerer/pause" groups=["buttonClick"]]
 layout_mode = 2
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_6n328")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_6n328")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/return"]
-texture = SubResource("CanvasTexture_ikmdi")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/return" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
 
 [node name="Container" type="Container" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 custom_minimum_size = Vector2(0, 70)
@@ -297,20 +305,9 @@ layout_mode = 2
 layout_mode = 2
 text = "btnExit"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_tgnke")
-offset = Vector2(388.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_tgnke")
-offset = Vector2(388.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/pause/exit"]
-texture = SubResource("CanvasTexture_kkfeh")
-offset = Vector2(390, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/pause/exit" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
+detail = 2
 
 [node name="warning" type="Label" parent="lvl/UI/player/pauseMenu/centerer/pause"]
 layout_mode = 2
@@ -336,20 +333,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnBack"
 
-[node name="pipeu" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 19)
-texture = SubResource("CanvasTexture_orfbj")
-offset = Vector2(150.5, 1.289)
-
-[node name="piped" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-scale = Vector2(1, 20)
-texture = SubResource("CanvasTexture_orfbj")
-offset = Vector2(150.5, 3.75)
-
-[node name="detail" type="Sprite2D" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton"]
-texture = SubResource("CanvasTexture_ri2jj")
-offset = Vector2(152, 48)
-flip_v = true
+[node name="btnDecor" parent="lvl/UI/player/pauseMenu/centerer/settings/vBoxContainer/return/returnButton" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
 
 [node name="settings" type="VBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings"]
 custom_minimum_size = Vector2(600, 0)
@@ -456,6 +441,39 @@ size_flags_horizontal = 10
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 42
 text = "lbSMode"
+
+[node name="movement" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
+layout_mode = 2
+
+[node name="move" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "lbMove"
+
+[node name="space" type="Control" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="pan" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnPan"
+
+[node name="paning" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+button_pressed = true
+
+[node name="edge" type="Label" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 21
+text = "btnEdge"
+
+[node name="edging" type="CheckBox" parent="lvl/UI/player/pauseMenu/centerer/settings/settings/movement"]
+layout_mode = 2
+button_pressed = true
 
 [node name="colour" type="HBoxContainer" parent="lvl/UI/player/pauseMenu/centerer/settings/settings"]
 layout_mode = 2
@@ -667,10 +685,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "btnNext"
 
+[node name="btnDecor" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/next" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
+
 [node name="return" type="Button" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons" groups=["buttonClick"]]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "btnExit"
+
+[node name="btnDecor" parent="lvl/UI/player/gameOver/centerer/gameOver/endbuttons/return" instance=ExtResource("6_7gvqs")]
+position = Vector2(276, 40)
 
 [node name="music1" type="AudioStreamPlayer" parent="lvl/UI/player"]
 stream = ExtResource("18_fgste")
@@ -748,6 +772,8 @@ one_shot = true
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/zippy/zippyMode" to="lvl/UI/player" method="_on_zippy_mode_pressed"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/fast/fastMode" to="lvl/UI/player" method="_on_fast_mode_pressed"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/speed/speedModes/normal/normalMode" to="lvl/UI/player" method="_on_normal_mode_pressed"]
+[connection signal="toggled" from="lvl/UI/player/pauseMenu/centerer/settings/settings/movement/paning" to="lvl/UI/player" method="_on_paning_toggled"]
+[connection signal="toggled" from="lvl/UI/player/pauseMenu/centerer/settings/settings/movement/edging" to="lvl/UI/player" method="_on_edging_toggled"]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/dark" to="lvl/UI/player" method="shapeshift" binds= [Color(0.207843, 0.168627, 0.239216, 1), Color(0.287295, 0.287295, 0.287295, 1), Color(0.333711, 0, 0.143198, 1), true]]
 [connection signal="pressed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/presets/presets/light" to="lvl/UI/player" method="shapeshift" binds= [Color(0.835294, 0.678431, 0.427451, 1), Color(0, 0, 0, 1), Color(0.694118, 0.45098, 0.717647, 1), false]]
 [connection signal="color_changed" from="lvl/UI/player/pauseMenu/centerer/settings/settings/colour/background/background" to="lvl/UI/player" method="singleMod" binds= [0]]

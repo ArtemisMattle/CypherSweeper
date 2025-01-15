@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://bgo35m8t0qqdv"]
+
+[ext_resource type="Texture2D" uid="uid://dodga4f040bgw" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3_sprite.png" id="1_8cs3p"]
+[ext_resource type="Texture2D" uid="uid://baid3pono122d" path="res://assets/textures/UI-elements/MenuButton/menubtn_opt3_norm.png" id="2_vm28d"]
+
+[resource]
+diffuse_texture = ExtResource("1_8cs3p")
+normal_texture = ExtResource("2_vm28d")

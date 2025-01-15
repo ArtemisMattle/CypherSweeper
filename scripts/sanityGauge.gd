@@ -15,9 +15,9 @@ func _process(_delta):
 	glance()
 	if abs(shutter - eyecover.position.y) > 4:
 		if shutter > eyecover.position.y:
-			eyecover.position.y = clamp(eyecover.position.y + 3 * _delta, 0, shutter)
+			eyecover.position.y = clamp(eyecover.position.y + 31 * _delta, 0, shutter)
 		else:
-			eyecover.position.y = clamp(eyecover.position.y - 3 * _delta, shutter, 100)
+			eyecover.position.y = clamp(eyecover.position.y - 31 * _delta, shutter, 100)
 
 func updateSanity():
 	san.value = globalVariables.sanity
