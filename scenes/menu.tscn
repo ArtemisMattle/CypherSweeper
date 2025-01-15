@@ -199,7 +199,7 @@ theme = ExtResource("2_50dck")
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("2_50dck")
-theme_override_constants/separation = 7
+theme_override_constants/separation = 5
 
 [node name="play" type="Button" parent="background/edge/menu/mainbuttons" groups=["buttonClick"]]
 layout_mode = 2
@@ -263,6 +263,18 @@ position = Vector2(276, 40)
 visible = false
 position = Vector2(386, 43)
 texture = ExtResource("5_abwlh")
+
+[node name="feedback" type="LinkButton" parent="background/edge/menu/mainbuttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.776471, 1)
+theme_override_colors/font_hover_color = Color(0.117503, 0.354074, 0.999995, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("17_15lbl")
+theme_override_font_sizes/font_size = 24
+text = "Feedback"
+underline = 1
+uri = "https://abckatze.wufoo.com/forms/zmttixw064oda0/"
 
 [node name="play" type="VBoxContainer" parent="background/edge/menu"]
 visible = false
@@ -338,7 +350,8 @@ texture_filter = 2
 layout_mode = 2
 theme = ExtResource("2_50dck")
 text = "Cypher 
-   Sweeper"
+   Sweeper
+Demo"
 
 [node name="buildNr" type="Node2D" parent="background/edge/menu/title"]
 position = Vector2(594, 545)
@@ -498,6 +511,7 @@ text = "btnNormal"
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+size_flags_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/line_spacing = -20
 theme_override_font_sizes/font_size = 42
@@ -926,6 +940,7 @@ layout_mode = 2
 [node name="spotify" type="LinkButton" parent="background/edge/menu/credits/credits/bluefoxx/link"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 9.62615e-07, 0.77666, 1)
+theme_override_colors/font_hover_color = Color(0.1175, 0.354071, 1, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("17_15lbl")
 theme_override_font_sizes/font_size = 24
