@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CypherSweeper"
+config/version="0.02"
 run/main_scene="res://scenes/godot.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(1, 1, 1, 1)

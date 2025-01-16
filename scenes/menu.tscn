@@ -274,7 +274,7 @@ theme_override_fonts/font = ExtResource("17_15lbl")
 theme_override_font_sizes/font_size = 24
 text = "Feedback"
 underline = 1
-uri = "https://abckatze.wufoo.com/forms/zmttixw064oda0/"
+uri = "https://n43y2d8jkzu.typeform.com/to/TMuuSOZ7"
 
 [node name="play" type="VBoxContainer" parent="background/edge/menu"]
 visible = false
