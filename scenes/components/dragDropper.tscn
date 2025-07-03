@@ -4,3 +4,9 @@
 
 [node name="dragDropper" type="Node"]
 script = ExtResource("1_tdkan")
+
+[node name="hysterese" type="Timer" parent="."]
+wait_time = 0.005
+one_shot = true
+
+[connection signal="timeout" from="hysterese" to="." method="_on_hysterese_timeout"]

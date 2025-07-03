@@ -189,6 +189,7 @@ func score(time: float) -> float: #calculates the score
 
 func lvlUp(ingredient: String) -> void: # increases the level for the ingredient
 	globalVariables.level[ingredient] += 1
+	signalBus.lvlUp.emit(ingredient)
 	match ingredient:
 		"Herb": 
 			$playerInfo/edge/lvlGauge/lvlGauge1/herb/herb.texture = load("res://assets/textures/ingredients/Herb"+str(globalVariables.level["Herb"])+".png")

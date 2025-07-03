@@ -1,7 +1,9 @@
-[gd_scene load_steps=63 format=3 uid="uid://0akqp4hyif73"]
+[gd_scene load_steps=65 format=3 uid="uid://0akqp4hyif73"]
 
 [ext_resource type="Script" path="res://scripts/movement.gd" id="1_lfbyx"]
+[ext_resource type="Texture2D" uid="uid://c3lfi4o7qss32" path="res://assets/textures/ingredients/Herb1.png" id="1_n50jf"]
 [ext_resource type="Script" path="res://scripts/playerController.gd" id="1_vsuuo"]
+[ext_resource type="Script" path="res://scripts/lvlUpVfx.gd" id="2_d0ryf"]
 [ext_resource type="PackedScene" uid="uid://71i0tvyei28c" path="res://scenes/san_gauge.tscn" id="2_hqood"]
 [ext_resource type="StyleBox" uid="uid://homa26xjytmx" path="res://assets/textures/UI-elements/styleBoxes/panel.tres" id="3_78fr5"]
 [ext_resource type="StyleBox" uid="uid://d3hgcb4ery8wq" path="res://assets/textures/UI-elements/styleBoxes/scroll.tres" id="4_kg58h"]
@@ -767,7 +769,7 @@ size_flags_horizontal = 6
 text = "btnExit"
 
 [node name="btnDecor" parent="UI/player/gameOver/centerer/gameOver/buttons/return" instance=ExtResource("6_o2b8f")]
-position = Vector2(325, 44)
+position = Vector2(325, 40)
 
 [node name="music1" type="AudioStreamPlayer" parent="UI/player"]
 stream = ExtResource("13_ttcps")
@@ -866,6 +868,22 @@ script = ExtResource("1_lfbyx")
 
 [node name="generator" parent="." instance=ExtResource("22_qg68g")]
 position = Vector2(640, 360)
+
+[node name="lvlUpVfx" type="CPUParticles2D" parent="."]
+position = Vector2(502, 289)
+emitting = false
+amount = 314
+explosiveness = 0.5
+draw_order = 1
+texture = ExtResource("1_n50jf")
+spread = 180.0
+initial_velocity_min = 314.0
+initial_velocity_max = 628.0
+orbit_velocity_min = -0.31
+orbit_velocity_max = 0.31
+damping_min = 50.0
+damping_max = 100.0
+script = ExtResource("2_d0ryf")
 
 [node name="light" type="DirectionalLight2D" parent="."]
 rotation = 2.26893

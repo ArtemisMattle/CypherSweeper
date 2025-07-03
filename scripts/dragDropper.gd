@@ -4,6 +4,9 @@ var tool: globalVariables.tool = globalVariables.tool.new()
 var place: Node2D = null
 var held: bool = false
 
+var valid: bool = true #hysterese variable
+@onready var hysterese: Timer = $hysterese
+
 var speed: float = 50
 var rotSpeed: float = .3
 var rotThresh: float = 5
@@ -27,6 +30,11 @@ func _physics_process(delta: float) -> void: # tool movement
 
 
 func _on_pick_up_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if valid: # most tools for some reason trigger this function twice, this should not happen
+		valid = false
+		hysterese.start()
+	else:
+		return
 	if event.is_action_pressed("pickUpTool"):
 		signalBus.freeze.emit()
 		if globalVariables.holdable:
@@ -61,3 +69,6 @@ func drop(_reactivate: bool) -> void:
 	if tool.tScene.has_meta("enabled"):
 		tool.tScene.set_meta("enabled", false)
 	signalBus.toolTrans.emit(tool, false)
+
+func _on_hysterese_timeout() -> void:
+	valid = true
