@@ -184,7 +184,6 @@ func positionate(cell: gridCell) -> void: # positionates the gridCells to make a
 		@warning_ignore("integer_division")
 		cell.cell.translate(Vector2(cell.lpos*48+int(cell.line-l/2)*24-size*48+48, (cell.line-size)*36+36))
 
-
 func def_hex() -> void:# generates the gridcells with the position and their neigborhood
 	var line: int = 0 # initiates the line counter
 	for i: int in n:
@@ -457,10 +456,6 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 			#var newbean=bean.instantiate()
 			#add_child(newbean)
 			#
-			
-			
-		if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
-			signalBus.lvlFlamel.emit()
 		
 		if pos[i].ingredient == "Nothing0": # reduces workload by only looking at relevant cells
 			if globalVariables.mod.has("OF"):
@@ -471,6 +466,9 @@ func reveal(i : int, m : int) -> void: # reveals a gridCell
 		else:
 			ingList.erase(i)
 			signalBus.uncoverIngr.emit(pos[i].ingredient, not ingList.values().has(pos[i].ingredient)) # sends the uncovered ingredient for damage calculation and similar
+		
+		if globalVariables.uncovered == n - 1: # checks for if all but the flamel are uncovered
+			signalBus.lvlFlamel.emit()
 		
 		if pos[i].special == "coffee":
 			pos[i].cell.get_node("colour/button").texture_normal = null
